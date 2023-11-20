@@ -9,7 +9,6 @@
 //
 
 import 'package:flutter/material.dart';
-import 'package:medguardian/pages/home_page.dart';
 import 'package:medguardian/pages/list_page.dart';
 
 void main() {
