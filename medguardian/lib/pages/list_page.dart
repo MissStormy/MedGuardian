@@ -8,7 +8,16 @@ class MyListPage extends StatefulWidget {
 }
 
 class _MyListPageState extends State<MyListPage> {
-  int _selectedIndex = 0;
+  int _selectedIndex = 3;
+
+// Lista de widgets que representan las páginas del contenido de la aplicación.
+  //static const List<Widget> _pages = <Widget>[
+  // MyCreationPage(),
+  // MyMapPage(),
+  // MyHomePage(),
+  // MyListPage(),
+  // MyAlarmPage()
+  //];
 
   // Método que se llama cuando se toca uno de los elementos del BottomNavigationBar.
   void _onItemTapped(int index) {
@@ -68,31 +77,38 @@ class _MyListPageState extends State<MyListPage> {
         bottomNavigationBar: BottomNavigationBar(
             items: const <BottomNavigationBarItem>[
               BottomNavigationBarItem(
-                  icon: Icon(Icons.medication), // Icono para la primera página.
+                  icon: Icon(
+                    Icons.medication,
+                    color: Colors.black,
+                  ), // Icono para la primera página.
                   label: 'Crear',
                   backgroundColor: Color.fromARGB(255, 255, 231, 193)
                   // Etiqueta para la primera página.
                   ),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.place), // Icono para la segunda página.
+                  icon: Icon(Icons.place,
+                      color: Colors.black), // Icono para la segunda página.
                   label: 'Mapa', // Etiqueta para la segunda página.
                   backgroundColor: Color.fromARGB(255, 255, 231, 193)),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.home), // Icono para la tercera página.
+                  icon: Icon(Icons.home,
+                      color: Colors.black), // Icono para la tercera página.
                   label: 'Home', // Etiqueta para la tercera página.
                   backgroundColor: Color.fromARGB(255, 255, 231, 193)),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.list), // Icono para la cuarta página.
+                  icon: Icon(Icons.list,
+                      color: Colors.black), // Icono para la cuarta página.
                   label: 'Lista', // Etiqueta para la cuarta página.
                   backgroundColor: Color.fromARGB(255, 255, 231, 193)),
               BottomNavigationBarItem(
-                  icon:
-                      Icon(Icons.notifications), // Icono para la quinta página.
+                  icon: Icon(Icons.notifications,
+                      color: Colors.black), // Icono para la quinta página.
                   label: 'Avisos', // Etiqueta para la quinta página.
                   backgroundColor: Color.fromARGB(255, 255, 231, 193)),
             ],
             currentIndex:
                 _selectedIndex, // Índice de la página actualmente seleccionada.
+            selectedItemColor: Colors.blue,
             onTap:
                 _onItemTapped // Función que se llama cuando se toca un ítem del BottomNavigationBar.
             ));
