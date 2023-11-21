@@ -50,8 +50,8 @@ class _MyHomePageState extends State<MyHomePage> {
         //# · Two containers: (WIP) Future doctor appointments #
         //#   and the buying list for when the pills are low   #
         //######################################################
-        body: ListView(
-          children: [
+        body: Container(
+          child: Column(children: [
             Container(
                 decoration: const BoxDecoration(
                     color: Color.fromARGB(255, 255, 231, 193),
@@ -66,9 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           offset: Offset(0, 3))
                     ]),
                 height: 180,
-                padding: EdgeInsets.only(
-                  bottom: 20
-                ),
+                padding: EdgeInsets.only(bottom: 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -106,16 +104,192 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                         )
                       ],
-                    )
+                    ),
                   ],
                 )),
-                Container(
-                  padding: EdgeInsets.all(30),
-                  child: Row(children: [
-                    Text("Patata")
+            Container(
+              padding: EdgeInsets.only(left: 20, right: 20, top: 20),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [Text("Patata"), Icon(Icons.piano)]),
+            ),
+            Container(
+                height: 189,
+                margin: EdgeInsets.all(10),
+                padding: EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(5)),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey,
+                      ),
+                      BoxShadow(
+                        color: Colors.white,
+                        spreadRadius: -1,
+                        blurRadius: 10,
+                        // offset: Offset(0,0),
+                      )
+                    ]),
+                child: ListView(
+                  children: [
+                    Container(
+                        padding: EdgeInsets.only(left: 20, right: 20),
+                        decoration: BoxDecoration(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(20))),
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Icon(Icons.pin),
+                              Text("IBUROFENO"),
+                              Container(
+                                padding: EdgeInsets.all(5),
+                                decoration: BoxDecoration(
+                                    color: Color.fromARGB(255, 255, 231, 193),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(5))),
+                                child: Text("21:00"),
+                              )
+                            ])),
+                    Container(
+                        padding: EdgeInsets.only(left: 20, right: 20, top: 10),
+                        decoration: BoxDecoration(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(20))),
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Icon(Icons.pin),
+                              Text("IBUROFENO"),
+                              Container(
+                                padding: EdgeInsets.all(5),
+                                decoration: BoxDecoration(
+                                    color: Color.fromARGB(255, 255, 231, 193),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(5))),
+                                child: Text("21:00"),
+                              )
+                            ])),
+                    Container(
+                        padding: EdgeInsets.only(left: 20, right: 20, top: 10),
+                        decoration: BoxDecoration(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(20))),
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Icon(Icons.pin),
+                              Text("IBUROFENO"),
+                              Container(
+                                padding: EdgeInsets.all(5),
+                                decoration: BoxDecoration(
+                                    color: Color.fromARGB(255, 255, 231, 193),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(5))),
+                                child: Text("21:00"),
+                              )
+                            ])),
+                    Container(
+                        padding: EdgeInsets.only(left: 20, right: 20, top: 10),
+                        decoration: BoxDecoration(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(20))),
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Icon(Icons.pin),
+                              Text("IBUROFENO"),
+                              Container(
+                                padding: EdgeInsets.all(5),
+                                decoration: BoxDecoration(
+                                    color: Color.fromARGB(255, 255, 231, 193),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(5))),
+                                child: Text("21:00"),
+                              )
+                            ])),
+                    Container(
+                        padding: EdgeInsets.only(left: 20, right: 20, top: 10),
+                        decoration: BoxDecoration(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(20))),
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Icon(Icons.pin),
+                              Text("IBUROFENO"),
+                              Container(
+                                padding: EdgeInsets.all(5),
+                                decoration: BoxDecoration(
+                                    color: Color.fromARGB(255, 255, 231, 193),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(5))),
+                                child: Text("21:00"),
+                              )
+                            ])),
+                    Container(
+                        padding: EdgeInsets.only(left: 20, right: 20, top: 10),
+                        decoration: BoxDecoration(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(20))),
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Icon(Icons.pin),
+                              Text("IBUROFENO"),
+                              Container(
+                                padding: EdgeInsets.all(5),
+                                decoration: BoxDecoration(
+                                    color: Color.fromARGB(255, 255, 231, 193),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(5))),
+                                child: Text("21:00"),
+                              )
+                            ])),
+                  ],
+                )),
+            Container(
+              alignment: Alignment.bottomCenter,
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Container(
+                      decoration: const BoxDecoration(
+                          color: Color.fromARGB(255, 255, 231, 193),
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(20)),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.grey,
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset: Offset(0, 3))
+                          ]),
+                      height: 180,
+                      width: 180,
+                      padding: EdgeInsets.only(bottom: 20),
+                    ),
+                    Container(
+                      decoration: const BoxDecoration(
+                          color: Color.fromARGB(255, 255, 231, 193),
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(20)),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.grey,
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset: Offset(0, 3))
+                          ]),
+                      height: 180,
+                      width: 180,
+                      padding: EdgeInsets.only(bottom: 20),
+                    )
                   ]),
-                )
-          ],
+            )
+          ]),
         ),
         //###################### BottomNavBar #####################
         //# The lower zone will have the navigation bar, it has:  #
@@ -144,23 +318,22 @@ class _MyHomePageState extends State<MyHomePage> {
                   label: 'Mapa', // Etiqueta para la segunda página.
                   backgroundColor: Color.fromARGB(255, 255, 231, 193)),
               BottomNavigationBarItem(
-                icon: Container(
-                  // Contenedor para el botón "Home" sobresaliendo
-                  width: 60.0,
-                  height: 60.0,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.blue, // Color del círculo
+                  icon: Container(
+                    // Contenedor para el botón "Home" sobresaliendo
+                    width: 60.0,
+                    height: 60.0,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.blue, // Color del círculo
+                    ),
+                    child: Icon(
+                      Icons.home,
+                      size: 30.0, // Tamaño del icono "Home"
+                      color: Colors.white, // Color del icono "Home"
+                    ),
                   ),
-                  child: Icon(
-                    Icons.home,
-                    size: 30.0, // Tamaño del icono "Home"
-                    color: Colors.white, // Color del icono "Home"
-                  ),
-                ),
-                label: '',
-                backgroundColor: Color.fromARGB(255, 255, 231, 193)
-              ),
+                  label: '',
+                  backgroundColor: Color.fromARGB(255, 255, 231, 193)),
               BottomNavigationBarItem(
                   icon: Icon(Icons.list,
                       color: Colors.black), // Icono para la cuarta página.
