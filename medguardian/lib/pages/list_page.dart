@@ -23,7 +23,7 @@ class _MyListPageState extends State<MyListPage> {
   void _onItemTapped(int index) {
     // Actualiza el estado para cambiar la página seleccionada.
     setState(() {
-      _selectedIndex = index;
+      //_selectedIndex = index;
     });
   }
 
@@ -346,7 +346,7 @@ class _MyListPageState extends State<MyListPage> {
               ),
               BottomNavigationBarItem(
                   icon: Icon(Icons.list,
-                      color: Colors.black), // Icono para la cuarta página.
+                      color: Colors.red), // Icono para la cuarta página.
                   label: 'Lista', // Etiqueta para la cuarta página.
                   backgroundColor: Color.fromARGB(255, 255, 231, 193)),
               BottomNavigationBarItem(
