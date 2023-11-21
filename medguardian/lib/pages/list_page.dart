@@ -35,7 +35,7 @@ class _MyListPageState extends State<MyListPage> {
         //# profile buttons                                      #
         //########################################################
         appBar: AppBar(
-          backgroundColor: Color.fromARGB(255, 255, 231, 193),
+          backgroundColor: Color.fromARGB(255, 89, 190, 194),
           //Left side of the appBar
           leading: Icon(Icons.account_circle),
           title: const Text(
@@ -66,9 +66,9 @@ class _MyListPageState extends State<MyListPage> {
           // Container grande
           Container(
             margin: EdgeInsets.all(10),
-            padding: EdgeInsets.all(16.0),
+            padding: EdgeInsets.all(20.0),
             decoration: BoxDecoration(
-                color: Color.fromARGB(255, 255, 231, 193),
+                color: Color.fromARGB(255, 177, 244, 250),
                 borderRadius: BorderRadius.all(Radius.circular(20)),
                 boxShadow: [
                   BoxShadow(
@@ -78,7 +78,7 @@ class _MyListPageState extends State<MyListPage> {
                     offset: Offset(0, 3),
                   )
                 ]),
-            height: 200,
+            height: 204,
             child: Row(children: [
               // Botones a la izquierda
               Column(
@@ -115,7 +115,8 @@ class _MyListPageState extends State<MyListPage> {
                     height: 100.0,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: Colors.white, // Color del círculo
+                      color: Color.fromARGB(
+                          255, 255, 255, 255), // Color del círculo
                     ),
                     child: Center(
                       child: Icon(
@@ -158,7 +159,7 @@ class _MyListPageState extends State<MyListPage> {
                         },
                         style: ElevatedButton.styleFrom(
                           padding: EdgeInsets.symmetric(
-                              vertical: 16.0, horizontal: 8.0),
+                              vertical: 16.0, horizontal: 20.0),
                         ),
                         child: Text('Crear tratamiento'),
                       ),
@@ -172,7 +173,7 @@ class _MyListPageState extends State<MyListPage> {
           Container(
             margin: EdgeInsets.all(10),
             decoration: BoxDecoration(
-                color: Color.fromARGB(255, 255, 231, 193),
+                color: Color.fromARGB(255, 177, 244, 250),
                 borderRadius: BorderRadius.all(Radius.circular(20)),
                 boxShadow: [
                   BoxShadow(
@@ -191,7 +192,8 @@ class _MyListPageState extends State<MyListPage> {
                     height: 50.0,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: Colors.green, // Color del círculo
+                      color:
+                          Color.fromARGB(255, 28, 68, 107), // Color del círculo
                     ),
                     child: Center(
                       child: Icon(
@@ -209,14 +211,14 @@ class _MyListPageState extends State<MyListPage> {
               ),
               trailing: Icon(Icons.more_horiz, color: Colors.black),
             ),
-            height: 100,
+            height: 60,
           ),
 
           // Segundo rectángulo pequeño
           Container(
             margin: EdgeInsets.all(10),
             decoration: BoxDecoration(
-                color: Color.fromARGB(255, 255, 231, 193),
+                color: Color.fromARGB(255, 177, 244, 250),
                 borderRadius: BorderRadius.all(Radius.circular(20)),
                 boxShadow: [
                   BoxShadow(
@@ -235,7 +237,8 @@ class _MyListPageState extends State<MyListPage> {
                     height: 50.0,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: Colors.green, // Color del círculo
+                      color:
+                          Color.fromARGB(255, 28, 68, 107), // Color del círculo
                     ),
                     child: Center(
                       child: Icon(
@@ -253,13 +256,13 @@ class _MyListPageState extends State<MyListPage> {
               ),
               trailing: Icon(Icons.more_horiz, color: Colors.black),
             ),
-            height: 100,
+            height: 60,
           ),
           // Tercer rectángulo pequeño
           Container(
             margin: EdgeInsets.all(10),
             decoration: BoxDecoration(
-                color: Color.fromARGB(255, 255, 231, 193),
+                color: Color.fromARGB(255, 177, 244, 250),
                 borderRadius: BorderRadius.all(Radius.circular(20)),
                 boxShadow: [
                   BoxShadow(
@@ -278,7 +281,8 @@ class _MyListPageState extends State<MyListPage> {
                     height: 50.0,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: Colors.green, // Color del círculo
+                      color:
+                          Color.fromARGB(255, 28, 68, 107), // Color del círculo
                     ),
                     child: Center(
                       child: Icon(
@@ -296,7 +300,7 @@ class _MyListPageState extends State<MyListPage> {
               ),
               trailing: Icon(Icons.more_horiz, color: Colors.black),
             ),
-            height: 100,
+            height: 60,
           ),
         ]),
 
@@ -319,14 +323,14 @@ class _MyListPageState extends State<MyListPage> {
                     color: Colors.black,
                   ), // Icono para la primera página.
                   label: 'Crear',
-                  backgroundColor: Color.fromARGB(255, 255, 231, 193)
+                  backgroundColor: Color.fromARGB(255, 89, 190, 194)
                   // Etiqueta para la primera página.
                   ),
               BottomNavigationBarItem(
                   icon: Icon(Icons.place,
                       color: Colors.black), // Icono para la segunda página.
                   label: 'Mapa', // Etiqueta para la segunda página.
-                  backgroundColor: Color.fromARGB(255, 255, 231, 193)),
+                  backgroundColor: Color.fromARGB(255, 89, 190, 194)),
               BottomNavigationBarItem(
                 icon: Container(
                   // Contenedor para el botón "Home" sobresaliendo
@@ -334,7 +338,8 @@ class _MyListPageState extends State<MyListPage> {
                   height: 60.0,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Colors.blue, // Color del círculo
+                    color:
+                        Color.fromARGB(255, 28, 68, 107), // Color del círculo
                   ),
                   child: Icon(
                     Icons.home,
@@ -348,12 +353,12 @@ class _MyListPageState extends State<MyListPage> {
                   icon: Icon(Icons.list,
                       color: Colors.red), // Icono para la cuarta página.
                   label: 'Lista', // Etiqueta para la cuarta página.
-                  backgroundColor: Color.fromARGB(255, 255, 231, 193)),
+                  backgroundColor: Color.fromARGB(255, 89, 190, 194)),
               BottomNavigationBarItem(
                   icon: Icon(Icons.notifications,
                       color: Colors.black), // Icono para la quinta página.
                   label: 'Avisos', // Etiqueta para la quinta página.
-                  backgroundColor: Color.fromARGB(255, 255, 231, 193)),
+                  backgroundColor: Color.fromARGB(255, 89, 190, 194)),
             ],
             currentIndex:
                 _selectedIndex, // Índice de la página actualmente seleccionada.
