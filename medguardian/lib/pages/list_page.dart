@@ -78,7 +78,7 @@ class _MyListPageState extends State<MyListPage> {
                     offset: Offset(0, 3),
                   )
                 ]),
-            height: 250,
+            height: 200,
             child: Row(children: [
               // Botones a la izquierda
               Column(
@@ -139,13 +139,6 @@ class _MyListPageState extends State<MyListPage> {
                   SizedBox(
                       height:
                           16.0), // Espaciado entre texto "Ibuprofeno" y botón
-
-                  ElevatedButton(
-                    onPressed: () {
-                      // Acción para el botón Crear tratamiento
-                    },
-                    child: Text('Crear tratamiento'),
-                  ),
                 ],
               ),
               SizedBox(
@@ -364,7 +357,7 @@ class _MyListPageState extends State<MyListPage> {
             ],
             currentIndex:
                 _selectedIndex, // Índice de la página actualmente seleccionada.
-            
+
             onTap:
                 _onItemTapped // Función que se llama cuando se toca un ítem del BottomNavigationBar.
             ));
