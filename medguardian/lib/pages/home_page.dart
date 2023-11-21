@@ -28,6 +28,16 @@ class _MyHomePageState extends State<MyHomePage> {
         //########################################################
         appBar: AppBar(
           backgroundColor: Color.fromARGB(255, 255, 231, 193),
+          //Left side of the appBar
+          leading: Icon(Icons.account_circle),
+          title: const Text(
+            "MedGuardian",
+            style: TextStyle(color: Colors.black),
+          ),
+          centerTitle: true,
+          //Right side of the appBar
+          actions: [Icon(Icons.settings)],
+          elevation: 0,
         ),
         //###################### Body ##########################
         //# The body will be a scroll-pane, and has:           #
@@ -40,17 +50,72 @@ class _MyHomePageState extends State<MyHomePage> {
         //# · Two containers: (WIP) Future doctor appointments #
         //#   and the buying list for when the pills are low   #
         //######################################################
-        body: Container(
-          color: Colors.white,
-          child: Center(
-              child: Container(
-            decoration: BoxDecoration(
-              color: Color.fromARGB(255, 255, 231, 193),
-              borderRadius: BorderRadius.all(Radius.circular(20)),
-            ),
-            width: 400,
-            height: 200,
-          )),
+        body: ListView(
+          children: [
+            Container(
+                decoration: const BoxDecoration(
+                    color: Color.fromARGB(255, 255, 231, 193),
+                    borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(20),
+                        bottomRight: Radius.circular(20)),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.grey,
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(0, 3))
+                    ]),
+                height: 180,
+                padding: EdgeInsets.only(
+                  bottom: 20
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          width: 150.0,
+                          height: 150.0,
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.blue, // Color del círculo
+                          ),
+                          child: const Icon(
+                            Icons.person,
+                            size: 100,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        // Padding(padding: EdgeInsets.all(20)),
+                        Center(
+                          child: Text(
+                            'Bienvenido',
+                            style: TextStyle(fontSize: 24),
+                          ),
+                        ),
+                        Center(
+                          child: Text(
+                            'Agapito',
+                            style: TextStyle(fontSize: 24),
+                          ),
+                        )
+                      ],
+                    )
+                  ],
+                )),
+                Container(
+                  padding: EdgeInsets.all(30),
+                  child: Row(children: [
+                    Text("Patata")
+                  ]),
+                )
+          ],
         ),
         //###################### BottomNavBar #####################
         //# The lower zone will have the navigation bar, it has:  #
@@ -63,33 +128,53 @@ class _MyHomePageState extends State<MyHomePage> {
         //# · Alarms button: Takes you to the list of alarms      #
         //#########################################################
         bottomNavigationBar: BottomNavigationBar(
-            items: const <BottomNavigationBarItem>[
+            items: <BottomNavigationBarItem>[
               BottomNavigationBarItem(
-                  icon: Icon(Icons.medication), // Icono para la primera página.
+                  icon: Icon(
+                    Icons.medication,
+                    color: Colors.black,
+                  ), // Icono para la primera página.
                   label: 'Crear',
                   backgroundColor: Color.fromARGB(255, 255, 231, 193)
                   // Etiqueta para la primera página.
                   ),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.place), // Icono para la segunda página.
+                  icon: Icon(Icons.place,
+                      color: Colors.black), // Icono para la segunda página.
                   label: 'Mapa', // Etiqueta para la segunda página.
                   backgroundColor: Color.fromARGB(255, 255, 231, 193)),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.home), // Icono para la tercera página.
-                  label: 'Home', // Etiqueta para la tercera página.
-                  backgroundColor: Color.fromARGB(255, 255, 231, 193)),
+                icon: Container(
+                  // Contenedor para el botón "Home" sobresaliendo
+                  width: 60.0,
+                  height: 60.0,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.blue, // Color del círculo
+                  ),
+                  child: Icon(
+                    Icons.home,
+                    size: 30.0, // Tamaño del icono "Home"
+                    color: Colors.white, // Color del icono "Home"
+                  ),
+                ),
+                label: '',
+                backgroundColor: Color.fromARGB(255, 255, 231, 193)
+              ),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.list), // Icono para la cuarta página.
+                  icon: Icon(Icons.list,
+                      color: Colors.black), // Icono para la cuarta página.
                   label: 'Lista', // Etiqueta para la cuarta página.
                   backgroundColor: Color.fromARGB(255, 255, 231, 193)),
               BottomNavigationBarItem(
-                  icon:
-                      Icon(Icons.notifications), // Icono para la quinta página.
+                  icon: Icon(Icons.notifications,
+                      color: Colors.black), // Icono para la quinta página.
                   label: 'Avisos', // Etiqueta para la quinta página.
                   backgroundColor: Color.fromARGB(255, 255, 231, 193)),
             ],
             currentIndex:
                 _selectedIndex, // Índice de la página actualmente seleccionada.
+
             onTap:
                 _onItemTapped // Función que se llama cuando se toca un ítem del BottomNavigationBar.
             ));
