@@ -11,16 +11,6 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   @override
-  int _selectedIndex = 2;
-
-  // Método que se llama cuando se toca uno de los elementos del BottomNavigationBar.
-  void _onItemTapped(int index) {
-    // Actualiza el estado para cambiar la página seleccionada.
-    // setState(() {
-    //   _selectedIndex = index;
-    // });
-  }
-
   Widget build(BuildContext context) {
     return Scaffold(
         //###################### AppBar ##########################
@@ -28,19 +18,7 @@ class _MyHomePageState extends State<MyHomePage> {
         //# profile buttons, plus a welcome for the user, with   #
         //# their image and personalised welcome.                #
         //########################################################
-        appBar: AppBar(
-          backgroundColor: const Color.fromARGB(255, 255, 231, 193),
-          //Left side of the appBar
-          leading: const Icon(Icons.account_circle),
-          title: const Text(
-            "MedGuardian",
-            style: TextStyle(color: Colors.black),
-          ),
-          centerTitle: true,
-          //Right side of the appBar
-          actions: [const Icon(Icons.settings)],
-          elevation: 0,
-        ),
+        appBar: CustomAppBar(),
         //###################### Body ##########################
         //# The body will be a scroll-pane, and has:           #
         //# · My medication: A list of the pills they have to  #
@@ -347,54 +325,7 @@ class _MyHomePageState extends State<MyHomePage> {
         //# · List button: Takes you to the list of the pills     #
         //# · Alarms button: Takes you to the list of alarms      #
         //#########################################################
-        bottomNavigationBar: BottomNavigationBar(
-            items: <BottomNavigationBarItem>[
-              const BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.medication,
-                    color: Colors.black,
-                  ), // Icono para la primera página.
-                  label: 'Crear',
-                  backgroundColor: Color.fromARGB(255, 255, 231, 193)
-                  // Etiqueta para la primera página.
-                  ),
-              const BottomNavigationBarItem(
-                  icon: Icon(Icons.place,
-                      color: Colors.black), // Icono para la segunda página.
-                  label: 'Mapa', // Etiqueta para la segunda página.
-                  backgroundColor: Color.fromARGB(255, 255, 231, 193)),
-              BottomNavigationBarItem(
-                  icon: Container(
-                    // Contenedor para el botón "Home" sobresaliendo
-                    width: 60.0,
-                    height: 60.0,
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.blue, // Color del círculo
-                    ),
-                    child: const Icon(
-                      Icons.home,
-                      size: 30.0, // Tamaño del icono "Home"
-                      color: Colors.white, // Color del icono "Home"
-                    ),
-                  ),
-                  label: '',
-                  backgroundColor: const Color.fromARGB(255, 255, 231, 193)),
-              const BottomNavigationBarItem(
-                  icon: Icon(Icons.list,
-                      color: Colors.black), // Icono para la cuarta página.
-                  label: 'Lista', // Etiqueta para la cuarta página.
-                  backgroundColor: Color.fromARGB(255, 255, 231, 193)),
-              const BottomNavigationBarItem(
-                  icon: Icon(Icons.notifications,
-                      color: Colors.black), // Icono para la quinta página.
-                  label: 'Avisos', // Etiqueta para la quinta página.
-                  backgroundColor: Color.fromARGB(255, 255, 231, 193)),
-            ],
-            currentIndex:
-                _selectedIndex, // Índice de la página actualmente seleccionada.
-
-            onTap:
-                _onItemTapped // Función que se llama cuando se toca un ítem del BottomNavigationBar.
-            ));}
+        bottomNavigationBar: CustomNavBar(),
+        );
+    }
 }
