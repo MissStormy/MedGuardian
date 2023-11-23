@@ -27,16 +27,16 @@ class _MyHomePageState extends State<MyHomePage> {
         //# their image and personalised welcome.                #
         //########################################################
         appBar: AppBar(
-          backgroundColor: Color.fromARGB(255, 255, 231, 193),
+          backgroundColor: const Color.fromARGB(255, 255, 231, 193),
           //Left side of the appBar
-          leading: Icon(Icons.account_circle),
+          leading: const Icon(Icons.account_circle),
           title: const Text(
             "MedGuardian",
             style: TextStyle(color: Colors.black),
           ),
           centerTitle: true,
           //Right side of the appBar
-          actions: [Icon(Icons.settings)],
+          actions: [const Icon(Icons.settings)],
           elevation: 0,
         ),
         //###################### Body ##########################
@@ -66,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           offset: Offset(0, 3))
                     ]),
                 height: 180,
-                padding: EdgeInsets.only(bottom: 20),
+                padding: const EdgeInsets.only(bottom: 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -108,16 +108,19 @@ class _MyHomePageState extends State<MyHomePage> {
                   ],
                 )),
             Container(
-              padding: EdgeInsets.only(left: 20, right: 20, top: 20),
-              child: Row(
+              padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
+              child: const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [Text("Patata"), Icon(Icons.piano)]),
+                  children: [
+                    Text("Mi medicacion"),
+                    Icon(Icons.calendar_month)
+                  ]),
             ),
             Container(
                 height: 189,
-                margin: EdgeInsets.all(10),
-                padding: EdgeInsets.all(10),
-                decoration: BoxDecoration(
+                margin: const EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
+                decoration: const BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(5)),
                     boxShadow: [
                       BoxShadow(
@@ -133,117 +136,122 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: ListView(
                   children: [
                     Container(
-                        padding: EdgeInsets.only(left: 20, right: 20),
-                        decoration: BoxDecoration(
+                        padding: const EdgeInsets.only(left: 20, right: 20),
+                        decoration: const BoxDecoration(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(20))),
                         child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              Icon(Icons.pin),
-                              Text("IBUROFENO"),
+                              const Icon(Icons.pin),
+                              const Text("IBUROFENO"),
                               Container(
-                                padding: EdgeInsets.all(5),
-                                decoration: BoxDecoration(
+                                padding: const EdgeInsets.all(5),
+                                decoration: const BoxDecoration(
                                     color: Color.fromARGB(255, 255, 231, 193),
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(5))),
-                                child: Text("21:00"),
+                                child: const Text("21:00"),
                               )
                             ])),
                     Container(
-                        padding: EdgeInsets.only(left: 20, right: 20, top: 10),
-                        decoration: BoxDecoration(
+                        padding:
+                            const EdgeInsets.only(left: 20, right: 20, top: 10),
+                        decoration: const BoxDecoration(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(20))),
                         child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              Icon(Icons.pin),
-                              Text("IBUROFENO"),
+                              const Icon(Icons.pin),
+                              const Text("IBUROFENO"),
                               Container(
-                                padding: EdgeInsets.all(5),
-                                decoration: BoxDecoration(
+                                padding: const EdgeInsets.all(5),
+                                decoration: const BoxDecoration(
                                     color: Color.fromARGB(255, 255, 231, 193),
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(5))),
-                                child: Text("21:00"),
+                                child: const Text("21:00"),
                               )
                             ])),
                     Container(
-                        padding: EdgeInsets.only(left: 20, right: 20, top: 10),
-                        decoration: BoxDecoration(
+                        padding:
+                            const EdgeInsets.only(left: 20, right: 20, top: 10),
+                        decoration: const BoxDecoration(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(20))),
                         child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              Icon(Icons.pin),
-                              Text("IBUROFENO"),
+                              const Icon(Icons.pin),
+                              const Text("IBUROFENO"),
                               Container(
-                                padding: EdgeInsets.all(5),
-                                decoration: BoxDecoration(
+                                padding: const EdgeInsets.all(5),
+                                decoration: const BoxDecoration(
                                     color: Color.fromARGB(255, 255, 231, 193),
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(5))),
-                                child: Text("21:00"),
+                                child: const Text("21:00"),
                               )
                             ])),
                     Container(
-                        padding: EdgeInsets.only(left: 20, right: 20, top: 10),
-                        decoration: BoxDecoration(
+                        padding:
+                            const EdgeInsets.only(left: 20, right: 20, top: 10),
+                        decoration: const BoxDecoration(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(20))),
                         child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              Icon(Icons.pin),
-                              Text("IBUROFENO"),
+                              const Icon(Icons.pin),
+                              const Text("IBUROFENO"),
                               Container(
-                                padding: EdgeInsets.all(5),
-                                decoration: BoxDecoration(
+                                padding: const EdgeInsets.all(5),
+                                decoration: const BoxDecoration(
                                     color: Color.fromARGB(255, 255, 231, 193),
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(5))),
-                                child: Text("21:00"),
+                                child: const Text("21:00"),
                               )
                             ])),
                     Container(
-                        padding: EdgeInsets.only(left: 20, right: 20, top: 10),
-                        decoration: BoxDecoration(
+                        padding:
+                            const EdgeInsets.only(left: 20, right: 20, top: 10),
+                        decoration: const BoxDecoration(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(20))),
                         child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              Icon(Icons.pin),
-                              Text("IBUROFENO"),
+                              const Icon(Icons.pin),
+                              const Text("IBUROFENO"),
                               Container(
-                                padding: EdgeInsets.all(5),
-                                decoration: BoxDecoration(
+                                padding: const EdgeInsets.all(5),
+                                decoration: const BoxDecoration(
                                     color: Color.fromARGB(255, 255, 231, 193),
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(5))),
-                                child: Text("21:00"),
+                                child: const Text("21:00"),
                               )
                             ])),
                     Container(
-                        padding: EdgeInsets.only(left: 20, right: 20, top: 10),
-                        decoration: BoxDecoration(
+                        padding:
+                            const EdgeInsets.only(left: 20, right: 20, top: 10),
+                        decoration: const BoxDecoration(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(20))),
                         child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              Icon(Icons.pin),
-                              Text("IBUROFENO"),
+                              const Icon(Icons.pin),
+                              const Text("IBUROFENO"),
                               Container(
-                                padding: EdgeInsets.all(5),
-                                decoration: BoxDecoration(
+                                padding: const EdgeInsets.all(5),
+                                decoration: const BoxDecoration(
                                     color: Color.fromARGB(255, 255, 231, 193),
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(5))),
-                                child: Text("21:00"),
+                                child: const Text("21:00"),
                               )
                             ])),
                   ],
@@ -268,7 +276,28 @@ class _MyHomePageState extends State<MyHomePage> {
                           ]),
                       height: 180,
                       width: 180,
-                      padding: EdgeInsets.only(bottom: 20),
+                      padding: const EdgeInsets.only(bottom: 20),
+                      child: Column(
+                        children: [
+                          Padding(padding: EdgeInsets.all(3)),
+                          Text("Proximas citas"),
+                          Padding(padding: EdgeInsets.all(3)),
+                          Container(
+                            padding: EdgeInsets.all(5),
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.black),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(5)),
+                            ),
+                            child: Column(
+                              children: [
+                                Text("20/10 - 13 Nov"),
+                                Text("Dr. Petunia")
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                     Container(
                       decoration: const BoxDecoration(
@@ -285,7 +314,22 @@ class _MyHomePageState extends State<MyHomePage> {
                           ]),
                       height: 180,
                       width: 180,
-                      padding: EdgeInsets.only(bottom: 20),
+                      padding: const EdgeInsets.only(bottom: 20),
+                      child: Column(
+                        children: [
+                          Padding(padding: EdgeInsets.all(3)),
+                          Text("Lista de la compra"),
+                          Padding(padding: EdgeInsets.all(3)),
+                          Row(children: [
+                          Checkbox(value: true, onChanged: (Bool) {}),
+                          Text("Amoxicilina")
+                          ],),
+                          Row(children: [
+                          Checkbox(value: false, onChanged: (Bool) {}),
+                          Text("Ibuprofeno")
+                          ],),
+                        ],
+                      ),
                     )
                   ]),
             )
@@ -303,7 +347,7 @@ class _MyHomePageState extends State<MyHomePage> {
         //#########################################################
         bottomNavigationBar: BottomNavigationBar(
             items: <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
+              const BottomNavigationBarItem(
                   icon: Icon(
                     Icons.medication,
                     color: Colors.black,
@@ -312,7 +356,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   backgroundColor: Color.fromARGB(255, 255, 231, 193)
                   // Etiqueta para la primera página.
                   ),
-              BottomNavigationBarItem(
+              const BottomNavigationBarItem(
                   icon: Icon(Icons.place,
                       color: Colors.black), // Icono para la segunda página.
                   label: 'Mapa', // Etiqueta para la segunda página.
@@ -322,24 +366,24 @@ class _MyHomePageState extends State<MyHomePage> {
                     // Contenedor para el botón "Home" sobresaliendo
                     width: 60.0,
                     height: 60.0,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                       color: Colors.blue, // Color del círculo
                     ),
-                    child: Icon(
+                    child: const Icon(
                       Icons.home,
                       size: 30.0, // Tamaño del icono "Home"
                       color: Colors.white, // Color del icono "Home"
                     ),
                   ),
                   label: '',
-                  backgroundColor: Color.fromARGB(255, 255, 231, 193)),
-              BottomNavigationBarItem(
+                  backgroundColor: const Color.fromARGB(255, 255, 231, 193)),
+              const BottomNavigationBarItem(
                   icon: Icon(Icons.list,
                       color: Colors.black), // Icono para la cuarta página.
                   label: 'Lista', // Etiqueta para la cuarta página.
                   backgroundColor: Color.fromARGB(255, 255, 231, 193)),
-              BottomNavigationBarItem(
+              const BottomNavigationBarItem(
                   icon: Icon(Icons.notifications,
                       color: Colors.black), // Icono para la quinta página.
                   label: 'Avisos', // Etiqueta para la quinta página.
