@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:medguardian/widgets/app_bar.dart';
+import 'package:medguardian/widgets/bottom_nav_bar.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -16,7 +18,7 @@ class _MyHomePageState extends State<MyHomePage> {
       //# profile buttons, plus a welcome for the user, with   #
       //# their image and personalised welcome.                #
       //########################################################
-      appBar: AppBar(),
+      appBar: CustomAppBar(),
 
       //###################### Body ##########################
       //# The body will be a scroll-pane, and has:           #
@@ -40,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
       //# · List button: Takes you to the list of the pills     #
       //# · Alarms button: Takes you to the list of alarms      #
       //#########################################################
-      bottomNavigationBar: BottomAppBar(),
+      bottomNavigationBar: CustomNavBar(),
     );
   }
 }

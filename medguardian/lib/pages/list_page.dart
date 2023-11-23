@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:medguardian/widgets/app_bar.dart';
+import 'package:medguardian/widgets/bottom_nav_bar.dart';
 
 class MyListPage extends StatefulWidget {
   const MyListPage({super.key});
@@ -34,18 +36,7 @@ class _MyListPageState extends State<MyListPage> {
         //# The top of the screen will have the settings and     #
         //# profile buttons                                      #
         //########################################################
-        appBar: AppBar(
-          backgroundColor: Color.fromARGB(255, 89, 190, 194),
-          //Left side of the appBar
-          leading: Icon(Icons.account_circle),
-          title: const Text(
-            "MedGuardian",
-            style: TextStyle(color: Colors.black),
-          ),
-          centerTitle: true,
-          //Right side of the appBar
-          actions: [Icon(Icons.settings)],
-        ),
+        appBar: CustomAppBar(),
 
         //###################### Body ##########################
         //# The body will be a scroll-pane, and has:           #
@@ -315,56 +306,6 @@ class _MyListPageState extends State<MyListPage> {
         //# · Alarms button: Takes you to the list of alarms      #
         //#########################################################
 
-        bottomNavigationBar: BottomNavigationBar(
-            items: <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.medication,
-                    color: Colors.black,
-                  ), // Icono para la primera página.
-                  label: 'Crear',
-                  backgroundColor: Color.fromARGB(255, 89, 190, 194)
-                  // Etiqueta para la primera página.
-                  ),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.place,
-                      color: Colors.black), // Icono para la segunda página.
-                  label: 'Mapa', // Etiqueta para la segunda página.
-                  backgroundColor: Color.fromARGB(255, 89, 190, 194)),
-              BottomNavigationBarItem(
-                icon: Container(
-                  // Contenedor para el botón "Home" sobresaliendo
-                  width: 60.0,
-                  height: 60.0,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color:
-                        Color.fromARGB(255, 28, 68, 107), // Color del círculo
-                  ),
-                  child: Icon(
-                    Icons.home,
-                    size: 30.0, // Tamaño del icono "Home"
-                    color: Colors.white, // Color del icono "Home"
-                  ),
-                ),
-                label: '',
-              ),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.list,
-                      color: Colors.red), // Icono para la cuarta página.
-                  label: 'Lista', // Etiqueta para la cuarta página.
-                  backgroundColor: Color.fromARGB(255, 89, 190, 194)),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.notifications,
-                      color: Colors.black), // Icono para la quinta página.
-                  label: 'Avisos', // Etiqueta para la quinta página.
-                  backgroundColor: Color.fromARGB(255, 89, 190, 194)),
-            ],
-            currentIndex:
-                _selectedIndex, // Índice de la página actualmente seleccionada.
-
-            onTap:
-                _onItemTapped // Función que se llama cuando se toca un ítem del BottomNavigationBar.
-            ));
+        bottomNavigationBar: CustomNavBar());
   }
 }
