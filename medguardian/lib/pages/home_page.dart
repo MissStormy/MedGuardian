@@ -34,7 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(children: [
             Container(
                 decoration: const BoxDecoration(
-                    color: Color.fromARGB(255, 255, 231, 193),
+                    color: Color.fromARGB(255, 177, 244, 250),
                     borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(20),
                         bottomRight: Radius.circular(20)),
@@ -128,7 +128,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               Container(
                                 padding: const EdgeInsets.all(5),
                                 decoration: const BoxDecoration(
-                                    color: Color.fromARGB(255, 255, 231, 193),
+                                    color: Color.fromARGB(255, 177, 244, 250),
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(5))),
                                 child: const Text("21:00"),
@@ -148,7 +148,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               Container(
                                 padding: const EdgeInsets.all(5),
                                 decoration: const BoxDecoration(
-                                    color: Color.fromARGB(255, 255, 231, 193),
+                                    color: Color.fromARGB(255, 177, 244, 250),
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(5))),
                                 child: const Text("21:00"),
@@ -168,7 +168,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               Container(
                                 padding: const EdgeInsets.all(5),
                                 decoration: const BoxDecoration(
-                                    color: Color.fromARGB(255, 255, 231, 193),
+                                    color: Color.fromARGB(255, 177, 244, 250),
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(5))),
                                 child: const Text("21:00"),
@@ -188,7 +188,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               Container(
                                 padding: const EdgeInsets.all(5),
                                 decoration: const BoxDecoration(
-                                    color: Color.fromARGB(255, 255, 231, 193),
+                                    color: Color.fromARGB(255, 177, 244, 250),
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(5))),
                                 child: const Text("21:00"),
@@ -208,7 +208,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               Container(
                                 padding: const EdgeInsets.all(5),
                                 decoration: const BoxDecoration(
-                                    color: Color.fromARGB(255, 255, 231, 193),
+                                    color: Color.fromARGB(255, 177, 244, 250),
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(5))),
                                 child: const Text("21:00"),
@@ -228,7 +228,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               Container(
                                 padding: const EdgeInsets.all(5),
                                 decoration: const BoxDecoration(
-                                    color: Color.fromARGB(255, 255, 231, 193),
+                                    color: Color.fromARGB(255, 177, 244, 250),
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(5))),
                                 child: const Text("21:00"),
@@ -243,7 +243,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   children: [
                     Container(
                       decoration: const BoxDecoration(
-                          color: Color.fromARGB(255, 255, 231, 193),
+                          color: Color.fromARGB(255, 177, 244, 250),
                           borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(20),
                               topRight: Radius.circular(20)),
@@ -254,7 +254,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 blurRadius: 7,
                                 offset: Offset(0, 3))
                           ]),
-                      height: 180,
+                      height: 214,
                       width: 180,
                       padding: const EdgeInsets.only(bottom: 20),
                       child: Column(
@@ -281,7 +281,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     Container(
                       decoration: const BoxDecoration(
-                          color: Color.fromARGB(255, 255, 231, 193),
+                          color: Color.fromARGB(255, 177, 244, 250),
                           borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(20),
                               topRight: Radius.circular(20)),
@@ -292,7 +292,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 blurRadius: 7,
                                 offset: Offset(0, 3))
                           ]),
-                      height: 180,
+                      height: 214,
                       width: 180,
                       padding: const EdgeInsets.only(bottom: 20),
                       child: Column(
