@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:medguardian/widgets/app_bar.dart';
+import 'package:medguardian/widgets/bottom_nav_bar.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -394,6 +396,5 @@ class _MyHomePageState extends State<MyHomePage> {
 
             onTap:
                 _onItemTapped // Función que se llama cuando se toca un ítem del BottomNavigationBar.
-            ));
-  }
+            ));}
 }
