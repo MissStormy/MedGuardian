@@ -10,7 +10,7 @@ class MyListPage extends StatefulWidget {
 }
 
 class _MyListPageState extends State<MyListPage> {
-  int _selectedIndex = 3;
+  final int _selectedIndex = 3;
 
 // Lista de widgets que representan las páginas del contenido de la aplicación.
   //static const List<Widget> _pages = <Widget>[
@@ -36,7 +36,7 @@ class _MyListPageState extends State<MyListPage> {
         //# The top of the screen will have the settings and     #
         //# profile buttons                                      #
         //########################################################
-        appBar: CustomAppBar(),
+        appBar: const CustomAppBar(),
 
         //###################### Body ##########################
         //# The body will be a scroll-pane, and has:           #
@@ -56,17 +56,17 @@ class _MyListPageState extends State<MyListPage> {
         body: ListView(children: [
           // Container grande
           Container(
-            margin: EdgeInsets.all(10),
-            padding: EdgeInsets.all(20.0),
+            margin: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(20.0),
             decoration: BoxDecoration(
-                color: Color.fromARGB(255, 177, 244, 250),
-                borderRadius: BorderRadius.all(Radius.circular(20)),
+                color: const Color.fromARGB(255, 177, 244, 250),
+                borderRadius: const BorderRadius.all(Radius.circular(20)),
                 boxShadow: [
                   BoxShadow(
                     color: Colors.grey.withOpacity(0.5),
                     spreadRadius: 5,
                     blurRadius: 7,
-                    offset: Offset(0, 3),
+                    offset: const Offset(0, 3),
                   )
                 ]),
             height: 204,
@@ -79,24 +79,24 @@ class _MyListPageState extends State<MyListPage> {
                     onPressed: () {
                       // Acción para el botón Modificar
                     },
-                    child: Text('Modificar'),
+                    child: const Text('Modificar'),
                   ),
                   ElevatedButton(
                     onPressed: () {
                       // Acción para el botón Borrar
                     },
-                    child: Text('Borrar'),
+                    child: const Text('Borrar'),
                   ),
                   ElevatedButton.icon(
                     onPressed: () {
                       // Acción para el botón Favorito
                     },
-                    icon: Icon(Icons.star),
-                    label: Text('Favorito'),
+                    icon: const Icon(Icons.star),
+                    label: const Text('Favorito'),
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                   width: 16.0), // Espaciado entre botones y contenido central
               // Contenido central
               Column(
@@ -104,12 +104,12 @@ class _MyListPageState extends State<MyListPage> {
                   Container(
                     width: 100.0,
                     height: 100.0,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                       color: Color.fromARGB(
                           255, 255, 255, 255), // Color del círculo
                     ),
-                    child: Center(
+                    child: const Center(
                       child: Icon(
                         Icons.medication,
                         size: 50.0, // Tamaño del icono central
@@ -117,23 +117,23 @@ class _MyListPageState extends State<MyListPage> {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                       height:
                           8.0), // Espaciado entre icono y texto "Ibuprofeno"
-                  Text(
+                  const Text(
                     'Ibuprofeno',
                     style: TextStyle(fontSize: 18.0, color: Colors.black),
                   ),
-                  Text(
+                  const Text(
                     '400mg',
                     style: TextStyle(fontSize: 16.0, color: Colors.black),
                   ),
-                  SizedBox(
+                  const SizedBox(
                       height:
                           16.0), // Espaciado entre texto "Ibuprofeno" y botón
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                   width:
                       16.0), // Espaciado entre contenido central y contenido de la derecha
               // Contenido a la derecha
@@ -149,10 +149,10 @@ class _MyListPageState extends State<MyListPage> {
                           // Acción para el botón Crear tratamiento
                         },
                         style: ElevatedButton.styleFrom(
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                               vertical: 16.0, horizontal: 20.0),
                         ),
-                        child: Text('Crear tratamiento'),
+                        child: const Text('Crear tratamiento'),
                       ),
                     ),
                   ],
@@ -162,18 +162,19 @@ class _MyListPageState extends State<MyListPage> {
           ),
           // Primer rectángulo pequeño con ListTile
           Container(
-            margin: EdgeInsets.all(10),
+            margin: const EdgeInsets.all(10),
             decoration: BoxDecoration(
-                color: Color.fromARGB(255, 177, 244, 250),
-                borderRadius: BorderRadius.all(Radius.circular(20)),
+                color: const Color.fromARGB(255, 177, 244, 250),
+                borderRadius: const BorderRadius.all(Radius.circular(20)),
                 boxShadow: [
                   BoxShadow(
                     color: Colors.grey.withOpacity(0.5),
                     spreadRadius: 5,
                     blurRadius: 7,
-                    offset: Offset(0, 3),
+                    offset: const Offset(0, 3),
                   )
                 ]),
+            height: 60,
             child: ListTile(
               title: Row(
                 children: [
@@ -181,44 +182,44 @@ class _MyListPageState extends State<MyListPage> {
                     width:
                         50.0, // Ajusta el tamaño del círculo según tus necesidades
                     height: 50.0,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                       color:
                           Color.fromARGB(255, 28, 68, 107), // Color del círculo
                     ),
-                    child: Center(
+                    child: const Center(
                       child: Icon(
                         Icons.medication,
                         color: Colors.white, // Color del icono
                       ),
                     ),
                   ),
-                  SizedBox(width: 8.0), // Espaciado entre el icono y el texto
-                  Text(
+                  const SizedBox(width: 8.0), // Espaciado entre el icono y el texto
+                  const Text(
                     'Ibuprofeno',
                     style: TextStyle(color: Colors.black),
                   ),
                 ],
               ),
-              trailing: Icon(Icons.more_horiz, color: Colors.black),
+              trailing: const Icon(Icons.more_horiz, color: Colors.black),
             ),
-            height: 60,
           ),
 
           // Segundo rectángulo pequeño
           Container(
-            margin: EdgeInsets.all(10),
+            margin: const EdgeInsets.all(10),
             decoration: BoxDecoration(
-                color: Color.fromARGB(255, 177, 244, 250),
-                borderRadius: BorderRadius.all(Radius.circular(20)),
+                color: const Color.fromARGB(255, 177, 244, 250),
+                borderRadius: const BorderRadius.all(Radius.circular(20)),
                 boxShadow: [
                   BoxShadow(
                     color: Colors.grey.withOpacity(0.5),
                     spreadRadius: 5,
                     blurRadius: 7,
-                    offset: Offset(0, 3),
+                    offset: const Offset(0, 3),
                   )
                 ]),
+            height: 60,
             child: ListTile(
               title: Row(
                 children: [
@@ -226,43 +227,43 @@ class _MyListPageState extends State<MyListPage> {
                     width:
                         50.0, // Ajusta el tamaño del círculo según tus necesidades
                     height: 50.0,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                       color:
                           Color.fromARGB(255, 28, 68, 107), // Color del círculo
                     ),
-                    child: Center(
+                    child: const Center(
                       child: Icon(
                         Icons.medication,
                         color: Colors.white, // Color del icono
                       ),
                     ),
                   ),
-                  SizedBox(width: 8.0), // Espaciado entre el icono y el texto
-                  Text(
+                  const SizedBox(width: 8.0), // Espaciado entre el icono y el texto
+                  const Text(
                     'Ibuprofeno',
                     style: TextStyle(color: Colors.black),
                   ),
                 ],
               ),
-              trailing: Icon(Icons.more_horiz, color: Colors.black),
+              trailing: const Icon(Icons.more_horiz, color: Colors.black),
             ),
-            height: 60,
           ),
           // Tercer rectángulo pequeño
           Container(
-            margin: EdgeInsets.all(10),
+            margin: const EdgeInsets.all(10),
             decoration: BoxDecoration(
-                color: Color.fromARGB(255, 177, 244, 250),
-                borderRadius: BorderRadius.all(Radius.circular(20)),
+                color: const Color.fromARGB(255, 177, 244, 250),
+                borderRadius: const BorderRadius.all(Radius.circular(20)),
                 boxShadow: [
                   BoxShadow(
                     color: Colors.grey.withOpacity(0.5),
                     spreadRadius: 5,
                     blurRadius: 7,
-                    offset: Offset(0, 3),
+                    offset: const Offset(0, 3),
                   )
                 ]),
+            height: 60,
             child: ListTile(
               title: Row(
                 children: [
@@ -270,28 +271,27 @@ class _MyListPageState extends State<MyListPage> {
                     width:
                         50.0, // Ajusta el tamaño del círculo según tus necesidades
                     height: 50.0,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                       color:
                           Color.fromARGB(255, 28, 68, 107), // Color del círculo
                     ),
-                    child: Center(
+                    child: const Center(
                       child: Icon(
                         Icons.medication,
                         color: Colors.white, // Color del icono
                       ),
                     ),
                   ),
-                  SizedBox(width: 8.0), // Espaciado entre el icono y el texto
-                  Text(
+                  const SizedBox(width: 8.0), // Espaciado entre el icono y el texto
+                  const Text(
                     'Ibuprofeno',
                     style: TextStyle(color: Colors.black),
                   ),
                 ],
               ),
-              trailing: Icon(Icons.more_horiz, color: Colors.black),
+              trailing: const Icon(Icons.more_horiz, color: Colors.black),
             ),
-            height: 60,
           ),
         ]),
 
@@ -306,6 +306,6 @@ class _MyListPageState extends State<MyListPage> {
         //# · Alarms button: Takes you to the list of alarms      #
         //#########################################################
 
-        bottomNavigationBar: CustomNavBar());
+        bottomNavigationBar: const CustomNavBar());
   }
 }

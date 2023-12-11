@@ -6,6 +6,8 @@ import 'package:medguardian/pages/list_page.dart';
 import 'package:medguardian/pages/map_page.dart';
 
 class CustomNavBar extends StatefulWidget {
+  const CustomNavBar({super.key});
+
   @override
   _CustomNavBarState createState() => _CustomNavBarState();
 }
@@ -17,14 +19,14 @@ class _CustomNavBarState extends State<CustomNavBar> {
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       currentIndex: _currentIndex,
-      backgroundColor: Color.fromARGB(255, 89, 190, 194),
+      backgroundColor: const Color.fromARGB(255, 89, 190, 194),
       onTap: (index) {
         setState(() {
           _currentIndex = index;
         });
         _navigateToSelectedPage(index);
       },
-      items: [
+      items: const [
         BottomNavigationBarItem(
           icon: Icon(Icons.medication),
           label: "Creation",
@@ -58,19 +60,19 @@ class _CustomNavBarState extends State<CustomNavBar> {
   void _navigateToSelectedPage(int index) {
     switch (index) {
       case 0:
-        _navigateToPage(MyCreationPage());
+        _navigateToPage(const MyCreationPage());
         break;
       case 1:
-        _navigateToPage(MyMapPage());
+        _navigateToPage(const MyMapPage());
         break;
       case 2:
-        _navigateToPage(MyHomePage());
+        _navigateToPage(const MyHomePage());
         break;
       case 3:
-        _navigateToPage(MyListPage());
+        _navigateToPage(const MyListPage());
         break;
       case 4:
-        _navigateToPage(MyAlarmPage());
+        _navigateToPage(const MyAlarmPage());
         break;
     }
   }

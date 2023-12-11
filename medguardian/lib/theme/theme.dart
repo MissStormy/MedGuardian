@@ -1,116 +1,101 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*Way to have more themes
-
 import 'package:flutter/material.dart';
 
-/// Clase que carga el tema de la aplicación
-/// Permite alternar entre tema claro y oscuro
-/// Si en el constructor se le pasa un 0 carga el tema claro
-/// Si en el constructor se le pasa un 1 carga el tema oscuro
-/// Si en el constructor se le pasa cualquier otro valor carga el tema claro
-class CargadorTema with ChangeNotifier {
-  
-  late ThemeData _tema; 
+/// Class that loads the application theme
+/// Allows switching between light and dark themes
+/// If 0 is passed in the constructor, it loads the light theme
+/// If 1 is passed in the constructor, it loads the dark theme
+/// If any other value is passed in the constructor, it loads the light theme
 
-  bool _temaOscuro = false;
-  bool _temaClaro = false;
+class ThemeLoader with ChangeNotifier {
+  late ThemeData _theme;
 
-  bool get temaOscuro => this._temaOscuro;
-  ThemeData get temaActual => this._tema;
-  
-  CargadorTema(int tema) {
-    //fijamos el tema activo
-    switch (tema) {
+  bool _darkTheme = false;
+  bool _lightTheme = false;
+
+  bool get darkTheme => this._darkTheme;
+  ThemeData get actualTheme => this._theme;
+
+  ThemeLoader(int theme) {
+    //lock active theme
+    switch (theme) {
       case 0:
-        this._tema = _miTemaClaro();
-        this._temaClaro = true;
-        this._temaOscuro = false;
+        //this_theme = _myLightTheme();
+        this._lightTheme = true;
+        this._darkTheme = false;
         break;
       case 1:
-      //modificamos valores del tema oscuro para nuestra app
-        this._tema = _miTemaOscuro();
-        this._temaOscuro = true;
-        this._temaClaro = false;
+        this._theme = _myDarkTheme();
+        this._lightTheme = false;
+        this._darkTheme = true;
         break;
       default:
-        this._tema =  _miTemaClaro();
-        this._temaClaro = true;
+        this._theme = _myDarkTheme();
+        this._darkTheme = true;
         break;
     }
   }
-  
-  set temaOscuro(bool value) {
-    this._temaOscuro = value;
-    this._temaClaro = !value;
-    //fijamos el tema activo
+
+  set darkTheme(bool value) {
+    this._darkTheme = value;
+    this._lightTheme = !value;
+    //lock active theme
     if (value) {
-      //modificamos valores del tema oscuro para nuestra app
-      this._tema = _miTemaOscuro();
+      //modify value of dark theme for our app
+      this._theme = _myDarkTheme();
     } else {
-      this._tema = _miTemaClaro();
+      this._theme = _myLightTheme();
     }
     notifyListeners();
   }
 
-  set temaClaro(bool value) {
-    this._temaClaro = value;
-    this._temaOscuro = !value;
-    //fijamos el tema activo
+  set lightTheme(bool value) {
+    this._lightTheme = value;
+    this._darkTheme = !value;
+    //lock active theme
     if (value) {
-      this._tema = _miTemaClaro();
+      //modify value of light theme for our app
+      this._theme = _myLightTheme();
     } else {
-      this._tema = _miTemaOscuro();
+      this._theme = _myDarkTheme();
     }
     notifyListeners();
   }
 
-  ThemeData _miTemaClaro(){
+  //Palette: Spring Blossom
+  ThemeData _myLightTheme() {
     return (ThemeData.light().copyWith(
-          colorScheme: const ColorScheme(
-            primary: Color(0xFF2196F3), // Azul primario
-            secondary: Color.fromARGB(255, 134, 208, 248), // Color secundario
-            background: Color.fromARGB(255, 214, 236, 250), // Color de fondo
-            surface: Colors.white, // Color de la superficie
-            onPrimary: Colors.black, // Color del texto sobre el color primario
-            onSecondary: Colors.black, // Color del texto sobre el color secundario
-            onBackground: Colors.black, // Color del texto sobre el fondo
-            onSurface: Colors.black, // Color del texto sobre la superficie
-            brightness: Brightness.light, // Brillo del tema claro
-            error: Color(0xFFFF6E40),
-            onError: Color(0xFFECEFF1),
-          ),
-        )
-      );
-  }
-  ThemeData _miTemaOscuro(){
-    return (ThemeData.dark().copyWith(
-        colorScheme: const ColorScheme(
-           primary: Color(0xFF1976D2), // Azul primario para el tema oscuro
-            secondary: Color.fromARGB(255, 45, 52, 151), // Color secundario para el tema oscuro
-            background: Color(0xFF121212), // Color de fondo para el tema oscuro
-            surface: Color(0xFF1E1E1E), // Color de la superficie para el tema oscuro
-            onPrimary: Colors.white, // Color del texto sobre el color primario en el tema oscuro
-            onSecondary: Colors.black, // Color del texto sobre el color secundario en el tema oscuro
-            onBackground: Colors.white, // Color del texto sobre el fondo en el tema oscuro
-            onSurface: Colors.white, // Color del texto sobre la superficie en el tema oscuro
-            brightness: Brightness.dark,  // Brillo del tema oscuro 
-            error: Color(0xFFFF5252), 
-            onError: Color(0xFF212121),
-          ),
-      )
-    );
+      colorScheme: const ColorScheme(
+        primary: Color(0xFFE7CAC2), // Pure Pink
+        secondary: Color(0xFFCEBEB9), // Off Pink
+        background: Color(0xFFE2E0D4), // Cream
+        surface: Color(0xFF959595), // Grey
+        onPrimary: Colors.black, // Text color on top of the primary color
+        onSecondary: Colors.black, // Text color on top of the secondary color
+        onBackground: Colors.black, // Text color on top of the background color
+        onSurface: Colors.black, // Text color on top of the surface color
+        brightness: Brightness.light, // Light theme
+        error: Color(0xFFFF6E40), // Error color
+        onError: Color(0xFFECEFF1), // Text color on top of the error color
+      ),
+    ));
   }
 
-}*/ 
+  //Palette: Latte
+  ThemeData _myDarkTheme() {
+    return (ThemeData.dark().copyWith(
+      colorScheme: const ColorScheme(
+        primary: Color(0xFF8F614B), // Caramel
+        secondary: Color(0xFFB69B7D), // Heavy Cream
+        background: Color(0xFF382A1D), // Mocha
+        surface: Color(0xFF070502), // Black
+        onPrimary: Colors.white, // Text color on top of the primary color
+        onSecondary: Colors.white, // Text color on top of the secondary color
+        onBackground: Colors.white, // Text color on top of the background color
+        onSurface: Colors.white, // Text color on top of the surface color
+        brightness: Brightness.dark, // Dark theme
+        error: Color(0xFFFF6E40), // Error color
+        onError: Color(0xFFECEFF1), // Text color on top of the error color
+      ),
+    ));
+  }
+}

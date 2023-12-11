@@ -44,7 +44,7 @@ class _MyCreationPageState extends State<MyCreationPage> {
         //# The top of the screen will have the settings and     #
         //# profile buttons                                      #
         //########################################################
-        appBar: CustomAppBar(),
+        appBar: const CustomAppBar(),
         //###################### Body ##########################
 
         body: Padding(
@@ -54,24 +54,24 @@ class _MyCreationPageState extends State<MyCreationPage> {
             TextFormField(
               controller: pillNameController,
               decoration:
-                  InputDecoration(labelText: "Introduce nombre de pirula"),
+                  const InputDecoration(labelText: "Introduce nombre de pirula"),
             ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             //Enterprise name TextField
             TextFormField(
               controller: enterpriseNameController,
               decoration:
-                  InputDecoration(labelText: "Introduce nombre de empresa"),
+                  const InputDecoration(labelText: "Introduce nombre de empresa"),
             ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             //Pills per box TextField
             TextFormField(
               controller: pillsPerBoxController,
               keyboardType: TextInputType.number,
               decoration:
-                  InputDecoration(labelText: "Introduce cantidad por caja"),
+                  const InputDecoration(labelText: "Introduce cantidad por caja"),
             ),
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
             Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
               //Pill photo image picker
               InkWell(
@@ -81,21 +81,21 @@ class _MyCreationPageState extends State<MyCreationPage> {
                   child: Column(
                     children: [
                       Container(
-                        margin: EdgeInsets.only(left: 20),
+                        margin: const EdgeInsets.only(left: 20),
                         height: 100,
                         width: 100,
                         decoration: BoxDecoration(
                             color: Colors.grey[200],
                             borderRadius: BorderRadius.circular(10)),
-                        child: Center(
+                        child: const Center(
                           child: Icon(Icons.camera_alt),
                         ),
                       ),
-                      SizedBox(height: 10),
-                      Text("Introduce pirula")
+                      const SizedBox(height: 10),
+                      const Text("Introduce pirula")
                     ],
                   )),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               //Box photo image picker
               InkWell(
                   onTap: () {
@@ -104,36 +104,36 @@ class _MyCreationPageState extends State<MyCreationPage> {
                   child: Column(
                     children: [
                       Container(
-                        margin: EdgeInsets.only(left: 20),
+                        margin: const EdgeInsets.only(left: 20),
                         height: 100,
                         width: 100,
                         decoration: BoxDecoration(
                             color: Colors.grey[200],
                             borderRadius: BorderRadius.circular(10)),
-                        child: Center(
+                        child: const Center(
                           child: Icon(Icons.camera_alt),
                         ),
                       ),
-                      SizedBox(height: 10),
-                      Text("Introduce caja")
+                      const SizedBox(height: 10),
+                      const Text("Introduce caja")
                     ],
                   )),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
             ]),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
 
             //Save and Cancel buttons
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                ElevatedButton(onPressed: () {}, child: Text("Save")),
-                ElevatedButton(onPressed: () {}, child: Text("Cancel"))
+                ElevatedButton(onPressed: () {}, child: const Text("Save")),
+                ElevatedButton(onPressed: () {}, child: const Text("Cancel"))
               ],
             )
           ]),
         ),
         //###################### BottomNavBar #####################
 
-        bottomNavigationBar: CustomNavBar());
+        bottomNavigationBar: const CustomNavBar());
   }
 }

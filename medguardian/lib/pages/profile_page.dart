@@ -14,7 +14,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       //Appbar
-      appBar: CustomAppBar(),
+      appBar: const CustomAppBar(),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -27,15 +27,15 @@ class _MyProfilePageState extends State<MyProfilePage> {
                 height: 80,
                 decoration: BoxDecoration(
                     shape: BoxShape.circle, color: Colors.grey[200]),
-                child: Icon(Icons.person, size: 40, color: Colors.black),
+                child: const Icon(Icons.person, size: 40, color: Colors.black),
               ),
-              SizedBox(width: 16),
+              const SizedBox(width: 16),
               //Username
-              Text("Agapito",
+              const Text("Agapito",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold))
             ],
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
 
           //First accordion
           Container(
@@ -47,7 +47,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
                 ]),
             //The accordion is called expansiontile... good name
             //So, information expansionTile
-            child: ExpansionTile(
+            child: const ExpansionTile(
               title: Text("Informacion personal"),
               children: [
                 ListTile(
@@ -59,7 +59,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
               ],
             ),
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           //Button list
           Container(
               decoration: BoxDecoration(
@@ -74,17 +74,17 @@ class _MyProfilePageState extends State<MyProfilePage> {
                 children: [
                   //Credits button
                   ListTile(
-                    title: Text("Creditos"),
+                    title: const Text("Creditos"),
                     onTap: () {},
                   ),
                   //Terms of Service button
                   ListTile(
-                    title: Text("Terminos de servicio"),
+                    title: const Text("Terminos de servicio"),
                     onTap: () {},
                   ),
                   //Erase account button
                   ListTile(
-                    title: Text("Borrar cuenta",
+                    title: const Text("Borrar cuenta",
                         style: TextStyle(color: Colors.red)),
                     onTap: () {},
                   )
@@ -92,7 +92,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
               ))
         ]),
       ),
-      bottomNavigationBar: CustomNavBar(),
+      bottomNavigationBar: const CustomNavBar(),
     );
   }
 }

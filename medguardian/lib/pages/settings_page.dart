@@ -41,7 +41,7 @@ class _MySettingsPageState extends State<MySettingsPage> {
         //# The top of the screen will have the settings and     #
         //# profile buttons                                      #
         //########################################################
-        appBar: CustomAppBar(),
+        appBar: const CustomAppBar(),
         //###################### Body ##########################
         //# The body will be a scroll-pane, and has:           #
         //# · Different containers for the different pills     #
@@ -68,6 +68,6 @@ class _MySettingsPageState extends State<MySettingsPage> {
         //# · List button: Takes you to the list of the pills     #
         //# · Alarms button: Takes you to the list of alarms      #
         //#########################################################
-        bottomNavigationBar: CustomNavBar());
+        bottomNavigationBar: const CustomNavBar());
   }
 }

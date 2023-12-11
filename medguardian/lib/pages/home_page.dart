@@ -18,7 +18,7 @@ class _MyHomePageState extends State<MyHomePage> {
         //# profile buttons, plus a welcome for the user, with   #
         //# their image and personalised welcome.                #
         //########################################################
-        appBar: CustomAppBar(),
+        appBar: const CustomAppBar(),
         //###################### Body ##########################
         //# The body will be a scroll-pane, and has:           #
         //# · My medication: A list of the pills they have to  #
@@ -259,17 +259,17 @@ class _MyHomePageState extends State<MyHomePage> {
                       padding: const EdgeInsets.only(bottom: 20),
                       child: Column(
                         children: [
-                          Padding(padding: EdgeInsets.all(3)),
-                          Text("Proximas citas"),
-                          Padding(padding: EdgeInsets.all(3)),
+                          const Padding(padding: EdgeInsets.all(3)),
+                          const Text("Proximas citas"),
+                          const Padding(padding: EdgeInsets.all(3)),
                           Container(
-                            padding: EdgeInsets.all(5),
+                            padding: const EdgeInsets.all(5),
                             decoration: BoxDecoration(
                               border: Border.all(color: Colors.black),
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(5)),
+                                  const BorderRadius.all(Radius.circular(5)),
                             ),
-                            child: Column(
+                            child: const Column(
                               children: [
                                 Text("20/10 - 13 Nov"),
                                 Text("Dr. Petunia")
@@ -297,16 +297,16 @@ class _MyHomePageState extends State<MyHomePage> {
                       padding: const EdgeInsets.only(bottom: 20),
                       child: Column(
                         children: [
-                          Padding(padding: EdgeInsets.all(3)),
-                          Text("Lista de la compra"),
-                          Padding(padding: EdgeInsets.all(3)),
+                          const Padding(padding: EdgeInsets.all(3)),
+                          const Text("Lista de la compra"),
+                          const Padding(padding: EdgeInsets.all(3)),
                           Row(children: [
                           Checkbox(value: true, onChanged: (Bool) {}),
-                          Text("Amoxicilina")
+                          const Text("Amoxicilina")
                           ],),
                           Row(children: [
                           Checkbox(value: false, onChanged: (Bool) {}),
-                          Text("Ibuprofeno")
+                          const Text("Ibuprofeno")
                           ],),
                         ],
                       ),
@@ -325,7 +325,7 @@ class _MyHomePageState extends State<MyHomePage> {
         //# · List button: Takes you to the list of the pills     #
         //# · Alarms button: Takes you to the list of alarms      #
         //#########################################################
-        bottomNavigationBar: CustomNavBar(),
+        bottomNavigationBar: const CustomNavBar(),
         );
     }
 }

@@ -14,7 +14,7 @@ class MyMapPage extends StatefulWidget {
 }
 
 class _MyMapPageState extends State<MyMapPage> {
-  int _selectedIndex = 1;
+  final int _selectedIndex = 1;
 
 // Lista de widgets que representan las páginas del contenido de la aplicación.
   static const List<Widget> _pages = <Widget>[
@@ -40,19 +40,18 @@ class _MyMapPageState extends State<MyMapPage> {
         //# The top of the screen will have the settings and     #
         //# profile buttons                                      #
         //########################################################
-        appBar: CustomAppBar(),
+        appBar: const CustomAppBar(),
         //###################### Body ##########################
 
         body: Column(
           children: [
             //Map of the zone
             Container(
-                margin: EdgeInsets.all(10),
+                margin: const EdgeInsets.all(10),
                 height: 300,
                 width: 300,
-                child: Text("Mira que mapa mas guapo"),
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(10),
                         bottomRight: Radius.circular(10)),
                     boxShadow: [
@@ -60,12 +59,13 @@ class _MyMapPageState extends State<MyMapPage> {
                           color: Colors.grey.withOpacity(0.5),
                           spreadRadius: 5,
                           blurRadius: 7,
-                          offset: Offset(0, 3))
-                    ])),
+                          offset: const Offset(0, 3))
+                    ]),
+                child: const Text("Mira que mapa mas guapo")),
             //List of medical center
             Expanded(
               child: ListView(
-                children: [
+                children: const [
                   ListTile(title: Text("Medical centre 1")),
                   ListTile(
                     title: Text("Medical centre 2"),
@@ -77,6 +77,6 @@ class _MyMapPageState extends State<MyMapPage> {
         ),
         //###################### BottomNavBar #####################
 
-        bottomNavigationBar: CustomNavBar());
+        bottomNavigationBar: const CustomNavBar());
   }
 }
