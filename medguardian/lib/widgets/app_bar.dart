@@ -17,11 +17,12 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
 class _CustomAppBarState extends State<CustomAppBar> {
 
   //final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
+  
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: const Color.fromARGB(255, 89, 190, 194),
+      backgroundColor: Color(0xFF8F614B),
       //Left side of the appbar
       leading: IconButton(
         icon: const Icon(Icons.account_circle),

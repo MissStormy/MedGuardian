@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medguardian/pages/alarms_page.dart';
 import 'package:medguardian/pages/creation_page.dart';
-import 'package:medguardian/pages/home_page.dart';
+import 'package:medguardian/pages/home/home.dart';
 import 'package:medguardian/pages/list_page.dart';
 import 'package:medguardian/pages/map_page.dart';
 
@@ -17,43 +17,66 @@ class _CustomNavBarState extends State<CustomNavBar> {
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
+     return Container(
+    height: 90.0, // Set the desired height
+    decoration: BoxDecoration(
+      color: Color(0xFF8F614B), // Set the background color
+      boxShadow: [
+        BoxShadow(
+          color: Colors.grey.withOpacity(0.3),
+          spreadRadius: 2,
+          blurRadius: 4,
+          offset: Offset(0, 2), // changes position of shadow
+        ),
+      ],
+    ),
+    child: BottomNavigationBar(
       currentIndex: _currentIndex,
-      backgroundColor: const Color.fromARGB(255, 89, 190, 194),
+      backgroundColor: Color(0xFF8F614B), // Make the BottomNavigationBar transparent
+      selectedItemColor: Colors.white, // Set the selected item color
+      unselectedItemColor: Colors.white.withOpacity(0.6), // Set the unselected item color
       onTap: (index) {
         setState(() {
           _currentIndex = index;
         });
         _navigateToSelectedPage(index);
       },
-      items: const [
+      items: [
         BottomNavigationBarItem(
           icon: Icon(Icons.medication),
-          label: "Creation",
-          backgroundColor: Color.fromARGB(255, 89, 190, 194),
+          label: "",
+          backgroundColor: Color(0xFF8F614B)
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.place),
-          label: "Map",
-          backgroundColor: Color.fromARGB(255, 89, 190, 194),
+          label: "",
+          backgroundColor: Color(0xFF8F614B)
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          label: "Home",
-          backgroundColor: Color.fromARGB(255, 89, 190, 194),
+          backgroundColor: Color(0xFF8F614B),
+          icon: Container(
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: Color(0xFFB69B7D), // Set the circular background color
+            ),
+            padding: EdgeInsets.all(15.0), // Adjust padding as needed
+            child: Icon(Icons.home),
+          ),
+          label: "",
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.list),
-          label: "Lista",
-          backgroundColor: Color.fromARGB(255, 89, 190, 194),
+          label: "",
+          backgroundColor: Color(0xFF8F614B)
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.alarm),
-          label: "Alarmas",
-          backgroundColor: Color.fromARGB(255, 89, 190, 194),
-        )
+          label: "",
+          backgroundColor: Color(0xFF8F614B)
+        ),
       ],
-    );
+    ),
+  );
   }
 
   //To change screen, we use this case
