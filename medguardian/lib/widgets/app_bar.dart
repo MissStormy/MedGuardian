@@ -31,20 +31,15 @@ class _CustomAppBarState extends State<CustomAppBar> {
         },
       ),
       //Center: Title and image logo
-      title: const Row(
-        children: [
-          //Here goes the logo
-          Icon(Icons.medication),
-          //Title of the app
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8.0),
-            child: Text(
-              "MedGuardian",
-              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
-            ),
-          )
-        ],
+      title: Row(
+    children: [
+      Spacer(), // Spacer to center the logo
+      Image.asset(
+        'assets/mg_logo.png', // Replace with the actual path to your logo image
       ),
+      Spacer(), // Spacer to center the logo
+    ],
+  ),
       actions: [
         IconButton(
             onPressed: () {
