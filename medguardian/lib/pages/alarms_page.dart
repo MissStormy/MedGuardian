@@ -3,7 +3,6 @@ import 'package:medguardian/pages/creation_page.dart';
 import 'package:medguardian/pages/map_page.dart';
 import 'package:medguardian/pages/home_page.dart';
 import 'package:medguardian/pages/list_page.dart';
-import 'package:medguardian/pages/alarms_page.dart';
 import 'package:medguardian/widgets/app_bar.dart';
 import 'package:medguardian/widgets/bottom_nav_bar.dart';
 
