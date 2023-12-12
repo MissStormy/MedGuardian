@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medguardian/pages/profile_page.dart';
 import 'package:medguardian/pages/settings_page.dart';
-import 'package:medguardian/theme/theme.dart';
 import 'package:provider/provider.dart';
 
 class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
