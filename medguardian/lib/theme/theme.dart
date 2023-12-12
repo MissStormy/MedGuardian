@@ -65,10 +65,10 @@ class ThemeLoader with ChangeNotifier {
   ThemeData _myLightTheme() {
     return (ThemeData.light().copyWith(
         colorScheme: const ColorScheme(
-      primary: Color(0xFF140F1F), // Text color
+      primary: Color(0xFF8F614B), // Text color
       secondary: Color(0xFFFEDB71), // Accent color
-      background: Color(0xFFFCFAF8), // Background color
-      surface: Color(0xFFFFFFFF), // Secondary color
+      background: Color(0xFFDD868C), // Background color
+      surface: Color(0xFF8F614B), // Secondary color
       onPrimary: Color(0xFFFFFFFF), // Text color on top of the primary color
       onSecondary:
           Color(0xFF140F1F), // Text color on top of the secondary color

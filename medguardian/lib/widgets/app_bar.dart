@@ -33,7 +33,8 @@ class _CustomAppBarState extends State<CustomAppBar> {
         children: [
           Spacer(), // Spacer to center the logo
           Image.asset(
-            'assets/logo.png', // Replace with the actual path to your logo image
+            'assets/logo.png',
+            width: 60.0,
           ),
           Spacer(), // Spacer to center the logo
         ],

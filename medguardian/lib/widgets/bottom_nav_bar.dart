@@ -4,6 +4,8 @@ import 'package:medguardian/pages/creation_page.dart';
 import 'package:medguardian/pages/home/home.dart';
 import 'package:medguardian/pages/list_page.dart';
 import 'package:medguardian/pages/map_page.dart';
+import 'package:provider/provider.dart';
+import 'package:medguardian/theme/theme.dart';
 
 class CustomNavBar extends StatefulWidget {
   const CustomNavBar({super.key});
@@ -17,66 +19,66 @@ class _CustomNavBarState extends State<CustomNavBar> {
 
   @override
   Widget build(BuildContext context) {
-     return Container(
-    height: 90.0, // Set the desired height
-    decoration: BoxDecoration(
-      color: Color(0xFF8F614B), // Set the background color
-      boxShadow: [
-        BoxShadow(
-          color: Colors.grey.withOpacity(0.3),
-          spreadRadius: 2,
-          blurRadius: 4,
-          offset: Offset(0, 2), // changes position of shadow
-        ),
-      ],
-    ),
-    child: BottomNavigationBar(
-      currentIndex: _currentIndex,
-      backgroundColor: Color(0xFF8F614B), // Make the BottomNavigationBar transparent
-      selectedItemColor: Colors.white, // Set the selected item color
-      unselectedItemColor: Colors.white.withOpacity(0.6), // Set the unselected item color
-      onTap: (index) {
-        setState(() {
-          _currentIndex = index;
-        });
-        _navigateToSelectedPage(index);
-      },
-      items: [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.medication),
-          label: "",
-          backgroundColor: Color(0xFF8F614B)
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.place),
-          label: "",
-          backgroundColor: Color(0xFF8F614B)
-        ),
-        BottomNavigationBarItem(
-          backgroundColor: Color(0xFF8F614B),
-          icon: Container(
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: Color(0xFFB69B7D), // Set the circular background color
-            ),
-            padding: EdgeInsets.all(15.0), // Adjust padding as needed
-            child: Icon(Icons.home),
+    final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
+    return Container(
+      height: 90.0, // Set the desired height
+      decoration: BoxDecoration(
+        color: actualTheme.colorScheme.secondary, // Set the background color
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.3),
+            spreadRadius: 2,
+            blurRadius: 4,
+            offset: Offset(0, 2), // changes position of shadow
           ),
-          label: "",
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.list),
-          label: "",
-          backgroundColor: Color(0xFF8F614B)
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.alarm),
-          label: "",
-          backgroundColor: Color(0xFF8F614B)
-        ),
-      ],
-    ),
-  );
+        ],
+      ),
+      child: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        backgroundColor: actualTheme
+            .colorScheme.secondary, // Make the BottomNavigationBar transparent
+        selectedItemColor: Colors.white, // Set the selected item color
+        unselectedItemColor:
+            Colors.white.withOpacity(0.6), // Set the unselected item color
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+          _navigateToSelectedPage(index);
+        },
+        items: [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.medication),
+              label: "",
+              backgroundColor: actualTheme.colorScheme.secondary),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.place),
+              label: "",
+              backgroundColor: actualTheme.colorScheme.secondary),
+          BottomNavigationBarItem(
+            backgroundColor: actualTheme.colorScheme.secondary,
+            icon: Container(
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: actualTheme
+                    .colorScheme.primary, // Set the circular background color
+              ),
+              padding: EdgeInsets.all(15.0), // Adjust padding as needed
+              child: Icon(Icons.home),
+            ),
+            label: "",
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.list),
+              label: "",
+              backgroundColor: actualTheme.colorScheme.secondary),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.alarm),
+              label: "",
+              backgroundColor: actualTheme.colorScheme.secondary),
+        ],
+      ),
+    );
   }
 
   //To change screen, we use this case
