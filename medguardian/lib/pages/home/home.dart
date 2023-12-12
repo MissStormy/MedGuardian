@@ -46,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
             dayColor: Colors.teal[200],
             dayNameColor: const Color(0xFF333A47),
             activeDayColor: Colors.white,
-            activeBackgroundDayColor: Colors.redAccent[100],
+            activeBackgroundDayColor: actualTheme.colorScheme.background,
             dotsColor: const Color(0xFF333A47),
             selectableDayPredicate: (date) => date.day != 23,
             locale: 'es',
@@ -71,29 +71,44 @@ class _MyHomePageState extends State<MyHomePage> {
         Container(
             height: 189,
             margin: const EdgeInsets.all(10),
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(5),
             child: ListView(
               children: [
                 Container(
-                    padding: const EdgeInsets.only(left: 20, right: 20),
+                    padding: const EdgeInsets.only(left: 5),
                     decoration: const BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(20))),
                     child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           const Icon(Icons.medication),
-                          const Text(
-                            "IBUROFENO",
-                            style: TextStyle(fontSize: 20),
+                          const SizedBox(height: 10),
+                          Column(
+                            children: [
+                              const Text(
+                                "IBUROFENO",
+                                style: TextStyle(fontSize: 20),
+                              ),
+                              const Text(
+                                "1 pirula con la comida",
+                                style: TextStyle(fontSize: 10),
+                              ),
+                            ],
                           ),
+                          const SizedBox(height: 10),
                           Container(
                             padding: const EdgeInsets.all(5),
                             decoration: BoxDecoration(
                                 color: actualTheme.colorScheme.background,
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(5))),
-                            child: const Text("21:00"),
-                          )
+                            child: const Text(
+                              "21:00",
+                              style: TextStyle(fontSize: 20),
+                            ),
+                          ),
+                          const SizedBox(height: 10),
+                          const Icon(Icons.more_vert),
                         ])),
               ],
             )),
