@@ -60,6 +60,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
             icon: Container(
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
+                
                 color: actualTheme
                     .colorScheme.primary, // Set the circular background color
               ),

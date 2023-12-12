@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:medguardian/widgets/app_bar.dart';
+import 'package:medguardian/widgets/big_container.dart';
 import 'package:medguardian/widgets/bottom_nav_bar.dart';
 import 'package:calendar_timeline/calendar_timeline.dart';
+import 'package:medguardian/widgets/pill_container.dart';
 import 'package:provider/provider.dart';
 import 'package:medguardian/theme/theme.dart';
 
@@ -55,63 +57,16 @@ class _MyHomePageState extends State<MyHomePage> {
         const SizedBox(height: 10),
         //Now, the tabs
         //###################### Morning pirulas ##########################
-        Container(
-          padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
-          child: const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Morning pirulas",
-                  style: TextStyle(
-                    fontSize: 24,
-                  ),
-                )
-              ]),
-        ),
-        Container(
-            height: 189,
-            margin: const EdgeInsets.all(10),
-            padding: const EdgeInsets.all(5),
-            child: ListView(
-              children: [
-                Container(
-                    padding: const EdgeInsets.only(left: 5),
-                    decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(20))),
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          const Icon(Icons.medication),
-                          const SizedBox(height: 10),
-                          Column(
-                            children: [
-                              const Text(
-                                "IBUROFENO",
-                                style: TextStyle(fontSize: 20),
-                              ),
-                              const Text(
-                                "1 pirula con la comida",
-                                style: TextStyle(fontSize: 10),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 10),
-                          Container(
-                            padding: const EdgeInsets.all(5),
-                            decoration: BoxDecoration(
-                                color: actualTheme.colorScheme.background,
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(5))),
-                            child: const Text(
-                              "21:00",
-                              style: TextStyle(fontSize: 20),
-                            ),
-                          ),
-                          const SizedBox(height: 10),
-                          const Icon(Icons.more_vert),
-                        ])),
-              ],
-            )),
+        const BigContainer(
+          containerName: "Morning pirulas", 
+          content: [
+            PirulasContainer(
+              title: "Ibuprofeno", 
+              text: "1 pirula con la comida",
+              hour: "21:00", 
+              icon: Icons.medication),
+              
+          ]),
         //###################### Half day pirulas ##########################
         Container(
           padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
