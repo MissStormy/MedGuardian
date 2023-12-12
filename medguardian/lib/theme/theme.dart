@@ -19,7 +19,7 @@ class ThemeLoader with ChangeNotifier {
     //lock active theme
     switch (theme) {
       case 0:
-        //this_theme = _myLightTheme();
+        this._theme = _myLightTheme();
         this._lightTheme = true;
         this._darkTheme = false;
         break;
@@ -61,41 +61,43 @@ class ThemeLoader with ChangeNotifier {
     notifyListeners();
   }
 
-  //Palette: Spring Blossom
+  //Palette: Buzzing Bee
   ThemeData _myLightTheme() {
     return (ThemeData.light().copyWith(
-      colorScheme: const ColorScheme(
-        primary: Color(0xFFE7CAC2), // Pure Pink
-        secondary: Color(0xFFCEBEB9), // Off Pink
-        background: Color(0xFFE2E0D4), // Cream
-        surface: Color(0xFF959595), // Grey
-        onPrimary: Colors.black, // Text color on top of the primary color
-        onSecondary: Colors.black, // Text color on top of the secondary color
-        onBackground: Colors.black, // Text color on top of the background color
-        onSurface: Colors.black, // Text color on top of the surface color
-        brightness: Brightness.light, // Light theme
-        error: Color(0xFFFF6E40), // Error color
-        onError: Color(0xFFECEFF1), // Text color on top of the error color
-      ),
-    ));
+        colorScheme: const ColorScheme(
+      primary: Color(0xFF140F1F), // Text color
+      secondary: Color(0xFFFEDB71), // Accent color
+      background: Color(0xFFFCFAF8), // Background color
+      surface: Color(0xFFFFFFFF), // Secondary color
+      onPrimary: Color(0xFFFFFFFF), // Text color on top of the primary color
+      onSecondary:
+          Color(0xFF140F1F), // Text color on top of the secondary color
+      onBackground:
+          Color(0xFF140F1F), // Text color on top of the background color
+      onSurface: Color(0xFF140F1F), // Text color on top of the surface color
+      brightness: Brightness.light,
+      error: Color(0xFFFF6E40),
+      onError: Color(0xFFECEFF1),
+    )));
   }
 
-  //Palette: Latte
+  //Palette: Blue Bert
   ThemeData _myDarkTheme() {
     return (ThemeData.dark().copyWith(
-      colorScheme: const ColorScheme(
-        primary: Color(0xFF8F614B), // Caramel
-        secondary: Color(0xFFB69B7D), // Heavy Cream
-        background: Color(0xFF382A1D), // Mocha
-        surface: Color(0xFF070502), // Black
-        onPrimary: Colors.white, // Text color on top of the primary color
-        onSecondary: Colors.white, // Text color on top of the secondary color
-        onBackground: Colors.white, // Text color on top of the background color
-        onSurface: Colors.white, // Text color on top of the surface color
-        brightness: Brightness.dark, // Dark theme
-        error: Color(0xFFFF6E40), // Error color
-        onError: Color(0xFFECEFF1), // Text color on top of the error color
-      ),
-    ));
+        colorScheme: const ColorScheme(
+      primary: Color(0xFF66FCF1), // Text color
+      secondary: Color(0xFF45A29E), // Accent color
+      background: Color(0xFF0B0C10), // Background color
+      surface: Color(0xFF1F2833), // Secondary color
+      onPrimary: Color(0xFFC5C6C7), // Text color on top of the primary color
+      onSecondary:
+          Color(0xFF66FCF1), // Text color on top of the secondary color
+      onBackground:
+          Color(0xFFC5C6C7), // Text color on top of the background color
+      onSurface: Color(0xFFC5C6C7), // Text color on top of the surface color
+      brightness: Brightness.dark,
+      error: Color(0xFFFF6E40),
+      onError: Color(0xFFECEFF1),
+    )));
   }
 }

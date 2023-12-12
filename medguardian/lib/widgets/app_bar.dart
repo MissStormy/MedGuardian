@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medguardian/pages/profile_page.dart';
 import 'package:medguardian/pages/settings_page.dart';
+import 'package:medguardian/theme/theme.dart';
 import 'package:provider/provider.dart';
 
 class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
@@ -14,14 +15,11 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
 }
 
 class _CustomAppBarState extends State<CustomAppBar> {
-
-  //final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
-  
-
   @override
   Widget build(BuildContext context) {
+    final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
     return AppBar(
-      backgroundColor: Color(0xFF8F614B),
+      backgroundColor: actualTheme.colorScheme.secondary,
       //Left side of the appbar
       leading: IconButton(
         icon: const Icon(Icons.account_circle),
@@ -32,19 +30,21 @@ class _CustomAppBarState extends State<CustomAppBar> {
       ),
       //Center: Title and image logo
       title: Row(
-    children: [
-      Spacer(), // Spacer to center the logo
-      Image.asset(
-        'assets/mg_logo.png', // Replace with the actual path to your logo image
+        children: [
+          Spacer(), // Spacer to center the logo
+          Image.asset(
+            'assets/logo.png', // Replace with the actual path to your logo image
+          ),
+          Spacer(), // Spacer to center the logo
+        ],
       ),
-      Spacer(), // Spacer to center the logo
-    ],
-  ),
       actions: [
         IconButton(
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const MySettingsPage()));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const MySettingsPage()));
             },
             icon: const Icon(Icons.settings))
       ],

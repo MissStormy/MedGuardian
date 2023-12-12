@@ -10,9 +10,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:medguardian/pages/home/home.dart';
+import 'package:medguardian/theme/theme.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(//Load the provider
+      ChangeNotifierProvider(create: (_) => ThemeLoader(0), child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -21,38 +24,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(home: MyHomePage());
+    //Load the actual theme
+    final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
+    return MaterialApp(theme: actualTheme, home: MyHomePage());
   }
 }
-
-/*This would be the way to load the themes so all the pages get notified
-
-void main() {
-  runApp(
-    //Cargamos en el nivel más alto de la aplicación el provider
-    //En dicho provider cargamos el tema actual
-    ChangeNotifierProvider(
-      //cargamos el tema claro por defecto
-      create: (_) => CargadorTema(0),
-      child: MyApp())
-    );
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    
-    //cargamos el tema actual del provider
-    final temaActual=Provider.of<CargadorTema>(context).temaActual;
-    
-    return MaterialApp(
-      title: 'Medicame',
-      theme: temaActual,
-      home: const PaginaPrincipal(),
-    );
-  }
-}
- */
