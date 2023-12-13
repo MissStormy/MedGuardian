@@ -64,19 +64,27 @@ class ThemeLoader with ChangeNotifier {
   ThemeData _myLightTheme() {
     return (ThemeData.light().copyWith(
         colorScheme: const ColorScheme(
-      primary: Color(0xFF738290), // Text color
-      secondary: Color(0xFFA1B5D8), // Accent color
-      background: Color(0xFFFFFCF7), // Background color
-      surface: Color(0xFFE4F0D0), // Secondary color
-      onBackground:
-          Color(0xFFCFE1F4), // Text color on top of the background color
-      onSurface: Color(0xFF0D0D0D), // Text color on top of the surface color
-      brightness: Brightness.light,
-      error: Color(0xFFFF6E40),
-      onError: Color(0xFFECEFF1),
-      onPrimary: Colors.black, // Placeholder color, replace with actual color
-      onSecondary: Colors.black, // Placeholder color, replace with actual color
-    )));
+          primary: Color(0xFF738290), // Text color
+          secondary: Color(0xFFA1B5D8), // Accent color
+          background: Color(0xFFFFFCF7), // Background color
+          surface: Color(0xFFE4F0D0), // Secondary color
+          onBackground:
+              Color(0xFFCFE1F4), // Text color on top of the background color
+          onSurface:
+              Color(0xFF0D0D0D), // Text color on top of the surface color
+          brightness: Brightness.light,
+          error: Color(0xFFFF6E40),
+          onError: Color(0xFFECEFF1),
+          onPrimary:
+              Colors.black, // Placeholder color, replace with actual color
+          onSecondary:
+              Colors.black, // Placeholder color, replace with actual color
+        ),
+        textTheme: const TextTheme(
+            bodyMedium: TextStyle(
+                fontSize: 16.0,
+                fontFamily: 'Quicksand',
+                color: Color(0xFF0D0D0D)))));
   }
 
   //Palette: Buzzing Bee
@@ -103,18 +111,23 @@ class ThemeLoader with ChangeNotifier {
   ThemeData _myDarkTheme() {
     return (ThemeData.dark().copyWith(
         colorScheme: const ColorScheme(
-      primary: Color(0xFF172621),
-      secondary: Color(0xFF2A4038),
-      background: Color(0xFF0D0D0D),
-      surface: Color(0xFF0D0D0D),
-      onBackground: Color(0xFF4D734C),
-      onSurface: Color(0xFF4D734C),
-      brightness: Brightness.dark,
-      error: Color(0xFFFF6E40),
-      onError: Color(0xFFECEFF1),
-      onPrimary: Color(0xFF4D734C),
-      onSecondary: Color(0xFF4D734C),
-    )));
+          primary: Color(0xFF172621),
+          secondary: Color(0xFF2A4038),
+          background: Color(0xFF0D0D0D),
+          surface: Color(0xFF0D0D0D),
+          onBackground: Color(0xFF4D734C),
+          onSurface: Color(0xFF4D734C),
+          brightness: Brightness.dark,
+          error: Color(0xFFFF6E40),
+          onError: Color(0xFFECEFF1),
+          onPrimary: Color(0xFF4D734C),
+          onSecondary: Color(0xFF4D734C),
+        ),
+        textTheme: const TextTheme(
+            bodyMedium: TextStyle(
+                fontSize: 16.0,
+                fontFamily: 'Quicksand',
+                color: Color(0xFFECEFF1)))));
     //Palette: Blue Bert
     // ThemeData _myDarkTheme() {
     //   return (ThemeData.dark().copyWith(

@@ -34,10 +34,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
       //###################### Body ##########################
       body: SingleChildScrollView(
-        
-        child: Column(children: [
-        
+          child: Column(children: [
         Container(
+          height: 150,
+          decoration: BoxDecoration(
+              color: actualTheme.colorScheme.primary,
+              borderRadius: const BorderRadius.only(
+                  bottomLeft: Radius.circular(10),
+                  bottomRight: Radius.circular(10))),
           //The calendar widget
           child: CalendarTimeline(
             showYears: false,
@@ -59,43 +63,41 @@ class _MyHomePageState extends State<MyHomePage> {
         const SizedBox(height: 10),
         //Now, the tabs
         //###################### Morning pirulas ##########################
-        const BigContainer(
-          containerName: "Morning pirulas", 
-          content: [
-            PirulasContainer(
-              title: "Ibuprofeno", 
+        const BigContainer(containerName: "Morning pirulas", content: [
+          PirulasContainer(
+              title: "Ibuprofeno",
               text: "1 pirula con la comida",
-              hour: "21:00", 
+              hour: "21:00",
               icon: Icons.medication),
-              PirulasContainer(
-              title: "Ibuprofeno", 
+          PirulasContainer(
+              title: "Ibuprofeno",
               text: "1 pirula con la comida",
-              hour: "21:00", 
+              hour: "21:00",
               icon: Icons.medication),
-              
-          ]),
+          PirulasContainer(
+              title: "Ibuprofeno",
+              text: "1 pirula con la comida",
+              hour: "21:00",
+              icon: Icons.medication),
+        ]),
+        Divider(),
         //###################### Half day pirulas ##########################
-        const BigContainer(
-          containerName: "Half day pirulas", 
-          content: [
-            PirulasContainer(
-              title: "Ibuprofeno", 
+        const BigContainer(containerName: "Half day pirulas", content: [
+          PirulasContainer(
+              title: "Ibuprofeno",
               text: "1 pirula con la comida",
-              hour: "21:00", 
+              hour: "21:00",
               icon: Icons.medication),
-              
-          ]),
+        ]),
+        Divider(),
         //###################### Night pirulas ##########################
-        const BigContainer(
-          containerName: "Night pirulas", 
-          content: [
-            PirulasContainer(
-              title: "Ibuprofeno", 
+        const BigContainer(containerName: "Night pirulas", content: [
+          PirulasContainer(
+              title: "Ibuprofeno",
               text: "1 pirula con la comida",
-              hour: "21:00", 
+              hour: "21:00",
               icon: Icons.medication),
-              
-          ]),
+        ]),
       ])),
       //###################### BottomNavBar ##########################
       bottomNavigationBar: const CustomNavBar(),

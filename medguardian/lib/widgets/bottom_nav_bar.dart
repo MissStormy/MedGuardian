@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medguardian/pages/alarms_page.dart';
+import 'package:medguardian/pages/creation/med_create.dart';
 import 'package:medguardian/pages/creation_page.dart';
 import 'package:medguardian/pages/home/home.dart';
 import 'package:medguardian/pages/list_page.dart';
@@ -60,7 +61,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
             icon: Container(
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                
+
                 color: actualTheme
                     .colorScheme.primary, // Set the circular background color
               ),
@@ -86,7 +87,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
   void _navigateToSelectedPage(int index) {
     switch (index) {
       case 0:
-        _navigateToPage(const MyCreationPage());
+        _navigateToPage(const MyMedCreationPage());
         break;
       case 1:
         _navigateToPage(const MyMapPage());
