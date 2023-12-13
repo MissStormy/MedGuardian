@@ -12,32 +12,27 @@ class BigContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Container(
-          padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                containerName,
-                style: TextStyle(
-                  fontSize: 24,
-                ),
-              ),
-            ],
+    return Container(
+      margin: const EdgeInsets.all(10),
+      child: Column(
+        children: [
+         
+            Text(
+              containerName,
+              style: TextStyle(fontSize: 24),
+            ),
+          
+          // Dynamic content using ListView.builder
+          ListView.builder(
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            itemCount: content.length,
+            itemBuilder: (context, index) {
+              return content[index];
+            },
           ),
-        ),
-        Container(
-          height: 189,
-          margin: const EdgeInsets.all(10),
-          padding: const EdgeInsets.all(10),
-          child: ListView(
-            children: content,
-          ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:provider/provider.dart';
+import 'package:medguardian/theme/theme.dart';
 class PirulasContainer extends StatelessWidget {
   final String title;
   final String text;
@@ -16,16 +17,24 @@ class PirulasContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
     return Container(
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(20)),
       ),
       child: Row(
         children: [
-          // Icon on the left
-          Icon(icon),
-          SizedBox(height: 10),
+          // CircleAvatar surrounding the icon
+          CircleAvatar(
+            child: Icon(icon,
+            color: actualTheme.colorScheme.background),
+            
+            radius: 20, // Adjust the radius as needed
+          ),
+          
+          // Padding between circle and text
+          const SizedBox(width: 15),
           // Pill name and text in a column
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -54,7 +63,7 @@ class PirulasContainer extends StatelessWidget {
               ),
             ),
           ),
-          
+          SizedBox(height: 5),
           // Three dots for more (you can replace this with your icon)
           const Icon(Icons.more_vert),
         ],

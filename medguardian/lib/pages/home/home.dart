@@ -34,7 +34,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
       //###################### Body ##########################
       body: SingleChildScrollView(
-          child: Column(children: [
+        
+        child: Column(children: [
+        
         Container(
           //The calendar widget
           child: CalendarTimeline(
@@ -45,10 +47,10 @@ class _MyHomePageState extends State<MyHomePage> {
             onDateSelected: (date) => setState(() => _selectedDate = date),
             leftMargin: 20,
             monthColor: actualTheme.colorScheme.onSecondary,
-            dayColor: Colors.teal[200],
+            dayColor: actualTheme.colorScheme.secondary,
             dayNameColor: const Color(0xFF333A47),
-            activeDayColor: Colors.white,
-            activeBackgroundDayColor: actualTheme.colorScheme.background,
+            activeDayColor: actualTheme.colorScheme.secondary,
+            activeBackgroundDayColor: actualTheme.colorScheme.onBackground,
             dotsColor: const Color(0xFF333A47),
             selectableDayPredicate: (date) => date.day != 23,
             locale: 'es',
@@ -65,88 +67,35 @@ class _MyHomePageState extends State<MyHomePage> {
               text: "1 pirula con la comida",
               hour: "21:00", 
               icon: Icons.medication),
+              PirulasContainer(
+              title: "Ibuprofeno", 
+              text: "1 pirula con la comida",
+              hour: "21:00", 
+              icon: Icons.medication),
               
           ]),
         //###################### Half day pirulas ##########################
-        Container(
-          padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
-          child: const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Half day pirulas",
-                  style: TextStyle(
-                    fontSize: 24,
-                  ),
-                )
-              ]),
-        ),
-        Container(
-            height: 189,
-            margin: const EdgeInsets.all(10),
-            padding: const EdgeInsets.all(10),
-            child: ListView(
-              children: [
-                Container(
-                    padding: const EdgeInsets.only(left: 20, right: 20),
-                    decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(20))),
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          const Icon(Icons.pin),
-                          const Text("IBUROFENO"),
-                          Container(
-                            padding: const EdgeInsets.all(5),
-                            decoration: const BoxDecoration(
-                                color: Color.fromARGB(255, 177, 244, 250),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(5))),
-                            child: const Text("21:00"),
-                          )
-                        ])),
-              ],
-            )),
+        const BigContainer(
+          containerName: "Half day pirulas", 
+          content: [
+            PirulasContainer(
+              title: "Ibuprofeno", 
+              text: "1 pirula con la comida",
+              hour: "21:00", 
+              icon: Icons.medication),
+              
+          ]),
         //###################### Night pirulas ##########################
-        Container(
-          padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
-          child: const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Night pirulas",
-                  style: TextStyle(
-                    fontSize: 24,
-                  ),
-                )
-              ]),
-        ),
-        Container(
-            height: 189,
-            margin: const EdgeInsets.all(10),
-            padding: const EdgeInsets.all(10),
-            child: ListView(
-              children: [
-                Container(
-                    padding: const EdgeInsets.only(left: 20, right: 20),
-                    decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(20))),
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          const Icon(Icons.pin),
-                          const Text("IBUROFENO"),
-                          Container(
-                            padding: const EdgeInsets.all(5),
-                            decoration: const BoxDecoration(
-                                color: Color.fromARGB(255, 177, 244, 250),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(5))),
-                            child: const Text("21:00"),
-                          )
-                        ])),
-              ],
-            )),
+        const BigContainer(
+          containerName: "Night pirulas", 
+          content: [
+            PirulasContainer(
+              title: "Ibuprofeno", 
+              text: "1 pirula con la comida",
+              hour: "21:00", 
+              icon: Icons.medication),
+              
+          ]),
       ])),
       //###################### BottomNavBar ##########################
       bottomNavigationBar: const CustomNavBar(),
