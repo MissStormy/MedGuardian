@@ -13,24 +13,23 @@ class PirulasContainer extends StatelessWidget {
     required this.text,
     required this.hour,
     required this.icon,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(20)),
       ),
       child: Row(
         children: [
           // CircleAvatar surrounding the icon
           CircleAvatar(
-            child: Icon(icon, color: actualTheme.colorScheme.background),
-
-            radius: 20, // Adjust the radius as needed
+            radius: 20,
+            child: Icon(icon, color: actualTheme.colorScheme.background), // Adjust the radius as needed
           ),
 
           // Padding between circle and text
@@ -49,7 +48,7 @@ class PirulasContainer extends StatelessWidget {
               // Pill text
               Text(
                 text,
-                style: TextStyle(fontSize: 15),
+                style: const TextStyle(fontSize: 15),
               ),
             ],
           ),
@@ -67,7 +66,7 @@ class PirulasContainer extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 5),
+          const SizedBox(height: 5),
           // Three dots for more (you can replace this with your icon)
           const Icon(Icons.more_vert),
         ],

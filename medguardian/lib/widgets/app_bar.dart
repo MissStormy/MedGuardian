@@ -5,7 +5,7 @@ import 'package:medguardian/theme/theme.dart';
 import 'package:provider/provider.dart';
 
 class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
-  const CustomAppBar({Key? key}) : super(key: key);
+  const CustomAppBar({super.key});
 
   @override
   _CustomAppBarState createState() => _CustomAppBarState();
@@ -31,12 +31,12 @@ class _CustomAppBarState extends State<CustomAppBar> {
       //Center: Title and image logo
       title: Row(
         children: [
-          Spacer(), // Spacer to center the logo
+          const Spacer(), // Spacer to center the logo
           Image.asset(
             'assets/logo.png',
             width: 60.0,
           ),
-          Spacer(), // Spacer to center the logo
+          const Spacer(), // Spacer to center the logo
         ],
       ),
       actions: [

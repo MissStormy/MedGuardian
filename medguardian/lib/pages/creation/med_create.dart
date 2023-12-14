@@ -33,10 +33,10 @@ class _MyMedCreationPageState extends State<MyMedCreationPage> {
                     child: ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                        shape: CircleBorder(),
+                        shape: const CircleBorder(),
                         padding: const EdgeInsets.all(12.0),
                       ),
-                      child: Icon(Icons.camera),
+                      child: const Icon(Icons.camera),
                     ),
                   ),
                   // Question Mark Icon Button (Top Right)
@@ -46,16 +46,16 @@ class _MyMedCreationPageState extends State<MyMedCreationPage> {
                     child: ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                        shape: CircleBorder(),
+                        shape: const CircleBorder(),
                         padding: const EdgeInsets.all(8.0),
                       ),
-                      child: Icon(Icons.help),
+                      child: const Icon(Icons.help),
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: 20.0),
-              TextField(
+              const SizedBox(height: 20.0),
+              const TextField(
                 style: TextStyle(color: Colors.black),
                 decoration: InputDecoration(
                   hintText: 'Pill name',
@@ -63,8 +63,8 @@ class _MyMedCreationPageState extends State<MyMedCreationPage> {
                   border: UnderlineInputBorder(),
                 ),
               ),
-              SizedBox(height: 20.0),
-              Row(
+              const SizedBox(height: 20.0),
+              const Row(
                 children: [
                   Expanded(
                     child: Column(
@@ -87,10 +87,10 @@ class _MyMedCreationPageState extends State<MyMedCreationPage> {
                   ),
                 ],
               ),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
               Row(
                 children: [
-                  Expanded(
+                  const Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -99,18 +99,18 @@ class _MyMedCreationPageState extends State<MyMedCreationPage> {
                       ],
                     ),
                   ),
-                  SizedBox(width: 20.0),
+                  const SizedBox(width: 20.0),
                   ElevatedButton(
                     onPressed: () {},
-                    child: Text('Box Photo'),
+                    child: const Text('Box Photo'),
                   ),
                 ],
               ),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Column(
+                  const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text('Activate low pills alert'),
@@ -123,25 +123,25 @@ class _MyMedCreationPageState extends State<MyMedCreationPage> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Date of expiry'),
-                      SizedBox(height: 10.0),
+                      const Text('Date of expiry'),
+                      const SizedBox(height: 10.0),
                       ElevatedButton(
                         onPressed: () {},
-                        child: Text('Select Date'),
+                        child: const Text('Select Date'),
                       ),
                     ],
                   ),
                 ],
               ),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
               ElevatedButton(
                 onPressed: () {},
-                child: Text('Add Medicine'),
+                child: const Text('Add Medicine'),
               ),
-              SizedBox(height: 10.0),
+              const SizedBox(height: 10.0),
               OutlinedButton(
                 onPressed: () {},
-                child: Text('Cancel'),
+                child: const Text('Cancel'),
               ),
             ],
           ),

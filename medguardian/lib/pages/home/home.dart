@@ -3,6 +3,7 @@ import 'package:medguardian/widgets/app_bar.dart';
 import 'package:medguardian/widgets/big_container.dart';
 import 'package:medguardian/widgets/bottom_nav_bar.dart';
 import 'package:calendar_timeline/calendar_timeline.dart';
+import 'package:medguardian/widgets/custom_bottom_app_bar.dart';
 import 'package:medguardian/widgets/pill_container.dart';
 import 'package:provider/provider.dart';
 import 'package:medguardian/theme/theme.dart';
@@ -29,9 +30,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
     return Scaffold(
-      //###################### AppBar ##########################
-      appBar: const CustomAppBar(),
-
+      
       //###################### Body ##########################
       body: SingleChildScrollView(
           child: Column(children: [
@@ -80,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
               hour: "21:00",
               icon: Icons.medication),
         ]),
-        Divider(),
+        const Divider(),
         //###################### Half day pirulas ##########################
         const BigContainer(containerName: "Half day pirulas", content: [
           PirulasContainer(
@@ -89,7 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
               hour: "21:00",
               icon: Icons.medication),
         ]),
-        Divider(),
+        const Divider(),
         //###################### Night pirulas ##########################
         const BigContainer(containerName: "Night pirulas", content: [
           PirulasContainer(
@@ -99,8 +98,7 @@ class _MyHomePageState extends State<MyHomePage> {
               icon: Icons.medication),
         ]),
       ])),
-      //###################### BottomNavBar ##########################
-      bottomNavigationBar: const CustomNavBar(),
+      
     );
   }
 }

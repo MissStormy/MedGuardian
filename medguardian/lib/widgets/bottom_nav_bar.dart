@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medguardian/pages/alarms_page.dart';
 import 'package:medguardian/pages/creation/med_create.dart';
-import 'package:medguardian/pages/creation_page.dart';
 import 'package:medguardian/pages/home/home.dart';
 import 'package:medguardian/pages/list_page.dart';
 import 'package:medguardian/pages/map_page.dart';
@@ -30,7 +29,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
             color: Colors.grey.withOpacity(0.3),
             spreadRadius: 2,
             blurRadius: 4,
-            offset: Offset(0, 2), // changes position of shadow
+            offset: const Offset(0, 2), // changes position of shadow
           ),
         ],
       ),
@@ -49,11 +48,11 @@ class _CustomNavBarState extends State<CustomNavBar> {
         },
         items: [
           BottomNavigationBarItem(
-              icon: Icon(Icons.medication),
+              icon: const Icon(Icons.medication),
               label: "",
               backgroundColor: actualTheme.colorScheme.secondary),
           BottomNavigationBarItem(
-              icon: Icon(Icons.place),
+              icon: const Icon(Icons.place),
               label: "",
               backgroundColor: actualTheme.colorScheme.secondary),
           BottomNavigationBarItem(
@@ -65,17 +64,17 @@ class _CustomNavBarState extends State<CustomNavBar> {
                 color: actualTheme
                     .colorScheme.primary, // Set the circular background color
               ),
-              padding: EdgeInsets.all(15.0), // Adjust padding as needed
-              child: Icon(Icons.home),
+              padding: const EdgeInsets.all(15.0), // Adjust padding as needed
+              child: const Icon(Icons.home),
             ),
             label: "",
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.list),
+              icon: const Icon(Icons.list),
               label: "",
               backgroundColor: actualTheme.colorScheme.secondary),
           BottomNavigationBarItem(
-              icon: Icon(Icons.alarm),
+              icon: const Icon(Icons.alarm),
               label: "",
               backgroundColor: actualTheme.colorScheme.secondary),
         ],

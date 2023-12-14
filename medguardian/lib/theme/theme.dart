@@ -12,51 +12,51 @@ class ThemeLoader with ChangeNotifier {
   bool _darkTheme = false;
   bool _lightTheme = false;
 
-  bool get darkTheme => this._darkTheme;
-  ThemeData get actualTheme => this._theme;
+  bool get darkTheme => _darkTheme;
+  ThemeData get actualTheme => _theme;
 
   ThemeLoader(int theme) {
     //lock active theme
     switch (theme) {
       case 0:
-        this._theme = _myLightTheme();
-        this._lightTheme = true;
-        this._darkTheme = false;
+        _theme = _myLightTheme();
+        _lightTheme = true;
+        _darkTheme = false;
         break;
       case 1:
-        this._theme = _myDarkTheme();
-        this._lightTheme = false;
-        this._darkTheme = true;
+        _theme = _myDarkTheme();
+        _lightTheme = false;
+        _darkTheme = true;
         break;
       default:
-        this._theme = _myDarkTheme();
-        this._darkTheme = true;
+        _theme = _myDarkTheme();
+        _darkTheme = true;
         break;
     }
   }
 
   set darkTheme(bool value) {
-    this._darkTheme = value;
-    this._lightTheme = !value;
+    _darkTheme = value;
+    _lightTheme = !value;
     //lock active theme
     if (value) {
       //modify value of dark theme for our app
-      this._theme = _myDarkTheme();
+      _theme = _myDarkTheme();
     } else {
-      this._theme = _myLightTheme();
+      _theme = _myLightTheme();
     }
     notifyListeners();
   }
 
   set lightTheme(bool value) {
-    this._lightTheme = value;
-    this._darkTheme = !value;
+    _lightTheme = value;
+    _darkTheme = !value;
     //lock active theme
     if (value) {
       //modify value of light theme for our app
-      this._theme = _myLightTheme();
+      _theme = _myLightTheme();
     } else {
-      this._theme = _myDarkTheme();
+      _theme = _myDarkTheme();
     }
     notifyListeners();
   }

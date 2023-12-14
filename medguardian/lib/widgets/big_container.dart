@@ -7,8 +7,8 @@ class BigContainer extends StatelessWidget {
   const BigContainer({
     required this.containerName,
     required this.content,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -19,13 +19,13 @@ class BigContainer extends StatelessWidget {
          
             Text(
               containerName,
-              style: TextStyle(fontSize: 24),
+              style: const TextStyle(fontSize: 24),
             ),
           
           // Dynamic content using ListView.builder
           ListView.builder(
             shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             itemCount: content.length,
             itemBuilder: (context, index) {
               return content[index];

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:medguardian/pages/creation_page.dart';
+import 'package:medguardian/pages/creation/med_create.dart';
 import 'package:medguardian/pages/map_page.dart';
-import 'package:medguardian/pages/home_page.dart';
+import 'package:medguardian/pages/home/home.dart';
 import 'package:medguardian/pages/list_page.dart';
 import 'package:medguardian/widgets/app_bar.dart';
 import 'package:medguardian/widgets/bottom_nav_bar.dart';
@@ -18,7 +18,7 @@ class _MyAlarmPageState extends State<MyAlarmPage> {
 
 // Lista de widgets que representan las páginas del contenido de la aplicación.
   static const List<Widget> _pages = <Widget>[
-    MyCreationPage(),
+    MyMedCreationPage(),
     MyMapPage(),
     MyHomePage(),
     MyListPage(),
