@@ -16,9 +16,7 @@ class _MyMedCreationPageState extends State<MyMedCreationPage> {
   Widget build(BuildContext context) {
     final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
     return Scaffold(
-      //###################### AppBar ##########################
-      appBar: const CustomAppBar(),
-
+      
       //###################### Body ##########################
       body: SingleChildScrollView(
         child: Padding(
@@ -148,8 +146,7 @@ class _MyMedCreationPageState extends State<MyMedCreationPage> {
         ),
       ),
 
-      //###################### BottomNavBar ##########################
-      bottomNavigationBar: const CustomNavBar(),
+      
     );
   }
 }
