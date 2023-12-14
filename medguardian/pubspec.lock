@@ -57,6 +57,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.6"
+  draggable_bottom_sheet:
+    dependency: "direct main"
+    description:
+      name: draggable_bottom_sheet
+      sha256: "21470ca0ec2014778691ae1d0df7bb2530bc0c9e7b77dee3442f33b5546f2fc1"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.2"
   fake_async:
     dependency: transitive
     description:
@@ -139,6 +147,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.8.3"
+  photo_view:
+    dependency: "direct main"
+    description:
+      name: photo_view
+      sha256: "8036802a00bae2a78fc197af8a158e3e2f7b500561ed23b4c458107685e645bb"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.14.0"
   provider:
     dependency: "direct main"
     description:
@@ -160,6 +176,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.99"
+  sliding_up_panel2:
+    dependency: "direct main"
+    description:
+      name: sliding_up_panel2
+      sha256: "7c2aac81c03e74fcd070799c5e2011f1c5de7026bd22a76164e81e23a49f2bdb"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.3.0+1"
   source_span:
     dependency: transitive
     description:

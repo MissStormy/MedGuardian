@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medguardian/pages/creation/med_create.dart';
-import 'package:medguardian/pages/map_page.dart';
+import 'package:medguardian/pages/location/map.dart';
 import 'package:medguardian/pages/home/home.dart';
 import 'package:medguardian/pages/list_page.dart';
 import 'package:medguardian/pages/alarms_page.dart';
@@ -18,7 +18,7 @@ class _MySettingsPageState extends State<MySettingsPage> {
   int _selectedIndex = 2;
 
 // Lista de widgets que representan las páginas del contenido de la aplicación.
-  static const List<Widget> _pages = <Widget>[
+  static List<Widget> _pages = <Widget>[
     MyMedCreationPage(),
     MyMapPage(),
     MyHomePage(),

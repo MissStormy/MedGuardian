@@ -3,7 +3,7 @@ import 'package:medguardian/pages/alarms_page.dart';
 import 'package:medguardian/pages/creation/med_create.dart';
 import 'package:medguardian/pages/home/home.dart';
 import 'package:medguardian/pages/list_page.dart';
-import 'package:medguardian/pages/map_page.dart';
+import 'package:medguardian/pages/location/map.dart';
 import 'package:provider/provider.dart';
 import 'package:medguardian/theme/theme.dart';
 
@@ -89,7 +89,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
         _navigateToPage(const MyMedCreationPage());
         break;
       case 1:
-        _navigateToPage(const MyMapPage());
+       
         break;
       case 2:
         _navigateToPage(const MyHomePage());
