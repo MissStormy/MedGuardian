@@ -3,6 +3,7 @@ import 'package:medguardian/pages/alarms_page.dart';
 import 'package:medguardian/pages/creation/med_create.dart';
 import 'package:medguardian/pages/home/home.dart';
 import 'package:medguardian/pages/list_page.dart';
+import 'package:medguardian/pages/lists/treat_list.dart';
 import 'package:medguardian/pages/location/map.dart';
 import 'package:medguardian/pages/profile_page.dart';
 import 'package:medguardian/pages/settings_page.dart';
@@ -22,7 +23,7 @@ class _MyNexusPageState extends State<MyNexusPage> {
     MyMedCreationPage(),
     MyMapPage(),
     MyHomePage(),
-    MyListPage(),
+    MyTreatmentList(),
     MyAlarmPage(),
     MySettingsPage(),
     MyProfilePage()
