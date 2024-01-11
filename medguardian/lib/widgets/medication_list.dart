@@ -13,68 +13,49 @@ class MedicationItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 8.0),
-      child: Stack(
+      margin: const EdgeInsets.symmetric(vertical: 8.0),
+      padding: const EdgeInsets.all(16.0),
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.grey),
+        borderRadius: BorderRadius.circular(8.0),
+      ),
+      child: Row(
         children: [
-          Container(
-            padding: const EdgeInsets.all(16.0),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(10.0),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.5),
-                  spreadRadius: 2,
-                  blurRadius: 5,
-                  offset: const Offset(0, 2),
-                ),
-              ],
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  time,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16.0,
-                  ),
-                ),
-                SizedBox(height: 8.0),
-                Text(
-                  name,
-                  style: TextStyle(
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 16.0),
-                ElevatedButton(
-                  onPressed: () {},
-                  child: Text('More'),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: actualTheme.colorScheme.onSurface, // Set the background color
-                  foregroundColor: Colors.white,
-                  ),
-                ),
-              ],
-            ),
-          ),
+          // Medication icon positioned outside the main box
           Positioned(
-            top: 0,
-            left: 0,
-            child: Container(
-              padding: const EdgeInsets.all(4.0),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                shape: BoxShape.circle,
+            top: 8,
+            left: 8,
+            child: Icon(icon, size: 24.0),
+          ),
+          SizedBox(width: 32.0),
+          // Main content with title and button
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            
+            children: [
+              // Medication time
+              Text(time),
+              SizedBox(height: 8.0),
+              // Medication name
+              Text(
+                name,
+                style: TextStyle(
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-              child: Icon(
-                icon,
-                size: 24.0,
-                color: Colors.blue,
+              SizedBox(height: 8.0),
+              // More button
+              ElevatedButton(
+                onPressed: () {
+                  // Handle the "More" button press
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: actualTheme.colorScheme.onSurface, // Set the background color
+                  foregroundColor: Colors.white, ),// Set the text color,
+                child: Text('More'),
               ),
-            ),
+            ],
           ),
         ],
       ),
