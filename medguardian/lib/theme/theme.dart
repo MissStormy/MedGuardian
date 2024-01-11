@@ -19,12 +19,12 @@ class ThemeLoader with ChangeNotifier {
     //lock active theme
     switch (theme) {
       case 0:
-        _theme = _myLightTheme();
+        _theme = _myDarkTheme();
         _lightTheme = true;
         _darkTheme = false;
         break;
       case 1:
-        _theme = _myDarkTheme();
+        _theme = _myLightTheme();
         _lightTheme = false;
         _darkTheme = true;
         break;
@@ -128,6 +128,8 @@ class ThemeLoader with ChangeNotifier {
                 fontSize: 16.0,
                 fontFamily: 'Quicksand',
                 color: Color(0xFFECEFF1)))));
+
+                
     //Palette: Blue Bert
     // ThemeData _myDarkTheme() {
     //   return (ThemeData.dark().copyWith(
