@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:medguardian/pages/creation/med_create.dart';
 import 'package:medguardian/pages/location/map.dart';
 import 'package:medguardian/pages/home/home.dart';
-import 'package:medguardian/pages/list_page.dart';
-import 'package:medguardian/pages/alarms_page.dart';
 import 'package:medguardian/widgets/app_bar.dart';
 import 'package:medguardian/widgets/bottom_nav_bar.dart';
 
@@ -22,8 +20,6 @@ class _MySettingsPageState extends State<MySettingsPage> {
     MyMedCreationPage(),
     MyMapPage(),
     MyHomePage(),
-    MyListPage(),
-    MyAlarmPage()
   ];
 
   // Método que se llama cuando se toca uno de los elementos del BottomNavigationBar.

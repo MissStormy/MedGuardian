@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:medguardian/pages/alarms_page.dart';
-import 'package:medguardian/pages/creation/med_create.dart';
+import 'package:medguardian/pages/creation/create_nexus.dart';
 import 'package:medguardian/pages/home/home.dart';
-import 'package:medguardian/pages/list_page.dart';
+import 'package:medguardian/pages/lists/med_list.dart';
 import 'package:medguardian/pages/lists/treat_list.dart';
 import 'package:medguardian/pages/location/map.dart';
 import 'package:medguardian/pages/profile_page.dart';
 import 'package:medguardian/pages/settings_page.dart';
-import 'package:medguardian/widgets/app_bar.dart';
 import 'package:provider/provider.dart';
 import 'package:medguardian/theme/theme.dart';
 
@@ -20,11 +18,11 @@ class _MyNexusPageState extends State<MyNexusPage> {
   int _selectedIndex = 2;
 
   List<Widget> _screens = [
-    MyMedCreationPage(),
+    MyCreateNexusPage(),
     MyMapPage(),
     MyHomePage(),
+    MyMedListPage(),
     MyTreatmentList(),
-    MyAlarmPage(),
     MySettingsPage(),
     MyProfilePage()
   ];
@@ -131,7 +129,7 @@ class _MyNexusPageState extends State<MyNexusPage> {
           });
         },
         child: Icon(Icons.home, color: Colors.white),
-        backgroundColor: actualTheme.colorScheme.primary,
+        backgroundColor: actualTheme.colorScheme.onPrimary,
         elevation: 5,
         shape: CircleBorder(), // Set the shape to CircleBorder
       ),

@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:medguardian/pages/alarms_page.dart';
-import 'package:medguardian/pages/creation/med_create.dart';
 import 'package:medguardian/pages/home/home.dart';
-import 'package:medguardian/pages/list_page.dart';
-import 'package:medguardian/pages/location/map.dart';
 import 'package:medguardian/widgets/app_bar.dart';
 import 'package:provider/provider.dart';
 import 'package:medguardian/theme/theme.dart';

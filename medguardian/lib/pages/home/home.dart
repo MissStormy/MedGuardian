@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:medguardian/widgets/app_bar.dart';
 import 'package:medguardian/widgets/big_container.dart';
-import 'package:medguardian/widgets/bottom_nav_bar.dart';
 import 'package:calendar_timeline/calendar_timeline.dart';
-import 'package:medguardian/widgets/custom_bottom_app_bar.dart';
 import 'package:medguardian/widgets/pill_container.dart';
 import 'package:provider/provider.dart';
 import 'package:medguardian/theme/theme.dart';

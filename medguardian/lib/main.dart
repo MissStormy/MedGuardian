@@ -9,11 +9,8 @@
 //
 
 import 'package:flutter/material.dart';
-import 'package:medguardian/nexus.dart';
-import 'package:medguardian/pages/home/home.dart';
 import 'package:medguardian/pages/logging/logging_page.dart';
 import 'package:medguardian/theme/theme.dart';
-import 'package:medguardian/widgets/custom_bottom_app_bar.dart';
 import 'package:provider/provider.dart';
 
 void main() {

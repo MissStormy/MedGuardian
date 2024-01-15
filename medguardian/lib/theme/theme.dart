@@ -111,17 +111,17 @@ class ThemeLoader with ChangeNotifier {
   ThemeData _myDarkTheme() {
     return (ThemeData.dark().copyWith(
         colorScheme: const ColorScheme(
-          primary: Color(0xFF172621),
-          secondary: Color(0xFF2A4038),
-          background: Color(0xFF0D0D0D),
-          surface: Color(0xFF0D0D0D),
-          onBackground: Color(0xFF4D734C),
+          primary: Color(0xFF1f3236),
+          secondary: Color(0xFF34524a),
+          background: Color(0xFF62846e),
+          surface: Color(0xFF030e14),
+          onBackground: Color(0xFF9cbb9c),
           onSurface: Color(0xFF4D734C),
           brightness: Brightness.dark,
           error: Color(0xFFFF6E40),
           onError: Color(0xFFECEFF1),
-          onPrimary: Color(0xFF4D734C),
-          onSecondary: Color(0xFF4D734C),
+          onPrimary: Color(0xFF7a8a8c),
+          onSecondary: Color(0xFF3f5354),
         ),
         textTheme: const TextTheme(
             bodyMedium: TextStyle(
@@ -129,7 +129,6 @@ class ThemeLoader with ChangeNotifier {
                 fontFamily: 'Quicksand',
                 color: Color(0xFFECEFF1)))));
 
-                
     //Palette: Blue Bert
     // ThemeData _myDarkTheme() {
     //   return (ThemeData.dark().copyWith(

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:medguardian/pages/alarms_page.dart';
+//import 'package:medguardian/pages/alarms_page.dart';
 import 'package:medguardian/pages/creation/med_create.dart';
 import 'package:medguardian/pages/home/home.dart';
-import 'package:medguardian/pages/list_page.dart';
-import 'package:medguardian/pages/location/map.dart';
+//import 'package:medguardian/pages/list_page.dart';
 import 'package:provider/provider.dart';
 import 'package:medguardian/theme/theme.dart';
 
@@ -89,16 +88,15 @@ class _CustomNavBarState extends State<CustomNavBar> {
         _navigateToPage(const MyMedCreationPage());
         break;
       case 1:
-       
         break;
       case 2:
         _navigateToPage(const MyHomePage());
         break;
       case 3:
-        _navigateToPage(const MyListPage());
+        //_navigateToPage(const MyListPage());
         break;
       case 4:
-        _navigateToPage(const MyAlarmPage());
+        //_navigateToPage(const MyAlarmPage());
         break;
     }
   }

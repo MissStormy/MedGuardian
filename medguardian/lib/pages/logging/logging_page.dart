@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:medguardian/pages/logging/log_sign_in.dart';
-import 'package:medguardian/pages/logging/log_sign_up.dart';
 import 'package:medguardian/theme/theme.dart';
 import 'package:provider/provider.dart';
 

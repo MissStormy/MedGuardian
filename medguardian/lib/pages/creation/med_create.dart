@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:medguardian/theme/theme.dart';
-import 'package:medguardian/widgets/app_bar.dart';
-import 'package:medguardian/widgets/bottom_nav_bar.dart';
 
 class MyMedCreationPage extends StatefulWidget {
   const MyMedCreationPage({super.key});
