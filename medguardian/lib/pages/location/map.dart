@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:draggable_bottom_sheet/draggable_bottom_sheet.dart';
 
-
 import 'package:medguardian/widgets/pill_container.dart';
 import 'package:provider/provider.dart';
 import 'package:medguardian/theme/theme.dart';
@@ -30,15 +29,16 @@ class MyMapPage extends StatelessWidget {
   }
 
   Widget _backgroundWidget() {
-   
     return PhotoViewGallery.builder(
       itemCount: 1, // Assuming you have only one image
       builder: (context, index) {
         return PhotoViewGalleryPageOptions(
-          imageProvider: AssetImage('assets/map.jpg'), // Replace with your image asset path
+          imageProvider: AssetImage(
+              'assets/map.jpg'), // Replace with your image asset path
           minScale: PhotoViewComputedScale.contained * 0.1, // Adjust as needed
           maxScale: PhotoViewComputedScale.contained * 2, // Adjust as needed
-          heroAttributes: PhotoViewHeroAttributes(tag: 'map_hero_tag'), // Add a hero tag if needed
+          heroAttributes: PhotoViewHeroAttributes(
+              tag: 'map_hero_tag'), // Add a hero tag if needed
         );
       },
       scrollPhysics: BouncingScrollPhysics(),
@@ -99,9 +99,9 @@ class MyMapPage extends StatelessWidget {
                 },
               ),
               ElevatedButton(
-                onPressed: () {
-                  // Handle "Bring me home" button press
-                },
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: actualTheme.colorScheme.onBackground),
                 child: Text('Bring me home'),
               ),
             ],

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:medguardian/pages/profile_page.dart';
 import 'package:medguardian/pages/settings_page.dart';
 import 'package:medguardian/theme/theme.dart';
 import 'package:provider/provider.dart';
@@ -24,8 +23,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
       leading: IconButton(
         icon: const Icon(Icons.account_circle),
         onPressed: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const MyProfilePage()));
+          
         },
       ),
       //Center: Title and image logo

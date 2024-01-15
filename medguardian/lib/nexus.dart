@@ -4,7 +4,7 @@ import 'package:medguardian/pages/home/home.dart';
 import 'package:medguardian/pages/lists/med_list.dart';
 import 'package:medguardian/pages/lists/treat_list.dart';
 import 'package:medguardian/pages/location/map.dart';
-import 'package:medguardian/pages/profile_page.dart';
+import 'package:medguardian/pages/user/profile.dart';
 import 'package:medguardian/pages/settings_page.dart';
 import 'package:provider/provider.dart';
 import 'package:medguardian/theme/theme.dart';
@@ -39,7 +39,7 @@ class _MyNexusPageState extends State<MyNexusPage> {
           icon: const Icon(Icons.account_circle),
           onPressed: () {
             setState(() {
-              _selectedIndex = 5;
+              _selectedIndex = 6;
             });
           },
         ),
@@ -58,7 +58,7 @@ class _MyNexusPageState extends State<MyNexusPage> {
           IconButton(
               onPressed: () {
                 setState(() {
-                  _selectedIndex = 6;
+                  _selectedIndex = 5;
                 });
               },
               icon: const Icon(Icons.settings))
