@@ -71,6 +71,7 @@ class _MyNexusPageState extends State<MyNexusPage> {
         color: actualTheme.colorScheme.secondary,
         shape: const CircularNotchedRectangle(),
         notchMargin: 6,
+        shadowColor: actualTheme.colorScheme.background,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [

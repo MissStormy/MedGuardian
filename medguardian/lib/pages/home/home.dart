@@ -27,17 +27,29 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
     return Scaffold(
-      
+       backgroundColor: actualTheme.colorScheme.primary, // Set the background color of the whole screen
+    
       //###################### Body ##########################
       body: SingleChildScrollView(
+        
           child: Column(children: [
         Container(
           height: 150,
           decoration: BoxDecoration(
-              color: actualTheme.colorScheme.primary,
-              borderRadius: const BorderRadius.only(
-                  bottomLeft: Radius.circular(10),
-                  bottomRight: Radius.circular(10))),
+            color: actualTheme.colorScheme.secondary,
+            borderRadius: const BorderRadius.only(
+                bottomLeft: Radius.circular(10),
+                bottomRight: Radius.circular(10)),
+            boxShadow: [
+              BoxShadow(
+                color: actualTheme.colorScheme.onSurface
+                    .withOpacity(0.5), // Adjust opacity as needed
+                offset: Offset(0, -2), // Move the shadow upwards
+                  blurRadius: 10,
+                  spreadRadius: -50, // Adjust the blur radius as needed
+              ),
+            ],
+          ),
           //The calendar widget
           child: CalendarTimeline(
             showYears: false,
@@ -46,10 +58,10 @@ class _MyHomePageState extends State<MyHomePage> {
             lastDate: DateTime.now().add(const Duration(days: 365 * 4)),
             onDateSelected: (date) => setState(() => _selectedDate = date),
             leftMargin: 20,
-            monthColor: actualTheme.colorScheme.onSecondary,
-            dayColor: actualTheme.colorScheme.secondary,
-            dayNameColor: const Color(0xFF333A47),
-            activeDayColor: actualTheme.colorScheme.secondary,
+            monthColor: actualTheme.colorScheme.onBackground,
+            dayColor: actualTheme.colorScheme.onBackground,
+            dayNameColor: actualTheme.colorScheme.onSurface,
+            activeDayColor: actualTheme.colorScheme.onSurface,
             activeBackgroundDayColor: actualTheme.colorScheme.onBackground,
             dotsColor: const Color(0xFF333A47),
             selectableDayPredicate: (date) => date.day != 23,
@@ -57,6 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
         const SizedBox(height: 10),
+
         //Now, the tabs
         //###################### Morning pirulas ##########################
         const BigContainer(containerName: "Morning pirulas", content: [
@@ -95,7 +108,6 @@ class _MyHomePageState extends State<MyHomePage> {
               icon: Icons.medication),
         ]),
       ])),
-      
     );
   }
 }
