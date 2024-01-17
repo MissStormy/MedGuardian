@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:medguardian/widgets/custom_schedule.dart';
 import 'package:medguardian/widgets/pill_container.dart';
 import 'package:medguardian/widgets/schedule_container.dart';
+import 'package:medguardian/widgets/search_bar.dart';
 import 'package:provider/provider.dart';
 import 'package:medguardian/theme/theme.dart';
 
@@ -13,6 +14,8 @@ class MyMedicalDatePage extends StatefulWidget {
 }
 
 class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
+  final TextEditingController searchController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
@@ -53,16 +56,15 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
                       child: Icon(Icons.notifications))
                 ],
               ),
-              //Search bar: TODO Widget
-              const TextField(
-                decoration: InputDecoration(
-                  hintText: 'Searchbar Placeholder',
-                  hintStyle: TextStyle(
-                    fontFamily: 'Quicksand',
-                    fontSize: 15,
-                  ),
-                ),
+              SizedBox(
+                height: 10.0,
               ),
+              //Search bar: TODO Widget
+              CustomSearchBar(
+                  controller: searchController,
+                  onSubmitted: (query) {
+                    print("Search submitted: $query");
+                  }),
               SizedBox(
                 height: 10.0,
               ),
@@ -83,10 +85,10 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
                             foregroundColor: Colors.white,
                           ),
                           child: Center(
-                            child: Icon(Icons.notifications),
+                            child: Icon(Icons.monitor_heart),
                           ),
                         ),
-                        Text("Consultation", style: TextStyle(fontSize: 10))
+                        Text("Consultation", style: TextStyle(fontSize: 12))
                       ],
                     ),
                     SizedBox(
@@ -105,10 +107,10 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
                             foregroundColor: Colors.white,
                           ),
                           child: Center(
-                            child: Icon(Icons.notifications),
+                            child: Icon(Icons.local_pharmacy),
                           ),
                         ),
-                        Text("Consultation", style: TextStyle(fontSize: 10))
+                        Text("Pharmacy", style: TextStyle(fontSize: 12))
                       ],
                     ),
                     SizedBox(
@@ -127,10 +129,10 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
                             foregroundColor: Colors.white,
                           ),
                           child: Center(
-                            child: Icon(Icons.notifications),
+                            child: Icon(Icons.calendar_month),
                           ),
                         ),
-                        Text("Consultation", style: TextStyle(fontSize: 10))
+                        Text("Appointment", style: TextStyle(fontSize: 12))
                       ],
                     ),
                     SizedBox(
@@ -149,10 +151,10 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
                             foregroundColor: Colors.white,
                           ),
                           child: Center(
-                            child: Icon(Icons.notifications),
+                            child: Icon(Icons.medication),
                           ),
                         ),
-                        Text("Consultation", style: TextStyle(fontSize: 10))
+                        Text("Recipe", style: TextStyle(fontSize: 12))
                       ],
                     )
                   ],
@@ -187,7 +189,7 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
               hour: "14:00 - 15:00"),
           CustomSchedule(
               image: Icons.person,
-              name: "Dr. Miss Stormy",
+              name: "Dr. Lokka",
               consultation: "Psychology consultation",
               date: "Tuesday, 15 August",
               hour: "14:00 - 15:00"),

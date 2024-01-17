@@ -54,6 +54,9 @@ class CustomSchedule extends StatelessWidget {
                   )
                 ],
               ),
+              SizedBox(
+                width: 15.0,
+              ),
               ElevatedButton(onPressed: null, child: Icon(Icons.video_call))
             ],
           ),
