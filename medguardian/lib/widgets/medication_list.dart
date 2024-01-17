@@ -31,7 +31,6 @@ class MedicationItem extends StatelessWidget {
           // Main content with title and button
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            
             children: [
               // Medication time
               Text(time),
@@ -47,12 +46,11 @@ class MedicationItem extends StatelessWidget {
               SizedBox(height: 8.0),
               // More button
               ElevatedButton(
-                onPressed: () {
-                  // Handle the "More" button press
-                },
+                onPressed: () {},
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: actualTheme.colorScheme.onSurface, // Set the background color
-                  foregroundColor: Colors.white, ),// Set the text color,
+                  backgroundColor: actualTheme.colorScheme.onSurface,
+                  foregroundColor: Colors.white,
+                ), // Set the text color,
                 child: Text('More'),
               ),
             ],

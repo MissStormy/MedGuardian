@@ -4,6 +4,7 @@ import 'package:medguardian/pages/home/home.dart';
 import 'package:medguardian/pages/lists/med_list.dart';
 import 'package:medguardian/pages/lists/treat_list.dart';
 import 'package:medguardian/pages/location/map.dart';
+import 'package:medguardian/pages/medical_dates/medical_date.dart';
 import 'package:medguardian/pages/user/profile.dart';
 import 'package:medguardian/pages/settings_page.dart';
 import 'package:provider/provider.dart';
@@ -18,7 +19,7 @@ class _MyNexusPageState extends State<MyNexusPage> {
   int _selectedIndex = 2;
 
   List<Widget> _screens = [
-    MyCreateNexusPage(),
+    MyMedicalDatePage(),
     MyMapPage(),
     MyHomePage(),
     MyMedListPage(),
@@ -81,7 +82,7 @@ class _MyNexusPageState extends State<MyNexusPage> {
                   _selectedIndex = 0;
                 });
               },
-              icon: const Icon(Icons.medication),
+              icon: const Icon(Icons.calendar_month),
               color: Colors.white,
             ),
             const SizedBox(width: 5),
