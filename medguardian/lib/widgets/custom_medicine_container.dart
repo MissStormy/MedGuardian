@@ -1,166 +1,161 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:medguardian/theme/theme.dart';
 
-class CustomMedicine extends StatefulWidget {
-  final String title;
-  final String text;
-  final String hour;
-  final IconData icon;
+class MedicineAccordion extends StatelessWidget {
+  final String name;
+  final String type;
+  final int pillCount;
 
-  const CustomMedicine({
-    required this.title,
-    required this.text,
-    required this.hour,
-    required this.icon,
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  _CustomMedicineState createState() => _CustomMedicineState();
-}
-
-class _CustomMedicineState extends State<CustomMedicine> {
-  bool isExpanded = false;
-  bool isLowPillsAlertEnabled = false;
-  DateTime startDate = DateTime.now();
-  DateTime endDate = DateTime.now().add(const Duration(days: 7));
+  MedicineAccordion(
+      {required this.name, required this.type, required this.pillCount});
 
   @override
   Widget build(BuildContext context) {
-    final actualTheme = Theme.of(context);
-
-    return ExpansionPanelList(
-      elevation: 0,
-      expandedHeaderPadding: EdgeInsets.zero,
-      expansionCallback: (int index, bool isExpanded) {
-        setState(() {
-          this.isExpanded = !isExpanded;
-        });
-      },
-      children: [
-        ExpansionPanel(
-          headerBuilder: (BuildContext context, bool isExpanded) {
-            return Container(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-              child: Row(
-                children: [
-                  CircleAvatar(
-                    radius: 20,
-                    child: Icon(widget.icon,
-                        color: actualTheme.colorScheme.background),
-                  ),
-                  const SizedBox(width: 15),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        widget.title,
-                        style: const TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        widget.text,
-                        style: const TextStyle(fontSize: 15),
-                      ),
-                    ],
-                  ),
-                  Expanded(
-                    child: Align(
-                      alignment: Alignment.centerRight,
-                      child: Text(
-                        widget.hour,
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: actualTheme.colorScheme.error,
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 5),
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.more_vert),
-                  ),
-                ],
-              ),
-            );
-          },
-          body: Container(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+    final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 5.0),
+      child: Container(
+        decoration: BoxDecoration(
+          color: actualTheme.colorScheme.secondary,
+          borderRadius: BorderRadius.circular(20.0),
+        ),
+        child: ExpansionTile(
+          title: Padding(
+            padding:
+                const EdgeInsets.symmetric(vertical: 2.0, horizontal: 10.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
                   children: [
-                    Text('Activate Low Pills Alert:'),
-                    Switch(
-                      value: isLowPillsAlertEnabled,
-                      onChanged: (value) {
-                        setState(() {
-                          isLowPillsAlertEnabled = value;
-                        });
-                      },
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 10),
-                Row(
-                  children: [
-                    Text('Start Date:'),
-                    SizedBox(width: 10),
-                    ElevatedButton(
-                      onPressed: () async {
-                        final pickedDate = await showDatePicker(
-                          context: context,
-                          initialDate: startDate,
-                          firstDate: DateTime.now(),
-                          lastDate: DateTime(2101),
-                        );
-
-                        if (pickedDate != null && pickedDate != startDate) {
-                          setState(() {
-                            startDate = pickedDate;
-                          });
-                        }
-                      },
-                      child: Text(
-                        "${startDate.toLocal()}".split(' ')[0],
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 10),
-                Row(
-                  children: [
-                    Text('End Date:'),
-                    SizedBox(width: 10),
-                    ElevatedButton(
-                      onPressed: () async {
-                        final pickedDate = await showDatePicker(
-                          context: context,
-                          initialDate: endDate,
-                          firstDate: DateTime.now(),
-                          lastDate: DateTime(2101),
-                        );
-
-                        if (pickedDate != null && pickedDate != endDate) {
-                          setState(() {
-                            endDate = pickedDate;
-                          });
-                        }
-                      },
-                      child: Text(
-                        "${endDate.toLocal()}".split(' ')[0],
-                      ),
+                    // Replace the Icon with your desired pill icon
+                    Icon(Icons.local_hospital, color: Colors.white),
+                    SizedBox(width: 8.0), // Adjust spacing as needed
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          name,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                              fontFamily: 'Quicksand'),
+                        ),
+                        Text(
+                          type,
+                          style: TextStyle(
+                              color: Colors.white, fontFamily: 'Quicksand'),
+                        ),
+                      ],
                     ),
                   ],
                 ),
               ],
             ),
           ),
-          isExpanded: isExpanded,
+          children: [
+            Column(
+              children: [
+                Container(
+                  margin: const EdgeInsets.symmetric(
+                      horizontal: 10.0, vertical: 10.0),
+                  padding: const EdgeInsets.all(16.0),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey),
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                  child: Row(
+                    children: [
+                      Icon(Icons.medication, color: Colors.white),
+                      SizedBox(width: 8.0),
+                      Text(
+                        'Pill Count: $pillCount',
+                        style: TextStyle(
+                            color: Colors.white, fontFamily: 'Quicksand'),
+                      ),
+                    ],
+                  ),
+                ),
+                Center(
+                    child: Container(
+                        margin: const EdgeInsets.symmetric(
+                            horizontal: 10.0),
+                        padding: const EdgeInsets.all(16.0),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.grey),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            ElevatedButton(
+                              onPressed: () {},
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor:
+                                    actualTheme.colorScheme.background,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                ),
+                                fixedSize: Size(100.0, 100.0),
+                                foregroundColor: Colors.white,
+                              ),
+                              child: Center(
+                                child: Icon(Icons.monitor_heart),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 10.0,
+                            ),
+                            ElevatedButton(
+                              onPressed: () {},
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor:
+                                    actualTheme.colorScheme.background,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                ),
+                                fixedSize: Size(100.0, 100.0),
+                                foregroundColor: Colors.white,
+                              ),
+                              child: Center(
+                                child: Icon(Icons.monitor_heart),
+                              ),
+                            ),
+                          ],
+                        ))),
+                Container(
+                  margin: const EdgeInsets.symmetric(
+                      horizontal: 10.0),
+                  padding: const EdgeInsets.all(16.0),
+                  
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor:
+                                  actualTheme.colorScheme.background,
+                              foregroundColor: Colors.white,
+                            ),
+                            child: Text("Modify")),
+                            SizedBox(width: 10.0,),
+                            ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor:
+                                  actualTheme.colorScheme.background,
+                              foregroundColor: Colors.white,
+                            ),
+                            child: Text("Erase"))
+                      ]),
+                )
+              ],
+            )
+          ],
         ),
-      ],
+      ),
     );
   }
 }

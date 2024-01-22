@@ -10,141 +10,129 @@ class MyMedCreationPage extends StatefulWidget {
 }
 
 class _MyMedCreationPageState extends State<MyMedCreationPage> {
+  final PageController _pageController = PageController();
+  int _selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
+
     return Scaffold(
-      
-      //###################### Body ##########################
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Stack(
-                children: [
-                  // Camera Icon Button (Centered)
-                  Center(
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        shape: const CircleBorder(),
-                        padding: const EdgeInsets.all(12.0),
-                      ),
-                      child: const Icon(Icons.camera),
-                    ),
-                  ),
-                  // Question Mark Icon Button (Top Right)
-                  Positioned(
-                    top: 0,
-                    right: 0,
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        shape: const CircleBorder(),
-                        padding: const EdgeInsets.all(8.0),
-                      ),
-                      child: const Icon(Icons.help),
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 20.0),
-              const TextField(
-                style: TextStyle(color: Colors.black),
-                decoration: InputDecoration(
-                  hintText: 'Pill name',
-                  hintStyle: TextStyle(fontSize: 24.0),
-                  border: UnderlineInputBorder(),
-                ),
-              ),
-              const SizedBox(height: 20.0),
-              const Row(
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Dose'),
-                        TextField(),
-                      ],
-                    ),
-                  ),
-                  SizedBox(width: 20.0),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Type'),
-                        TextField(),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 20.0),
-              Row(
-                children: [
-                  const Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Box count'),
-                        TextField(),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(width: 20.0),
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: const Text('Box Photo'),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 20.0),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('Activate low pills alert'),
-                      Switch(
-                        value: true, // Change this to the actual value
-                        onChanged: null,
-                      ),
-                    ],
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text('Date of expiry'),
-                      const SizedBox(height: 10.0),
-                      ElevatedButton(
-                        onPressed: () {},
-                        child: const Text('Select Date'),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              const SizedBox(height: 20.0),
-              ElevatedButton(
-                onPressed: () {},
-                child: const Text('Add Medicine'),
-              ),
-              const SizedBox(height: 10.0),
-              OutlinedButton(
-                onPressed: () {},
-                child: const Text('Cancel'),
-              ),
-            ],
+        body: DefaultTabController(
+      length: 4,
+      child: Scaffold(
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(kToolbarHeight),
+          child: AppBar(
+            backgroundColor: actualTheme.colorScheme.primary,
+            bottom: const TabBar(
+              tabs: [
+                Tab(
+                    icon: Icon(
+                  Icons.medication,
+                )),
+                Tab(
+                    icon: Icon(
+                  Icons.healing,
+                )),
+                Tab(
+                    icon: Icon(
+                  Icons.healing,
+                )),
+                Tab(
+                    icon: Icon(
+                  Icons.healing,
+                )),
+              ],
+              indicatorColor: Colors.green,
+              labelColor: Color.fromARGB(255, 117, 190, 119),
+              unselectedLabelColor: Color.fromARGB(255, 86, 114, 87),
+            ),
           ),
         ),
+        body: TabBarView(
+          children: [FirstPage(), SecondPage(), ThirdPage(), FourthPage()],
+        ),
       ),
+    ));
+  }
 
-      
+  // Add this method to handle page navigation
+  void _navigateToPage(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+}
+
+class FirstPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          // Add widgets for the first page
+          Text('First Page'),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('Next'),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class SecondPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          // Add widgets for the second page
+          Text('Second Page'),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('Previous'),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class ThirdPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          // Add widgets for the first page
+          Text('Third Page'),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('Next'),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class FourthPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          // Add widgets for the second page
+          Text('Fourth Page'),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('Previous'),
+          ),
+        ],
+      ),
     );
   }
 }

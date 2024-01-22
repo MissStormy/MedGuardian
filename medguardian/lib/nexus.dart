@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:medguardian/pages/creation/create_nexus.dart';
+import 'package:medguardian/pages/creation/create_med_nexus.dart';
 import 'package:medguardian/pages/home/home.dart';
 import 'package:medguardian/pages/lists/med_list.dart';
 import 'package:medguardian/pages/lists/treat_list.dart';
 import 'package:medguardian/pages/location/map.dart';
 import 'package:medguardian/pages/medical_dates/medical_date.dart';
 import 'package:medguardian/pages/user/profile.dart';
-import 'package:medguardian/pages/settings_page.dart';
+import 'package:medguardian/pages/user/settings.dart';
 import 'package:provider/provider.dart';
 import 'package:medguardian/theme/theme.dart';
 
@@ -18,14 +18,19 @@ class MyNexusPage extends StatefulWidget {
 class _MyNexusPageState extends State<MyNexusPage> {
   int _selectedIndex = 2;
 
-  List<Widget> _screens = [
+  final List<Widget> _screens = [
     MyMedicalDatePage(),
     MyMapPage(),
     MyHomePage(),
-    MyMedListPage(),
+    MyMedListPage(
+      createMed: () {
+        print("Esto funciona");
+      },
+    ),
     MyTreatmentList(),
     MySettingsPage(),
-    MyProfilePage()
+    MyProfilePage(),
+    MyCreateMedNexusPage(),
   ];
 
   @override
@@ -133,14 +138,13 @@ class _MyNexusPageState extends State<MyNexusPage> {
         child: Icon(Icons.home, color: Colors.white),
         backgroundColor: actualTheme.colorScheme.onPrimary,
         elevation: 5,
-        shape: CircleBorder(), // Set the shape to CircleBorder
+        shape: CircleBorder(),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 
   void _navigateToScreen(String route) {
-    // Navegar a la pantalla correspondiente
     Navigator.pushNamed(context, route);
   }
 }
