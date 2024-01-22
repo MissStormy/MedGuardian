@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medguardian/pages/creation/create_med_nexus.dart';
+import 'package:medguardian/pages/creation/med_create.dart';
 import 'package:medguardian/pages/home/home.dart';
 import 'package:medguardian/pages/lists/med_list.dart';
 import 'package:medguardian/pages/lists/treat_list.dart';
@@ -18,23 +19,26 @@ class MyNexusPage extends StatefulWidget {
 class _MyNexusPageState extends State<MyNexusPage> {
   int _selectedIndex = 2;
 
-  final List<Widget> _screens = [
-    MyMedicalDatePage(),
-    MyMapPage(),
-    MyHomePage(),
-    MyMedListPage(
-      createMed: () {
-        print("Esto funciona");
-      },
-    ),
-    MyTreatmentList(),
-    MySettingsPage(),
-    MyProfilePage(),
-    MyCreateMedNexusPage(),
-  ];
-
   @override
   Widget build(BuildContext context) {
+    final List<Widget> _screens = [
+      MyMedicalDatePage(),
+      MyMapPage(),
+      MyHomePage(),
+      MyMedListPage(
+        createMed: () {
+          //This receives the screen change from med_list.dart and changes
+          //the body to start the med creation wizard
+          setState(() {
+            _selectedIndex = 7;
+          });
+        },
+      ),
+      MyTreatmentList(),
+      MySettingsPage(),
+      MyProfilePage(),
+      MyMedCreationPage(),
+    ];
     final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
     return Scaffold(
       //###################### AppBar ##########################

@@ -138,15 +138,6 @@ class MyMedListPage extends StatelessWidget {
                       name: 'Medicine 1', type: 'Type A', pillCount: 10),
                   MedicineAccordion(
                       name: 'Medicine 2', type: 'Type B', pillCount: 20),
-                  ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => MyCreateMedNexusPage()),
-                        );
-                      },
-                      child: Text("CREA UN MEDICAMENTO"))
                 ],
               ),
             )
