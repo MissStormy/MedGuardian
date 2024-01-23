@@ -13,58 +13,91 @@ class MyProfilePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Stack(
-              alignment: Alignment.center,
-              children: [
-                Container(
-                  width: 200.0,
-                  height: 200.0,
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.white,
+            Container(
+              margin: EdgeInsets.all(10.0),
+              child: Row(
+                children: [
+                  Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Container(
+                        width: 150.0,
+                        height: 150.0,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.white,
+                        ),
+                        child: ClipOval(
+                          child: Image.asset(
+                            'assets/MSD_pfp.png',
+                            width: 150.0,
+                            height: 150.0,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        width: 160.0,
+                        height: 160.0,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            image: AssetImage('assets/border_pfp.png'),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                  child: ClipOval(
-                    child: Image.asset(
-                      'assets/MSD_pfp.png',
-                      width: 190.0,
-                      height: 190.0,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                Container(
-                  width: 230.0,
-                  height: 230.0,
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    image: DecorationImage(
-                      image: AssetImage('assets/border_pfp.png'),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-              ],
+                  const SizedBox(width: 10.0),
+                  Column(
+                    children: [
+                      const Text(
+                        'User Name',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 24.0, fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(height: 10.0),
+                      const Text(
+                        'User with privileges',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 18.0),
+                      ),
+                    ],
+                  )
+                ],
+              ),
             ),
             const SizedBox(height: 10.0),
-            const Text(
-              'User Name',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+            Container(
+              margin: EdgeInsets.all(10.0),
+              padding: EdgeInsets.all(10.0),
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.grey),
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  _buildSectionTitle(context, 'Personal Information', 'Edit'),
+                  SizedBox(
+                    height: 10.0,
+                  ),
+                  _buildPersonalInformationFields(),
+                ],
+              ),
             ),
-            const SizedBox(height: 10.0),
-            const Text(
-              'User with privileges',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 18.0),
-            ),
-            const Divider(thickness: 1.0, color: Colors.grey),
-            const SizedBox(height: 10.0),
-            _buildSectionTitle(context, 'Personal Information', 'Edit'),
-            _buildPersonalInformationFields(),
-            const Divider(thickness: 1.0, color: Colors.grey),
-            const SizedBox(height: 20.0),
-            _buildSectionTitle(context, 'Utilities', null),
-            _buildUtilities(),
+            Container(
+              margin: EdgeInsets.all(10.0),
+              padding: EdgeInsets.all(10.0),
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: actualTheme.colorScheme.onSurface),
+                child: Text('Log out'),
+              ),
+            )
           ],
         ),
       ),
@@ -75,7 +108,7 @@ class MyProfilePage extends StatelessWidget {
       BuildContext context, String title, String? buttonText) {
     final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      padding: const EdgeInsets.symmetric(horizontal: 10.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -130,25 +163,6 @@ class MyProfilePage extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-
-  Widget _buildUtilities() {
-    return Column(
-      children: [
-        _buildInfoRow(Icons.person, '', 'Activate guardian mode?'),
-        ElevatedButton(
-          onPressed: () {},
-          style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
-          child: const Text('Activate'),
-        ),
-        _buildInfoRow(Icons.logout, 'Log Out', ''),
-        ElevatedButton(
-          onPressed: () {},
-          style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
-          child: const Text('Log Out'),
-        ),
-      ],
     );
   }
 }
