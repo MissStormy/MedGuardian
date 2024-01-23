@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:medguardian/pages/creation/med_create.dart';
-import 'package:medguardian/pages/creation/treat_create.dart';
-import 'package:medguardian/pages/lists/med_list.dart';
-import 'package:medguardian/widgets/custom_medicine_container.dart';
-import 'package:medguardian/widgets/search_bar.dart';
 import 'package:provider/provider.dart';
 import 'package:medguardian/theme/theme.dart';
 
@@ -17,7 +13,7 @@ class MyCreateMedNexusPage extends StatefulWidget {
 class _MyCreateMedNexusPageState extends State<MyCreateMedNexusPage> {
   int _selectedIndex = 0;
 
-  final List<Widget> _screens = [MyCreateMedNexusPage(), FirstPage()];
+  final List<Widget> _screens = [const MyCreateMedNexusPage(), const FirstPage()];
   @override
   Widget build(BuildContext context) {
     final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
@@ -30,10 +26,10 @@ class _MyCreateMedNexusPageState extends State<MyCreateMedNexusPage> {
             _selectedIndex = 2;
           });
         },
-        child: Icon(Icons.add, color: Colors.white),
         backgroundColor: actualTheme.colorScheme.onSurface,
         elevation: 10,
-        shape: CircleBorder(),
+        shape: const CircleBorder(),
+        child: const Icon(Icons.add, color: Colors.white),
       ),
     );
   }

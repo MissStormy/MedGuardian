@@ -7,7 +7,7 @@ class CustomTimePicker extends StatelessWidget {
   final TimeOfDay selectedTime;
   final void Function(TimeOfDay) onTimeChanged;
 
-  CustomTimePicker({
+  const CustomTimePicker({super.key, 
     required this.label,
     required this.selectedTime,
     required this.onTimeChanged,
@@ -34,7 +34,7 @@ class CustomTimePicker extends StatelessWidget {
           style: ElevatedButton.styleFrom(
               backgroundColor: actualTheme.colorScheme.onSurface),
           child: Text(
-            "${selectedTime.format(context)}",
+            selectedTime.format(context),
           ),
         ),
       ],

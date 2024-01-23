@@ -27,7 +27,7 @@ class MyLoginPage extends StatelessWidget {
                     color: Colors.black.withOpacity(0.5),
                     spreadRadius: 5,
                     blurRadius: 20,
-                    offset: Offset(0, 3),
+                    offset: const Offset(0, 3),
                   ),
                 ],
               ),
@@ -52,7 +52,7 @@ class MyLoginPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => MyLoginInPage(),
+                        builder: (context) => const MyLoginInPage(),
                       ),
                     );
                   },
@@ -61,14 +61,14 @@ class MyLoginPage extends StatelessWidget {
                         .colorScheme.onSurface, // Set the background color
                     foregroundColor: Colors.white, // Set the text color
                   ),
-                  child: Text('Login',
+                  child: const Text('Login',
                   style: TextStyle(
                       fontFamily:
                           'Quicksand', 
                       fontSize: 25, 
                     ),),
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 ElevatedButton(
                   onPressed: () {
                     // Navigate to sign-up page
@@ -79,7 +79,7 @@ class MyLoginPage extends StatelessWidget {
                         .colorScheme.onSurface, // Set the background color
                     foregroundColor: Colors.white, // Set the text color
                   ),
-                  child: Text(
+                  child: const Text(
                     'Sign Up',
                     style: TextStyle(
                       fontFamily:
@@ -101,7 +101,7 @@ void _navigateToSignInPage(BuildContext context) {
   Navigator.push(
     context,
     PageRouteBuilder(
-      pageBuilder: (context, animation, secondaryAnimation) => MyLoginInPage(),
+      pageBuilder: (context, animation, secondaryAnimation) => const MyLoginInPage(),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         const begin = Offset(0.0, 1.0);
         const end = Offset.zero;

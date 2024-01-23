@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:medguardian/theme/theme.dart';
 
 class CustomAccordion extends StatelessWidget {
   final String title;
   final ThemeData actualTheme;
 
-  const CustomAccordion({required this.title, required this.actualTheme});
+  const CustomAccordion({super.key, required this.title, required this.actualTheme});
 
   @override
   Widget build(BuildContext context) {
@@ -25,12 +23,12 @@ class CustomAccordion extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontFamily: 'Quicksand'),
+                  style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontFamily: 'Quicksand'),
                 ),
               ],
             ),
           ),
-          children: [
+          children: const [
             
           ],
         ),

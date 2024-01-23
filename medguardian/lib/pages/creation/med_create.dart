@@ -22,27 +22,23 @@ class _MyMedCreationPageState extends State<MyMedCreationPage> {
       length: 4,
       child: Scaffold(
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(kToolbarHeight),
+          preferredSize: const Size.fromHeight(kToolbarHeight),
           child: AppBar(
             backgroundColor: actualTheme.colorScheme.primary,
             bottom: const TabBar(
               tabs: [
                 Tab(
-                    icon: Icon(
-                  Icons.medication,
-                )),
+                  text: 'Pirulas',
+                ),
                 Tab(
-                    icon: Icon(
-                  Icons.healing,
-                )),
+                  text: 'Symbols',
+                ),
                 Tab(
-                    icon: Icon(
-                  Icons.healing,
-                )),
+                  text: 'Box',
+                ),
                 Tab(
-                    icon: Icon(
-                  Icons.healing,
-                )),
+                  text: 'Finish',
+                ),
               ],
               indicatorColor: Colors.green,
               labelColor: Color.fromARGB(255, 117, 190, 119),
@@ -50,32 +46,98 @@ class _MyMedCreationPageState extends State<MyMedCreationPage> {
             ),
           ),
         ),
-        body: TabBarView(
+        body: const TabBarView(
           children: [FirstPage(), SecondPage(), ThirdPage(), FourthPage()],
         ),
       ),
     ));
   }
-
-  // Add this method to handle page navigation
-  void _navigateToPage(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
 }
 
 class FirstPage extends StatelessWidget {
+  const FirstPage({super.key});
+
   @override
   Widget build(BuildContext context) {
+    final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
     return SingleChildScrollView(
       child: Column(
         children: [
-          // Add widgets for the first page
-          Text('First Page'),
+          SizedBox(height: 5.0),
+          const Text(
+            'Pirulas info',
+            style: TextStyle(fontSize: 30),
+          ),
+          SizedBox(height: 5.0),
+          Container(
+              margin:
+                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+              padding: const EdgeInsets.all(16.0),
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.grey),
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+              child:  Column(
+                children: [
+                  TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Pirula name',
+                      hintStyle: TextStyle(
+                        fontFamily: 'Quicksand',
+                        fontSize: 25,
+                      ),
+                    ),
+                  ),
+                  TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Brand',
+                      hintStyle: TextStyle(
+                        fontFamily: 'Quicksand',
+                        fontSize: 25,
+                      ),
+                    ),
+                  ),
+                  Row(
+                    children: [
+                      Flexible(
+                        flex: 2,
+                        child: TextField(
+                          decoration: InputDecoration(
+                            hintText: 'Dose',
+                            hintStyle: TextStyle(
+                              fontFamily: 'Quicksand',
+                              fontSize: 25,
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 8),
+                      Flexible(
+                        flex: 3,
+                        child: TextField(
+                          decoration: InputDecoration(
+                            hintText: 'Type',
+                            hintStyle: TextStyle(
+                              fontFamily: 'Quicksand',
+                              fontSize: 25,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  
+                ],
+                
+              )),
+              
           ElevatedButton(
             onPressed: () {},
-            child: Text('Next'),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: actualTheme.colorScheme.onSurface,
+              foregroundColor: Colors.white,
+            ),
+            child: const Text('Next'),
           ),
         ],
       ),
@@ -84,16 +146,22 @@ class FirstPage extends StatelessWidget {
 }
 
 class SecondPage extends StatelessWidget {
+  const SecondPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
         children: [
-          // Add widgets for the second page
-          Text('Second Page'),
+          SizedBox(height: 5.0),
+          const Text(
+            'Symbols',
+            style: TextStyle(fontSize: 30),
+          ),
+          SizedBox(height: 5.0),
           ElevatedButton(
             onPressed: () {},
-            child: Text('Previous'),
+            child: const Text('Next'),
           ),
         ],
       ),
@@ -102,16 +170,22 @@ class SecondPage extends StatelessWidget {
 }
 
 class ThirdPage extends StatelessWidget {
+  const ThirdPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
         children: [
-          // Add widgets for the first page
-          Text('Third Page'),
+          SizedBox(height: 5.0),
+          const Text(
+            'Box info',
+            style: TextStyle(fontSize: 30),
+          ),
+          SizedBox(height: 5.0),
           ElevatedButton(
             onPressed: () {},
-            child: Text('Next'),
+            child: const Text('Next'),
           ),
         ],
       ),
@@ -120,19 +194,36 @@ class ThirdPage extends StatelessWidget {
 }
 
 class FourthPage extends StatelessWidget {
+  const FourthPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Column(
-        children: [
-          // Add widgets for the second page
-          Text('Fourth Page'),
-          ElevatedButton(
-            onPressed: () {},
-            child: Text('Previous'),
-          ),
-        ],
-      ),
+      child: Column(children: [
+        SizedBox(height: 5.0),
+        const Text(
+          'Review',
+          style: TextStyle(fontSize: 30),
+        ),
+        SizedBox(height: 5.0),
+        ElevatedButton(
+          onPressed: () {},
+          child: const Text('Previous'),
+        ),
+        Container(
+            margin:
+                const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+            padding: const EdgeInsets.all(16.0),
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.grey),
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            child: Column(
+              children: [
+                
+              ],
+            )),
+      ]),
     );
   }
 }

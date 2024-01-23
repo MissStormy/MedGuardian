@@ -5,7 +5,8 @@ import 'package:medguardian/widgets/medication_list.dart';
 import 'package:provider/provider.dart';
 
 class MyTreatmentList extends StatelessWidget {
-  const MyTreatmentList({Key? key});
+  final VoidCallback createTreat;
+  const MyTreatmentList({super.key, required this.createTreat});
 
   @override
   Widget build(BuildContext context) {
@@ -15,14 +16,14 @@ class MyTreatmentList extends StatelessWidget {
         child: Column(
           children: [
             _buildMedicationRow('Morning Pirulas'),
-            Container(
+            SizedBox(
               height: 200,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: 5,
                 itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(16.0),
+                  return const Padding(
+                    padding: EdgeInsets.all(16.0),
                     child: Row(
                       children: [
                         MedicationItem(
@@ -37,14 +38,14 @@ class MyTreatmentList extends StatelessWidget {
               ),
             ),
             _buildMedicationRow('Midday Pirulas'),
-            Container(
+            SizedBox(
               height: 200,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: 5,
                 itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(16.0),
+                  return const Padding(
+                    padding: EdgeInsets.all(16.0),
                     child: Row(
                       children: [
                         MedicationItem(
@@ -59,14 +60,14 @@ class MyTreatmentList extends StatelessWidget {
               ),
             ),
             _buildMedicationRow('Night Pirulas'),
-            Container(
+            SizedBox(
               height: 200,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: 5,
                 itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(16.0),
+                  return const Padding(
+                    padding: EdgeInsets.all(16.0),
                     child: Row(
                       children: [
                         MedicationItem(
@@ -84,16 +85,11 @@ class MyTreatmentList extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => MyTreatCreatPage()),
-          );
-        },
-        child: Icon(Icons.add, color: Colors.white),
+        onPressed: () => createTreat(),
         backgroundColor: actualTheme.colorScheme.onSurface,
         elevation: 10,
-        shape: CircleBorder(),
+        shape: const CircleBorder(),
+        child: const Icon(Icons.add, color: Colors.white),
       ),
     );
   }
@@ -105,12 +101,12 @@ class MyTreatmentList extends StatelessWidget {
         children: [
           Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 18,
             ),
           ),
-          Divider(
+          const Divider(
             indent: 30,
             endIndent: 30,
           ), // Add a divider for visual separation

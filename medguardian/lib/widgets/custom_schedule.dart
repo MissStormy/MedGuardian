@@ -16,7 +16,7 @@ class CustomSchedule extends StatelessWidget {
   final String hour;
 
   const CustomSchedule(
-      {required this.image,
+      {super.key, required this.image,
       required this.name,
       required this.consultation,
       required this.date,
@@ -45,22 +45,22 @@ class CustomSchedule extends StatelessWidget {
                   Text(
                     name,
                     textAlign: TextAlign.left,
-                    style: TextStyle(fontSize: 20),
+                    style: const TextStyle(fontSize: 20),
                   ),
                   Text(
                     consultation,
                     textAlign: TextAlign.left,
-                    style: TextStyle(fontSize: 15),
+                    style: const TextStyle(fontSize: 15),
                   )
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 width: 15.0,
               ),
-              ElevatedButton(onPressed: null, child: Icon(Icons.video_call))
+              const ElevatedButton(onPressed: null, child: Icon(Icons.video_call))
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 10.0,
           ),
           Container(
@@ -72,12 +72,12 @@ class CustomSchedule extends StatelessWidget {
             ),
             child: Row(
               children: [
-                Icon(Icons.calendar_month),
+                const Icon(Icons.calendar_month),
                 Text(date),
-                SizedBox(
+                const SizedBox(
                   width: 5.0,
                 ),
-                Icon(Icons.schedule),
+                const Icon(Icons.schedule),
                 Text(hour)
               ],
             ),

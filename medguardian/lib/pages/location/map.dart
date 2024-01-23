@@ -9,6 +9,8 @@ import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
 
 class MyMapPage extends StatelessWidget {
+  const MyMapPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
@@ -33,16 +35,16 @@ class MyMapPage extends StatelessWidget {
       itemCount: 1, // Assuming you have only one image
       builder: (context, index) {
         return PhotoViewGalleryPageOptions(
-          imageProvider: AssetImage(
+          imageProvider: const AssetImage(
               'assets/map.jpg'), // Replace with your image asset path
           minScale: PhotoViewComputedScale.contained * 0.1, // Adjust as needed
           maxScale: PhotoViewComputedScale.contained * 2, // Adjust as needed
-          heroAttributes: PhotoViewHeroAttributes(
+          heroAttributes: const PhotoViewHeroAttributes(
               tag: 'map_hero_tag'), // Add a hero tag if needed
         );
       },
-      scrollPhysics: BouncingScrollPhysics(),
-      backgroundDecoration: BoxDecoration(
+      scrollPhysics: const BouncingScrollPhysics(),
+      backgroundDecoration: const BoxDecoration(
         color: Colors.black,
       ),
       pageController: PageController(),
@@ -54,7 +56,7 @@ class MyMapPage extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: actualTheme.colorScheme.primary,
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(20),
           topRight: Radius.circular(20),
         ),
@@ -70,7 +72,7 @@ class MyMapPage extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 8),
-          Row(),
+          const Row(),
         ],
       ),
     );
@@ -81,7 +83,7 @@ class MyMapPage extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: actualTheme.colorScheme.primary,
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(20),
           topRight: Radius.circular(20),
         ),
@@ -92,7 +94,7 @@ class MyMapPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               IconButton(
-                icon: Icon(Icons.keyboard_arrow_down,
+                icon: const Icon(Icons.keyboard_arrow_down,
                     size: 30, color: Colors.white),
                 onPressed: () {
                   // Handle button press
@@ -102,12 +104,12 @@ class MyMapPage extends StatelessWidget {
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
                     backgroundColor: actualTheme.colorScheme.onBackground),
-                child: Text('Bring me home'),
+                child: const Text('Bring me home'),
               ),
             ],
           ),
-          SizedBox(height: 8),
-          Text(
+          const SizedBox(height: 8),
+          const Text(
             'Closest drug stores',
             style: TextStyle(
               color: Colors.white,
@@ -115,7 +117,7 @@ class MyMapPage extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           Expanded(
             child: ListView(
               children: const [

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class ScheduleContainer extends StatelessWidget {
   final List<Widget> content;
-  const ScheduleContainer({required this.content});
+  const ScheduleContainer({super.key, required this.content});
 
   @override
   Widget build(BuildContext context) {

@@ -6,7 +6,7 @@ class CustomDatePicker extends StatelessWidget {
   final DateTime selectedDate;
   final void Function(DateTime) onDateChanged;
 
-  CustomDatePicker({
+  const CustomDatePicker({super.key, 
     required this.selectedDate,
     required this.onDateChanged,
   });

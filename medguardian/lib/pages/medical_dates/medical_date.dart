@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:medguardian/widgets/custom_schedule.dart';
-import 'package:medguardian/widgets/pill_container.dart';
 import 'package:medguardian/widgets/schedule_container.dart';
 import 'package:medguardian/widgets/search_bar.dart';
 import 'package:provider/provider.dart';
@@ -36,15 +35,15 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
               //Two titles in line with the notification button
               Row(
                 children: [
-                  Column(
+                  const Column(
                     children: [
                       Text("Hi there, Nyarlathotep",
-                          style: const TextStyle(fontSize: 20)),
+                          style: TextStyle(fontSize: 20)),
                       Text("How do you feel today?",
-                          style: const TextStyle(fontSize: 15))
+                          style: TextStyle(fontSize: 15))
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 20.0,
                   ),
                   ElevatedButton(
@@ -53,10 +52,10 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
                         backgroundColor: actualTheme.colorScheme.onSurface,
                         foregroundColor: Colors.white,
                       ),
-                      child: Icon(Icons.notifications))
+                      child: const Icon(Icons.notifications))
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10.0,
               ),
               //Search bar: TODO Widget
@@ -65,7 +64,7 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
                   onSubmitted: (query) {
                     print("Search submitted: $query");
                   }),
-              SizedBox(
+              const SizedBox(
                 height: 10.0,
               ),
               Center(
@@ -81,17 +80,17 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0),
                             ),
-                            fixedSize: Size(50.0, 50.0),
+                            fixedSize: const Size(50.0, 50.0),
                             foregroundColor: Colors.white,
                           ),
-                          child: Center(
+                          child: const Center(
                             child: Icon(Icons.monitor_heart),
                           ),
                         ),
-                        Text("Consultation", style: TextStyle(fontSize: 12))
+                        const Text("Consultation", style: TextStyle(fontSize: 12))
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10.0,
                     ),
                     Column(
@@ -103,17 +102,17 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0),
                             ),
-                            fixedSize: Size(50.0, 50.0),
+                            fixedSize: const Size(50.0, 50.0),
                             foregroundColor: Colors.white,
                           ),
-                          child: Center(
+                          child: const Center(
                             child: Icon(Icons.local_pharmacy),
                           ),
                         ),
-                        Text("Pharmacy", style: TextStyle(fontSize: 12))
+                        const Text("Pharmacy", style: TextStyle(fontSize: 12))
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10.0,
                     ),
                     Column(
@@ -125,17 +124,17 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0),
                             ),
-                            fixedSize: Size(50.0, 50.0),
+                            fixedSize: const Size(50.0, 50.0),
                             foregroundColor: Colors.white,
                           ),
-                          child: Center(
+                          child: const Center(
                             child: Icon(Icons.calendar_month),
                           ),
                         ),
-                        Text("Appointment", style: TextStyle(fontSize: 12))
+                        const Text("Appointment", style: TextStyle(fontSize: 12))
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10.0,
                     ),
                     Column(
@@ -147,14 +146,14 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0),
                             ),
-                            fixedSize: Size(50.0, 50.0),
+                            fixedSize: const Size(50.0, 50.0),
                             foregroundColor: Colors.white,
                           ),
-                          child: Center(
+                          child: const Center(
                             child: Icon(Icons.medication),
                           ),
                         ),
-                        Text("Recipe", style: TextStyle(fontSize: 12))
+                        const Text("Recipe", style: TextStyle(fontSize: 12))
                       ],
                     )
                   ],
@@ -163,24 +162,24 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
             ],
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 10.0,
         ),
         Container(
           width: 300,
           height: 25,
           alignment: Alignment.centerLeft,
-          child: Text(
+          child: const Text(
             "Upcoming Schedule",
             style: TextStyle(fontSize: 20),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 10.0,
         ),
         //###################### Upcoming Schedule ##########################
         //TODO: Make big container for schedules
-        ScheduleContainer(content: [
+        const ScheduleContainer(content: [
           CustomSchedule(
               image: Icons.person,
               name: "Dr. Miss Stormy",
@@ -196,19 +195,19 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
         ]),
 
         //###################### Doctor Speciality ##########################
-        SizedBox(
+        const SizedBox(
           height: 10.0,
         ),
         Container(
           width: 300,
           height: 25,
           alignment: Alignment.centerLeft,
-          child: Text(
+          child: const Text(
             "Doctor Speciality",
             style: TextStyle(fontSize: 20),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 5.0,
         ),
         Container(
@@ -220,51 +219,51 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
                 Column(
                   children: [
                     ElevatedButton(
-                        onPressed: () {}, child: Icon(Icons.healing)),
-                    Center(
+                        onPressed: () {}, child: const Icon(Icons.healing)),
+                    const Center(
                       child: Text("General"),
                     )
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 5.0,
                 ),
                 Column(
                   children: [
                     ElevatedButton(
-                        onPressed: () {}, child: Icon(Icons.healing)),
-                    Center(
+                        onPressed: () {}, child: const Icon(Icons.healing)),
+                    const Center(
                       child: Text("General"),
                     )
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 5.0,
                 ),
                 Column(
                   children: [
                     ElevatedButton(
-                        onPressed: () {}, child: Icon(Icons.healing)),
-                    Center(
+                        onPressed: () {}, child: const Icon(Icons.healing)),
+                    const Center(
                       child: Text("General"),
                     )
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 5.0,
                 ),
                 Column(
                   children: [
                     ElevatedButton(
-                        onPressed: () {}, child: Icon(Icons.healing)),
-                    Center(
+                        onPressed: () {}, child: const Icon(Icons.healing)),
+                    const Center(
                       child: Text("General"),
                     )
                   ],
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 5.0,
             ),
             Row(
@@ -272,44 +271,44 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
                 Column(
                   children: [
                     ElevatedButton(
-                        onPressed: () {}, child: Icon(Icons.healing)),
-                    Center(
+                        onPressed: () {}, child: const Icon(Icons.healing)),
+                    const Center(
                       child: Text("General"),
                     )
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 5.0,
                 ),
                 Column(
                   children: [
                     ElevatedButton(
-                        onPressed: () {}, child: Icon(Icons.healing)),
-                    Center(
+                        onPressed: () {}, child: const Icon(Icons.healing)),
+                    const Center(
                       child: Text("General"),
                     )
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 5.0,
                 ),
                 Column(
                   children: [
                     ElevatedButton(
-                        onPressed: () {}, child: Icon(Icons.healing)),
-                    Center(
+                        onPressed: () {}, child: const Icon(Icons.healing)),
+                    const Center(
                       child: Text("General"),
                     )
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 5.0,
                 ),
                 Column(
                   children: [
                     ElevatedButton(
-                        onPressed: () {}, child: Icon(Icons.healing)),
-                    Center(
+                        onPressed: () {}, child: const Icon(Icons.healing)),
+                    const Center(
                       child: Text("General"),
                     )
                   ],

@@ -27,11 +27,11 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
     return Scaffold(
-       backgroundColor: actualTheme.colorScheme.primary, // Set the background color of the whole screen
-    
+      backgroundColor: actualTheme
+          .colorScheme.primary, // Set the background color of the whole screen
+
       //###################### Body ##########################
       body: SingleChildScrollView(
-        
           child: Column(children: [
         Container(
           height: 150,
@@ -44,9 +44,9 @@ class _MyHomePageState extends State<MyHomePage> {
               BoxShadow(
                 color: actualTheme.colorScheme.onSurface
                     .withOpacity(0.5), // Adjust opacity as needed
-                offset: Offset(0, -2), // Move the shadow upwards
-                  blurRadius: 10,
-                  spreadRadius: -50, // Adjust the blur radius as needed
+                offset: const Offset(0, -2), // Move the shadow upwards
+                blurRadius: 10,
+                spreadRadius: -50, // Adjust the blur radius as needed
               ),
             ],
           ),
@@ -64,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
             activeDayColor: actualTheme.colorScheme.onSurface,
             activeBackgroundDayColor: actualTheme.colorScheme.onBackground,
             dotsColor: const Color(0xFF333A47),
-            selectableDayPredicate: (date) => date.day != 23,
+            selectableDayPredicate: (date) => date.day != 24,
             locale: 'es',
           ),
         ),

@@ -53,20 +53,20 @@ class MyLoginInPage extends StatelessWidget {
                 ),
               ),
 
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
 
               TextField(
                 obscureText: true,
                 decoration: InputDecoration(
                   hintText: 'Password',
-                  hintStyle: TextStyle(
+                  hintStyle: const TextStyle(
                       fontFamily:
                           'Quicksand', 
                       fontSize: 25, 
                     ),
                   
                   suffixIcon: IconButton(
-                    icon: Icon(Icons.visibility),
+                    icon: const Icon(Icons.visibility),
                     onPressed: () {
                       // Toggle password visibility
                     },
@@ -74,7 +74,7 @@ class MyLoginInPage extends StatelessWidget {
                 ),
               ),
 
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
 
               // Checkbox "Remind me"
               Row(
@@ -85,11 +85,11 @@ class MyLoginInPage extends StatelessWidget {
                       // Handle checkbox state change
                     },
                   ),
-                  Text('Remind me'),
+                  const Text('Remind me'),
                 ],
               ),
 
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
 
               // Button "Sign In"
               ElevatedButton(
@@ -115,7 +115,7 @@ class MyLoginInPage extends StatelessWidget {
                 onTap: () {
                   
                 },
-                child: Text(
+                child: const Text(
                   "Don't have an account? Sign Up",
                   style: TextStyle(
                     color: Colors.blue,
@@ -135,7 +135,7 @@ void _navigateToNexusPage(BuildContext context) {
   Navigator.push(
     context,
     PageRouteBuilder(
-      pageBuilder: (context, animation, secondaryAnimation) => MyNexusPage(),
+      pageBuilder: (context, animation, secondaryAnimation) => const MyNexusPage(),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         const begin = Offset(0.0, 1.0);
         const end = Offset.zero;

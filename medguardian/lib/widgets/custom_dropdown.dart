@@ -8,7 +8,7 @@ class CustomDropdown extends StatelessWidget {
   final String value;
   final void Function(String?) onChanged;
 
-  CustomDropdown({
+  const CustomDropdown({super.key, 
     required this.label,
     required this.items,
     required this.value,
@@ -23,7 +23,7 @@ class CustomDropdown extends StatelessWidget {
       children: [
         Text(label),
         Container(
-          padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 12.0),
+          padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 12.0),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8.0),
             border: Border.all(
@@ -33,7 +33,7 @@ class CustomDropdown extends StatelessWidget {
             value: value,
             onChanged: onChanged,
             isExpanded: true,
-            icon: Icon(Icons.arrow_drop_down),
+            icon: const Icon(Icons.arrow_drop_down),
             iconSize: 24,
             elevation: 16,
             style: TextStyle(
@@ -49,7 +49,7 @@ class CustomDropdown extends StatelessWidget {
                 value: item,
                 child: Text(
                   item,
-                  style: TextStyle(fontSize: 16),
+                  style: const TextStyle(fontSize: 16),
                 ),
               );
             }).toList(),

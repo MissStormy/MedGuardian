@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:medguardian/widgets/custom_accordion.dart';
-import 'package:medguardian/widgets/custom_dropdown.dart';
 import 'package:provider/provider.dart';
 import 'package:medguardian/theme/theme.dart';
 
@@ -24,7 +23,7 @@ class _MySettingsPageState extends State<MySettingsPage> {
             margin: const EdgeInsets.symmetric(horizontal: 10.0),
             padding: const EdgeInsets.all(16.0),
             alignment: Alignment.centerLeft,
-            child: Text(
+            child: const Text(
               "Global",
               style: TextStyle(fontSize: 20),
             ),
@@ -50,7 +49,7 @@ class _MySettingsPageState extends State<MySettingsPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Dark mode",
+                      const Text("Dark mode",
                           style: TextStyle(fontWeight: FontWeight.bold)),
                       Switch(
                         value: true,
@@ -60,7 +59,7 @@ class _MySettingsPageState extends State<MySettingsPage> {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 5.0,
                 ),
                 Container(
@@ -75,7 +74,7 @@ class _MySettingsPageState extends State<MySettingsPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Notifications",
+                      const Text("Notifications",
                           style: TextStyle(fontWeight: FontWeight.bold)),
                       Switch(
                         value: true,
@@ -96,7 +95,7 @@ class _MySettingsPageState extends State<MySettingsPage> {
             margin: const EdgeInsets.symmetric(horizontal: 10.0),
             padding: const EdgeInsets.all(10.0),
             alignment: Alignment.centerLeft,
-            child: Text(
+            child: const Text(
               "Miscellanea",
               style: TextStyle(fontSize: 20),
             ),
@@ -119,7 +118,7 @@ class _MySettingsPageState extends State<MySettingsPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Doctors",
+                      const Text("Doctors",
                           style: TextStyle(fontWeight: FontWeight.bold)),
                       Switch(
                         value: true,
@@ -140,7 +139,7 @@ class _MySettingsPageState extends State<MySettingsPage> {
             margin: const EdgeInsets.symmetric(horizontal: 10.0),
             padding: const EdgeInsets.all(16.0),
             alignment: Alignment.centerLeft,
-            child: Text(
+            child: const Text(
               "Support",
               style: TextStyle(fontSize: 20),
             ),

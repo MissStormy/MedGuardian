@@ -7,8 +7,8 @@ class MedicineAccordion extends StatelessWidget {
   final String type;
   final int pillCount;
 
-  MedicineAccordion(
-      {required this.name, required this.type, required this.pillCount});
+  const MedicineAccordion(
+      {super.key, required this.name, required this.type, required this.pillCount});
 
   @override
   Widget build(BuildContext context) {
@@ -30,21 +30,21 @@ class MedicineAccordion extends StatelessWidget {
                 Row(
                   children: [
                     // Replace the Icon with your desired pill icon
-                    Icon(Icons.local_hospital, color: Colors.white),
-                    SizedBox(width: 8.0), // Adjust spacing as needed
+                    const Icon(Icons.local_hospital, color: Colors.white),
+                    const SizedBox(width: 8.0), // Adjust spacing as needed
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           name,
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.white,
                               fontFamily: 'Quicksand'),
                         ),
                         Text(
                           type,
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: Colors.white, fontFamily: 'Quicksand'),
                         ),
                       ],
@@ -67,11 +67,11 @@ class MedicineAccordion extends StatelessWidget {
                   ),
                   child: Row(
                     children: [
-                      Icon(Icons.medication, color: Colors.white),
-                      SizedBox(width: 8.0),
+                      const Icon(Icons.medication, color: Colors.white),
+                      const SizedBox(width: 8.0),
                       Text(
                         'Pill Count: $pillCount',
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Colors.white, fontFamily: 'Quicksand'),
                       ),
                     ],
@@ -97,14 +97,14 @@ class MedicineAccordion extends StatelessWidget {
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
-                                fixedSize: Size(100.0, 100.0),
+                                fixedSize: const Size(100.0, 100.0),
                                 foregroundColor: Colors.white,
                               ),
-                              child: Center(
+                              child: const Center(
                                 child: Icon(Icons.monitor_heart),
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 10.0,
                             ),
                             ElevatedButton(
@@ -115,10 +115,10 @@ class MedicineAccordion extends StatelessWidget {
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
-                                fixedSize: Size(100.0, 100.0),
+                                fixedSize: const Size(100.0, 100.0),
                                 foregroundColor: Colors.white,
                               ),
-                              child: Center(
+                              child: const Center(
                                 child: Icon(Icons.monitor_heart),
                               ),
                             ),
@@ -139,8 +139,8 @@ class MedicineAccordion extends StatelessWidget {
                                   actualTheme.colorScheme.background,
                               foregroundColor: Colors.white,
                             ),
-                            child: Text("Modify")),
-                            SizedBox(width: 10.0,),
+                            child: const Text("Modify")),
+                            const SizedBox(width: 10.0,),
                             ElevatedButton(
                             onPressed: () {},
                             style: ElevatedButton.styleFrom(
@@ -148,7 +148,7 @@ class MedicineAccordion extends StatelessWidget {
                                   actualTheme.colorScheme.background,
                               foregroundColor: Colors.white,
                             ),
-                            child: Text("Erase"))
+                            child: const Text("Erase"))
                       ]),
                 )
               ],

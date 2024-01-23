@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:medguardian/pages/creation/create_med_nexus.dart';
-import 'package:medguardian/pages/creation/med_create.dart';
 import 'package:medguardian/widgets/custom_medicine_container.dart';
 import 'package:medguardian/widgets/search_bar.dart';
 import 'package:provider/provider.dart';
@@ -95,7 +93,7 @@ class _MyMedListPageState extends State<MyMedListPage> {
 }*/
 class MyMedListPage extends StatelessWidget {
   final VoidCallback createMed;
-  MyMedListPage({required this.createMed});
+  const MyMedListPage({super.key, required this.createMed});
 
   @override
   Widget build(BuildContext context) {
@@ -119,7 +117,7 @@ class MyMedListPage extends StatelessWidget {
                               print("Search submitted: $query");
                             }),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 8.0,
                       ),
                       ElevatedButton(
@@ -128,15 +126,15 @@ class MyMedListPage extends StatelessWidget {
                             backgroundColor: actualTheme.colorScheme.onSurface,
                             foregroundColor: Colors.white,
                           ),
-                          child: Icon(Icons.filter_alt))
+                          child: const Icon(Icons.filter_alt))
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5.0,
                   ),
-                  MedicineAccordion(
+                  const MedicineAccordion(
                       name: 'Medicine 1', type: 'Type A', pillCount: 10),
-                  MedicineAccordion(
+                  const MedicineAccordion(
                       name: 'Medicine 2', type: 'Type B', pillCount: 20),
                 ],
               ),
@@ -146,10 +144,10 @@ class MyMedListPage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => createMed(),
-        child: Icon(Icons.add, color: Colors.white),
         backgroundColor: actualTheme.colorScheme.onSurface,
         elevation: 10,
-        shape: CircleBorder(),
+        shape: const CircleBorder(),
+        child: const Icon(Icons.add, color: Colors.white),
       ),
     );
   }

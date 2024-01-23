@@ -19,7 +19,7 @@ class MyProfilePage extends StatelessWidget {
                 Container(
                   width: 200.0,
                   height: 200.0,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     color: Colors.white,
                   ),
@@ -35,7 +35,7 @@ class MyProfilePage extends StatelessWidget {
                 Container(
                   width: 230.0,
                   height: 230.0,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     image: DecorationImage(
                       image: AssetImage('assets/border_pfp.png'),
@@ -45,24 +45,24 @@ class MyProfilePage extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 10.0),
-            Text(
+            const SizedBox(height: 10.0),
+            const Text(
               'User Name',
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 10.0),
-            Text(
+            const SizedBox(height: 10.0),
+            const Text(
               'User with privileges',
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 18.0),
             ),
-            Divider(thickness: 1.0, color: Colors.grey),
-            SizedBox(height: 10.0),
+            const Divider(thickness: 1.0, color: Colors.grey),
+            const SizedBox(height: 10.0),
             _buildSectionTitle(context, 'Personal Information', 'Edit'),
             _buildPersonalInformationFields(),
-            Divider(thickness: 1.0, color: Colors.grey),
-            SizedBox(height: 20.0),
+            const Divider(thickness: 1.0, color: Colors.grey),
+            const SizedBox(height: 20.0),
             _buildSectionTitle(context, 'Utilities', null),
             _buildUtilities(),
           ],
@@ -113,9 +113,9 @@ class MyProfilePage extends StatelessWidget {
       child: Row(
         children: [
           Icon(icon),
-          SizedBox(width: 8.0),
+          const SizedBox(width: 8.0),
           Text(label),
-          SizedBox(width: 8.0),
+          const SizedBox(width: 8.0),
           Expanded(
             child: isPassword
                 ? TextFormField(
@@ -140,13 +140,13 @@ class MyProfilePage extends StatelessWidget {
         ElevatedButton(
           onPressed: () {},
           style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
-          child: Text('Activate'),
+          child: const Text('Activate'),
         ),
         _buildInfoRow(Icons.logout, 'Log Out', ''),
         ElevatedButton(
           onPressed: () {},
           style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
-          child: Text('Log Out'),
+          child: const Text('Log Out'),
         ),
       ],
     );

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:medguardian/pages/creation/create_med_nexus.dart';
 import 'package:medguardian/pages/creation/med_create.dart';
+import 'package:medguardian/pages/creation/treat_create.dart';
 import 'package:medguardian/pages/home/home.dart';
 import 'package:medguardian/pages/lists/med_list.dart';
 import 'package:medguardian/pages/lists/treat_list.dart';
@@ -12,6 +12,8 @@ import 'package:provider/provider.dart';
 import 'package:medguardian/theme/theme.dart';
 
 class MyNexusPage extends StatefulWidget {
+  const MyNexusPage({super.key});
+
   @override
   _MyNexusPageState createState() => _MyNexusPageState();
 }
@@ -21,10 +23,10 @@ class _MyNexusPageState extends State<MyNexusPage> {
 
   @override
   Widget build(BuildContext context) {
-    final List<Widget> _screens = [
-      MyMedicalDatePage(),
-      MyMapPage(),
-      MyHomePage(),
+    final List<Widget> screens = [
+      const MyMedicalDatePage(),
+      const MyMapPage(),
+      const MyHomePage(),
       MyMedListPage(
         createMed: () {
           //This receives the screen change from med_list.dart and changes
@@ -34,10 +36,19 @@ class _MyNexusPageState extends State<MyNexusPage> {
           });
         },
       ),
-      MyTreatmentList(),
-      MySettingsPage(),
-      MyProfilePage(),
-      MyMedCreationPage(),
+      MyTreatmentList(
+        createTreat: () {
+          //This receives the screen change from treat_list.dart and changes
+          //the body to start the treatment creation wizard
+          setState(() {
+            _selectedIndex = 8;
+          });
+        },
+      ),
+      const MySettingsPage(),
+      const MyProfilePage(),
+      const MyMedCreationPage(),
+      const MyTreatCreatPage()
     ];
     final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
     return Scaffold(
@@ -75,7 +86,7 @@ class _MyNexusPageState extends State<MyNexusPage> {
         ],
       ),
       //###################### Body ##########################
-      body: _screens[_selectedIndex],
+      body: screens[_selectedIndex],
       //###################### Bottom Nav Bar ##########################
       bottomNavigationBar: BottomAppBar(
         color: actualTheme.colorScheme.secondary,
@@ -139,10 +150,10 @@ class _MyNexusPageState extends State<MyNexusPage> {
             _selectedIndex = 2;
           });
         },
-        child: Icon(Icons.home, color: Colors.white),
         backgroundColor: actualTheme.colorScheme.onPrimary,
         elevation: 5,
-        shape: CircleBorder(),
+        shape: const CircleBorder(),
+        child: const Icon(Icons.home, color: Colors.white),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );

@@ -7,7 +7,7 @@ class MedicationItem extends StatelessWidget {
   final String name;
   final IconData icon;
 
-  MedicationItem({required this.time, required this.name, required this.icon});
+  const MedicationItem({super.key, required this.time, required this.name, required this.icon});
 
   @override
   Widget build(BuildContext context) {
@@ -27,23 +27,23 @@ class MedicationItem extends StatelessWidget {
             left: 8,
             child: Icon(icon, size: 24.0),
           ),
-          SizedBox(width: 32.0),
+          const SizedBox(width: 32.0),
           // Main content with title and button
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Medication time
               Text(time),
-              SizedBox(height: 8.0),
+              const SizedBox(height: 8.0),
               // Medication name
               Text(
                 name,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 18.0,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 8.0),
+              const SizedBox(height: 8.0),
               // More button
               ElevatedButton(
                 onPressed: () {},
@@ -51,7 +51,7 @@ class MedicationItem extends StatelessWidget {
                   backgroundColor: actualTheme.colorScheme.onSurface,
                   foregroundColor: Colors.white,
                 ), // Set the text color,
-                child: Text('More'),
+                child: const Text('More'),
               ),
             ],
           ),
