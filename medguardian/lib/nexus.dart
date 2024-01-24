@@ -5,11 +5,17 @@ import 'package:medguardian/pages/home/home.dart';
 import 'package:medguardian/pages/lists/med_list.dart';
 import 'package:medguardian/pages/lists/treat_list.dart';
 import 'package:medguardian/pages/location/map.dart';
+import 'package:medguardian/pages/medical_dates/chat_room.dart';
 import 'package:medguardian/pages/medical_dates/medical_date.dart';
 import 'package:medguardian/pages/user/profile.dart';
 import 'package:medguardian/pages/user/settings.dart';
 import 'package:provider/provider.dart';
 import 'package:medguardian/theme/theme.dart';
+
+//This page holds the whole App, it works as a nexus for all the screens and things.
+//The AppBar and BottomNavBar are always active, and the only thing that changes is the screen.
+//This way, you use less resources because you don't have to reload the top/bottom every time
+//you change screen.
 
 class MyNexusPage extends StatefulWidget {
   const MyNexusPage({super.key});
@@ -23,11 +29,19 @@ class _MyNexusPageState extends State<MyNexusPage> {
 
   @override
   Widget build(BuildContext context) {
+    //Here you have all the main screens which will react when touching the buttons
+    //on the Appbar and the BottomNavBar
     final List<Widget> screens = [
-      const MyMedicalDatePage(),
+      MyMedicalDatePage(
+        callDoctor: (){
+          setState(() {
+            _selectedIndex = 9;
+          });
+        },
+      ),
       const MyMapPage(),
       const MyHomePage(),
-      MyMedListPage(
+      MyMedListPage( //These are different, because you have to send a signal from the screen to change into another one
         createMed: () {
           //This receives the screen change from med_list.dart and changes
           //the body to start the med creation wizard
@@ -48,10 +62,14 @@ class _MyNexusPageState extends State<MyNexusPage> {
       const MySettingsPage(),
       const MyProfilePage(),
       const MyMedCreationPage(),
-      const MyTreatCreatPage()
+      const MyTreatCreatPage(),
+      ChatScreen()
     ];
+    //This controls the theme
     final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
-    return Scaffold(
+    return ScaffoldMessenger(
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
       //###################### AppBar ##########################
       appBar: AppBar(
         backgroundColor: actualTheme.colorScheme.secondary,
@@ -86,7 +104,7 @@ class _MyNexusPageState extends State<MyNexusPage> {
         ],
       ),
       //###################### Body ##########################
-      body: screens[_selectedIndex],
+      body: screens[_selectedIndex], //Every time you touch a buttom, this index changes, only changing the body
       //###################### Bottom Nav Bar ##########################
       bottomNavigationBar: BottomAppBar(
         color: actualTheme.colorScheme.secondary,
@@ -144,7 +162,7 @@ class _MyNexusPageState extends State<MyNexusPage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton( //Boom, here you have a bottomnavbar with the centered buttom!!
         onPressed: () {
           setState(() {
             _selectedIndex = 2;
@@ -156,7 +174,8 @@ class _MyNexusPageState extends State<MyNexusPage> {
         child: const Icon(Icons.home, color: Colors.white),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-    );
+    ));
+    
   }
 
   void _navigateToScreen(String route) {

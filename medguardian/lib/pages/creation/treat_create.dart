@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:medguardian/widgets/custom_date_picker.dart';
-import 'package:medguardian/widgets/custom_dropdown.dart';
-import 'package:medguardian/widgets/custom_time_picker.dart';
+import 'package:medguardian/widgets/Containers/custom_dropdown.dart';
 import 'package:provider/provider.dart';
 import 'package:medguardian/theme/theme.dart';
+
+//Just like med_create.dart, this one creates treatments through a wizard
 
 class MyTreatCreatPage extends StatefulWidget {
   const MyTreatCreatPage({super.key});
@@ -53,21 +53,81 @@ class _MyTreatCreatPageState extends State<MyTreatCreatPage> {
   }
 }
 
-class FirstPage extends StatelessWidget {
-  const FirstPage({super.key});
+class FirstPage extends StatefulWidget {
+  const FirstPage({Key? key}) : super(key: key);
+
+  @override
+  _FirstPageState createState() => _FirstPageState();
+}
+
+class _FirstPageState extends State<FirstPage> {
+  String selectedValue = 'Ibuprofeno';
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          // Add widgets for the first page
-          const Text('First Page'),
-          ElevatedButton(
-            onPressed: () {},
-            child: const Text('Next'),
-          ),
-        ],
+    final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
+
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SizedBox(height: 20.0),
+            const Text(
+              'Pirulas info',
+              style: TextStyle(fontSize: 30),
+            ),
+            const SizedBox(height: 5.0),
+            Container(
+              margin:
+                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                children: [
+                  CustomDropdown(
+                    label: 'Medicine',
+                    items: ['Ibuprofeno', 'Plutonic drug'],
+                    value: selectedValue,
+                    onChanged: (newValue) {
+                      // Update the selected value using setState
+                      setState(() {
+                        selectedValue = newValue ?? '';
+                      });
+                    },
+                  ),
+                  SizedBox(
+                    height: 10.0,
+                  ),
+                  const Text(
+                    'Pirula information',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                  Container(
+                      margin: const EdgeInsets.symmetric(
+                          vertical: 10.0, horizontal: 10.0),
+                      padding: const EdgeInsets.all(16.0),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      child: Column(children: [
+                        Text(
+                          selectedValue,
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        //Here comes the rest of the Pirula's information
+                      ]))
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: actualTheme.colorScheme.onSurface,
+        elevation: 10,
+        shape: const CircleBorder(),
+        child: const Icon(Icons.arrow_forward, color: Colors.white),
       ),
     );
   }
@@ -78,16 +138,31 @@ class SecondPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          // Add widgets for the second page
-          const Text('Second Page'),
-          ElevatedButton(
-            onPressed: () {},
-            child: const Text('Previous'),
-          ),
-        ],
+    final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SizedBox(height: 20.0),
+            const Text(
+              'Pirulas info',
+              style: TextStyle(fontSize: 30),
+            ),
+            const SizedBox(height: 5.0),
+            Container(
+                margin: const EdgeInsets.symmetric(
+                    vertical: 10.0, horizontal: 10.0),
+                padding: const EdgeInsets.all(16.0),
+                child: Column(children: []))
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: actualTheme.colorScheme.onSurface,
+        elevation: 10,
+        shape: const CircleBorder(),
+        child: const Icon(Icons.arrow_forward, color: Colors.white),
       ),
     );
   }
@@ -98,16 +173,31 @@ class ThirdPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          // Add widgets for the first page
-          const Text('Third Page'),
-          ElevatedButton(
-            onPressed: () {},
-            child: const Text('Next'),
-          ),
-        ],
+    final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SizedBox(height: 20.0),
+            const Text(
+              'Pirulas info',
+              style: TextStyle(fontSize: 30),
+            ),
+            const SizedBox(height: 5.0),
+            Container(
+                margin: const EdgeInsets.symmetric(
+                    vertical: 10.0, horizontal: 10.0),
+                padding: const EdgeInsets.all(16.0),
+                child: Column(children: []))
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: actualTheme.colorScheme.onSurface,
+        elevation: 10,
+        shape: const CircleBorder(),
+        child: const Icon(Icons.arrow_forward, color: Colors.white),
       ),
     );
   }
@@ -118,16 +208,31 @@ class FourthPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          // Add widgets for the second page
-          const Text('Fourth Page'),
-          ElevatedButton(
-            onPressed: () {},
-            child: const Text('Previous'),
-          ),
-        ],
+    final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SizedBox(height: 20.0),
+            const Text(
+              'Pirulas info',
+              style: TextStyle(fontSize: 30),
+            ),
+            const SizedBox(height: 5.0),
+            Container(
+                margin: const EdgeInsets.symmetric(
+                    vertical: 10.0, horizontal: 10.0),
+                padding: const EdgeInsets.all(16.0),
+                child: Column(children: []))
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: actualTheme.colorScheme.onSurface,
+        elevation: 10,
+        shape: const CircleBorder(),
+        child: const Icon(Icons.done, color: Colors.white),
       ),
     );
   }

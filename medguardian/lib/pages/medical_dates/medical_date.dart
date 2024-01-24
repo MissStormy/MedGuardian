@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:medguardian/widgets/custom_schedule.dart';
-import 'package:medguardian/widgets/schedule_container.dart';
-import 'package:medguardian/widgets/search_bar.dart';
+import 'package:medguardian/widgets/Buttons/custom_plain_button.dart';
+import 'package:medguardian/widgets/Buttons/custom_small_pb.dart';
+import 'package:medguardian/widgets/Containers/custom_schedule.dart';
+import 'package:medguardian/widgets/Containers/schedule_container.dart';
+import 'package:medguardian/widgets/Extra/search_bar.dart';
 import 'package:provider/provider.dart';
 import 'package:medguardian/theme/theme.dart';
 
 class MyMedicalDatePage extends StatefulWidget {
-  const MyMedicalDatePage({super.key});
+  final VoidCallback callDoctor;
+  const MyMedicalDatePage({super.key, required this.callDoctor});
 
   @override
   State<MyMedicalDatePage> createState() => _MyMedicalDatePageState();
@@ -71,44 +74,26 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    
+                    
+                    
+                    
                     Column(
                       children: [
-                        ElevatedButton(
-                          onPressed: null,
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: actualTheme.colorScheme.onSurface,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
-                            fixedSize: const Size(50.0, 50.0),
-                            foregroundColor: Colors.white,
-                          ),
-                          child: const Center(
-                            child: Icon(Icons.monitor_heart),
-                          ),
-                        ),
+                        CustomSmallPlainButton(
+                        icon: Icons.monitor_heart,
+                        onPressed: () => widget.callDoctor()),
+                        
                         const Text("Consultation", style: TextStyle(fontSize: 12))
                       ],
                     ),
                     const SizedBox(
-                      width: 10.0,
+                      width: 5.0,
                     ),
                     Column(
                       children: [
-                        ElevatedButton(
-                          onPressed: null,
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: actualTheme.colorScheme.onSurface,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
-                            fixedSize: const Size(50.0, 50.0),
-                            foregroundColor: Colors.white,
-                          ),
-                          child: const Center(
-                            child: Icon(Icons.local_pharmacy),
-                          ),
-                        ),
+                        CustomSmallPlainButton(
+                        icon: Icons.local_pharmacy, onPressed: () {}),
                         const Text("Pharmacy", style: TextStyle(fontSize: 12))
                       ],
                     ),
@@ -117,20 +102,8 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
                     ),
                     Column(
                       children: [
-                        ElevatedButton(
-                          onPressed: null,
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: actualTheme.colorScheme.onSurface,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
-                            fixedSize: const Size(50.0, 50.0),
-                            foregroundColor: Colors.white,
-                          ),
-                          child: const Center(
-                            child: Icon(Icons.calendar_month),
-                          ),
-                        ),
+                        CustomSmallPlainButton(
+                        icon: Icons.local_pharmacy, onPressed: () {}),
                         const Text("Appointment", style: TextStyle(fontSize: 12))
                       ],
                     ),
@@ -139,20 +112,9 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
                     ),
                     Column(
                       children: [
-                        ElevatedButton(
-                          onPressed: null,
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: actualTheme.colorScheme.onSurface,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
-                            fixedSize: const Size(50.0, 50.0),
-                            foregroundColor: Colors.white,
-                          ),
-                          child: const Center(
-                            child: Icon(Icons.medication),
-                          ),
-                        ),
+                        
+                        CustomSmallPlainButton(
+                        icon: Icons.local_pharmacy, onPressed: () {}),
                         const Text("Recipe", style: TextStyle(fontSize: 12))
                       ],
                     )

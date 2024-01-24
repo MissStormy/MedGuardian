@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class CustomBigPlainButton extends StatelessWidget {
-  final String label;
+class CustomSmallPlainButton extends StatelessWidget {
+  
   final IconData icon;
   final VoidCallback? onPressed;
 
-  const CustomBigPlainButton(
+  const CustomSmallPlainButton(
       {super.key,
-      required this.label,
+      
       required this.icon,
       required this.onPressed});
 
@@ -21,15 +21,11 @@ class CustomBigPlainButton extends StatelessWidget {
               borderRadius:
                   BorderRadius.circular(10.0), // Adjust the radius as needed
             ),
-            fixedSize: const Size(150.0, 150.0)),
+            fixedSize: const Size(50.0, 50.0)),
         child: Center(
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
             Icon(icon),
-            const SizedBox(height: 5.0),
-            Text(
-              label,
-              textAlign: TextAlign.center,
-            )
+            
           ]),
         ));
   }

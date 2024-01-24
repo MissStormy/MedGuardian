@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:medguardian/widgets/Buttons/custom_big_pb.dart';
 import 'package:medguardian/widgets/Buttons/custom_plain_button.dart';
-import 'package:medguardian/widgets/custom_textfield.dart';
+import 'package:medguardian/widgets/Text/custom_textfield.dart';
 import 'package:provider/provider.dart';
 import 'package:medguardian/theme/theme.dart';
 
+//This page helps you create a new medication, it's like a wizard
 class MyMedCreationPage extends StatefulWidget {
   const MyMedCreationPage({super.key});
 
@@ -13,8 +14,10 @@ class MyMedCreationPage extends StatefulWidget {
 }
 
 class _MyMedCreationPageState extends State<MyMedCreationPage> {
+  //As it is a wizard, we decided to separate everything in steps to make it simpler
+  //So here you have some tabs, controlled by this 
   final PageController _pageController = PageController();
-  int _selectedIndex = 0;
+  final int _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +45,7 @@ class _MyMedCreationPageState extends State<MyMedCreationPage> {
                 Tab(
                   text: 'Finish',
                 ),
-              ],
+              ],//Decoration and things for when it's active or not
               indicatorColor: Colors.green,
               labelColor: Color.fromARGB(255, 117, 190, 119),
               unselectedLabelColor: Color.fromARGB(255, 86, 114, 87),
@@ -56,7 +59,7 @@ class _MyMedCreationPageState extends State<MyMedCreationPage> {
     ));
   }
 }
-
+//The pages are here so I wouldn't go crazy trying to find them
 class FirstPage extends StatelessWidget {
   const FirstPage({super.key});
 
@@ -68,41 +71,41 @@ class FirstPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
             const Text(
               'Pirulas info',
               style: TextStyle(fontSize: 30),
             ),
-            SizedBox(height: 5.0),
+            const SizedBox(height: 5.0),
             Container(
               margin:
                   const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 children: [
-                  CustomTextfield(label: 'Pirula name'),
-                  SizedBox(
+                  const CustomTextfield(label: 'Pirula name'), //Go to widgets/Text to know more
+                  const SizedBox(
                     height: 10.0,
                   ),
-                  CustomTextfield(label: 'Brand'),
-                  SizedBox(
+                  const CustomTextfield(label: 'Brand'),
+                  const SizedBox(
                     height: 10.0,
                   ),
-                  Row(
+                  const Row(
                     children: [
                       Flexible(flex: 2, child: CustomTextfield(label: 'Dose')),
                       SizedBox(width: 8),
                       Flexible(flex: 3, child: CustomTextfield(label: 'Type')),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20.0,
                   ),
-                  Text(
+                  const Text(
                     'How do you have to take it?',
                     style: TextStyle(fontSize: 20),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10.0,
                   ),
                   Row(
@@ -111,7 +114,7 @@ class FirstPage extends StatelessWidget {
                       CustomPlainButton(
                           label: 'With food',
                           icon: Icons.lunch_dining,
-                          onPressed: () {
+                          onPressed: () { //TODO: Placeholder, for now it shows a message
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 content: const Text('Awesome Snackbar!'),
@@ -122,10 +125,10 @@ class FirstPage extends StatelessWidget {
                               ),
                             );
                           }),
-                      SizedBox(
+                      const SizedBox(
                         width: 10.0,
                       ),
-                      CustomPlainButton(
+                      CustomPlainButton( //Go to widgets/Buttons to know more
                           label: 'Belly empty',
                           icon: Icons.no_food,
                           onPressed: () {
@@ -139,7 +142,7 @@ class FirstPage extends StatelessWidget {
                               ),
                             );
                           }),
-                      SizedBox(
+                      const SizedBox(
                         width: 10.0,
                       ),
                       CustomPlainButton(
@@ -186,13 +189,13 @@ class SecondPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(height: 5.0),
+            const SizedBox(height: 5.0),
             const Text(
               'Symbols',
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 30),
             ),
-            SizedBox(height: 5.0),
+            const SizedBox(height: 5.0),
             Container(
                 margin: const EdgeInsets.symmetric(
                     vertical: 10.0, horizontal: 10.0),
@@ -301,12 +304,12 @@ class ThirdPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: 5.0),
+            const SizedBox(height: 5.0),
             const Text(
               'Images',
               style: TextStyle(fontSize: 30),
             ),
-            SizedBox(height: 5.0),
+            const SizedBox(height: 5.0),
             Container(
               margin:
                   const EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
@@ -315,37 +318,37 @@ class ThirdPage extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      CustomBigPlainButton(
+                      const CustomBigPlainButton(
                           label: 'Pirula image',
                           icon: Icons.medication,
                           onPressed: null),
-                      SizedBox(
+                      const SizedBox(
                         width: 10.0,
                       ),
                       Flexible(
                           child: Container(
-                        padding: EdgeInsets.all(10.0),
-                        child: Text(
+                        padding: const EdgeInsets.all(10.0),
+                        child: const Text(
                             'Insert an image of the pill, this will help you find it easier'),
                       ))
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 50.0,
                   ),
                   Row(
                     children: [
-                      CustomBigPlainButton(
+                      const CustomBigPlainButton(
                           label: 'Box image',
                           icon: Icons.archive,
                           onPressed: null),
-                      SizedBox(
+                      const SizedBox(
                         width: 10.0,
                       ),
                       Flexible(
                           child: Container(
-                        padding: EdgeInsets.all(10.0),
-                        child: Text(
+                        padding: const EdgeInsets.all(10.0),
+                        child: const Text(
                             'Insert an image of the box, this will help you find it easier'),
                       ))
                     ],
@@ -377,12 +380,12 @@ class FourthPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: 5.0),
+            const SizedBox(height: 5.0),
             const Text(
               'Review',
               style: TextStyle(fontSize: 30),
             ),
-            SizedBox(height: 5.0),
+            const SizedBox(height: 5.0),
             Container(
               margin:
                   const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
@@ -391,125 +394,125 @@ class FourthPage extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Flexible(
+                      const Flexible(
                           flex: 2,
                           child: Text(
                             'Name',
                             style: TextStyle(
                                 fontSize: 20, fontWeight: FontWeight.bold),
                           )),
-                      SizedBox(width: 27),
+                      const SizedBox(width: 27),
                       Flexible(
                           flex: 8,
                           child: Container(
-                            margin: EdgeInsets.symmetric(
+                            margin: const EdgeInsets.symmetric(
                                 horizontal: 10.0, vertical: 10.0),
                             alignment: Alignment.center,
                             decoration: BoxDecoration(
                               border: Border.all(color: Colors.grey),
                               borderRadius: BorderRadius.circular(8.0),
                             ),
-                            child: Text(
+                            child: const Text(
                               'Ibuprofeno',
                               textAlign: TextAlign.center,
                             ),
                           )), //PLACEHOLDER: CHANGE IBUPROFENO WITH DATA FROM PIRULAS INFO
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5.0,
                   ),
                   Row(
                     children: [
-                      Flexible(
+                      const Flexible(
                           flex: 2,
                           child: Text(
                             'Brand',
                             style: TextStyle(
                                 fontSize: 20, fontWeight: FontWeight.bold),
                           )),
-                      SizedBox(width: 26),
+                      const SizedBox(width: 26),
                       Flexible(
                           flex: 7,
                           child: Container(
-                            margin: EdgeInsets.symmetric(
+                            margin: const EdgeInsets.symmetric(
                                 horizontal: 10.0, vertical: 10.0),
                             alignment: Alignment.center,
                             decoration: BoxDecoration(
                               border: Border.all(color: Colors.grey),
                               borderRadius: BorderRadius.circular(8.0),
                             ),
-                            child: Text(
+                            child: const Text(
                               'ACME',
                               textAlign: TextAlign.center,
                             ),
                           )), //PLACEHOLDER: CHANGE IBUPROFENO WITH DATA FROM PIRULAS INFO
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5.0,
                   ),
                   Row(
                     children: [
-                      Flexible(
+                      const Flexible(
                           flex: 2,
                           child: Text(
                             'Dose',
                             style: TextStyle(
                                 fontSize: 20, fontWeight: FontWeight.bold),
                           )),
-                      SizedBox(width: 37),
+                      const SizedBox(width: 37),
                       Flexible(
                           flex: 8,
                           child: Container(
-                            margin: EdgeInsets.symmetric(
+                            margin: const EdgeInsets.symmetric(
                                 horizontal: 10.0, vertical: 10.0),
                             alignment: Alignment.center,
                             decoration: BoxDecoration(
                               border: Border.all(color: Colors.grey),
                               borderRadius: BorderRadius.circular(8.0),
                             ),
-                            child: Text(
+                            child: const Text(
                               'ACME',
                               textAlign: TextAlign.center,
                             ),
                           )), //PLACEHOLDER: CHANGE IBUPROFENO WITH DATA FROM PIRULAS INFO
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5.0,
                   ),
                   Row(
                     children: [
-                      Flexible(
+                      const Flexible(
                           flex: 2,
                           child: Text(
                             'Type',
                             style: TextStyle(
                                 fontSize: 20, fontWeight: FontWeight.bold),
                           )),
-                      SizedBox(width: 37),
+                      const SizedBox(width: 37),
                       Flexible(
                           flex: 8,
                           child: Container(
-                            margin: EdgeInsets.symmetric(
+                            margin: const EdgeInsets.symmetric(
                                 horizontal: 10.0, vertical: 10.0),
                             alignment: Alignment.center,
                             decoration: BoxDecoration(
                               border: Border.all(color: Colors.grey),
                               borderRadius: BorderRadius.circular(8.0),
                             ),
-                            child: Text(
+                            child: const Text(
                               'ACME',
                               textAlign: TextAlign.center,
                             ),
                           )), //PLACEHOLDER: CHANGE IBUPROFENO WITH DATA FROM PIRULAS INFO
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10.0,
                   ),
-                  Row(
+                  const Row(
                     children: [
                       Flexible(
                           flex: 2,
@@ -528,10 +531,10 @@ class FourthPage extends StatelessWidget {
                           ))
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15.0,
                   ),
-                  Row(
+                  const Row(
                     children: [
                       Flexible(
                           flex: 3,

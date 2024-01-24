@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:medguardian/widgets/big_container.dart';
+import 'package:medguardian/widgets/Containers/big_container.dart';
 import 'package:calendar_timeline/calendar_timeline.dart';
-import 'package:medguardian/widgets/pill_container.dart';
+import 'package:medguardian/widgets/Containers/pill_container.dart';
 import 'package:provider/provider.dart';
 import 'package:medguardian/theme/theme.dart';
 
+//The main page simply shows a calendar and the Pirulas for the day
+//As simple as it can get
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
 
@@ -27,9 +29,6 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
     return Scaffold(
-      backgroundColor: actualTheme
-          .colorScheme.primary, // Set the background color of the whole screen
-
       //###################### Body ##########################
       body: SingleChildScrollView(
           child: Column(children: [
@@ -50,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ],
           ),
-          //The calendar widget
+          //The calendar widget is the only thing taken from the Internet
           child: CalendarTimeline(
             showYears: false,
             initialDate: DateTime.now(),
@@ -64,15 +63,15 @@ class _MyHomePageState extends State<MyHomePage> {
             activeDayColor: actualTheme.colorScheme.onSurface,
             activeBackgroundDayColor: actualTheme.colorScheme.onBackground,
             dotsColor: const Color(0xFF333A47),
-            selectableDayPredicate: (date) => date.day != 24,
+            selectableDayPredicate: (date) => date.day == 24,
             locale: 'es',
           ),
         ),
         const SizedBox(height: 10),
 
-        //Now, the tabs
+        //Now, the sections, you can find the widgets in widgets/Containers
         //###################### Morning pirulas ##########################
-        const BigContainer(containerName: "Morning pirulas", content: [
+        const BigContainer(containerName: "Morning pirulas", content: [ 
           PirulasContainer(
               title: "Ibuprofeno",
               text: "1 pirula con la comida",

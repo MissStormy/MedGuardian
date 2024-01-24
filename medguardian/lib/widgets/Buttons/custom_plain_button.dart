@@ -25,7 +25,7 @@ class CustomPlainButton extends StatelessWidget {
         child: Center(
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
             Icon(icon),
-            SizedBox(height: 5.0),
+            const SizedBox(height: 5.0),
             Text(
               label,
               textAlign: TextAlign.center,
