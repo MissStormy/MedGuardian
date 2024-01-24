@@ -60,7 +60,7 @@ class _ChatScreenState extends State<ChatScreen> {
               'assets/MSD.png', 
               fit: BoxFit.cover,
               width: 250,
-              height: 300,
+              height: 400,
             ),
           ),
           Column(
