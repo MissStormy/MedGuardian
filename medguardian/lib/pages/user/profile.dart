@@ -14,7 +14,7 @@ class MyProfilePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Container(
-              margin: const EdgeInsets.all(10.0),
+              margin: EdgeInsets.all(10.0),
               child: Row(
                 children: [
                   Stack(
@@ -50,16 +50,16 @@ class MyProfilePage extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(width: 10.0),
-                  const Column(
+                  Column(
                     children: [
-                      Text(
+                      const Text(
                         'User Name',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             fontSize: 24.0, fontWeight: FontWeight.bold),
                       ),
-                      SizedBox(height: 10.0),
-                      Text(
+                      const SizedBox(height: 10.0),
+                      const Text(
                         'User with privileges',
                         textAlign: TextAlign.center,
                         style: TextStyle(fontSize: 18.0),
@@ -71,8 +71,8 @@ class MyProfilePage extends StatelessWidget {
             ),
             const SizedBox(height: 10.0),
             Container(
-              margin: const EdgeInsets.all(10.0),
-              padding: const EdgeInsets.all(10.0),
+              margin: EdgeInsets.all(10.0),
+              padding: EdgeInsets.all(10.0),
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.grey),
                 borderRadius: BorderRadius.circular(8.0),
@@ -81,7 +81,7 @@ class MyProfilePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   _buildSectionTitle(context, 'Personal Information', 'Edit'),
-                  const SizedBox(
+                  SizedBox(
                     height: 10.0,
                   ),
                   _buildPersonalInformationFields(),
@@ -89,13 +89,13 @@ class MyProfilePage extends StatelessWidget {
               ),
             ),
             Container(
-              margin: const EdgeInsets.all(10.0),
-              padding: const EdgeInsets.all(10.0),
+              margin: EdgeInsets.all(10.0),
+              padding: EdgeInsets.all(10.0),
               child: ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
                     backgroundColor: actualTheme.colorScheme.onSurface),
-                child: const Text('Log out'),
+                child: Text('Log out'),
               ),
             )
           ],
