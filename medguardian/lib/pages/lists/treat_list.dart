@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:medguardian/notifs/alarm.dart';
 import 'package:medguardian/theme/theme.dart';
+import 'package:medguardian/widgets/Containers/custom_show_dialog.dart';
 import 'package:medguardian/widgets/Containers/medication_list.dart';
 import 'package:provider/provider.dart';
 
@@ -27,7 +29,7 @@ class MyTreatmentList extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemCount: 5,
                 itemBuilder: (context, index) {
-                  return const Padding(
+                  return Padding(
                     padding: EdgeInsets.all(16.0),
                     child: Row(
                       children: [
@@ -35,6 +37,23 @@ class MyTreatmentList extends StatelessWidget {
                           time: '12:00',
                           name: 'Ibuprofeno',
                           icon: Icons.medication,
+                          onMoreTap: () {
+                            AlertDialog(
+                              title: const Text('Boooooop'),
+                              content: SingleChildScrollView(
+                                child: ListBody(
+                                  children: [Text('This is a kaiju alert')],
+                                ),
+                              ),
+                              actions: [
+                                TextButton(
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                    },
+                                    child: const Text('Okay'))
+                              ],
+                            );
+                          },
                         ),
                       ],
                     ),
@@ -49,7 +68,7 @@ class MyTreatmentList extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemCount: 5,
                 itemBuilder: (context, index) {
-                  return const Padding(
+                  return Padding(
                     padding: EdgeInsets.all(16.0),
                     child: Row(
                       children: [
@@ -57,6 +76,7 @@ class MyTreatmentList extends StatelessWidget {
                           time: '12:00',
                           name: 'Ibuprofeno',
                           icon: Icons.medication,
+                          onMoreTap: () {},
                         ),
                       ],
                     ),
@@ -71,7 +91,7 @@ class MyTreatmentList extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemCount: 5,
                 itemBuilder: (context, index) {
-                  return const Padding(
+                  return Padding(
                     padding: EdgeInsets.all(16.0),
                     child: Row(
                       children: [
@@ -79,6 +99,7 @@ class MyTreatmentList extends StatelessWidget {
                           time: '12:00',
                           name: 'Ibuprofeno',
                           icon: Icons.medication,
+                          onMoreTap: () {},
                         ),
                       ],
                     ),
@@ -114,7 +135,7 @@ class MyTreatmentList extends StatelessWidget {
           const Divider(
             indent: 30,
             endIndent: 30,
-          ), 
+          ),
         ],
       ),
     );

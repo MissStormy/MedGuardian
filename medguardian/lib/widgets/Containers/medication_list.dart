@@ -6,56 +6,57 @@ class MedicationItem extends StatelessWidget {
   final String time;
   final String name;
   final IconData icon;
+  final VoidCallback onMoreTap;
 
-  const MedicationItem({super.key, required this.time, required this.name, required this.icon});
+  const MedicationItem({
+    Key? key,
+    required this.time,
+    required this.name,
+    required this.icon,
+    required this.onMoreTap,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 8.0),
-      padding: const EdgeInsets.all(16.0),
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey),
-        borderRadius: BorderRadius.circular(8.0),
-      ),
-      child: Row(
-        children: [
-          // Medication icon positioned outside the main box
-          Positioned(
-            top: 8,
-            left: 8,
-            child: Icon(icon, size: 24.0),
-          ),
-          const SizedBox(width: 32.0),
-          // Main content with title and button
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // Medication time
-              Text(time),
-              const SizedBox(height: 8.0),
-              // Medication name
-              Text(
-                name,
-                style: const TextStyle(
-                  fontSize: 18.0,
-                  fontWeight: FontWeight.bold,
-                ),
+    return InkWell(
+      onTap: onMoreTap, // Use InkWell instead of GestureDetector
+      child: Container(
+        width: 150,
+        padding: EdgeInsets.all(8.0),
+        decoration: BoxDecoration(
+          color: const Color.fromARGB(255, 67, 109, 69), // Set background color
+          borderRadius: BorderRadius.circular(8.0),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              icon,
+              size: 50,
+              color: Colors.blue,
+            ),
+            SizedBox(height: 4),
+            Text(
+              time,
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
               ),
-              const SizedBox(height: 8.0),
-              // More button
-              ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: actualTheme.colorScheme.onSurface,
-                  foregroundColor: Colors.white,
-                ), // Set the text color,
-                child: const Text('More'),
-              ),
-            ],
-          ),
-        ],
+            ),
+            SizedBox(height: 4),
+            Text(
+              name,
+              style: TextStyle(fontSize: 14),
+            ),
+            SizedBox(height: 1),
+            TextButton(
+              onPressed: () {
+                onMoreTap();
+              },
+              child: Text('More'),
+            ),
+          ],
+        ),
       ),
     );
   }

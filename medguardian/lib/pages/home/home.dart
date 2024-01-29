@@ -63,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
             activeDayColor: actualTheme.colorScheme.onSurface,
             activeBackgroundDayColor: actualTheme.colorScheme.onBackground,
             dotsColor: const Color(0xFF333A47),
-            selectableDayPredicate: (date) => date.day == 24,
+            selectableDayPredicate: (date) => date.day != 24,
             locale: 'es',
           ),
         ),
@@ -71,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
         //Now, the sections, you can find the widgets in widgets/Containers
         //###################### Morning pirulas ##########################
-        const BigContainer(containerName: "Morning pirulas", content: [ 
+        const BigContainer(containerName: "Morning pirulas", content: [
           PirulasContainer(
               title: "Ibuprofeno",
               text: "1 pirula con la comida",
