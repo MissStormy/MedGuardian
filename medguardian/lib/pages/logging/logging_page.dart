@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medguardian/pages/logging/log_sign_in.dart';
+import 'package:medguardian/pages/logging/sign_up_creation.dart';
 import 'package:medguardian/theme/theme.dart';
 import 'package:provider/provider.dart';
 
@@ -61,18 +62,24 @@ class MyLoginPage extends StatelessWidget {
                         .colorScheme.onSurface, // Set the background color
                     foregroundColor: Colors.white, // Set the text color
                   ),
-                  child: const Text('Login',
-                  style: TextStyle(
-                      fontFamily:
-                          'Quicksand', 
-                      fontSize: 25, 
-                    ),),
+                  child: const Text(
+                    'Login',
+                    style: TextStyle(
+                      fontFamily: 'Quicksand',
+                      fontSize: 25,
+                    ),
+                  ),
                 ),
                 const SizedBox(height: 16),
                 ElevatedButton(
                   onPressed: () {
                     // Navigate to sign-up page
-                    _navigateToSignInPage(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SignUpCreation(),
+                      ),
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: actualTheme
@@ -82,9 +89,8 @@ class MyLoginPage extends StatelessWidget {
                   child: const Text(
                     'Sign Up',
                     style: TextStyle(
-                      fontFamily:
-                          'Quicksand', 
-                      fontSize: 25, 
+                      fontFamily: 'Quicksand',
+                      fontSize: 25,
                     ),
                   ),
                 ),
@@ -101,7 +107,27 @@ void _navigateToSignInPage(BuildContext context) {
   Navigator.push(
     context,
     PageRouteBuilder(
-      pageBuilder: (context, animation, secondaryAnimation) => const MyLoginInPage(),
+      pageBuilder: (context, animation, secondaryAnimation) =>
+          const MyLoginInPage(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        const begin = Offset(0.0, 1.0);
+        const end = Offset.zero;
+        const curve = Curves.easeInOut;
+        var tween =
+            Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+        var offsetAnimation = animation.drive(tween);
+        return SlideTransition(position: offsetAnimation, child: child);
+      },
+    ),
+  );
+}
+
+void _navigateToSignUpPage(BuildContext context) {
+  Navigator.push(
+    context,
+    PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) =>
+          const SignUpCreation(),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         const begin = Offset(0.0, 1.0);
         const end = Offset.zero;
