@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medguardian/widgets/Buttons/custom_big_pb.dart';
 import 'package:medguardian/widgets/Buttons/custom_plain_button.dart';
+import 'package:medguardian/widgets/Buttons/custom_symbol_pb.dart';
 import 'package:medguardian/widgets/Text/custom_textfield.dart';
 import 'package:provider/provider.dart';
 import 'package:medguardian/theme/theme.dart';
@@ -15,7 +16,7 @@ class MyMedCreationPage extends StatefulWidget {
 
 class _MyMedCreationPageState extends State<MyMedCreationPage> {
   //As it is a wizard, we decided to separate everything in steps to make it simpler
-  //So here you have some tabs, controlled by this 
+  //So here you have some tabs, controlled by this
   final PageController _pageController = PageController();
   final int _selectedIndex = 0;
 
@@ -45,7 +46,7 @@ class _MyMedCreationPageState extends State<MyMedCreationPage> {
                 Tab(
                   text: 'Finish',
                 ),
-              ],//Decoration and things for when it's active or not
+              ], //Decoration and things for when it's active or not
               indicatorColor: Colors.green,
               labelColor: Color.fromARGB(255, 117, 190, 119),
               unselectedLabelColor: Color.fromARGB(255, 86, 114, 87),
@@ -59,6 +60,7 @@ class _MyMedCreationPageState extends State<MyMedCreationPage> {
     ));
   }
 }
+
 //The pages are here so I wouldn't go crazy trying to find them
 class FirstPage extends StatelessWidget {
   const FirstPage({super.key});
@@ -83,7 +85,8 @@ class FirstPage extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 children: [
-                  const CustomTextfield(label: 'Pirula name'), //Go to widgets/Text to know more
+                  const CustomTextfield(
+                      label: 'Pirula name'), //Go to widgets/Text to know more
                   const SizedBox(
                     height: 10.0,
                   ),
@@ -114,7 +117,8 @@ class FirstPage extends StatelessWidget {
                       CustomPlainButton(
                           label: 'With food',
                           icon: Icons.lunch_dining,
-                          onPressed: () { //TODO: Placeholder, for now it shows a message
+                          onPressed: () {
+                            //TODO: Placeholder, for now it shows a message
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 content: const Text('Awesome Snackbar!'),
@@ -128,7 +132,8 @@ class FirstPage extends StatelessWidget {
                       const SizedBox(
                         width: 10.0,
                       ),
-                      CustomPlainButton( //Go to widgets/Buttons to know more
+                      CustomPlainButton(
+                          //Go to widgets/Buttons to know more
                           label: 'Belly empty',
                           icon: Icons.no_food,
                           onPressed: () {
@@ -206,23 +211,23 @@ class SecondPage extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        CustomPlainButton(
-                            label: 'Fridge',
-                            icon: Icons.ac_unit,
+                        CustomSymbolPlainButton(
+                            label: 'Medical prescription',
+                            icon: Icons.radio_button_unchecked,
                             onPressed: null),
                         SizedBox(
-                          width: 10.0,
+                          width: 3.0,
                         ),
-                        CustomPlainButton(
-                            label: 'Fridge',
-                            icon: Icons.ac_unit,
+                        CustomSymbolPlainButton(
+                            label: 'Estupefaciente',
+                            icon: Icons.circle,
                             onPressed: null),
                         SizedBox(
-                          width: 10.0,
+                          width: 3.0,
                         ),
-                        CustomPlainButton(
-                            label: 'Fridge',
-                            icon: Icons.ac_unit,
+                        CustomSymbolPlainButton(
+                            label: 'Psicotropico',
+                            icon: Icons.motion_photos_off,
                             onPressed: null)
                       ],
                     ),
@@ -232,23 +237,23 @@ class SecondPage extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        CustomPlainButton(
-                            label: 'Fridge',
-                            icon: Icons.ac_unit,
+                        CustomSymbolPlainButton(
+                            label: 'Conduccion desaconsejada',
+                            icon: Icons.directions_car_filled_outlined,
                             onPressed: null),
                         SizedBox(
-                          width: 10.0,
+                          width: 3.0,
                         ),
-                        CustomPlainButton(
-                            label: 'Fridge',
-                            icon: Icons.ac_unit,
+                        CustomSymbolPlainButton(
+                            label: 'Fotosensibilidad',
+                            icon: Icons.light_mode,
                             onPressed: null),
                         SizedBox(
-                          width: 10.0,
+                          width: 3.0,
                         ),
-                        CustomPlainButton(
-                            label: 'Fridge',
-                            icon: Icons.ac_unit,
+                        CustomSymbolPlainButton(
+                            label: 'Radioactivo',
+                            icon: Icons.support,
                             onPressed: null)
                       ],
                     ),
@@ -258,23 +263,23 @@ class SecondPage extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        CustomPlainButton(
-                            label: 'Fridge',
-                            icon: Icons.ac_unit,
+                        CustomSymbolPlainButton(
+                            label: 'Gas comburente',
+                            icon: Icons.local_fire_department,
                             onPressed: null),
                         SizedBox(
-                          width: 10.0,
+                          width: 3.0,
                         ),
-                        CustomPlainButton(
-                            label: 'Fridge',
-                            icon: Icons.ac_unit,
+                        CustomSymbolPlainButton(
+                            label: 'Gas inflamable',
+                            icon: Icons.whatshot,
                             onPressed: null),
                         SizedBox(
-                          width: 10.0,
+                          width: 3.0,
                         ),
-                        CustomPlainButton(
-                            label: 'Fridge',
-                            icon: Icons.ac_unit,
+                        CustomSymbolPlainButton(
+                            label: 'Autorizado AEMPS',
+                            icon: Icons.health_and_safety,
                             onPressed: null)
                       ],
                     )
