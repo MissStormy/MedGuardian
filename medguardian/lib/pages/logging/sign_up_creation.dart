@@ -52,6 +52,7 @@ class _SignUpCreationState extends State<SignUpCreation> {
                       child: Text('I am in charge of someone'))
                 ],
               ))
+          //And from here, you get the info and create a new user
         ]));
   }
 }
