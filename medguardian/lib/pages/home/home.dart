@@ -4,6 +4,7 @@ import 'package:calendar_timeline/calendar_timeline.dart';
 import 'package:medguardian/widgets/Containers/pill_container.dart';
 import 'package:provider/provider.dart';
 import 'package:medguardian/theme/theme.dart';
+import 'package:medguardian/models/database.dart';
 
 //The main page simply shows a calendar and the Pirulas for the day
 //As simple as it can get
@@ -15,6 +16,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  DBHelper dbHelper = DBHelper();
   DateTime _selectedDate;
 
   _MyHomePageState()
