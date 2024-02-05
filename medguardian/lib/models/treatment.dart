@@ -25,12 +25,8 @@ class Treatment {
   Treatment.fromMap(Map<String, dynamic> map) {
     id = (map['id'] != null) ? map['id'] : null;
     pirulaName = (map['pirulaName'] != Null ? map['pirulaName'] : '');
-    startDate = (map['startDate'] != null)
-        ? DateTime.parse(map['startDate'])
-        : DateTime.now();
-    endDate = (map['endDate'] != null)
-        ? DateTime.parse(map['endDate'])
-        : DateTime.now();
+    startDate = (map['startDate'] != Null) ? DateTime.parse(map['startDate']) : DateTime.now();
+    endDate = (map['endDate'] != Null) ? DateTime.parse(map['endDate']) : DateTime.now();
     frecuency = (map['frecuency'] != Null ? map['frecuency'] : '');
   }
 
@@ -46,9 +42,9 @@ class Treatment {
   Future<List<Treatment>> GetTreatments() async {
     List<Treatment> treatments = [];
     DBHelper dbHelper = DBHelper();
-    List<Map<String, dynamic>> pirulasDB = await dbHelper.dbQuery('treatments');
-    for (int i = 0; i < pirulasDB.length; i++) {
-      treatments.add(Treatment.fromMap(pirulasDB[i]));
+    List<Map<String, dynamic>> tretmentsDB = await dbHelper.dbQuery('treatments');
+    for (int i = 0; i < tretmentsDB.length; i++) {
+      treatments.add(Treatment.fromMap(tretmentsDB[i]));
     }
     return treatments;
   }

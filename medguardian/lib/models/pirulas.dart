@@ -7,9 +7,9 @@ class Pirula {
   late String dose;
   late String type;
   late int amountPerBox;
-  late bool withFood;
-  late bool withoutFood;
-  late bool withOtherPirula;
+  late int withFood;
+  late int withoutFood;
+  late int withOtherPirula;
   late int currentQuantity;
 
   Pirula() {
@@ -18,9 +18,9 @@ class Pirula {
     dose = '';
     type = '';
     amountPerBox = 0;
-    withFood = false;
-    withoutFood = false;
-    withOtherPirula = false;
+    withFood = 0;
+    withoutFood = 0;
+    withOtherPirula = 0;
     currentQuantity = 0;
   }
 
@@ -54,10 +54,10 @@ class Pirula {
     dose = (map['dose'] != null) ? map['dose'] : '';
     type = (map['type'] != null) ? map['type'] : '';
     amountPerBox = (map['amountPerBox'] != null) ? map['amountPerBox'] : 0;
-    withFood = (map['withFood'] != null) ? map['withFood'] : true;
-    withoutFood = (map['withoutFood'] != null) ? map['withoutFood'] : true;
+    withFood = (map['withFood'] != null) ? map['withFood'] : 0;
+    withoutFood = (map['withoutFood'] != null) ? map['withoutFood'] : 0;
     withOtherPirula =
-        (map['withOtherPirula'] != null) ? map['withOtherPirula'] : true;
+        (map['withOtherPirula'] != null) ? map['withOtherPirula'] : 0;
     currentQuantity =
         (map['currentQuantity'] != null) ? map['currentQuantity'] : 0;
   }

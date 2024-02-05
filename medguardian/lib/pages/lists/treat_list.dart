@@ -26,54 +26,59 @@ class MyTreatmentList extends StatelessWidget {
             //TODO: Fix it so they are different
             _buildMedicationRow('Morning Pirulas'),
             SizedBox(
-              height: 200,
-              child: FutureBuilder(
-                      future: treatment.GetTreatments(),
-                      builder: (context, AsyncSnapshot<List<Treatment>> snapshot) {
-                        if (snapshot.hasData) {
-                          return ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            itemCount: 5,
-                            itemBuilder: (context, index) {
-                              return Padding(
-                                padding: EdgeInsets.all(16.0),
-                                child: Row(
-                                  children: [
-                                    MedicationItem(
-                                      time: '12:00',
-                                      name: snapshot.data![index].pirulaName,
-                                      icon: Icons.medication,
-                                      onMoreTap: () {
-                                        AlertDialog(
-                                          title: const Text('Boooooop'),
-                                          content: SingleChildScrollView(
-                                            child: ListBody(
-                                              children: [Text('This is a kaiju alert')],
-                                            ),
+                height: 200,
+                child: FutureBuilder(
+                    future: treatment.GetTreatments(),
+                    builder:
+                        (context, AsyncSnapshot<List<Treatment>> snapshot) {
+                      if (snapshot.hasData) {
+                        return ListView.builder(
+                          shrinkWrap: true,
+                          scrollDirection: Axis.horizontal,
+                          // itemCount: 3,
+                          itemCount: snapshot.data!.length,
+                          itemBuilder: (context, index) {
+                            return 
+                            Padding(
+                              padding: EdgeInsets.all(16.0),
+                              child: Row(
+                                children: [
+                                  MedicationItem(
+                                    time: '12:00',
+                                    // name: 'pirula1',
+                                    name: snapshot.data![index].pirulaName,
+                                    icon: Icons.medication,
+                                    onMoreTap: () {
+                                      AlertDialog(
+                                        title: const Text('Boooooop'),
+                                        content: SingleChildScrollView(
+                                          child: ListBody(
+                                            children: [
+                                              Text('This is a kaiju alert')
+                                            ],
                                           ),
-                                          actions: [
-                                            TextButton(
-                                                onPressed: () {
-                                                  Navigator.of(context).pop();
-                                                },
-                                                child: const Text('Okay'))
-                                          ],
-                                        );
-                                      },
-                                    ),
-                                  ],
-                                ),
-                              );
-                            },
-                          );
-                        } else {
-                          return const Center(
-                            child: CircularProgressIndicator(),
-                          );
-                        }
-                      })
-
-            ),
+                                        ),
+                                        actions: [
+                                          TextButton(
+                                              onPressed: () {
+                                                Navigator.of(context).pop();
+                                              },
+                                              child: const Text('Okay'))
+                                        ],
+                                      );
+                                    },
+                                  ),
+                                ],
+                              ),
+                            );
+                          },
+                        );
+                      } else {
+                        return const Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      }
+                    })),
             _buildMedicationRow('Midday Pirulas'),
             SizedBox(
               height: 200,

@@ -59,6 +59,7 @@ class DBHelper {
     String path = folder + dbName;
     var database = await openDatabase(path, version: 1,
         onCreate: (Database db, int version) async {
+      print('inicializando BD');
       await db.execute(
           "CREATE TABLE IF NOT EXISTS appointment(id INTEGER PRIMARY KEY, medical_speciality TEXT, doctor TEXT, place TEXT, date TEXT)");
       await db.execute(
@@ -158,22 +159,22 @@ class DBHelper {
       //   "CREATE TABLE Resultados(id INTEGER PRIMARY KEY, jugador1 TEXT, j1set1 TEXT, j1set1 TEXT)"
       // );
 
-      await db.execute("DELETE TABLE IF EXISTS pirulas");
       await db.execute(
-          "CREATE TABLE IF NOT EXISTS pirulas(id INTEGER PRIMARY KEY, name TEXT, brand TEXT, dose TEXT, type TEXT, amount_per_box INTEGER, with_food BOOLEAN, without_food BOOLEAN, with_other_pirula BOOLEAN, currentQuantity INTEGER)");
+          "CREATE TABLE IF NOT EXISTS pirulas(id INTEGER PRIMARY KEY, name TEXT, brand TEXT, dose TEXT, type TEXT, amountPerBox INTEGER, withFood BOOLEAN, withoutFood BOOLEAN, withOtherPirula BOOLEAN, currentQuantity INTEGER)");
       await db.execute(
-          "INSERT INTO pirulas(name, brand, dose, type, amount_per_box, with_food, without_food, with_other_pirula, currentQuantity) VALUES('Droga plutonica','abararban', 'una pastilla cuando haga falta', 'psicotropica',8,false,false,false,8)");
+          "INSERT INTO pirulas(name, brand, dose, type, amountPerBox, withFood, withoutFood, withOtherPirula, currentQuantity) VALUES('Droga plutonica','abararban', 'una pastilla cuando haga falta', 'psicotropica',8,FALSE,FALSE,FALSE,8)");
       await db.execute(
-          "INSERT INTO pirulas(name, brand, dose, type, amount_per_box, with_food, without_food, with_other_pirula, currentQuantity) VALUES('Patata Frita','Patata', 'Un par, lo curan todo, siempre que no tengas nada que curar','God',20,false,false,false,20)");
+          "INSERT INTO pirulas(name, brand, dose, type, amountPerBox, withFood, withoutFood, withOtherPirula, currentQuantity) VALUES('Patata Frita','Patata', 'Un par, lo curan todo, siempre que no tengas nada que curar','God',20,FALSE,FALSE,FALSE,20)");
 
       await db.execute(
-          "CREATE TABLE IF NOT EXISTS treatments(id INTEGER PRIMARY KEY, pirula_name TEXT, start_date TEXT, end_date TEXT, frecuency INTEGER)");
+          "CREATE TABLE IF NOT EXISTS treatments(id INTEGER PRIMARY KEY, pirulaName TEXT, startDate TEXT, endDate TEXT, frecuency INTEGER)");
 
       await db.execute(
-          "INSERT INTO treatments(pirula_name, start_date, end_date, frecuency) VALUES('Droga plutonica','2023-07-20T20:18:04.000','2024-07-20T20:18:04.000',24)");
+          "INSERT INTO treatments(pirulaName, startDate, endDate, frecuency) VALUES('Droga plutonica','2012-02-27 13:27:00.123456789z','2032-02-27 13:27:00.123456789z',24)");
       await db.execute(
-          "INSERT INTO treatments(pirula_name, start_date, end_date, frecuency) VALUES('Patata Frita','2023-10-22T20:18:04.000','2024-3-4T20:18:04.000',24)");
+          "INSERT INTO treatments(pirulaName, startDate, endDate, frecuency) VALUES('Patata Frita','2012-02-27 13:27:00.123456789z','2032-02-27 13:27:00.123456789z',24)");
     });
+    print('BD inicalizada');
     return database;
   }
 }
