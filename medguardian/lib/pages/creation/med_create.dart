@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medguardian/models/pirulas.dart';
 import 'package:medguardian/widgets/Buttons/custom_big_pb.dart';
 import 'package:medguardian/widgets/Buttons/custom_plain_button.dart';
 import 'package:medguardian/widgets/Buttons/custom_symbol_pb.dart';
@@ -19,6 +20,7 @@ class _MyMedCreationPageState extends State<MyMedCreationPage> {
   //So here you have some tabs, controlled by this
   final PageController _pageController = PageController();
   final int _selectedIndex = 0;
+  final Pirula pirula = Pirula();
 
   @override
   Widget build(BuildContext context) {
@@ -54,8 +56,15 @@ class _MyMedCreationPageState extends State<MyMedCreationPage> {
             ),
           ),
         ),
-        body: const TabBarView(
-          children: [FirstPage(), SecondPage(), ThirdPage(), FourthPage()],
+        body: TabBarView(
+          children: [
+            FirstPage(setPirulaName: (String name) {
+              pirula.name = name;
+            }),
+            SecondPage(),
+            ThirdPage(),
+            FourthPage()
+          ],
         ),
       ),
     ));
@@ -63,8 +72,24 @@ class _MyMedCreationPageState extends State<MyMedCreationPage> {
 }
 
 //The pages are here so I wouldn't go crazy trying to find them
-class FirstPage extends StatelessWidget {
-  const FirstPage({super.key});
+class FirstPage extends StatefulWidget {
+  final ValueSetter<String> setPirulaName;
+  const FirstPage({super.key, required this.setPirulaName});
+  @override
+  State<FirstPage> createState() => _FirstPageState();
+}
+
+class _FirstPageState extends State<FirstPage> {
+  // Create a text controller and use it to retrieve the current value
+  // of the TextField.
+  final myController = TextEditingController();
+
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    myController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -87,20 +112,28 @@ class FirstPage extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 children: [
-                  const CustomTextfield(
-                      label: 'Pirula name'), //Go to widgets/Text to know more
+                  CustomTextfield(
+                      label: 'Pirula name',
+                      myController:
+                          myController), //Go to widgets/Text to know more
                   const SizedBox(
                     height: 10.0,
                   ),
-                  const CustomTextfield(label: 'Brand'),
+                  CustomTextfield(label: 'Brand', myController: myController),
                   const SizedBox(
                     height: 10.0,
                   ),
-                  const Row(
+                  Row(
                     children: [
-                      Flexible(flex: 2, child: CustomTextfield(label: 'Dose')),
+                      Flexible(
+                          flex: 2,
+                          child: CustomTextfield(
+                              label: 'Dose', myController: myController)),
                       SizedBox(width: 8),
-                      Flexible(flex: 3, child: CustomTextfield(label: 'Type')),
+                      Flexible(
+                          flex: 3,
+                          child: CustomTextfield(
+                              label: 'Type', myController: myController)),
                     ],
                   ),
                   const SizedBox(
@@ -175,7 +208,9 @@ class FirstPage extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          setPirulaName("name");
+        },
         backgroundColor: actualTheme.colorScheme.onSurface,
         elevation: 10,
         shape: const CircleBorder(),
