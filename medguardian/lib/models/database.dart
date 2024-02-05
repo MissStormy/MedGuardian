@@ -153,7 +153,67 @@ class DBHelper {
           "INSERT INTO doctors(medical_speciality,name,ocupation,age,shift) VALUES('orthopedy', 'Elga Tillazo', 'Doctor', 53, 'Day')");
       await db.execute(
           "INSERT INTO doctors(medical_speciality,name,ocupation,age,shift) VALUES('orthopedy', 'Elma Nubrio', 'Doctor', 53, 'Day')");
+      await db.execute(
+          "INSERT INTO doctors(medical_speciality,name,ocupation,age,shift) VALUES('orthopedy', 'Kelyn Dorhabo', 'Doctor', 53, 'Day')");
+      await db.execute(
+          "INSERT INTO doctors(medical_speciality,name,ocupation,age,shift) VALUES('orthopedy', 'Lapar Kaviene', 'Doctor', 53, 'Day')");
+      await db.execute(
+          "INSERT INTO doctors(medical_speciality,name,ocupation,age,shift) VALUES('orthopedy', 'Annoa Vierto', 'Doctor', 53, 'Day')");
+      await db.execute(
+          "INSERT INTO doctors(medical_speciality,name,ocupation,age,shift) VALUES('orthopedy', 'Karem Panada', 'Doctor', 53, 'Day')");
+      await db.execute(
+          "INSERT INTO doctors(medical_speciality,name,ocupation,age,shift) VALUES('orthopedy', 'Lola Mephijas', 'Doctor', 53, 'Day')");
+      await db.execute(
+          "INSERT INTO doctors(medical_speciality,name,ocupation,age,shift) VALUES('orthopedy', 'Julia Sesina', 'Doctor', 53, 'Day')");
+      await db.execute(
+          "INSERT INTO doctors(medical_speciality,name,ocupation,age,shift) VALUES('orthopedy', 'Lala Dhilla', 'Doctor', 53, 'Day')");
+      await db.execute(
+          "INSERT INTO doctors(medical_speciality,name,ocupation,age,shift) VALUES('orthopedy', 'Lucas Trado', 'Doctor', 53, 'Day')");
+      await db.execute(
+          "INSERT INTO doctors(medical_speciality,name,ocupation,age,shift) VALUES('orthopedy', 'Susan Note', 'Doctor', 53, 'Day')");
+      await db.execute(
+          "INSERT INTO doctors(medical_speciality,name,ocupation,age,shift) VALUES('orthopedy', 'Elvis Thuri', 'Doctor', 53, 'Day')");
+      await db.execute(
+          "INSERT INTO doctors(medical_speciality,name,ocupation,age,shift) VALUES('orthopedy', 'Confi Mossis', 'Doctor', 53, 'Day')");
 
+      await db.execute(
+          "INSERT INTO doctors(medical_speciality,name,ocupation,age,shift) VALUES('neurology', 'Aguiles Castro', 'Doctor', 53, 'Day')");
+      await db.execute(
+          "INSERT INTO doctors(medical_speciality,name,ocupation,age,shift) VALUES('neurology', 'Elmo Rhibundo', 'Doctor', 53, 'Day')");
+      await db.execute(
+          "INSERT INTO doctors(medical_speciality,name,ocupation,age,shift) VALUES('neurology', 'Johnny Melavo', 'Doctor', 53, 'Day')");
+      await db.execute(
+          "INSERT INTO doctors(medical_speciality,name,ocupation,age,shift) VALUES('neurology', 'Estoika Chondo', 'Doctor', 53, 'Day')");
+      await db.execute(
+          "INSERT INTO doctors(medical_speciality,name,ocupation,age,shift) VALUES('neurology', 'Thuber Kulosis', 'Doctor', 53, 'Day')");
+      await db.execute(
+          "INSERT INTO doctors(medical_speciality,name,ocupation,age,shift) VALUES('neurology', 'Elver Gachica', 'Doctor', 53, 'Day')");
+      await db.execute(
+          "INSERT INTO doctors(medical_speciality,name,ocupation,age,shift) VALUES('neurology', 'Ana Margada', 'Doctor', 53, 'Day')");
+
+      await db.execute(
+          "INSERT INTO doctors(medical_speciality,name,ocupation,age,shift) VALUES('burn section', 'Tuma Drescalva', 'Doctor', 53, 'Day')");
+      await db.execute(
+          "INSERT INTO doctors(medical_speciality,name,ocupation,age,shift) VALUES('burn section', 'Debora Thulas', 'Doctor', 53, 'Day')");
+      await db.execute(
+          "INSERT INTO doctors(medical_speciality,name,ocupation,age,shift) VALUES('burn section', 'Tequito Tupelo', 'Doctor', 53, 'Day')");
+      await db.execute(
+          "INSERT INTO doctors(medical_speciality,name,ocupation,age,shift) VALUES('burn section', 'Hellen Terrador', 'Doctor', 53, 'Day')");
+      await db.execute(
+          "INSERT INTO doctors(medical_speciality,name,ocupation,age,shift) VALUES('burn section', 'Elen Bolshador', 'Doctor', 53, 'Day')");
+      await db.execute(
+          "INSERT INTO doctors(medical_speciality,name,ocupation,age,shift) VALUES('burn section', 'Elka Bhezon', 'Doctor', 53, 'Day')");
+      await db.execute(
+          "INSERT INTO doctors(medical_speciality,name,ocupation,age,shift) VALUES('burn section', 'Micah Beshona', 'Doctor', 53, 'Day')");
+      await db.execute(
+          "INSERT INTO doctors(medical_speciality,name,ocupation,age,shift) VALUES('burn section', 'Elri Cocipote', 'Doctor', 53, 'Day')");
+
+      await db.execute(
+          "INSERT INTO doctors(medical_speciality,name,ocupation,age,shift) VALUES('morge', 'Melo Rosas', 'Doctor', 53, 'Day')");
+      await db.execute(
+          "INSERT INTO doctors(medical_speciality,name,ocupation,age,shift) VALUES('morge', 'Fermin Galarga', 'Doctor', 53, 'Day')");
+      await db.execute(
+          "INSERT INTO doctors(medical_speciality,name,ocupation,age,shift) VALUES('morge', 'Pepe Lotudo', 'Doctor', 53, 'Day')");
       //para añadir mas tablas
       // await db.execute(
       //   "CREATE TABLE Resultados(id INTEGER PRIMARY KEY, jugador1 TEXT, j1set1 TEXT, j1set1 TEXT)"
