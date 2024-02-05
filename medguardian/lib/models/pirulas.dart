@@ -1,5 +1,6 @@
 import 'package:medguardian/models/database.dart';
 
+//Data from the table
 class Pirula {
   late int id;
   late String name;
@@ -11,7 +12,7 @@ class Pirula {
   late int withoutFood;
   late int withOtherPirula;
   late int currentQuantity;
-
+//Initialize the values
   Pirula() {
     name = '';
     brand = '';
@@ -23,7 +24,7 @@ class Pirula {
     withOtherPirula = 0;
     currentQuantity = 0;
   }
-
+//Builder without Id
   Pirula.withoutId(
       this.name,
       this.brand,
@@ -34,7 +35,7 @@ class Pirula {
       this.withoutFood,
       this.withOtherPirula,
       this.currentQuantity);
-
+//Builder with Id
   Pirula.withId(
       this.id,
       this.name,
@@ -46,7 +47,7 @@ class Pirula {
       this.withoutFood,
       this.withOtherPirula,
       this.currentQuantity);
-
+//Receive the data and put it in a map
   Pirula.fromMap(Map<String, dynamic> map) {
     id = (map['id'] != null) ? map['id'] : null;
     name = (map['name'] != null) ? map['name'] : '';
@@ -61,7 +62,7 @@ class Pirula {
     currentQuantity =
         (map['currentQuantity'] != null) ? map['currentQuantity'] : 0;
   }
-
+//TODO
   Map<String, dynamic> toMap() {
     var map = Map<String, dynamic>();
     if (id != null) map['id'] = id;
@@ -77,6 +78,7 @@ class Pirula {
     return map;
   }
 
+//To get the pirulas list
   Future<List<Pirula>> GetPirulas() async {
     List<Pirula> pirulas = [];
     DBHelper dbHelper = DBHelper();
