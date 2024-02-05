@@ -5,6 +5,7 @@ import 'package:medguardian/widgets/Containers/schedule_container.dart';
 import 'package:medguardian/widgets/Extra/search_bar.dart';
 import 'package:provider/provider.dart';
 import 'package:medguardian/theme/theme.dart';
+import 'package:medguardian/models/doctors.dart';
 
 class MyMedicalDatePage extends StatefulWidget {
   final VoidCallback callDoctor;
@@ -16,7 +17,7 @@ class MyMedicalDatePage extends StatefulWidget {
 
 class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
   final TextEditingController searchController = TextEditingController();
-
+  final Doctor doctor = new Doctor();
   @override
   Widget build(BuildContext context) {
     final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
@@ -73,17 +74,13 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    
-                    
-                    
-                    
                     Column(
                       children: [
                         CustomSmallPlainButton(
-                        icon: Icons.monitor_heart,
-                        onPressed: () => widget.callDoctor()),
-                        
-                        const Text("Consultation", style: TextStyle(fontSize: 12))
+                            icon: Icons.monitor_heart,
+                            onPressed: () => widget.callDoctor()),
+                        const Text("Consultation",
+                            style: TextStyle(fontSize: 12))
                       ],
                     ),
                     const SizedBox(
@@ -92,7 +89,7 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
                     Column(
                       children: [
                         CustomSmallPlainButton(
-                        icon: Icons.local_pharmacy, onPressed: () {}),
+                            icon: Icons.local_pharmacy, onPressed: () {}),
                         const Text("Pharmacy", style: TextStyle(fontSize: 12))
                       ],
                     ),
@@ -102,8 +99,9 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
                     Column(
                       children: [
                         CustomSmallPlainButton(
-                        icon: Icons.local_pharmacy, onPressed: () {}),
-                        const Text("Appointment", style: TextStyle(fontSize: 12))
+                            icon: Icons.local_pharmacy, onPressed: () {}),
+                        const Text("Appointment",
+                            style: TextStyle(fontSize: 12))
                       ],
                     ),
                     const SizedBox(
@@ -111,9 +109,8 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
                     ),
                     Column(
                       children: [
-                        
                         CustomSmallPlainButton(
-                        icon: Icons.local_pharmacy, onPressed: () {}),
+                            icon: Icons.local_pharmacy, onPressed: () {}),
                         const Text("Recipe", style: TextStyle(fontSize: 12))
                       ],
                     )
@@ -139,11 +136,41 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
           height: 10.0,
         ),
         //###################### Upcoming Schedule ##########################
+        SizedBox(
+            height: 200,
+            child: FutureBuilder(
+                future: doctor.GetDoctors(),
+                builder: (context, AsyncSnapshot<List<Doctor>> snapshot) {
+                  if (snapshot.hasData) {
+                    return ListView.builder(
+                        shrinkWrap: true,
+                        scrollDirection: Axis.horizontal,
+                        // itemCount: 3,
+                        itemCount: snapshot.data!.length,
+                        itemBuilder: (context, index) {
+                          return Padding(
+                              padding: EdgeInsets.all(16.0),
+                              child: Column(children: [
+                                CustomSchedule(
+                                    image: Icons.person,
+                                    name: snapshot.data![index].name,
+                                    consultation:
+                                        snapshot.data![index].medicalSpeciality,
+                                    date: '19 October',
+                                    hour: '10:00')
+                              ]));
+                        });
+                  } else {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  }
+                })),
         //TODO: Make big container for schedules
-        const ScheduleContainer(content: [
+        /*const ScheduleContainer(content: [
           CustomSchedule(
               image: Icons.person,
-              name: "Dr. Miss Stormy",
+              name: snapshot.data![index].name,
               consultation: "Psychology consultation",
               date: "Tuesday, 15 August",
               hour: "14:00 - 15:00"),
@@ -153,7 +180,7 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
               consultation: "Psychology consultation",
               date: "Tuesday, 15 August",
               hour: "14:00 - 15:00"),
-        ]),
+        ]),*/
 
         //###################### Doctor Speciality ##########################
         const SizedBox(
@@ -177,51 +204,19 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
           child: Column(children: [
             Row(
               children: [
-                Column(
-                  children: [
-                    ElevatedButton(
-                        onPressed: () {}, child: const Icon(Icons.healing)),
-                    const Center(
-                      child: Text("General"),
-                    )
-                  ],
-                ),
+                CustomSmallPlainButton(icon: Icons.healing, onPressed: () {}),
                 const SizedBox(
                   width: 5.0,
                 ),
-                Column(
-                  children: [
-                    ElevatedButton(
-                        onPressed: () {}, child: const Icon(Icons.healing)),
-                    const Center(
-                      child: Text("General"),
-                    )
-                  ],
-                ),
+                CustomSmallPlainButton(icon: Icons.healing, onPressed: () {}),
                 const SizedBox(
                   width: 5.0,
                 ),
-                Column(
-                  children: [
-                    ElevatedButton(
-                        onPressed: () {}, child: const Icon(Icons.healing)),
-                    const Center(
-                      child: Text("General"),
-                    )
-                  ],
-                ),
+                CustomSmallPlainButton(icon: Icons.healing, onPressed: () {}),
                 const SizedBox(
                   width: 5.0,
                 ),
-                Column(
-                  children: [
-                    ElevatedButton(
-                        onPressed: () {}, child: const Icon(Icons.healing)),
-                    const Center(
-                      child: Text("General"),
-                    )
-                  ],
-                ),
+                CustomSmallPlainButton(icon: Icons.healing, onPressed: () {}),
               ],
             ),
             const SizedBox(
@@ -229,51 +224,19 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
             ),
             Row(
               children: [
-                Column(
-                  children: [
-                    ElevatedButton(
-                        onPressed: () {}, child: const Icon(Icons.healing)),
-                    const Center(
-                      child: Text("General"),
-                    )
-                  ],
-                ),
+                CustomSmallPlainButton(icon: Icons.healing, onPressed: () {}),
                 const SizedBox(
                   width: 5.0,
                 ),
-                Column(
-                  children: [
-                    ElevatedButton(
-                        onPressed: () {}, child: const Icon(Icons.healing)),
-                    const Center(
-                      child: Text("General"),
-                    )
-                  ],
-                ),
+                CustomSmallPlainButton(icon: Icons.healing, onPressed: () {}),
                 const SizedBox(
                   width: 5.0,
                 ),
-                Column(
-                  children: [
-                    ElevatedButton(
-                        onPressed: () {}, child: const Icon(Icons.healing)),
-                    const Center(
-                      child: Text("General"),
-                    )
-                  ],
-                ),
+                CustomSmallPlainButton(icon: Icons.healing, onPressed: () {}),
                 const SizedBox(
                   width: 5.0,
                 ),
-                Column(
-                  children: [
-                    ElevatedButton(
-                        onPressed: () {}, child: const Icon(Icons.healing)),
-                    const Center(
-                      child: Text("General"),
-                    )
-                  ],
-                ),
+                CustomSmallPlainButton(icon: Icons.healing, onPressed: () {}),
               ],
             ),
           ]),

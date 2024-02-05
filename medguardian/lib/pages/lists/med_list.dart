@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medguardian/models/pirulas.dart';
 import 'package:medguardian/widgets/Containers/custom_medicine_container.dart';
 import 'package:medguardian/widgets/Extra/search_bar.dart';
 import 'package:provider/provider.dart';
@@ -10,6 +11,7 @@ class MyMedListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Pirula pirula = Pirula();
     final TextEditingController searchController = TextEditingController();
     final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
     return Scaffold(
@@ -45,10 +47,32 @@ class MyMedListPage extends StatelessWidget {
                   const SizedBox(
                     height: 5.0,
                   ),
-                  const MedicineAccordion(
-                      name: 'Medicine 1', type: 'Type A', pillCount: 10),
-                  const MedicineAccordion(
-                      name: 'Medicine 2', type: 'Type B', pillCount: 20),
+                  // const MedicineAccordion(
+                  //     name: 'Medicine 1', type: 'Type A', pillCount: 10),
+                  // const MedicineAccordion(
+                  //     name: 'Medicine 2', type: 'Type B', pillCount: 20),
+                  FutureBuilder(
+                      future: pirula.GetPirulas(),
+                      builder: (context, AsyncSnapshot<List<Pirula>> snapshot) {
+                        if (snapshot.hasData) {
+                          return ListView.builder(
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemCount: snapshot.data!.length,
+                            itemBuilder: (context, index) {
+                              return MedicineAccordion(
+                                  name: snapshot.data![index].name,
+                                  type: snapshot.data![index].type,
+                                  pillCount:
+                                      snapshot.data![index].currentQuantity);
+                            },
+                          );
+                        } else {
+                          return const Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        }
+                      })
                 ],
               ),
             )
