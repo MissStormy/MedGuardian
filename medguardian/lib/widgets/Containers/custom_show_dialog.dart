@@ -5,7 +5,7 @@ class CustomShowDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Future<void> _showMyDialog() async {
+    Future<void> showMyDialog() async {
       return showDialog(
           context: context,
           builder: (BuildContext context) {

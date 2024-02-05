@@ -1,84 +1,151 @@
 import 'package:flutter/material.dart';
-import 'package:medguardian/notifs/alarm.dart';
 import 'package:medguardian/theme/theme.dart';
-import 'package:medguardian/widgets/Containers/custom_show_dialog.dart';
 import 'package:medguardian/widgets/Containers/medication_list.dart';
 import 'package:provider/provider.dart';
 import 'package:medguardian/models/treatment.dart';
-
-//Here you can find the list of treatments which have been created
+import 'dart:async';
+import 'package:analog_clock/analog_clock.dart';
 
 class MyTreatmentList extends StatelessWidget {
-  //Wanna play ping-pong? VoidCallback sends a signal to the bottomnavbar, which then ricochets through the nexus
-  //back to the selected index to change the body!! Interesting right? :)
   final VoidCallback createTreat;
-  const MyTreatmentList({super.key, required this.createTreat});
+
+  const MyTreatmentList({required this.createTreat});
 
   @override
   Widget build(BuildContext context) {
-    final Treatment treatment = new Treatment();
+    final Treatment treatment = Treatment();
     final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
+
+    Future<String> getNextPill() async {
+      // Logic to retrieve the next pill info from the database
+      // Replace this with your actual database query
+      await Future.delayed(Duration(seconds: 1)); // Simulating async operation
+      return "Ibuprofen at 9:00 AM"; // Example next pill information
+    }
+
     return Scaffold(
+      backgroundColor: actualTheme.colorScheme.surface,
       body: SingleChildScrollView(
         child: Column(
           children: [
-            //With this you can create a whole bunch of the same thing
-            //TODO: Fix it so they are different
+            // Clock Container
+            SafeArea(
+              child: Container(
+                padding: EdgeInsets.all(16.0),
+                decoration: BoxDecoration(
+                  color: actualTheme.colorScheme.surface,
+                  border: Border.all(color: actualTheme.colorScheme.primary),
+                ),
+                child: Row(
+                  children: [
+                    Container(
+                      width: 100,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border:
+                            Border.all(color: actualTheme.colorScheme.primary),
+                      ),
+                      child: AnalogClock(
+                        decoration: const BoxDecoration(
+                            
+                            color: Colors.transparent,
+                            shape: BoxShape.circle),
+                        width: 150.0,
+                        isLive: true,
+                        hourHandColor: actualTheme.colorScheme.onSurface,
+                        minuteHandColor: actualTheme.colorScheme.onSurface,
+                        showSecondHand: false,
+                        numberColor: actualTheme.colorScheme.onSurface,
+                        showNumbers: true,
+                        showAllNumbers: false,
+                        textScaleFactor: 1.4,
+                        showTicks: false,
+                        showDigitalClock: false,
+                        datetime: DateTime.now(),
+                      ),
+                    ),
+                    SizedBox(width: 16), // Spacer
+                    // Next Pill Information
+                    Flexible(
+                      child: FutureBuilder<String>(
+                        future: getNextPill(),
+                        builder: (context, snapshot) {
+                          if (snapshot.connectionState ==
+                              ConnectionState.waiting) {
+                            return CircularProgressIndicator();
+                          } else if (snapshot.hasError) {
+                            return Text("Error: ${snapshot.error}");
+                          } else {
+                            String nextPill =
+                                snapshot.data ?? "No pills scheduled";
+                            return Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Hello there, Nyachan",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 24, // Adjust font size as needed
+                                  ),
+                                ),
+                                SizedBox(height: 8), // Adjust spacing as needed
+                                Text(
+                                  "Next pill: $nextPill",
+                                  style: TextStyle(
+                                      fontSize:
+                                          16), // Adjust font size as needed
+                                  softWrap: true, // Enable text wrapping
+                                ),
+                              ],
+                            );
+                          }
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+            // Medication Rows
             _buildMedicationRow('Morning Pirulas'),
             SizedBox(
-                height: 200,
-                child: FutureBuilder(
-                    future: treatment.GetTreatments(),
-                    builder:
-                        (context, AsyncSnapshot<List<Treatment>> snapshot) {
-                      if (snapshot.hasData) {
-                        return ListView.builder(
-                          shrinkWrap: true,
-                          scrollDirection: Axis.horizontal,
-                          // itemCount: 3,
-                          itemCount: snapshot.data!.length,
-                          itemBuilder: (context, index) {
-                            return 
-                            Padding(
-                              padding: EdgeInsets.all(16.0),
-                              child: Row(
-                                children: [
-                                  MedicationItem(
-                                    time: '12:00',
-                                    // name: 'pirula1',
-                                    name: snapshot.data![index].pirulaName,
-                                    icon: Icons.medication,
-                                    onMoreTap: () {
-                                      AlertDialog(
-                                        title: const Text('Boooooop'),
-                                        content: SingleChildScrollView(
-                                          child: ListBody(
-                                            children: [
-                                              Text('This is a kaiju alert')
-                                            ],
-                                          ),
-                                        ),
-                                        actions: [
-                                          TextButton(
-                                              onPressed: () {
-                                                Navigator.of(context).pop();
-                                              },
-                                              child: const Text('Okay'))
-                                        ],
-                                      );
-                                    },
-                                  ),
-                                ],
+              height: 200,
+              child: FutureBuilder(
+                future: treatment.GetTreatments(),
+                builder: (context, AsyncSnapshot<List<Treatment>> snapshot) {
+                  if (snapshot.hasData) {
+                    return ListView.builder(
+                      shrinkWrap: true,
+                      scrollDirection: Axis.horizontal,
+                      itemCount: snapshot.data!.length,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Row(
+                            children: [
+                              MedicationItem(
+                                time: '12:00',
+                                name: snapshot.data![index].pirulaName,
+                                icon: Icons.medication,
+                                onMoreTap: () {
+                                  // Handle tap
+                                },
                               ),
-                            );
-                          },
+                            ],
+                          ),
                         );
-                      } else {
-                        return const Center(
-                          child: CircularProgressIndicator(),
-                        );
-                      }
-                    })),
+                      },
+                    );
+                  } else {
+                    return Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  }
+                },
+              ),
+            ),
             _buildMedicationRow('Midday Pirulas'),
             SizedBox(
               height: 200,
@@ -87,7 +154,7 @@ class MyTreatmentList extends StatelessWidget {
                 itemCount: 5,
                 itemBuilder: (context, index) {
                   return Padding(
-                    padding: EdgeInsets.all(16.0),
+                    padding: const EdgeInsets.all(16.0),
                     child: Row(
                       children: [
                         MedicationItem(
@@ -110,7 +177,7 @@ class MyTreatmentList extends StatelessWidget {
                 itemCount: 5,
                 itemBuilder: (context, index) {
                   return Padding(
-                    padding: EdgeInsets.all(16.0),
+                    padding: const EdgeInsets.all(16.0),
                     child: Row(
                       children: [
                         MedicationItem(
@@ -132,8 +199,8 @@ class MyTreatmentList extends StatelessWidget {
         onPressed: () => createTreat(),
         backgroundColor: actualTheme.colorScheme.onSurface,
         elevation: 10,
-        shape: const CircleBorder(),
-        child: const Icon(Icons.add, color: Colors.white),
+        shape: CircleBorder(),
+        child: Icon(Icons.add, color: Colors.white),
       ),
     );
   }

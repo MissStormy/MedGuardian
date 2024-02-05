@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-
+import 'package:provider/provider.dart';
+import 'package:medguardian/theme/theme.dart';
 class ChatScreen extends StatefulWidget {
-  const ChatScreen({Key? key}) : super(key: key);
+  const ChatScreen({super.key});
 
   @override
   State<ChatScreen> createState() => _ChatScreenState();
 }
 
 class _ChatScreenState extends State<ChatScreen> {
-  TextEditingController _textController = TextEditingController();
+  final TextEditingController _textController = TextEditingController();
   List<Map<String, String>> chatHistory = [];
 
   void _handleSubmitted(String text) {
@@ -43,10 +44,12 @@ class _ChatScreenState extends State<ChatScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
     return Scaffold(
+      backgroundColor: actualTheme.colorScheme.surface,
       appBar: AppBar(
         automaticallyImplyLeading: false, // To remove the back arrow
-        title: Center(
+        title: const Center(
           child: Text('N.O.V.A'),
         ),
       ),
@@ -99,7 +102,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   },
                 ),
               ),
-              Divider(height: 1.0),
+              const Divider(height: 1.0),
               Container(
                 decoration: BoxDecoration(color: Theme.of(context).cardColor),
                 child: _buildTextComposer(),
@@ -113,22 +116,22 @@ class _ChatScreenState extends State<ChatScreen> {
 
   Widget _buildTextComposer() {
     return IconTheme(
-      data: IconThemeData(color: Colors.green),
+      data: const IconThemeData(color: Colors.green),
       child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 8.0),
+        margin: const EdgeInsets.symmetric(horizontal: 8.0),
         child: Row(
           children: [
             Flexible(
               child: TextField(
                 controller: _textController,
                 onSubmitted: _handleSubmitted,
-                decoration: InputDecoration.collapsed(
+                decoration: const InputDecoration.collapsed(
                   hintText: 'Send a message',
                 ),
               ),
             ),
             IconButton(
-              icon: Icon(Icons.send),
+              icon: const Icon(Icons.send),
               onPressed: () => _handleSubmitted(_textController.text),
             ),
           ],

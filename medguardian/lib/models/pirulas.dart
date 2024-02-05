@@ -64,8 +64,8 @@ class Pirula {
   }
 //TODO
   Map<String, dynamic> toMap() {
-    var map = Map<String, dynamic>();
-    if (id != null) map['id'] = id;
+    var map = <String, dynamic>{};
+    map['id'] = id;
     map['name'] = name;
     map['brand'] = brand;
     map['dose'] = dose;

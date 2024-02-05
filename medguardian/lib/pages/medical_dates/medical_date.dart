@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medguardian/widgets/Buttons/custom_small_pb.dart';
 import 'package:medguardian/widgets/Containers/custom_schedule.dart';
-import 'package:medguardian/widgets/Containers/schedule_container.dart';
 import 'package:medguardian/widgets/Extra/search_bar.dart';
 import 'package:provider/provider.dart';
 import 'package:medguardian/theme/theme.dart';
@@ -17,11 +16,12 @@ class MyMedicalDatePage extends StatefulWidget {
 
 class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
   final TextEditingController searchController = TextEditingController();
-  final Doctor doctor = new Doctor();
+  final Doctor doctor = Doctor();
   @override
   Widget build(BuildContext context) {
     final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
     return Scaffold(
+      backgroundColor: actualTheme.colorScheme.surface,
         body: SingleChildScrollView(
             child: Column(
       children: [
@@ -149,7 +149,7 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
                         itemCount: snapshot.data!.length,
                         itemBuilder: (context, index) {
                           return Padding(
-                              padding: EdgeInsets.all(16.0),
+                              padding: const EdgeInsets.all(16.0),
                               child: Column(children: [
                                 CustomSchedule(
                                     image: Icons.person,

@@ -31,6 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
     return Scaffold(
+      backgroundColor: actualTheme.colorScheme.surface,
       //###################### Body ##########################
       body: SingleChildScrollView(
           child: Column(children: [

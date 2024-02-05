@@ -8,10 +8,10 @@ class CustomDatePicker extends StatelessWidget {
   final void Function(DateTime) onDateChanged;
 
   const CustomDatePicker({
-    Key? key,
+    super.key,
     required this.selectedDate,
     required this.onDateChanged,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class CustomDatePicker extends StatelessWidget {
     // Format selectedDate as "day/month/year"
     String formattedDate = DateFormat('dd/MM/yyyy').format(selectedDate);
 
-    return Container(
+    return SizedBox(
       height: 100, // Adjust the height as needed
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -31,9 +31,9 @@ class CustomDatePicker extends StatelessWidget {
               controller: TextEditingController(text: formattedDate),
               decoration: InputDecoration(
                 labelText: 'Date',
-                border: OutlineInputBorder(),
+                border: const OutlineInputBorder(),
                 suffixIcon: IconButton(
-                  icon: Icon(Icons.calendar_today),
+                  icon: const Icon(Icons.calendar_today),
                   onPressed: () async {
                     final pickedDate = await showDatePicker(
                       context: context,

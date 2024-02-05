@@ -3,13 +3,11 @@ import 'package:medguardian/widgets/Containers/custom_dropdown.dart';
 import 'package:medguardian/widgets/Extra/custom_date_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:medguardian/theme/theme.dart';
-
 //Just like med_create.dart, this one creates treatments through a wizard
 
-import 'package:flutter/material.dart';
 
 class MyTreatCreatPage extends StatefulWidget {
-  const MyTreatCreatPage({Key? key}) : super(key: key);
+  const MyTreatCreatPage({super.key});
 
   @override
   _MyTreatCreatPageState createState() => _MyTreatCreatPageState();
@@ -20,13 +18,15 @@ class _MyTreatCreatPageState extends State<MyTreatCreatPage> {
   String selectedValue = 'Ibuprofeno';
   DateTime _selectedDate = DateTime.now();
   String _selectedFrequency = '';
-  TimeOfDay _selectedTime = TimeOfDay(hour: 0, minute: 0);
+  TimeOfDay _selectedTime = const TimeOfDay(hour: 0, minute: 0);
 
-  TextEditingController _customFrequencyController = TextEditingController();
+  final TextEditingController _customFrequencyController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
     return Scaffold(
+      backgroundColor: actualTheme.colorScheme.surface,
       body: Stepper(
         currentStep: _currentStep,
         onStepContinue: () {
@@ -44,7 +44,7 @@ class _MyTreatCreatPageState extends State<MyTreatCreatPage> {
             title: const Text('Choose the medication'),
             content: CustomDropdown(
               label: 'Pirula name',
-              items: ['Ibuprofeno', 'Amoxicilina', 'Plutonic drug'],
+              items: const ['Ibuprofeno', 'Amoxicilina', 'Plutonic drug'],
               value: selectedValue,
               onChanged: (newValue) {
                 setState(() {
@@ -88,7 +88,7 @@ class _MyTreatCreatPageState extends State<MyTreatCreatPage> {
                           _selectedFrequency = 'hourly';
                         });
                       },
-                      child: Text('Hourly'),
+                      child: const Text('Hourly'),
                     ),
                     ElevatedButton(
                       onPressed: () {
@@ -96,7 +96,7 @@ class _MyTreatCreatPageState extends State<MyTreatCreatPage> {
                           _selectedFrequency = 'daily';
                         });
                       },
-                      child: Text('Daily'),
+                      child: const Text('Daily'),
                     ),
                     ElevatedButton(
                       onPressed: () {
@@ -104,7 +104,7 @@ class _MyTreatCreatPageState extends State<MyTreatCreatPage> {
                           _selectedFrequency = 'custom';
                         });
                       },
-                      child: Text('Custom'),
+                      child: const Text('Custom'),
                     ),
                   ],
                 ),
@@ -113,7 +113,7 @@ class _MyTreatCreatPageState extends State<MyTreatCreatPage> {
                     padding: const EdgeInsets.only(top: 16.0),
                     child: TextFormField(
                       controller: _customFrequencyController,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'Custom Frequency',
                         border: OutlineInputBorder(),
                       ),

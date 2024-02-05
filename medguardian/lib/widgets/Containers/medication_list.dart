@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:medguardian/theme/theme.dart';
 import 'package:provider/provider.dart';
-
+import 'package:medguardian/theme/theme.dart';
 class MedicationItem extends StatelessWidget {
   final String time;
   final String name;
@@ -9,23 +8,28 @@ class MedicationItem extends StatelessWidget {
   final VoidCallback onMoreTap;
 
   const MedicationItem({
-    Key? key,
+    super.key,
     required this.time,
     required this.name,
     required this.icon,
     required this.onMoreTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
+    final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
     return InkWell(
-      onTap: onMoreTap, // Use InkWell instead of GestureDetector
+      onTap: onMoreTap, 
       child: Container(
         width: 150,
-        padding: EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(5.0),
         decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 67, 109, 69), // Set background color
+          color: actualTheme.colorScheme.secondary, 
           borderRadius: BorderRadius.circular(8.0),
+          border: Border.all(
+            color: actualTheme.colorScheme.primary,
+            width: 2
+          )
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -35,25 +39,25 @@ class MedicationItem extends StatelessWidget {
               size: 50,
               color: Colors.blue,
             ),
-            SizedBox(height: 4),
+            const SizedBox(height: 4),
             Text(
               time,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 4),
+            const SizedBox(height: 4),
             Text(
               name,
-              style: TextStyle(fontSize: 14),
+              style: const TextStyle(fontSize: 14),
             ),
-            SizedBox(height: 1),
+            const SizedBox(height: 1),
             TextButton(
               onPressed: () {
                 onMoreTap();
               },
-              child: Text('More'),
+              child: const Text('More'),
             ),
           ],
         ),

@@ -40,6 +40,9 @@ class CustomSchedule extends StatelessWidget {
                 radius: 20,
                 child: Icon(image),
               ),
+              const SizedBox(
+                width: 15.0,
+              ),
               Column(
                 children: [
                   Text(

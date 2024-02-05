@@ -16,6 +16,7 @@ class _MySettingsPageState extends State<MySettingsPage> {
   Widget build(BuildContext context) {
     final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
     return Scaffold(
+      backgroundColor: actualTheme.colorScheme.surface,
         body: SingleChildScrollView(
       child: Column(
         children: [
@@ -52,8 +53,16 @@ class _MySettingsPageState extends State<MySettingsPage> {
                       const Text("Dark mode",
                           style: TextStyle(fontWeight: FontWeight.bold)),
                       Switch(
-                        value: true,
-                        onChanged: (bool value) {},
+                        value: Provider.of<ThemeLoader>(context).darkTheme,
+                        onChanged: (bool value) {
+                          if (value) {
+                            Provider.of<ThemeLoader>(context, listen: false)
+                                .darkTheme = true;
+                          } else {
+                            Provider.of<ThemeLoader>(context, listen: false)
+                                .lightTheme = true;
+                          }
+                        },
                         activeColor: actualTheme.colorScheme.onBackground,
                       ),
                     ],

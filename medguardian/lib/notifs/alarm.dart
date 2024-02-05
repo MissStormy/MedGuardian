@@ -5,15 +5,15 @@ class TreatmentAlarmDialog extends StatelessWidget {
   final String imagePath;
 
   const TreatmentAlarmDialog({
-    Key? key,
+    super.key,
     required this.medicationName,
     required this.imagePath,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text('Time to take medication'),
+      title: const Text('Time to take medication'),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -23,7 +23,7 @@ class TreatmentAlarmDialog extends StatelessWidget {
             height: 100,
             fit: BoxFit.contain,
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           Text('Medication: $medicationName'),
         ],
       ),
@@ -33,14 +33,14 @@ class TreatmentAlarmDialog extends StatelessWidget {
             // Handle "Done" button tap
             Navigator.of(context).pop(); // Close the dialog
           },
-          child: Text('Done'),
+          child: const Text('Done'),
         ),
         ElevatedButton(
           onPressed: () {
             // Handle "Remind later" button tap
             Navigator.of(context).pop(); // Close the dialog
           },
-          child: Text('Remind later'),
+          child: const Text('Remind later'),
         ),
       ],
     );

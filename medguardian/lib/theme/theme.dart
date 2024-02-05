@@ -60,16 +60,17 @@ class ThemeLoader with ChangeNotifier {
     }
     notifyListeners();
   }
-
+  
+  //Light theme: Bathing ducks
   ThemeData _myLightTheme() {
     return (ThemeData.light().copyWith(
         colorScheme: const ColorScheme(
-          primary: Color(0xFF738290), // Text color
-          secondary: Color(0xFFA1B5D8), // Accent color
-          background: Color(0xFFFFFCF7), // Background color
-          surface: Color(0xFFE4F0D0), // Secondary color
+          primary: Color(0xFF82ad85), // Text color
+          secondary: Color(0xFF9dbb91), // Accent color
+          background: Color(0xFFdfc4c9), // Background color
+          surface: Color(0xFFeef2e7), // Secondary color
           onBackground:
-              Color(0xFFCFE1F4), // Text color on top of the background color
+              Color(0xFFd3e8cc), // Text color on top of the background color
           onSurface:
               Color(0xFF0D0D0D), // Text color on top of the surface color
           brightness: Brightness.light,

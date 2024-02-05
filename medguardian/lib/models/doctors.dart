@@ -37,8 +37,8 @@ class Doctor {
   }
 
   Map<String, dynamic> toMap() {
-    var map = Map<String, dynamic>();
-    if (id != null) map['id'] = id;
+    var map = <String, dynamic>{};
+    map['id'] = id;
     map['medical_speciality'] = medicalSpeciality;
     map['name'] = name;
     map['ocupation'] = ocupation;

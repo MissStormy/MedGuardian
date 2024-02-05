@@ -15,6 +15,7 @@ class MyMapPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
     return Scaffold(
+      backgroundColor: actualTheme.colorScheme.surface,
       body: DraggableBottomSheet(
         minExtent: 150,
         useSafeArea: false,

@@ -15,6 +15,7 @@ class MyMedListPage extends StatelessWidget {
     final TextEditingController searchController = TextEditingController();
     final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
     return Scaffold(
+      backgroundColor: actualTheme.colorScheme.surface,
       body: SingleChildScrollView(
         child: Column(
           children: [

@@ -25,6 +25,7 @@ class _MyMedCreationPageState extends State<MyMedCreationPage> {
     final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
 
     return Scaffold(
+      backgroundColor: actualTheme.colorScheme.surface,
         body: DefaultTabController(
       length: 4,
       child: Scaffold(
@@ -70,6 +71,7 @@ class FirstPage extends StatelessWidget {
     final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
 
     return Scaffold(
+      backgroundColor: actualTheme.colorScheme.surface,
       body: SingleChildScrollView(
         child: Column(
           children: [

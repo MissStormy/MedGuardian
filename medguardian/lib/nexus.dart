@@ -63,7 +63,7 @@ class _MyNexusPageState extends State<MyNexusPage> {
       const MyProfilePage(),
       const MyMedCreationPage(),
       const MyTreatCreatPage(),
-      ChatScreen()
+      const ChatScreen()
     ];
     //This controls the theme
     final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;

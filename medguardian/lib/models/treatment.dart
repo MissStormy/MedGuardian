@@ -1,6 +1,4 @@
 import 'package:medguardian/models/database.dart';
-import 'package:medguardian/models/pirulas.dart';
-import 'package:medguardian/widgets/Containers/pill_container.dart';
 
 //Data from the treatment table
 class Treatment {
@@ -36,8 +34,8 @@ class Treatment {
   }
 //TODO
   Map<String, dynamic> toMap() {
-    var map = Map<String, dynamic>();
-    if (id != null) map['id'] = id;
+    var map = <String, dynamic>{};
+    map['id'] = id;
     map['pirulaName'] = pirulaName;
     map['startDate'] = startDate.toIso8601String();
     map['endDate'] = endDate.toIso8601String();
