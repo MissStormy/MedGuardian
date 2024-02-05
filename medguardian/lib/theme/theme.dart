@@ -75,7 +75,7 @@ class ThemeLoader with ChangeNotifier {
               Color(0xFF0D0D0D), // Text color on top of the surface color
           brightness: Brightness.light,
           error: Color(0xFFFF6E40),
-          onError: Color(0xFFECEFF1),
+          onError: Colors.black,
           onPrimary:
               Colors.black, // Placeholder color, replace with actual color
           onSecondary:

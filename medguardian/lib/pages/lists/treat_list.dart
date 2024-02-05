@@ -48,9 +48,7 @@ class MyTreatmentList extends StatelessWidget {
                       ),
                       child: AnalogClock(
                         decoration: const BoxDecoration(
-                            
-                            color: Colors.transparent,
-                            shape: BoxShape.circle),
+                            color: Colors.transparent, shape: BoxShape.circle),
                         width: 150.0,
                         isLive: true,
                         hourHandColor: actualTheme.colorScheme.onSurface,

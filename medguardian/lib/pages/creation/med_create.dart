@@ -209,7 +209,7 @@ class _FirstPageState extends State<FirstPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          setPirulaName("name");
+          //setPirulaName("name");
         },
         backgroundColor: actualTheme.colorScheme.onSurface,
         elevation: 10,

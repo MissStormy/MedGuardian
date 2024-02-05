@@ -25,22 +25,7 @@ class _ChatScreenState extends State<ChatScreen> {
     });
   }
 
-  String processUserInput(String userInput) {
-    // Predefined responses
-    Map<String, String> chatResponses = {
-      'hello': 'Hi there!',
-      'how are you':
-          'I am just a chatbot, but I am doing well. How can I assist you?',
-      'help':
-          'Sure, I can help you with medication information, health tips, etc.',
-      'who are you':
-          'N.O.V.A, your Navigational Organism for Vitality and Assistance!!'
-    };
-
-    // This checks the predefined responses
-    return chatResponses[userInput.toLowerCase()] ??
-        'I didn\'t understand that. Can you please clarify?';
-  }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -138,5 +123,22 @@ class _ChatScreenState extends State<ChatScreen> {
         ),
       ),
     );
+  }
+
+  String processUserInput(String userInput) {
+    // Predefined responses
+    Map<String, String> chatResponses = {
+      'hello': 'Hi there!',
+      'how are you':
+          'I am just a chatbot, but I am doing well. How can I assist you?',
+      'help':
+          'Sure, I can help you with medication information, health tips, etc.',
+      'who are you':
+          'N.O.V.A, your Navigational Organism for Vitality and Assistance!!'
+    };
+
+    // This checks the predefined responses
+    return chatResponses[userInput.toLowerCase()] ??
+        'I didn\'t understand that. Can you please clarify?';
   }
 }

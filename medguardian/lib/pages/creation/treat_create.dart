@@ -41,7 +41,9 @@ class _MyTreatCreatPageState extends State<MyTreatCreatPage> {
         },
         steps: [
           Step(
-            title: const Text('Choose the medication'),
+            title: Text('Choose the medication', style: TextStyle(
+              color: actualTheme.colorScheme.onError
+            ),),
             content: CustomDropdown(
               label: 'Pirula name',
               items: const ['Ibuprofeno', 'Amoxicilina', 'Plutonic drug'],
@@ -54,7 +56,9 @@ class _MyTreatCreatPageState extends State<MyTreatCreatPage> {
             ),
           ),
           Step(
-            title: const Text('Start date'),
+            title: Text('Start date', style: TextStyle(
+              color: actualTheme.colorScheme.onError
+            )),
             content: CustomDatePicker(
               selectedDate: _selectedDate,
               onDateChanged: (DateTime pickedDate) {
@@ -65,7 +69,9 @@ class _MyTreatCreatPageState extends State<MyTreatCreatPage> {
             ),
           ),
           Step(
-            title: const Text('End date'),
+            title:  Text('End date', style: TextStyle(
+              color: actualTheme.colorScheme.onError
+            )),
             content: CustomDatePicker(
               selectedDate: _selectedDate,
               onDateChanged: (DateTime pickedDate) {
@@ -76,7 +82,9 @@ class _MyTreatCreatPageState extends State<MyTreatCreatPage> {
             ),
           ),
           Step(
-            title: const Text('Select Frequency'),
+            title: Text('Select Frequency', style: TextStyle(
+              color: actualTheme.colorScheme.onError
+            )),
             content: Column(
               children: [
                 Row(
@@ -142,7 +150,9 @@ class _MyTreatCreatPageState extends State<MyTreatCreatPage> {
             ),
           ),
           Step(
-              title: const Text('Confirmation'),
+              title: Text('Confirmation', style: TextStyle(
+              color: actualTheme.colorScheme.onError
+            )),
               content: ElevatedButton(
                   onPressed: () {}, child: const Text('Save treatment')))
         ],

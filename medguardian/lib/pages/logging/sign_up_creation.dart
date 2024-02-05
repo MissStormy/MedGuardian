@@ -32,16 +32,17 @@ class _SignUpCreationState extends State<SignUpCreation> {
               title: Text('Personal info'),
               content: Column(
                 children: [
-                  CustomTextfield(label: 'Name'),
+                  //CustomTextfield(label: 'Name'),
                   SizedBox(
                     height: 5,
                   ),
-                  CustomTextfield(label: 'Surname')
+                  //CustomTextfield(label: 'Surname')
                 ],
               )),
           const Step(
               title: Text('Password'),
-              content: CustomTextfield(label: 'Password')),
+              content: Placeholder()),
+              //CustomTextfield(label: 'Password')),
           Step(
               title: const Text('Personal situation'),
               content: Column(
