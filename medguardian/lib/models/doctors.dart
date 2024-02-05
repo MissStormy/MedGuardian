@@ -29,7 +29,7 @@ class Doctor {
   Doctor.fromMap(Map<String, dynamic> map) {
     id = (map['id'] != null) ? map['id'] : null;
     medicalSpeciality =
-        (map['medicalSpeciality'] != Null ? map['medicalSpeciality'] : '');
+        (map['medical_speciality'] != Null ? map['medical_speciality'] : '');
     name = (map['name'] != Null ? map['name'] : '');
     ocupation = (map['ocupation'] != Null ? map['ocupation'] : '');
     age = (map['age'] != Null ? map['age'] : '');
@@ -39,7 +39,7 @@ class Doctor {
   Map<String, dynamic> toMap() {
     var map = Map<String, dynamic>();
     if (id != null) map['id'] = id;
-    map['medicalSpeciality'] = medicalSpeciality;
+    map['medical_speciality'] = medicalSpeciality;
     map['name'] = name;
     map['ocupation'] = ocupation;
     map['age'] = age;
