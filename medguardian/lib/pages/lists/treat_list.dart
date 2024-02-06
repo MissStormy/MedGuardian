@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:medguardian/notifs/notifications.dart';
+import 'package:medguardian/provider/guardian.dart';
 import 'package:medguardian/theme/theme.dart';
 import 'package:medguardian/widgets/Containers/medication_list.dart';
 import 'package:provider/provider.dart';
@@ -15,7 +17,7 @@ class MyTreatmentList extends StatelessWidget {
   Widget build(BuildContext context) {
     final Treatment treatment = Treatment();
     final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
-
+    final guardianModeProvider = Provider.of<GuardianModeProvider>(context);
     Future<String> getNextPill() async {
       // Logic to retrieve the next pill info from the database
       // Replace this with your actual database query
@@ -128,7 +130,10 @@ class MyTreatmentList extends StatelessWidget {
                                 name: snapshot.data![index].pirulaName,
                                 icon: Icons.medication,
                                 onMoreTap: () {
-                                  // Handle tap
+                                  //print("Working");
+                                  NotificationController.instance
+                                      .createNewNotification(
+                                          "Work in progress");
                                 },
                               ),
                             ],
@@ -193,13 +198,15 @@ class MyTreatmentList extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => createTreat(),
-        backgroundColor: actualTheme.colorScheme.onSurface,
-        elevation: 10,
-        shape: CircleBorder(),
-        child: Icon(Icons.add, color: Colors.white),
-      ),
+      floatingActionButton: !guardianModeProvider.guardianModeEnabled
+          ? FloatingActionButton(
+              onPressed: () => createTreat(),
+              backgroundColor: actualTheme.colorScheme.onSurface,
+              elevation: 10,
+              shape: const CircleBorder(),
+              child: const Icon(Icons.add, color: Colors.white),
+            )
+          : null,
     );
   }
 

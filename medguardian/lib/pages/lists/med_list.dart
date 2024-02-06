@@ -4,6 +4,7 @@ import 'package:medguardian/widgets/Containers/custom_medicine_container.dart';
 import 'package:medguardian/widgets/Extra/search_bar.dart';
 import 'package:provider/provider.dart';
 import 'package:medguardian/theme/theme.dart';
+import 'package:medguardian/provider/guardian.dart';
 
 class MyMedListPage extends StatelessWidget {
   final VoidCallback createMed;
@@ -14,6 +15,7 @@ class MyMedListPage extends StatelessWidget {
     final Pirula pirula = Pirula();
     final TextEditingController searchController = TextEditingController();
     final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
+    final guardianModeProvider = Provider.of<GuardianModeProvider>(context);
     return Scaffold(
       backgroundColor: actualTheme.colorScheme.surface,
       body: SingleChildScrollView(
@@ -80,13 +82,15 @@ class MyMedListPage extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => createMed(),
-        backgroundColor: actualTheme.colorScheme.onSurface,
-        elevation: 10,
-        shape: const CircleBorder(),
-        child: const Icon(Icons.add, color: Colors.white),
-      ),
+      floatingActionButton: !guardianModeProvider.guardianModeEnabled
+          ? FloatingActionButton(
+              onPressed: () => createMed(),
+              backgroundColor: actualTheme.colorScheme.onSurface,
+              elevation: 10,
+              shape: const CircleBorder(),
+              child: const Icon(Icons.add, color: Colors.white),
+            )
+          : null,
     );
   }
 }

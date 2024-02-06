@@ -10,12 +10,20 @@
 
 import 'package:flutter/material.dart';
 import 'package:medguardian/pages/logging/logging_page.dart';
+import 'package:medguardian/provider/guardian.dart';
 import 'package:medguardian/theme/theme.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(//Load the provider
-      ChangeNotifierProvider(create: (_) => ThemeLoader(0), child: const MyApp()));
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => ThemeLoader(0)),
+        ChangeNotifierProvider(create: (_) => GuardianModeProvider()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

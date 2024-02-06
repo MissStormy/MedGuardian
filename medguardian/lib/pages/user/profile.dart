@@ -1,13 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:medguardian/provider/guardian.dart';
 import 'package:provider/provider.dart';
 import 'package:medguardian/theme/theme.dart';
 
-class MyProfilePage extends StatelessWidget {
-  const MyProfilePage({super.key});
+class MyProfilePage extends StatefulWidget {
+  const MyProfilePage({Key? key}) : super(key: key);
+
+  @override
+  _MyProfilePageState createState() => _MyProfilePageState();
+}
+
+class _MyProfilePageState extends State<MyProfilePage> {
+  bool isEditingPassword = false;
+  late TextEditingController passwordController;
+
+  @override
+  void initState() {
+    super.initState();
+    passwordController = TextEditingController(text: '********');
+  }
+
+  @override
+  void dispose() {
+    passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
+    final guardianModeProvider = Provider.of<GuardianModeProvider>(context);
+
     return Scaffold(
       backgroundColor: actualTheme.colorScheme.surface,
       body: SingleChildScrollView(
@@ -51,7 +74,7 @@ class MyProfilePage extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(width: 10.0),
-                  const Column(
+                  Column(
                     children: [
                       Text(
                         'User Name',
@@ -61,7 +84,9 @@ class MyProfilePage extends StatelessWidget {
                       ),
                       SizedBox(height: 10.0),
                       Text(
-                        'User with privileges',
+                        guardianModeProvider.guardianModeEnabled
+                            ? 'User S'
+                            : 'User P',
                         textAlign: TextAlign.center,
                         style: TextStyle(fontSize: 18.0),
                       ),
@@ -82,9 +107,7 @@ class MyProfilePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   _buildSectionTitle(context, 'Personal Information', 'Edit'),
-                  const SizedBox(
-                    height: 10.0,
-                  ),
+                  const SizedBox(height: 10.0),
                   _buildPersonalInformationFields(),
                 ],
               ),
@@ -95,7 +118,8 @@ class MyProfilePage extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: actualTheme.colorScheme.onSurface),
+                  backgroundColor: actualTheme.colorScheme.onSurface,
+                ),
                 child: const Text('Log out'),
               ),
             )
@@ -115,13 +139,22 @@ class MyProfilePage extends StatelessWidget {
         children: [
           Text(
             title,
-            style: Theme.of(context).textTheme.titleLarge,
+            style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                  color: actualTheme.colorScheme.onError,
+                ),
           ),
           if (buttonText != null)
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                setState(() {
+                  if (title == 'Personal Information') {
+                    isEditingPassword = !isEditingPassword;
+                  }
+                });
+              },
               style: ElevatedButton.styleFrom(
-                  backgroundColor: actualTheme.colorScheme.onSurface),
+                backgroundColor: actualTheme.colorScheme.onSurface,
+              ),
               child: Text(buttonText),
             ),
         ],
@@ -153,11 +186,11 @@ class MyProfilePage extends StatelessWidget {
           Expanded(
             child: isPassword
                 ? TextFormField(
-                    obscureText: true,
-                    initialValue: value,
-                    enabled: false,
+                    controller: passwordController,
+                    obscureText: !isEditingPassword,
+                    enabled: isEditingPassword,
                     decoration: InputDecoration(
-                      hintText: 'Enter $label',
+                      hintText: isEditingPassword ? 'Enter $label' : null,
                     ),
                   )
                 : Text(value),
