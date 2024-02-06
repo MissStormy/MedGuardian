@@ -44,9 +44,8 @@ dependencies:
   intl: ^0.18.1
   sqflite: ^2.3.2
   analog_clock: ^0.1.1
-  awesome_notifications: ^0.8.2
-  http: ^1.2.0
-  palette_generator: ^0.3.3+3
+  
+  
   
 
 dev_dependencies:

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:medguardian/notifs/notifications.dart';
 import 'package:medguardian/provider/guardian.dart';
 import 'package:medguardian/theme/theme.dart';
 import 'package:medguardian/widgets/Containers/medication_list.dart';
@@ -130,10 +129,7 @@ class MyTreatmentList extends StatelessWidget {
                                 name: snapshot.data![index].pirulaName,
                                 icon: Icons.medication,
                                 onMoreTap: () {
-                                  //print("Working");
-                                  NotificationController.instance
-                                      .createNewNotification(
-                                          "Work in progress");
+                                  print("Working");
                                 },
                               ),
                             ],

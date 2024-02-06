@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:medguardian/notifs/notifications.dart';
 import 'package:medguardian/widgets/Buttons/custom_small_pb.dart';
 import 'package:medguardian/widgets/Containers/custom_schedule.dart';
 import 'package:medguardian/widgets/Extra/search_bar.dart';
@@ -113,12 +112,7 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
                         Column(
                           children: [
                             CustomSmallPlainButton(
-                                icon: Icons.local_pharmacy,
-                                onPressed: () {
-                                  NotificationController.instance
-                                      .createNewNotification(
-                                          "Work in progress");
-                                }),
+                                icon: Icons.local_pharmacy, onPressed: () {}),
                             const Text("Recipe", style: TextStyle(fontSize: 12))
                           ],
                         )
