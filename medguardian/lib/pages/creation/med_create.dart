@@ -20,61 +20,79 @@ class _MyMedCreationPageState extends State<MyMedCreationPage> {
   //So here you have some tabs, controlled by this
   final PageController _pageController = PageController();
   final int _selectedIndex = 0;
-  final Pirula pirula = Pirula();
+  Pirula pirulaGlobal = Pirula();
 
   @override
   Widget build(BuildContext context) {
     final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
 
     return Scaffold(
-      backgroundColor: actualTheme.colorScheme.surface,
+        backgroundColor: actualTheme.colorScheme.surface,
         body: DefaultTabController(
-      length: 4,
-      child: Scaffold(
-        appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(kToolbarHeight),
-          child: AppBar(
-            backgroundColor: actualTheme.colorScheme.primary,
-            bottom: const TabBar(
-              tabs: [
-                Tab(
-                  text: 'Pirulas',
+          length: 4,
+          child: Scaffold(
+            appBar: PreferredSize(
+              preferredSize: const Size.fromHeight(kToolbarHeight),
+              child: AppBar(
+                backgroundColor: actualTheme.colorScheme.primary,
+                bottom: const TabBar(
+                  tabs: [
+                    Tab(
+                      text: 'Pirulas',
+                    ),
+                    Tab(
+                      text: 'Symbols',
+                    ),
+                    Tab(
+                      text: 'Box',
+                    ),
+                    Tab(
+                      text: 'Finish',
+                    ),
+                  ], //Decoration and things for when it's active or not
+                  indicatorColor: Colors.green,
+                  labelColor: Color.fromARGB(255, 117, 190, 119),
+                  unselectedLabelColor: Color.fromARGB(255, 86, 114, 87),
                 ),
-                Tab(
-                  text: 'Symbols',
+              ),
+            ),
+            body: TabBarView(
+              children: [
+                FirstPage(
+                  givePirulaBack: (Pirula pirula1) {
+                    pirulaGlobal = pirula1;
+                  },
+                  pirula: pirulaGlobal,
                 ),
-                Tab(
-                  text: 'Box',
-                ),
-                Tab(
-                  text: 'Finish',
-                ),
-              ], //Decoration and things for when it's active or not
-              indicatorColor: Colors.green,
-              labelColor: Color.fromARGB(255, 117, 190, 119),
-              unselectedLabelColor: Color.fromARGB(255, 86, 114, 87),
+                SecondPage(
+                    givePirulaBack: (Pirula pirula1) {
+                      pirulaGlobal = pirula1;
+                    },
+                    pirula: pirulaGlobal),
+                ThirdPage(
+                    givePirulaBack: (Pirula pirula1) {
+                      pirulaGlobal = pirula1;
+                    },
+                    pirula: pirulaGlobal),
+                FourthPage(
+                    givePirulaBack: (Pirula pirula1) {
+                      pirulaGlobal = pirula1;
+                    },
+                    pirula: pirulaGlobal)
+              ],
             ),
           ),
-        ),
-        body: TabBarView(
-          children: [
-            FirstPage(setPirulaName: (String name) {
-              pirula.name = name;
-            }),
-            SecondPage(),
-            ThirdPage(),
-            FourthPage()
-          ],
-        ),
-      ),
-    ));
+        ));
   }
 }
 
 //The pages are here so I wouldn't go crazy trying to find them
+// FIRST PAGE ##################################################################
 class FirstPage extends StatefulWidget {
-  final ValueSetter<String> setPirulaName;
-  const FirstPage({super.key, required this.setPirulaName});
+  final ValueSetter<Pirula> givePirulaBack;
+  final Pirula pirula;
+  const FirstPage(
+      {super.key, required this.givePirulaBack, required this.pirula});
   @override
   State<FirstPage> createState() => _FirstPageState();
 }
@@ -82,12 +100,15 @@ class FirstPage extends StatefulWidget {
 class _FirstPageState extends State<FirstPage> {
   // Create a text controller and use it to retrieve the current value
   // of the TextField.
-  final myController = TextEditingController();
+  final nameController = TextEditingController();
+  final brandController = TextEditingController();
+  final doseController = TextEditingController();
+  final typeController = TextEditingController();
 
   @override
   void dispose() {
     // Clean up the controller when the widget is disposed.
-    myController.dispose();
+    nameController.dispose();
     super.dispose();
   }
 
@@ -115,11 +136,12 @@ class _FirstPageState extends State<FirstPage> {
                   CustomTextfield(
                       label: 'Pirula name',
                       myController:
-                          myController), //Go to widgets/Text to know more
+                          nameController), //Go to widgets/Text to know more
                   const SizedBox(
                     height: 10.0,
                   ),
-                  CustomTextfield(label: 'Brand', myController: myController),
+                  CustomTextfield(
+                      label: 'Brand', myController: brandController),
                   const SizedBox(
                     height: 10.0,
                   ),
@@ -128,12 +150,12 @@ class _FirstPageState extends State<FirstPage> {
                       Flexible(
                           flex: 2,
                           child: CustomTextfield(
-                              label: 'Dose', myController: myController)),
+                              label: 'Dose', myController: doseController)),
                       SizedBox(width: 8),
                       Flexible(
                           flex: 3,
                           child: CustomTextfield(
-                              label: 'Type', myController: myController)),
+                              label: 'Type', myController: typeController)),
                     ],
                   ),
                   const SizedBox(
@@ -209,7 +231,11 @@ class _FirstPageState extends State<FirstPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          //setPirulaName("name");
+          widget.pirula.name = nameController.text;
+          widget.pirula.brand = brandController.text;
+          widget.pirula.dose = doseController.text;
+          widget.pirula.type = typeController.text;
+          widget.givePirulaBack(widget.pirula);
         },
         backgroundColor: actualTheme.colorScheme.onSurface,
         elevation: 10,
@@ -220,8 +246,12 @@ class _FirstPageState extends State<FirstPage> {
   }
 }
 
+// SECOND PAGE #################################################################
 class SecondPage extends StatelessWidget {
-  const SecondPage({super.key});
+  final ValueSetter<Pirula> givePirulaBack;
+  final Pirula pirula;
+  const SecondPage(
+      {super.key, required this.givePirulaBack, required this.pirula});
 
   @override
   Widget build(BuildContext context) {
@@ -336,8 +366,12 @@ class SecondPage extends StatelessWidget {
   }
 }
 
+// THIRD PAGE ##################################################################
 class ThirdPage extends StatelessWidget {
-  const ThirdPage({super.key});
+  final ValueSetter<Pirula> givePirulaBack;
+  final Pirula pirula;
+  const ThirdPage(
+      {super.key, required this.givePirulaBack, required this.pirula});
 
   @override
   Widget build(BuildContext context) {
@@ -412,8 +446,12 @@ class ThirdPage extends StatelessWidget {
   }
 }
 
+// FOURTH PAGE #################################################################
 class FourthPage extends StatelessWidget {
-  const FourthPage({super.key});
+  final ValueSetter<Pirula> givePirulaBack;
+  final Pirula pirula;
+  const FourthPage(
+      {super.key, required this.givePirulaBack, required this.pirula});
 
   @override
   Widget build(BuildContext context) {
@@ -610,7 +648,9 @@ class FourthPage extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          givePirulaBack(pirula);
+        },
         backgroundColor: actualTheme.colorScheme.onSurface,
         elevation: 10,
         shape: const CircleBorder(),
