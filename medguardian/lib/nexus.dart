@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:medguardian/pages/creation/med_create.dart';
 import 'package:medguardian/pages/creation/treat_create.dart';
@@ -9,8 +11,10 @@ import 'package:medguardian/pages/medical_dates/chat_room.dart';
 import 'package:medguardian/pages/medical_dates/medical_date.dart';
 import 'package:medguardian/pages/user/profile.dart';
 import 'package:medguardian/pages/user/settings.dart';
+import 'package:medguardian/provider/falldetector.dart';
 import 'package:provider/provider.dart';
 import 'package:medguardian/theme/theme.dart';
+import 'package:sensors_plus/sensors_plus.dart';
 
 //This page holds the whole App, it works as a nexus for all the screens and things.
 //The AppBar and BottomNavBar are always active, and the only thing that changes is the screen.
@@ -26,6 +30,53 @@ class MyNexusPage extends StatefulWidget {
 
 class _MyNexusPageState extends State<MyNexusPage> {
   int _selectedIndex = 2;
+  late StreamSubscription<AccelerometerEvent> _accelerometerSubscription;
+  static const double fallThreshold = 80.0;
+  bool _isDialogShowing = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _initAccelerometer();
+  }
+
+  @override
+  void dispose() {
+    _accelerometerSubscription.cancel();
+    super.dispose();
+  }
+
+  void _initAccelerometer() {
+    _accelerometerSubscription =
+        accelerometerEventStream().listen((AccelerometerEvent event) {
+      final double speed = event.x.abs() + event.y.abs() + event.z.abs();
+      print('Speed: $speed');
+      if (speed > fallThreshold && !_isDialogShowing) {
+        _isDialogShowing = true;
+        _accelerometerSubscription.cancel();
+        showDialog(
+          context: context,
+          barrierDismissible:
+              false, // Prevent dialog dismissal by tapping outside
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text('Are you okay?'),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop(); // Close the dialog
+                    _initAccelerometer();
+                    _isDialogShowing = false;
+                  },
+                  child: Text('Yes'),
+                ),
+              ],
+            );
+          },
+        );
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +84,7 @@ class _MyNexusPageState extends State<MyNexusPage> {
     //on the Appbar and the BottomNavBar
     final List<Widget> screens = [
       MyMedicalDatePage(
-        callDoctor: (){
+        callDoctor: () {
           setState(() {
             _selectedIndex = 9;
           });
@@ -41,7 +92,8 @@ class _MyNexusPageState extends State<MyNexusPage> {
       ),
       const MyMapPage(),
       const MyHomePage(),
-      MyMedListPage( //These are different, because you have to send a signal from the screen to change into another one
+      MyMedListPage(
+        //These are different, because you have to send a signal from the screen to change into another one
         createMed: () {
           //This receives the screen change from med_list.dart and changes
           //the body to start the med creation wizard
@@ -65,11 +117,13 @@ class _MyNexusPageState extends State<MyNexusPage> {
       const MyTreatCreatPage(),
       const ChatScreen()
     ];
+
     //This controls the theme
     final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
+
     return ScaffoldMessenger(
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
+        child: Scaffold(
+      resizeToAvoidBottomInset: false,
       //###################### AppBar ##########################
       appBar: AppBar(
         backgroundColor: actualTheme.colorScheme.secondary,
@@ -104,7 +158,8 @@ class _MyNexusPageState extends State<MyNexusPage> {
         ],
       ),
       //###################### Body ##########################
-      body: screens[_selectedIndex], //Every time you touch a buttom, this index changes, only changing the body
+      body: screens[
+          _selectedIndex], //Every time you touch a buttom, this index changes, only changing the body
       //###################### Bottom Nav Bar ##########################
       bottomNavigationBar: BottomAppBar(
         color: actualTheme.colorScheme.secondary,
@@ -162,7 +217,8 @@ class _MyNexusPageState extends State<MyNexusPage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton( //Boom, here you have a bottomnavbar with the centered buttom!!
+      floatingActionButton: FloatingActionButton(
+        //Boom, here you have a bottomnavbar with the centered buttom!!
         onPressed: () {
           setState(() {
             _selectedIndex = 2;
@@ -175,7 +231,6 @@ class _MyNexusPageState extends State<MyNexusPage> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     ));
-    
   }
 
   void _navigateToScreen(String route) {

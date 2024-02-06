@@ -174,18 +174,7 @@ class _FirstPageState extends State<FirstPage> {
                       CustomPlainButton(
                           label: 'With food',
                           icon: Icons.lunch_dining,
-                          onPressed: () {
-                            //TODO: Placeholder, for now it shows a message
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: const Text('Awesome Snackbar!'),
-                                action: SnackBarAction(
-                                  label: 'Action',
-                                  onPressed: () {},
-                                ),
-                              ),
-                            );
-                          }),
+                          onPressed: () {}),
                       const SizedBox(
                         width: 10.0,
                       ),
@@ -193,34 +182,14 @@ class _FirstPageState extends State<FirstPage> {
                           //Go to widgets/Buttons to know more
                           label: 'Belly empty',
                           icon: Icons.no_food,
-                          onPressed: () {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: const Text('Awesome Snackbar!'),
-                                action: SnackBarAction(
-                                  label: 'Action',
-                                  onPressed: () {},
-                                ),
-                              ),
-                            );
-                          }),
+                          onPressed: () {}),
                       const SizedBox(
                         width: 10.0,
                       ),
                       CustomPlainButton(
                           label: 'Other pill',
                           icon: Icons.medication,
-                          onPressed: () {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: const Text('Awesome Snackbar!'),
-                                action: SnackBarAction(
-                                  label: 'Action',
-                                  onPressed: () {},
-                                ),
-                              ),
-                            );
-                          })
+                          onPressed: () {})
                     ],
                   )
                 ],

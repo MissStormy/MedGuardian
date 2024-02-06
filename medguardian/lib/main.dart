@@ -10,6 +10,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:medguardian/pages/logging/logging_page.dart';
+import 'package:medguardian/provider/falldetector.dart';
 import 'package:medguardian/provider/guardian.dart';
 import 'package:medguardian/theme/theme.dart';
 import 'package:provider/provider.dart';
@@ -20,6 +21,7 @@ void main() {
       providers: [
         ChangeNotifierProvider(create: (_) => ThemeLoader(0)),
         ChangeNotifierProvider(create: (_) => GuardianModeProvider()),
+        ChangeNotifierProvider(create: (context) => AccelerometerProvider())
       ],
       child: const MyApp(),
     ),
