@@ -27,47 +27,47 @@ class _MyMedCreationPageState extends State<MyMedCreationPage> {
     final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
 
     return Scaffold(
-      backgroundColor: actualTheme.colorScheme.surface,
+        backgroundColor: actualTheme.colorScheme.surface,
         body: DefaultTabController(
-      length: 4,
-      child: Scaffold(
-        appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(kToolbarHeight),
-          child: AppBar(
-            backgroundColor: actualTheme.colorScheme.primary,
-            bottom: const TabBar(
-              tabs: [
-                Tab(
-                  text: 'Pirulas',
+          length: 4,
+          child: Scaffold(
+            appBar: PreferredSize(
+              preferredSize: const Size.fromHeight(kToolbarHeight),
+              child: AppBar(
+                backgroundColor: actualTheme.colorScheme.primary,
+                bottom: const TabBar(
+                  tabs: [
+                    Tab(
+                      text: 'Pirulas',
+                    ),
+                    Tab(
+                      text: 'Symbols',
+                    ),
+                    Tab(
+                      text: 'Box',
+                    ),
+                    Tab(
+                      text: 'Finish',
+                    ),
+                  ], //Decoration and things for when it's active or not
+                  indicatorColor: Colors.green,
+                  labelColor: Color.fromARGB(255, 117, 190, 119),
+                  unselectedLabelColor: Color.fromARGB(255, 86, 114, 87),
                 ),
-                Tab(
-                  text: 'Symbols',
-                ),
-                Tab(
-                  text: 'Box',
-                ),
-                Tab(
-                  text: 'Finish',
-                ),
-              ], //Decoration and things for when it's active or not
-              indicatorColor: Colors.green,
-              labelColor: Color.fromARGB(255, 117, 190, 119),
-              unselectedLabelColor: Color.fromARGB(255, 86, 114, 87),
+              ),
+            ),
+            body: TabBarView(
+              children: [
+                FirstPage(setPirulaName: (String name) {
+                  pirula.name = name;
+                }),
+                SecondPage(),
+                ThirdPage(),
+                FourthPage()
+              ],
             ),
           ),
-        ),
-        body: TabBarView(
-          children: [
-            FirstPage(setPirulaName: (String name) {
-              pirula.name = name;
-            }),
-            SecondPage(),
-            ThirdPage(),
-            FourthPage()
-          ],
-        ),
-      ),
-    ));
+        ));
   }
 }
 
@@ -152,18 +152,7 @@ class _FirstPageState extends State<FirstPage> {
                       CustomPlainButton(
                           label: 'With food',
                           icon: Icons.lunch_dining,
-                          onPressed: () {
-                            //TODO: Placeholder, for now it shows a message
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: const Text('Awesome Snackbar!'),
-                                action: SnackBarAction(
-                                  label: 'Action',
-                                  onPressed: () {},
-                                ),
-                              ),
-                            );
-                          }),
+                          onPressed: () {}),
                       const SizedBox(
                         width: 10.0,
                       ),
@@ -171,34 +160,14 @@ class _FirstPageState extends State<FirstPage> {
                           //Go to widgets/Buttons to know more
                           label: 'Belly empty',
                           icon: Icons.no_food,
-                          onPressed: () {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: const Text('Awesome Snackbar!'),
-                                action: SnackBarAction(
-                                  label: 'Action',
-                                  onPressed: () {},
-                                ),
-                              ),
-                            );
-                          }),
+                          onPressed: () {}),
                       const SizedBox(
                         width: 10.0,
                       ),
                       CustomPlainButton(
                           label: 'Other pill',
                           icon: Icons.medication,
-                          onPressed: () {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: const Text('Awesome Snackbar!'),
-                                action: SnackBarAction(
-                                  label: 'Action',
-                                  onPressed: () {},
-                                ),
-                              ),
-                            );
-                          })
+                          onPressed: () {})
                     ],
                   )
                 ],
