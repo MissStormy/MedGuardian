@@ -55,7 +55,7 @@ class MyMedListPage extends StatelessWidget {
                   // const MedicineAccordion(
                   //     name: 'Medicine 2', type: 'Type B', pillCount: 20),
                   FutureBuilder(
-                      future: pirula.GetPirulas(),
+                      future: pirula.getPirulas(),
                       builder: (context, AsyncSnapshot<List<Pirula>> snapshot) {
                         if (snapshot.hasData) {
                           return ListView.builder(

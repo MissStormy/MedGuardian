@@ -6,13 +6,15 @@ class CustomPlainButton extends StatefulWidget {
   final String label;
   final IconData icon;
   final VoidCallback? onPressed;
+  final bool startsActive;
 
-  const CustomPlainButton({
-    Key? key,
-    required this.label,
-    required this.icon,
-    required this.onPressed,
-  }) : super(key: key);
+  const CustomPlainButton(
+      {Key? key,
+      required this.label,
+      required this.icon,
+      required this.onPressed,
+      required this.startsActive})
+      : super(key: key);
 
   @override
   _CustomPlainButtonState createState() => _CustomPlainButtonState();
@@ -21,6 +23,11 @@ class CustomPlainButton extends StatefulWidget {
 class _CustomPlainButtonState extends State<CustomPlainButton> {
   bool _isActive = false;
 
+  @override
+  void initState() {
+    _isActive = widget.startsActive;
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
@@ -55,5 +62,13 @@ class _CustomPlainButtonState extends State<CustomPlainButton> {
         ),
       ),
     );
+  }
+
+  bool isActive() {
+    return _isActive;
+  }
+
+  getButton() {
+    return this;
   }
 }

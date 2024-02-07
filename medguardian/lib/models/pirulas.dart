@@ -1,16 +1,17 @@
+import 'package:flutter/material.dart';
 import 'package:medguardian/models/database.dart';
 
 //Data from the table
 class Pirula {
-  late int id;
+  late int? id;
   late String name;
   late String brand;
   late String dose;
   late String type;
   late int amountPerBox;
-  late int withFood;
-  late int withoutFood;
-  late int withOtherPirula;
+  late bool withFood;
+  late bool withoutFood;
+  late bool withOtherPirula;
   late int currentQuantity;
 //Initialize the values
   Pirula() {
@@ -19,9 +20,9 @@ class Pirula {
     dose = '';
     type = '';
     amountPerBox = 0;
-    withFood = 0;
-    withoutFood = 0;
-    withOtherPirula = 0;
+    withFood = false;
+    withoutFood = false;
+    withOtherPirula = false;
     currentQuantity = 0;
   }
 //Builder without Id
@@ -55,31 +56,60 @@ class Pirula {
     dose = (map['dose'] != null) ? map['dose'] : '';
     type = (map['type'] != null) ? map['type'] : '';
     amountPerBox = (map['amountPerBox'] != null) ? map['amountPerBox'] : 0;
-    withFood = (map['withFood'] != null) ? map['withFood'] : 0;
-    withoutFood = (map['withoutFood'] != null) ? map['withoutFood'] : 0;
-    withOtherPirula =
-        (map['withOtherPirula'] != null) ? map['withOtherPirula'] : 0;
+    if (map['withFood'] == 0) {
+      withFood = false;
+    } else {
+      withFood = true;
+    }
+    if (map['withoutFood'] == 0) {
+      withoutFood = false;
+    } else {
+      withoutFood = true;
+    }
+    if (map['withOtherPirula'] == 0) {
+      withOtherPirula = false;
+    } else {
+      withOtherPirula = true;
+    }
+    // withFood = (map['withFood'] != null) ? map['withFood'] : 0;
+    // withoutFood = (map['withoutFood'] != null) ? map['withoutFood'] : 0;
+    // withOtherPirula =
+    //     (map['withOtherPirula'] != null) ? map['withOtherPirula'] : 0;
     currentQuantity =
         (map['currentQuantity'] != null) ? map['currentQuantity'] : 0;
   }
 //TODO
   Map<String, dynamic> toMap() {
     var map = <String, dynamic>{};
-    map['id'] = id;
+    if (id != null) {
+      map['id'] = id;
+    }
     map['name'] = name;
     map['brand'] = brand;
     map['dose'] = dose;
     map['type'] = type;
     map['amountPerBox'] = amountPerBox;
-    map['withFood'] = withFood;
-    map['withoutFood'] = withoutFood;
-    map['withOtherPirula'] = withOtherPirula;
+    if (withFood) {
+      map['withFood'] = 1;
+    } else {
+      map['withFood'] = 0;
+    }
+    if (withoutFood) {
+      map['withoutFood'] = 1;
+    } else {
+      map['withoutFood'] = 0;
+    }
+    if (withOtherPirula) {
+      map['withOtherPirula'] = 1;
+    } else {
+      map['withOtherPirula'] = 0;
+    }
     map['currentQuantity'] = currentQuantity;
     return map;
   }
 
 //To get the pirulas list
-  Future<List<Pirula>> GetPirulas() async {
+  Future<List<Pirula>> getPirulas() async {
     List<Pirula> pirulas = [];
     DBHelper dbHelper = DBHelper();
     List<Map<String, dynamic>> pirulasDB = await dbHelper.dbQuery('pirulas');
@@ -87,5 +117,10 @@ class Pirula {
       pirulas.add(Pirula.fromMap(pirulasDB[i]));
     }
     return pirulas;
+  }
+
+  savePirula(Pirula pirula) async {
+    DBHelper dbHelper = DBHelper();
+    dbHelper.dbInsert('pirulas', pirula.toMap());
   }
 }

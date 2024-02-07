@@ -3,8 +3,8 @@ import 'package:medguardian/widgets/Containers/custom_dropdown.dart';
 import 'package:medguardian/widgets/Extra/custom_date_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:medguardian/theme/theme.dart';
+import 'package:medguardian/models/treatment.dart';
 //Just like med_create.dart, this one creates treatments through a wizard
-
 
 class MyTreatCreatPage extends StatefulWidget {
   const MyTreatCreatPage({super.key});
@@ -19,8 +19,10 @@ class _MyTreatCreatPageState extends State<MyTreatCreatPage> {
   DateTime _selectedDate = DateTime.now();
   String _selectedFrequency = '';
   TimeOfDay _selectedTime = const TimeOfDay(hour: 0, minute: 0);
+  Treatment treatment = Treatment();
 
-  final TextEditingController _customFrequencyController = TextEditingController();
+  final TextEditingController _customFrequencyController =
+      TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -41,24 +43,28 @@ class _MyTreatCreatPageState extends State<MyTreatCreatPage> {
         },
         steps: [
           Step(
-            title: Text('Choose the medication', style: TextStyle(
-              color: actualTheme.colorScheme.onError
-            ),),
-            content: CustomDropdown(
-              label: 'Pirula name',
-              items: const ['Ibuprofeno', 'Amoxicilina', 'Plutonic drug'],
-              value: selectedValue,
-              onChanged: (newValue) {
-                setState(() {
-                  selectedValue = newValue ?? '';
-                });
-              },
-            ),
-          ),
+              title: Text(
+                'Choose the medication',
+                style: TextStyle(color: actualTheme.colorScheme.onError),
+              ),
+              content: FutureBuilder(
+                future: treatment.getTreatments(),
+                builder: (context, AsyncSnapshot<List<Treatment>> snapshot) {
+                  // CustomDropdown(
+                  //   label: 'Pirula name',
+                  //   items: const ['Ibuprofeno', 'Amoxicilina', 'Plutonic drug'],
+                  //   value: selectedValue,
+                  //   onChanged: (newValue) {
+                  //     setState(() {
+                  //       selectedValue = newValue ?? '';
+                  //     });
+                  //   },
+                  // );
+                },
+              )),
           Step(
-            title: Text('Start date', style: TextStyle(
-              color: actualTheme.colorScheme.onError
-            )),
+            title: Text('Start date',
+                style: TextStyle(color: actualTheme.colorScheme.onError)),
             content: CustomDatePicker(
               selectedDate: _selectedDate,
               onDateChanged: (DateTime pickedDate) {
@@ -69,9 +75,8 @@ class _MyTreatCreatPageState extends State<MyTreatCreatPage> {
             ),
           ),
           Step(
-            title:  Text('End date', style: TextStyle(
-              color: actualTheme.colorScheme.onError
-            )),
+            title: Text('End date',
+                style: TextStyle(color: actualTheme.colorScheme.onError)),
             content: CustomDatePicker(
               selectedDate: _selectedDate,
               onDateChanged: (DateTime pickedDate) {
@@ -82,9 +87,8 @@ class _MyTreatCreatPageState extends State<MyTreatCreatPage> {
             ),
           ),
           Step(
-            title: Text('Select Frequency', style: TextStyle(
-              color: actualTheme.colorScheme.onError
-            )),
+            title: Text('Select Frequency',
+                style: TextStyle(color: actualTheme.colorScheme.onError)),
             content: Column(
               children: [
                 Row(
@@ -150,9 +154,8 @@ class _MyTreatCreatPageState extends State<MyTreatCreatPage> {
             ),
           ),
           Step(
-              title: Text('Confirmation', style: TextStyle(
-              color: actualTheme.colorScheme.onError
-            )),
+              title: Text('Confirmation',
+                  style: TextStyle(color: actualTheme.colorScheme.onError)),
               content: ElevatedButton(
                   onPressed: () {}, child: const Text('Save treatment')))
         ],

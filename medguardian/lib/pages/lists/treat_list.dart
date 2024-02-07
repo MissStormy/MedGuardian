@@ -112,7 +112,7 @@ class MyTreatmentList extends StatelessWidget {
             SizedBox(
               height: 200,
               child: FutureBuilder(
-                future: treatment.GetTreatments(),
+                future: treatment.getTreatments(),
                 builder: (context, AsyncSnapshot<List<Treatment>> snapshot) {
                   if (snapshot.hasData) {
                     return ListView.builder(
