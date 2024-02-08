@@ -28,10 +28,10 @@ class CustomSchedule extends StatelessWidget {
     final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
     return Container(
       //margin: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-      padding: const EdgeInsets.all(20.0),
+      padding: const EdgeInsets.all(10.0),
       decoration: BoxDecoration(
         border: Border.all(color: Colors.grey),
-        borderRadius: BorderRadius.circular(8.0),
+        borderRadius: BorderRadius.circular(25.0),
       ),
       child: Column(
         children: [
@@ -45,9 +45,10 @@ class CustomSchedule extends StatelessWidget {
                 width: 15.0,
               ),
               Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    name,
+                    'Dr. $name',
                     textAlign: TextAlign.left,
                     style: const TextStyle(fontSize: 20),
                   ),
@@ -61,8 +62,24 @@ class CustomSchedule extends StatelessWidget {
               const SizedBox(
                 width: 30.0,
               ),
-              const ElevatedButton(
-                  onPressed: null, child: Icon(Icons.video_call))
+              Container(
+                padding: EdgeInsets.all(3.0),
+                decoration: BoxDecoration(
+                    border:
+                        Border.all(color: actualTheme.colorScheme.secondary),
+                    borderRadius: BorderRadius.circular(25)),
+                child: InkWell(
+                  onTap: () {},
+                  child: Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: actualTheme.colorScheme.background,
+                    ),
+                    padding: EdgeInsets.all(10.0),
+                    child: Icon(Icons.video_call),
+                  ),
+                ),
+              ),
             ],
           ),
           const SizedBox(
