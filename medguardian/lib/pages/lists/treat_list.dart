@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medguardian/provider/guardian.dart';
 import 'package:medguardian/theme/theme.dart';
-import 'package:medguardian/widgets/Containers/medication_list.dart';
+import 'package:medguardian/widgets/Containers/custom_medication_list.dart';
 import 'package:provider/provider.dart';
 import 'package:medguardian/models/treatment.dart';
 import 'dart:async';
@@ -28,6 +28,7 @@ class MyTreatmentList extends StatelessWidget {
       // Logic to retrieve the next pill info from the database
       // Replace this with your actual database query
       await Future.delayed(
+          
           const Duration(seconds: 1)); // Simulating async operation
       return "Ibuprofen at 9:00 AM"; // Example next pill information
     }
@@ -100,10 +101,8 @@ class MyTreatmentList extends StatelessWidget {
                                     height: 8), // Adjust spacing as needed
                                 Text(
                                   "Next pill: $nextPill",
-                                  style: const TextStyle(
-                                      fontSize:
-                                          16), // Adjust font size as needed
-                                  softWrap: true, // Enable text wrapping
+                                  style: const TextStyle(fontSize: 16),
+                                  softWrap: true,
                                 ),
                               ],
                             );
@@ -115,35 +114,31 @@ class MyTreatmentList extends StatelessWidget {
                 ),
               ),
             ),
-
-            // Medication Rows
-            _buildMedicationRow('Morning Pirulas'),
             SizedBox(
-              height: 200,
-              child: FutureBuilder(
-                future: treatment.getTreatmentsBetwenTime(morning,midDay),
+              height: 10.0,
+            ),
+            //TREATMENTS LIST
+            Text(
+              'Calendar',
+              style: TextStyle(fontSize: 20),
+            ),
+            SizedBox(
+              height: 10.0,
+            ),
+            FutureBuilder(
+                future: treatment.getTreatments(),
                 builder: (context, AsyncSnapshot<List<Treatment>> snapshot) {
                   if (snapshot.hasData) {
                     return ListView.builder(
                       shrinkWrap: true,
-                      scrollDirection: Axis.horizontal,
+                      physics: const NeverScrollableScrollPhysics(),
                       itemCount: snapshot.data!.length,
                       itemBuilder: (context, index) {
-                        return Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: Row(
-                            children: [
-                              MedicationItem(
-                                time:
-                                    "${snapshot.data![index].startDate.hour}:${snapshot.data![index].startDate.minute}",
-                                name: snapshot.data![index].pirulaName,
-                                icon: Icons.medication,
-                                onMoreTap: () {
-                                  print("Working");
-                                },
-                              ),
-                            ],
-                          ),
+                        return MedicationItem(
+                          name: snapshot.data![index].pirulaName,
+                          time: '12:00',
+                          icon: Icons.medication,
+                          onMoreTap: () {},
                         );
                       },
                     );
@@ -152,85 +147,7 @@ class MyTreatmentList extends StatelessWidget {
                       child: CircularProgressIndicator(),
                     );
                   }
-                },
-              ),
-            ),
-            _buildMedicationRow('Midday Pirulas'),
-            SizedBox(
-              height: 200,
-              child: FutureBuilder(
-                future: treatment.getTreatmentsBetwenTime(midDay,night),
-                builder: (context, AsyncSnapshot<List<Treatment>> snapshot) {
-                  if (snapshot.hasData) {
-                    return ListView.builder(
-                      shrinkWrap: true,
-                      scrollDirection: Axis.horizontal,
-                      itemCount: snapshot.data!.length,
-                      itemBuilder: (context, index) {
-                        return Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: Row(
-                            children: [
-                              MedicationItem(
-                                time:
-                                    "${snapshot.data![index].startDate.hour}:${snapshot.data![index].startDate.minute}",
-                                name: snapshot.data![index].pirulaName,
-                                icon: Icons.medication,
-                                onMoreTap: () {
-                                  print("Working");
-                                },
-                              ),
-                            ],
-                          ),
-                        );
-                      },
-                    );
-                  } else {
-                    return const Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  }
-                },
-              ),
-            ),
-            _buildMedicationRow('Night Pirulas'),
-            SizedBox(
-              height: 200,
-              child: FutureBuilder(
-                future: treatment.getTreatmentsBetwenTime(night,morning),
-                builder: (context, AsyncSnapshot<List<Treatment>> snapshot) {
-                  if (snapshot.hasData) {
-                    return ListView.builder(
-                      shrinkWrap: true,
-                      scrollDirection: Axis.horizontal,
-                      itemCount: snapshot.data!.length,
-                      itemBuilder: (context, index) {
-                        return Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: Row(
-                            children: [
-                              MedicationItem(
-                                time:
-                                    "${snapshot.data![index].startDate.hour}:${snapshot.data![index].startDate.minute}",
-                                name: snapshot.data![index].pirulaName,
-                                icon: Icons.medication,
-                                onMoreTap: () {
-                                  print("Working");
-                                },
-                              ),
-                            ],
-                          ),
-                        );
-                      },
-                    );
-                  } else {
-                    return const Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  }
-                },
-              ),
-            ),
+                })
           ],
         ),
       ),
@@ -243,27 +160,6 @@ class MyTreatmentList extends StatelessWidget {
               child: const Icon(Icons.add, color: Colors.white),
             )
           : null,
-    );
-  }
-
-  Widget _buildMedicationRow(String title) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: Column(
-        children: [
-          Text(
-            title,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 18,
-            ),
-          ),
-          const Divider(
-            indent: 30,
-            endIndent: 30,
-          ),
-        ],
-      ),
     );
   }
 }

@@ -66,6 +66,7 @@ class MyMedListPage extends StatelessWidget {
                               return MedicineAccordion(
                                   name: snapshot.data![index].name,
                                   type: snapshot.data![index].type,
+                                  brand: snapshot.data![index].brand,
                                   pillCount:
                                       snapshot.data![index].currentQuantity);
                             },

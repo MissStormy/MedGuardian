@@ -2,24 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:medguardian/theme/theme.dart';
 
-class MedicineAccordion extends StatelessWidget {
+class MedicationItem extends StatelessWidget {
+  final String time;
   final String name;
-  final String brand;
-  final String type;
-  final int pillCount;
+  final IconData icon;
+  final VoidCallback onMoreTap;
 
-  const MedicineAccordion(
-      {super.key,
-      required this.name,
-      required this.type,
-      required this.pillCount,
-      required this.brand});
+  const MedicationItem({
+    super.key,
+    required this.time,
+    required this.name,
+    required this.icon,
+    required this.onMoreTap,
+  });
 
   @override
   Widget build(BuildContext context) {
     final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 5.0),
+      margin: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
       padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
       decoration: BoxDecoration(
           //border: Border.all(color: Colors.grey),
@@ -61,13 +62,12 @@ class MedicineAccordion extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 17, fontWeight: FontWeight.bold),
                       ),
-                      Text(
-                        brand,
-                        style: TextStyle(fontSize: 15),
-                      )
                     ],
                   )
                 ],
+              ),
+              SizedBox(
+                width: 10,
               ),
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 3.0),
@@ -98,12 +98,14 @@ class MedicineAccordion extends StatelessWidget {
           SizedBox(
             height: 10.0,
           ),
-          Divider(),
+          Divider(
+            color: actualTheme.colorScheme.background,
+          ),
           SizedBox(
             height: 10.0,
           ),
           Container(
-            margin: EdgeInsets.symmetric(horizontal: 5.0),
+            //margin: EdgeInsets.symmetric(horizontal: 5.0),
             child: Column(
               children: [
                 Row(
@@ -128,13 +130,12 @@ class MedicineAccordion extends StatelessWidget {
                             ),
                           ),
                           SizedBox(width: 8.0),
-                          Text('Type'),
-                          SizedBox(width: 5.0),
+                          Text('Next dose'),
+                          Divider()
                         ],
                       ),
                     ),
                     SizedBox(width: 10.0),
-                    Text(type)
                   ],
                 ),
                 SizedBox(
@@ -142,35 +143,73 @@ class MedicineAccordion extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    Container(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 5.0, vertical: 3.0),
-                      decoration: BoxDecoration(
-                          color: actualTheme.colorScheme.secondary,
-                          borderRadius: BorderRadius.circular(25.0)),
-                      child: Row(
-                        children: [
-                          InkWell(
-                            onTap: () {},
-                            child: Container(
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: actualTheme.colorScheme.background,
+                    Row(
+                      children: [
+                        Container(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 5.0, vertical: 3.0),
+                          decoration: BoxDecoration(
+                              color: actualTheme.colorScheme.secondary,
+                              borderRadius: BorderRadius.circular(25.0)),
+                          child: Row(
+                            children: [
+                              InkWell(
+                                onTap: () {},
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: actualTheme.colorScheme.background,
+                                  ),
+                                  padding: EdgeInsets.all(10.0),
+                                  child: Icon(Icons.schedule),
+                                ),
                               ),
-                              padding: EdgeInsets.all(10.0),
-                              child: Icon(Icons.discount),
-                            ),
+                              SizedBox(width: 8.0),
+                              Text('Hour'),
+                              SizedBox(width: 5.0),
+                            ],
                           ),
-                          SizedBox(width: 8.0),
-                          Text('Quantity'),
-                          SizedBox(width: 5.0),
-                        ],
-                      ),
+                        ),
+                        SizedBox(width: 10.0),
+                        Text(time)
+                      ],
                     ),
-                    SizedBox(width: 10.0),
-                    Text('$pillCount')
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Row(
+                      children: [
+                        Container(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 5.0, vertical: 3.0),
+                          decoration: BoxDecoration(
+                              color: actualTheme.colorScheme.secondary,
+                              borderRadius: BorderRadius.circular(25.0)),
+                          child: Row(
+                            children: [
+                              InkWell(
+                                onTap: () {},
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: actualTheme.colorScheme.background,
+                                  ),
+                                  padding: EdgeInsets.all(10.0),
+                                  child: Icon(Icons.calendar_month),
+                                ),
+                              ),
+                              SizedBox(width: 8.0),
+                              Text('Date'),
+                              SizedBox(width: 5.0),
+                            ],
+                          ),
+                        ),
+                        SizedBox(width: 10.0),
+                        Text('12/01')
+                      ],
+                    ),
                   ],
-                ),
+                )
               ],
             ),
           ),
@@ -200,7 +239,7 @@ class MedicineAccordion extends StatelessWidget {
                       ),
                     ),
                     SizedBox(width: 8.0),
-                    Text('Create treatment'),
+                    Text('See pill'),
                     SizedBox(width: 5.0),
                   ],
                 ),
@@ -219,7 +258,7 @@ class MedicineAccordion extends StatelessWidget {
                       color: actualTheme.colorScheme.background,
                     ),
                     padding: EdgeInsets.all(10.0),
-                    child: Icon(Icons.camera),
+                    child: Icon(Icons.check),
                   ),
                 ),
               ),
