@@ -6,9 +6,14 @@ import 'package:provider/provider.dart';
 import 'package:medguardian/theme/theme.dart';
 import 'package:medguardian/models/doctors.dart';
 
+import 'package:material_symbol_icons/material_symbol.dart';
+import 'package:material_symbol_icons/widgets/material_symbol_icon.dart';
+
 class MyMedicalDatePage extends StatefulWidget {
   final VoidCallback callDoctor;
-  const MyMedicalDatePage({super.key, required this.callDoctor});
+  final VoidCallback showDoctors;
+  const MyMedicalDatePage(
+      {super.key, required this.callDoctor, required this.showDoctors});
 
   @override
   State<MyMedicalDatePage> createState() => _MyMedicalDatePageState();
@@ -78,10 +83,12 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
                         Column(
                           children: [
                             CustomSmallPlainButton(
-                                icon: Icons.monitor_heart,
+                                icon: Icons.question_answer,
                                 onPressed: () => widget.callDoctor()),
-                            const Text("Consultation",
-                                style: TextStyle(fontSize: 12))
+                            SizedBox(
+                              height: 5.0,
+                            ),
+                            const Text("IA", style: TextStyle(fontSize: 12))
                           ],
                         ),
                         const SizedBox(
@@ -91,28 +98,38 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
                           children: [
                             CustomSmallPlainButton(
                                 icon: Icons.local_pharmacy, onPressed: () {}),
+                            SizedBox(
+                              height: 5.0,
+                            ),
                             const Text("Pharmacy",
                                 style: TextStyle(fontSize: 12))
                           ],
                         ),
                         const SizedBox(
-                          width: 10.0,
+                          width: 5.0,
                         ),
                         Column(
                           children: [
                             CustomSmallPlainButton(
-                                icon: Icons.local_pharmacy, onPressed: () {}),
+                                icon: Icons.edit_square,
+                                onPressed: () => widget.showDoctors()),
+                            SizedBox(
+                              height: 5.0,
+                            ),
                             const Text("Appointment",
                                 style: TextStyle(fontSize: 12))
                           ],
                         ),
                         const SizedBox(
-                          width: 10.0,
+                          width: 5.0,
                         ),
                         Column(
                           children: [
                             CustomSmallPlainButton(
-                                icon: Icons.local_pharmacy, onPressed: () {}),
+                                icon: Icons.medical_services, onPressed: () {}),
+                            SizedBox(
+                              height: 5.0,
+                            ),
                             const Text("Recipe", style: TextStyle(fontSize: 12))
                           ],
                         )
@@ -185,9 +202,7 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
         ]),*/
 
             //###################### Doctor Speciality ##########################
-            const SizedBox(
-              height: 10.0,
-            ),
+
             Container(
               width: 300,
               height: 25,
@@ -202,54 +217,123 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
             ),
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 10.0),
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(10.0),
               child: Column(children: [
                 Row(
                   children: [
-                    CustomSmallPlainButton(
-                        icon: Icons.healing, onPressed: () {}),
-                    const SizedBox(
-                      width: 5.0,
+                    Column(
+                      children: [
+                        CustomSmallPlainButton(
+                            icon: Icons.healing, onPressed: () {}),
+                        SizedBox(
+                          height: 5.0,
+                        ),
+                        const Text("Urgencies", style: TextStyle(fontSize: 12))
+                      ],
                     ),
-                    CustomSmallPlainButton(
-                        icon: Icons.healing, onPressed: () {}),
                     const SizedBox(
-                      width: 5.0,
+                      width: 10.0,
                     ),
-                    CustomSmallPlainButton(
-                        icon: Icons.healing, onPressed: () {}),
+                    Column(
+                      children: [
+                        CustomSmallPlainButton(
+                            icon: Icons.support, onPressed: () {}),
+                        SizedBox(
+                          height: 5.0,
+                        ),
+                        const Text("Radiology", style: TextStyle(fontSize: 12))
+                      ],
+                    ),
                     const SizedBox(
-                      width: 5.0,
+                      width: 10.0,
                     ),
-                    CustomSmallPlainButton(
-                        icon: Icons.healing, onPressed: () {}),
+                    Column(
+                      children: [
+                        CustomSmallPlainButton(
+                            icon: Icons.local_pharmacy, onPressed: () {}),
+                        SizedBox(
+                          height: 5.0,
+                        ),
+                        const Text("Laboratory", style: TextStyle(fontSize: 12))
+                      ],
+                    ),
+                    const SizedBox(
+                      width: 10.0,
+                    ),
+                    Column(
+                      children: [
+                        CustomSmallPlainButton(
+                            icon: Icons.accessibility_new, onPressed: () {}),
+                        SizedBox(
+                          height: 5.0,
+                        ),
+                        const Text("Trauma", style: TextStyle(fontSize: 12))
+                      ],
+                    ),
                   ],
                 ),
                 const SizedBox(
-                  height: 5.0,
+                  height: 10.0,
                 ),
                 Row(
                   children: [
-                    CustomSmallPlainButton(
-                        icon: Icons.healing, onPressed: () {}),
-                    const SizedBox(
-                      width: 5.0,
+                    Column(
+                      children: [
+                        CustomSmallPlainButton(
+                            icon: Icons.restaurant_menu, onPressed: () {}),
+                        SizedBox(
+                          height: 5.0,
+                        ),
+                        const Text("Grastric", style: TextStyle(fontSize: 12))
+                      ],
                     ),
-                    CustomSmallPlainButton(
-                        icon: Icons.healing, onPressed: () {}),
                     const SizedBox(
-                      width: 5.0,
+                      width: 10.0,
                     ),
-                    CustomSmallPlainButton(
-                        icon: Icons.healing, onPressed: () {}),
+                    Column(
+                      children: [
+                        CustomSmallPlainButton(
+                            icon: Icons.airline_seat_legroom_extra,
+                            onPressed: () {}),
+                        SizedBox(
+                          height: 5.0,
+                        ),
+                        const Text("Orthopedy", style: TextStyle(fontSize: 12))
+                      ],
+                    ),
                     const SizedBox(
-                      width: 5.0,
+                      width: 10.0,
                     ),
-                    CustomSmallPlainButton(
-                        icon: Icons.healing, onPressed: () {}),
+                    Column(
+                      children: [
+                        CustomSmallPlainButton(
+                            icon: Icons.psychology, onPressed: () {}),
+                        SizedBox(
+                          height: 5.0,
+                        ),
+                        const Text("Neurology", style: TextStyle(fontSize: 12))
+                      ],
+                    ),
+                    const SizedBox(
+                      width: 10.0,
+                    ),
+                    Column(
+                      children: [
+                        CustomSmallPlainButton(
+                            icon: Icons.local_fire_department,
+                            onPressed: () {}),
+                        SizedBox(
+                          height: 5.0,
+                        ),
+                        const Text("Burned", style: TextStyle(fontSize: 12))
+                      ],
+                    ),
                   ],
                 ),
               ]),
+            ),
+            SizedBox(
+              height: 40,
             )
           ],
         )));

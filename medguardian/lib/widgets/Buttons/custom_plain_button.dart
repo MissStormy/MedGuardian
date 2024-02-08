@@ -8,11 +8,11 @@ class CustomPlainButton extends StatefulWidget {
   final VoidCallback? onPressed;
 
   const CustomPlainButton({
-    Key? key,
+    super.key,
     required this.label,
     required this.icon,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   @override
   _CustomPlainButtonState createState() => _CustomPlainButtonState();

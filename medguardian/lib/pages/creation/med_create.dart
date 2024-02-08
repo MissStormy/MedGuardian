@@ -61,9 +61,9 @@ class _MyMedCreationPageState extends State<MyMedCreationPage> {
                 FirstPage(setPirulaName: (String name) {
                   pirula.name = name;
                 }),
-                SecondPage(),
-                ThirdPage(),
-                FourthPage()
+                const SecondPage(),
+                const ThirdPage(),
+                const FourthPage()
               ],
             ),
           ),
@@ -129,7 +129,7 @@ class _FirstPageState extends State<FirstPage> {
                           flex: 2,
                           child: CustomTextfield(
                               label: 'Dose', myController: myController)),
-                      SizedBox(width: 8),
+                      const SizedBox(width: 8),
                       Flexible(
                           flex: 3,
                           child: CustomTextfield(
