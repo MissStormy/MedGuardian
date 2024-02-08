@@ -125,7 +125,7 @@ class MyTreatmentList extends StatelessWidget {
                           child: Row(
                             children: [
                               MedicationItem(
-                                time: '12:00',
+                                time: "${snapshot.data![index].startDate.hour}:${snapshot.data![index].startDate.minute}",
                                 name: snapshot.data![index].pirulaName,
                                 icon: Icons.medication,
                                 onMoreTap: () {

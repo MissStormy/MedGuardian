@@ -2,11 +2,12 @@ import 'package:medguardian/models/database.dart';
 
 //Data from the treatment table
 class Treatment {
-  late int? id;
+  int? id;
   late String pirulaName;
   late DateTime startDate;
   late DateTime endDate;
   late int frecuency;
+  DateTime? lastDose;
 //Values
   Treatment() {
     pirulaName = '';
@@ -60,5 +61,13 @@ class Treatment {
   saveTreatment(Treatment treatment) async {
     DBHelper dbHelper = DBHelper();
     dbHelper.dbInsert('treatments', treatment.toMap());
+  }
+
+  DateTime nextDose() {
+    return lastDose??startDate.add(Duration(hours: frecuency));
+  }
+  
+  pirulaTaken (){
+    lastDose = DateTime.now();
   }
 }

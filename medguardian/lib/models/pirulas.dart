@@ -3,7 +3,7 @@ import 'package:medguardian/models/database.dart';
 
 //Data from the table
 class Pirula {
-  late int? id;
+  int? id;
   late String name;
   late String brand;
   late String dose;

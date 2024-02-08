@@ -4,7 +4,7 @@ import 'package:medguardian/models/database.dart';
 //name TEXT, ocupation TEXT, age INTEGER, shift TEXT
 //Data from the doctors table
 class Doctor {
-  late int? id;
+  int? id;
   late String medicalSpeciality;
   late String name;
   late String ocupation;

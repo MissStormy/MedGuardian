@@ -2,21 +2,46 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:medguardian/theme/theme.dart';
 
-class CustomDropdown extends StatelessWidget {
+class CustomDropdown extends StatefulWidget {
   final String label;
   final List<String> items;
-  final String value;
+  String? value;
   final void Function(String?) onChanged;
 
-  const CustomDropdown({super.key, 
+  CustomDropdown({
+    super.key,
     required this.label,
     required this.items,
     required this.value,
     required this.onChanged,
   });
+  @override
+  _CustomDropdownState createState() => _CustomDropdownState();
+}
+
+class _CustomDropdownState extends State<CustomDropdown> {
+  @override
+  void initState() {
+    super.initState();
+    List<DropdownMenuItem<String>> itemmap = widget.items.map((item) {
+      return DropdownMenuItem<String>(
+        value: item,
+        child: Text(
+          item,
+          style: const TextStyle(fontSize: 16),
+        ),
+      );
+    }).toList();
+    widget.value = itemmap.first.value;
+  }
 
   @override
   Widget build(BuildContext context) {
+    final String label = widget.label;
+    final List<String> items = widget.items;
+    String? value = widget.value;
+    final void Function(String?) onChanged = widget.onChanged;
+
     final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

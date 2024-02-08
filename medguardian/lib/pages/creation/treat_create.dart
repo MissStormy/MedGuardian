@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:medguardian/widgets/Containers/custom_dropdown.dart';
 import 'package:medguardian/widgets/Extra/custom_date_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:medguardian/theme/theme.dart';
 import 'package:medguardian/models/treatment.dart';
+import 'package:medguardian/models/pirulas.dart';
 //Just like med_create.dart, this one creates treatments through a wizard
 
 class MyTreatCreatPage extends StatefulWidget {
@@ -15,11 +17,13 @@ class MyTreatCreatPage extends StatefulWidget {
 
 class _MyTreatCreatPageState extends State<MyTreatCreatPage> {
   int _currentStep = 0;
-  String selectedValue = 'Ibuprofeno';
-  DateTime _selectedDate = DateTime.now();
+  String? selectedValue;
+  DateTime _startDate = DateTime.now();
+  DateTime _endDate = DateTime.now();
   String _selectedFrequency = '';
   TimeOfDay _selectedTime = const TimeOfDay(hour: 0, minute: 0);
   Treatment treatment = Treatment();
+  Pirula pirula = Pirula();
 
   final TextEditingController _customFrequencyController =
       TextEditingController();
@@ -33,7 +37,42 @@ class _MyTreatCreatPageState extends State<MyTreatCreatPage> {
         currentStep: _currentStep,
         onStepContinue: () {
           setState(() {
-            _currentStep < 5 ? _currentStep += 1 : null;
+            bool nextStep = false;
+            switch (_currentStep) {
+              case 0:
+                if (selectedValue != null) {
+                  nextStep = true;
+                  treatment.pirulaName = selectedValue ?? '';
+                }
+                break;
+              case 1:
+                nextStep = true;
+                treatment.startDate = _startDate;
+                break;
+              case 2:
+                if (_endDate.isAfter(_startDate)) {
+                  nextStep = true;
+                  treatment.endDate = _endDate;
+                }
+                break;
+              case 3:
+                if (_selectedFrequency == 'hourly') {
+                  treatment.frecuency = 1;
+                  nextStep = true;
+                } else if (_selectedFrequency == 'daily') {
+                  treatment.frecuency = 24;
+                  nextStep = true;
+                } else if (_selectedFrequency == 'custom') {
+                  treatment.frecuency =
+                      int.tryParse(_customFrequencyController.text) ?? 24;
+                  nextStep = true;
+                }
+                break;
+              case 4:
+                nextStep = true;
+                break;
+            }
+            if (nextStep) _currentStep < 5 ? _currentStep += 1 : null;
           });
         },
         onStepCancel: () {
@@ -47,29 +86,46 @@ class _MyTreatCreatPageState extends State<MyTreatCreatPage> {
                 'Choose the medication',
                 style: TextStyle(color: actualTheme.colorScheme.onError),
               ),
+              // content: CustomDropdown( //Old Code
+              //         label: 'Pirula name',
+              //         items: const ['Ibuprofeno', 'Amoxicilina', 'Plutonic drug'],
+              //         value: selectedValue,
+              //         onChanged: (newValue) {
+              //           setState(() {
+              //             selectedValue = newValue ?? '';
+              //           });
+              //         },
+              //       ),
               content: FutureBuilder(
-                future: treatment.getTreatments(),
-                builder: (context, AsyncSnapshot<List<Treatment>> snapshot) {
-                  // CustomDropdown(
-                  //   label: 'Pirula name',
-                  //   items: const ['Ibuprofeno', 'Amoxicilina', 'Plutonic drug'],
-                  //   value: selectedValue,
-                  //   onChanged: (newValue) {
-                  //     setState(() {
-                  //       selectedValue = newValue ?? '';
-                  //     });
-                  //   },
-                  // );
+                future: pirula.getPirulas(),
+                builder: (context, AsyncSnapshot<List<Pirula>> snapshot) {
+                  if (snapshot.hasData) {
+                    return CustomDropdown(
+                      label: 'Pirula name',
+                      items: List.generate(snapshot.data!.length,
+                          (index) => snapshot.data![index].name),
+                      value: selectedValue,
+                      onChanged: (newValue) {
+                        setState(() {
+                          selectedValue = newValue ?? '';
+                        });
+                      },
+                    );
+                  } else {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  }
                 },
               )),
           Step(
             title: Text('Start date',
                 style: TextStyle(color: actualTheme.colorScheme.onError)),
             content: CustomDatePicker(
-              selectedDate: _selectedDate,
+              selectedDate: _startDate,
               onDateChanged: (DateTime pickedDate) {
                 setState(() {
-                  _selectedDate = pickedDate;
+                  _startDate = pickedDate;
                 });
               },
             ),
@@ -78,14 +134,16 @@ class _MyTreatCreatPageState extends State<MyTreatCreatPage> {
             title: Text('End date',
                 style: TextStyle(color: actualTheme.colorScheme.onError)),
             content: CustomDatePicker(
-              selectedDate: _selectedDate,
+              selectedDate: _endDate,
               onDateChanged: (DateTime pickedDate) {
                 setState(() {
-                  _selectedDate = pickedDate;
+                  _endDate = pickedDate;
                 });
               },
             ),
           ),
+          // Needs reworking
+          // Daily: every how many hours
           Step(
             title: Text('Select Frequency',
                 style: TextStyle(color: actualTheme.colorScheme.onError)),
@@ -126,7 +184,7 @@ class _MyTreatCreatPageState extends State<MyTreatCreatPage> {
                     child: TextFormField(
                       controller: _customFrequencyController,
                       decoration: const InputDecoration(
-                        labelText: 'Custom Frequency',
+                        labelText: 'Hours betwen doses',
                         border: OutlineInputBorder(),
                       ),
                     ),
@@ -157,7 +215,10 @@ class _MyTreatCreatPageState extends State<MyTreatCreatPage> {
               title: Text('Confirmation',
                   style: TextStyle(color: actualTheme.colorScheme.onError)),
               content: ElevatedButton(
-                  onPressed: () {}, child: const Text('Save treatment')))
+                  onPressed: () {
+                    treatment.saveTreatment(treatment);
+                  },
+                  child: const Text('Save treatment')))
         ],
       ),
     );
