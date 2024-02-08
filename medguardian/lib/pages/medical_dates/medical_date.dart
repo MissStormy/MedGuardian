@@ -158,7 +158,7 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
             SizedBox(
                 height: 200,
                 child: FutureBuilder(
-                    future: doctor.GetDoctors(),
+                    future: doctor.getDoctors(),
                     builder: (context, AsyncSnapshot<List<Doctor>> snapshot) {
                       if (snapshot.hasData) {
                         return ListView.builder(

@@ -4,7 +4,7 @@ import 'package:medguardian/models/database.dart';
 //name TEXT, ocupation TEXT, age INTEGER, shift TEXT
 //Data from the doctors table
 class Doctor {
-  late int id;
+  late int? id;
   late String medicalSpeciality;
   late String name;
   late String ocupation;
@@ -38,7 +38,9 @@ class Doctor {
 
   Map<String, dynamic> toMap() {
     var map = <String, dynamic>{};
-    map['id'] = id;
+    if (id != null) {
+      map['id'] = id;
+    }
     map['medical_speciality'] = medicalSpeciality;
     map['name'] = name;
     map['ocupation'] = ocupation;
@@ -48,7 +50,7 @@ class Doctor {
   }
 
   //To get the doctors
-  Future<List<Doctor>> GetDoctors() async {
+  Future<List<Doctor>> getDoctors() async {
     List<Doctor> doctors = [];
     DBHelper dbHelper = DBHelper();
     List<Map<String, dynamic>> doctorsDB = await dbHelper.dbQuery('doctors');
@@ -56,5 +58,10 @@ class Doctor {
       doctors.add(Doctor.fromMap(doctorsDB[i]));
     }
     return doctors;
+  }
+
+  saveDoctor(Doctor doctor) async {
+    DBHelper dbHelper = DBHelper();
+    dbHelper.dbInsert('doctors', doctor.toMap());
   }
 }

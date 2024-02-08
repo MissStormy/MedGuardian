@@ -2,7 +2,7 @@ import 'package:medguardian/models/database.dart';
 
 //Data from the treatment table
 class Treatment {
-  late int id;
+  late int? id;
   late String pirulaName;
   late DateTime startDate;
   late DateTime endDate;
@@ -35,7 +35,9 @@ class Treatment {
 //TODO
   Map<String, dynamic> toMap() {
     var map = <String, dynamic>{};
-    map['id'] = id;
+    if (id != null) {
+      map['id'] = id;
+    }
     map['pirulaName'] = pirulaName;
     map['startDate'] = startDate.toIso8601String();
     map['endDate'] = endDate.toIso8601String();
@@ -44,7 +46,7 @@ class Treatment {
   }
 
 //To get the treatments back
-  Future<List<Treatment>> GetTreatments() async {
+  Future<List<Treatment>> getTreatments() async {
     List<Treatment> treatments = [];
     DBHelper dbHelper = DBHelper();
     List<Map<String, dynamic>> tretmentsDB =
@@ -53,5 +55,10 @@ class Treatment {
       treatments.add(Treatment.fromMap(tretmentsDB[i]));
     }
     return treatments;
+  }
+
+  saveTreatment(Treatment treatment) async {
+    DBHelper dbHelper = DBHelper();
+    dbHelper.dbInsert('treatments', treatment.toMap());
   }
 }
