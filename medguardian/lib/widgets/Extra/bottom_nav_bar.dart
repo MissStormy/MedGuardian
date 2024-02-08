@@ -85,7 +85,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
   void _navigateToSelectedPage(int index) {
     switch (index) {
       case 0:
-        _navigateToPage(const MyMedCreationPage());
+        // _navigateToPage(const MyMedCreationPage());
         break;
       case 1:
         break;

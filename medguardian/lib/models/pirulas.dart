@@ -13,7 +13,7 @@ class Pirula {
   late bool withoutFood;
   late bool withOtherPirula;
   late int currentQuantity;
-//Initialize the values
+//Empty Builder
   Pirula() {
     name = '';
     brand = '';

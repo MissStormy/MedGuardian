@@ -118,8 +118,20 @@ class _MyNexusPageState extends State<MyNexusPage> {
       ),
       const MySettingsPage(),
       const MyProfilePage(),
-      const MyMedCreationPage(),
-      const MyTreatCreatPage(),
+      MyMedCreationPage(
+        backToList: (int i) {
+          setState(() {
+            _selectedIndex = i;
+          });
+        },
+      ),
+      MyTreatCreatPage(
+        backToList: (int i) {
+          setState(() {
+            _selectedIndex = i;
+          });
+        },
+      ),
       const ChatScreen(),
       const DoctorsList()
     ];

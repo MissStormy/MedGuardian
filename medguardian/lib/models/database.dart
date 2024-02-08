@@ -227,12 +227,7 @@ class DBHelper {
           "INSERT INTO pirulas(name, brand, dose, type, amountPerBox, withFood, withoutFood, withOtherPirula, currentQuantity) VALUES('Patata Frita','Patata', 'Un par, lo curan todo, siempre que no tengas nada que curar','God',20,FALSE,FALSE,FALSE,20)");
 
       await db.execute(
-          "CREATE TABLE IF NOT EXISTS treatments(id INTEGER PRIMARY KEY, pirulaName TEXT, startDate TEXT, endDate TEXT, frecuency INTEGER)");
-
-      await db.execute(
-          "INSERT INTO treatments(pirulaName, startDate, endDate, frecuency) VALUES('Droga plutonica','2012-02-27 13:27:00.123456789z','2032-02-27 13:27:00.123456789z',24)");
-      await db.execute(
-          "INSERT INTO treatments(pirulaName, startDate, endDate, frecuency) VALUES('Patata Frita','2012-02-27 13:27:00.123456789z','2032-02-27 13:27:00.123456789z',24)");
+          "CREATE TABLE IF NOT EXISTS treatments(id INTEGER PRIMARY KEY, pirulaName TEXT, startDate TEXT, endDate TEXT, frecuency INTEGER, firstDose TEXT, lastDose TEXT)");
     });
     print('BD inicalizada');
     return database;

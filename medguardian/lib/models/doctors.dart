@@ -11,6 +11,7 @@ class Doctor {
   late int age;
   late String shift;
 
+//Empty Builder
   Doctor() {
     medicalSpeciality = '';
     name = '';
@@ -25,7 +26,7 @@ class Doctor {
   //Builder with Id
   Doctor.withId(this.id, this.medicalSpeciality, this.name, this.ocupation,
       this.age, this.shift);
-
+//Builder from map
   Doctor.fromMap(Map<String, dynamic> map) {
     id = (map['id'] != null) ? map['id'] : null;
     medicalSpeciality =
@@ -35,7 +36,7 @@ class Doctor {
     age = (map['age'] != Null ? map['age'] : '');
     shift = (map['shift'] != Null ? map['shift'] : '');
   }
-
+//Convert to map
   Map<String, dynamic> toMap() {
     var map = <String, dynamic>{};
     if (id != null) {
@@ -59,7 +60,7 @@ class Doctor {
     }
     return doctors;
   }
-
+//Save doctors do the DB
   saveDoctor(Doctor doctor) async {
     DBHelper dbHelper = DBHelper();
     dbHelper.dbInsert('doctors', doctor.toMap());
