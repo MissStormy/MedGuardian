@@ -4,13 +4,14 @@ import 'package:medguardian/theme/theme.dart';
 
 class CustomSmallPlainButton extends StatefulWidget {
   final IconData icon;
+
   final VoidCallback? onPressed;
 
   const CustomSmallPlainButton({
-    Key? key,
+    super.key,
     required this.icon,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   @override
   _CustomSmallPlainButtonState createState() => _CustomSmallPlainButtonState();
@@ -37,10 +38,19 @@ class _CustomSmallPlainButtonState extends State<CustomSmallPlainButton> {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10.0),
         ),
-        fixedSize: const Size(50.0, 50.0),
+        fixedSize: const Size(70.0, 70.0),
       ),
-      child: Center(
-        child: Icon(widget.icon),
+      child: Stack(
+        children: [
+          Positioned.fill(
+            child: Center(
+              child: Icon(
+                widget.icon,
+                size: 25,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

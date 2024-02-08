@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:medguardian/theme/theme.dart';
 
 class MyProfilePage extends StatefulWidget {
-  const MyProfilePage({Key? key}) : super(key: key);
+  const MyProfilePage({super.key});
 
   @override
   _MyProfilePageState createState() => _MyProfilePageState();
@@ -76,19 +76,19 @@ class _MyProfilePageState extends State<MyProfilePage> {
                   const SizedBox(width: 10.0),
                   Column(
                     children: [
-                      Text(
+                      const Text(
                         'User Name',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             fontSize: 24.0, fontWeight: FontWeight.bold),
                       ),
-                      SizedBox(height: 10.0),
+                      const SizedBox(height: 10.0),
                       Text(
                         guardianModeProvider.guardianModeEnabled
                             ? 'User S'
                             : 'User P',
                         textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 18.0),
+                        style: const TextStyle(fontSize: 18.0),
                       ),
                     ],
                   )

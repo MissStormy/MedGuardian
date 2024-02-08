@@ -8,10 +8,10 @@ import 'package:medguardian/pages/lists/med_list.dart';
 import 'package:medguardian/pages/lists/treat_list.dart';
 import 'package:medguardian/pages/location/map.dart';
 import 'package:medguardian/pages/medical_dates/chat_room.dart';
+import 'package:medguardian/pages/medical_dates/doctors.dart';
 import 'package:medguardian/pages/medical_dates/medical_date.dart';
 import 'package:medguardian/pages/user/profile.dart';
 import 'package:medguardian/pages/user/settings.dart';
-import 'package:medguardian/provider/falldetector.dart';
 import 'package:provider/provider.dart';
 import 'package:medguardian/theme/theme.dart';
 import 'package:sensors_plus/sensors_plus.dart';
@@ -60,7 +60,7 @@ class _MyNexusPageState extends State<MyNexusPage> {
               false, // Prevent dialog dismissal by tapping outside
           builder: (BuildContext context) {
             return AlertDialog(
-              title: Text('Are you okay?'),
+              title: const Text('Are you okay?'),
               actions: [
                 TextButton(
                   onPressed: () {
@@ -68,7 +68,7 @@ class _MyNexusPageState extends State<MyNexusPage> {
                     _initAccelerometer();
                     _isDialogShowing = false;
                   },
-                  child: Text('Yes'),
+                  child: const Text('Yes'),
                 ),
               ],
             );
@@ -87,6 +87,11 @@ class _MyNexusPageState extends State<MyNexusPage> {
         callDoctor: () {
           setState(() {
             _selectedIndex = 9;
+          });
+        },
+        showDoctors: () {
+          setState(() {
+            _selectedIndex = 10;
           });
         },
       ),
@@ -115,7 +120,8 @@ class _MyNexusPageState extends State<MyNexusPage> {
       const MyProfilePage(),
       const MyMedCreationPage(),
       const MyTreatCreatPage(),
-      const ChatScreen()
+      const ChatScreen(),
+      const DoctorsList()
     ];
 
     //This controls the theme

@@ -10,7 +10,7 @@ import 'package:analog_clock/analog_clock.dart';
 class MyTreatmentList extends StatelessWidget {
   final VoidCallback createTreat;
 
-  const MyTreatmentList({required this.createTreat});
+  const MyTreatmentList({super.key, required this.createTreat});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class MyTreatmentList extends StatelessWidget {
     Future<String> getNextPill() async {
       // Logic to retrieve the next pill info from the database
       // Replace this with your actual database query
-      await Future.delayed(Duration(seconds: 1)); // Simulating async operation
+      await Future.delayed(const Duration(seconds: 1)); // Simulating async operation
       return "Ibuprofen at 9:00 AM"; // Example next pill information
     }
 
@@ -32,7 +32,7 @@ class MyTreatmentList extends StatelessWidget {
             // Clock Container
             SafeArea(
               child: Container(
-                padding: EdgeInsets.all(16.0),
+                padding: const EdgeInsets.all(16.0),
                 decoration: BoxDecoration(
                   color: actualTheme.colorScheme.surface,
                   border: Border.all(color: actualTheme.colorScheme.primary),
@@ -64,7 +64,7 @@ class MyTreatmentList extends StatelessWidget {
                         datetime: DateTime.now(),
                       ),
                     ),
-                    SizedBox(width: 16), // Spacer
+                    const SizedBox(width: 16), // Spacer
                     // Next Pill Information
                     Flexible(
                       child: FutureBuilder<String>(
@@ -72,7 +72,7 @@ class MyTreatmentList extends StatelessWidget {
                         builder: (context, snapshot) {
                           if (snapshot.connectionState ==
                               ConnectionState.waiting) {
-                            return CircularProgressIndicator();
+                            return const CircularProgressIndicator();
                           } else if (snapshot.hasError) {
                             return Text("Error: ${snapshot.error}");
                           } else {
@@ -81,17 +81,17 @@ class MyTreatmentList extends StatelessWidget {
                             return Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
+                                const Text(
                                   "Hello there, Nyachan",
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 24, // Adjust font size as needed
                                   ),
                                 ),
-                                SizedBox(height: 8), // Adjust spacing as needed
+                                const SizedBox(height: 8), // Adjust spacing as needed
                                 Text(
                                   "Next pill: $nextPill",
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontSize:
                                           16), // Adjust font size as needed
                                   softWrap: true, // Enable text wrapping
@@ -138,7 +138,7 @@ class MyTreatmentList extends StatelessWidget {
                       },
                     );
                   } else {
-                    return Center(
+                    return const Center(
                       child: CircularProgressIndicator(),
                     );
                   }

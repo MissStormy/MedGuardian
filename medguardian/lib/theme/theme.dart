@@ -60,26 +60,22 @@ class ThemeLoader with ChangeNotifier {
     }
     notifyListeners();
   }
-  
+
   //Light theme: Bathing ducks
   ThemeData _myLightTheme() {
     return (ThemeData.light().copyWith(
         colorScheme: const ColorScheme(
-          primary: Color(0xFF82ad85), // Text color
-          secondary: Color(0xFF9dbb91), // Accent color
-          background: Color(0xFFdfc4c9), // Background color
-          surface: Color(0xFFeef2e7), // Secondary color
-          onBackground:
-              Color(0xFFd3e8cc), // Text color on top of the background color
-          onSurface:
-              Color(0xFF0D0D0D), // Text color on top of the surface color
+          primary: Color(0xFF82ad85),
+          secondary: Color(0xFF9dbb91),
+          background: Color(0xFFdfc4c9),
+          surface: Color(0xFFeef2e7),
+          onBackground: Color(0xFFd3e8cc),
+          onSurface: Color(0xFF0D0D0D),
           brightness: Brightness.light,
           error: Color(0xFFFF6E40),
           onError: Colors.black,
-          onPrimary:
-              Colors.black, // Placeholder color, replace with actual color
-          onSecondary:
-              Colors.black, // Placeholder color, replace with actual color
+          onPrimary: Colors.black,
+          onSecondary: Colors.black,
         ),
         textTheme: const TextTheme(
             bodyMedium: TextStyle(
@@ -87,26 +83,6 @@ class ThemeLoader with ChangeNotifier {
                 fontFamily: 'Quicksand',
                 color: Color(0xFF0D0D0D)))));
   }
-
-  //Palette: Buzzing Bee
-  // ThemeData _myLightTheme() {
-  //   return (ThemeData.light().copyWith(
-  //       colorScheme: const ColorScheme(
-  //     primary: Color(0xFF8F614B), // Text color
-  //     secondary: Color(0xFFFEDB71), // Accent color
-  //     background: Color(0xFFDD868C), // Background color
-  //     surface: Color(0xFF8F614B), // Secondary color
-  //     onPrimary: Color(0xFFFFFFFF), // Text color on top of the primary color
-  //     onSecondary:
-  //         Color(0xFF140F1F), // Text color on top of the secondary color
-  //     onBackground:
-  //         Color(0xFF140F1F), // Text color on top of the background color
-  //     onSurface: Color(0xFF140F1F), // Text color on top of the surface color
-  //     brightness: Brightness.light,
-  //     error: Color(0xFFFF6E40),
-  //     onError: Color(0xFFECEFF1),
-  //   )));
-  // }
 
   //Palette: Latte Green
   ThemeData _myDarkTheme() {
@@ -129,25 +105,6 @@ class ThemeLoader with ChangeNotifier {
                 fontSize: 16.0,
                 fontFamily: 'Quicksand',
                 color: Color(0xFFECEFF1)))));
-
-    //Palette: Blue Bert
-    // ThemeData _myDarkTheme() {
-    //   return (ThemeData.dark().copyWith(
-    //       colorScheme: const ColorScheme(
-    //     primary: Color(0xFF66FCF1), // Text color
-    //     secondary: Color(0xFF45A29E), // Accent color
-    //     background: Color(0xFF0B0C10), // Background color
-    //     surface: Color(0xFF1F2833), // Secondary color
-    //     onPrimary: Color(0xFFC5C6C7), // Text color on top of the primary color
-    //     onSecondary:
-    //         Color(0xFF66FCF1), // Text color on top of the secondary color
-    //     onBackground:
-    //         Color(0xFFC5C6C7), // Text color on top of the background color
-    //     onSurface: Color(0xFFC5C6C7), // Text color on top of the surface color
-    //     brightness: Brightness.dark,
-    //     error: Color(0xFFFF6E40),
-    //     onError: Color(0xFFECEFF1),
-    //   )));
   }
 }
 

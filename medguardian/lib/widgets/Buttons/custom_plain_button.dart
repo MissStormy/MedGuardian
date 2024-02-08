@@ -28,6 +28,7 @@ class _CustomPlainButtonState extends State<CustomPlainButton> {
     _isActive = widget.startsActive;
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;

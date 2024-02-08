@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:medguardian/theme/theme.dart';
 
-class CustomSchedule extends StatelessWidget {
+class CustomDoctorCard extends StatelessWidget {
   // Image  Dr. Name
   // Image  Type of consultation    VideocallIcon
   //
@@ -12,16 +12,13 @@ class CustomSchedule extends StatelessWidget {
   final IconData image;
   final String name;
   final String consultation;
-  final String date;
-  final String hour;
 
-  const CustomSchedule(
-      {super.key,
-      required this.image,
-      required this.name,
-      required this.consultation,
-      required this.date,
-      required this.hour});
+  const CustomDoctorCard({
+    super.key,
+    required this.image,
+    required this.name,
+    required this.consultation,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -59,41 +56,13 @@ class CustomSchedule extends StatelessWidget {
                 ],
               ),
               const SizedBox(
-                width: 30.0,
+                width: 10.0,
               ),
-              const ElevatedButton(
-                  onPressed: null, child: Icon(Icons.video_call))
             ],
           ),
           const SizedBox(
             height: 10.0,
           ),
-          Container(
-            margin: const EdgeInsets.symmetric(vertical: 1.0, horizontal: 10.0),
-            padding:
-                const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.grey),
-              borderRadius: BorderRadius.circular(8.0),
-            ),
-            child: Row(
-              children: [
-                const Icon(Icons.calendar_month),
-                const SizedBox(
-                  width: 10.0,
-                ),
-                Text(date),
-                const SizedBox(
-                  width: 30.0,
-                ),
-                const Icon(Icons.schedule),
-                const SizedBox(
-                  width: 10.0,
-                ),
-                Text(hour)
-              ],
-            ),
-          )
         ],
       ),
     );

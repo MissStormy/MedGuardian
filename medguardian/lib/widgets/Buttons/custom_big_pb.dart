@@ -8,11 +8,11 @@ class CustomBigPlainButton extends StatefulWidget {
   final VoidCallback? onPressed;
 
   const CustomBigPlainButton({
-    Key? key,
+    super.key,
     required this.label,
     required this.icon,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   @override
   _CustomBigPlainButtonState createState() => _CustomBigPlainButtonState();
