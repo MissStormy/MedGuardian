@@ -9,7 +9,7 @@ import 'package:medguardian/theme/theme.dart';
 
 //This page helps you create a new medication, it's like a wizard
 class MyMedCreationPage extends StatefulWidget {
-  final ValueSetter<int> backToList;
+  final VoidCallback backToList;
   const MyMedCreationPage({super.key, required this.backToList});
 
   @override
@@ -73,7 +73,8 @@ class _MyMedCreationPageState extends State<MyMedCreationPage>
                       //Decoration and things for when it's active or not
                       indicatorColor: Colors.green,
                       labelColor: const Color.fromARGB(255, 117, 190, 119),
-                      unselectedLabelColor: const Color.fromARGB(255, 86, 114, 87),
+                      unselectedLabelColor:
+                          const Color.fromARGB(255, 86, 114, 87),
                     ),
                   ),
                 )),
@@ -122,8 +123,8 @@ class _MyMedCreationPageState extends State<MyMedCreationPage>
                       _tabController.animateTo(2);
                     },
                     pirula: pirulaGlobal,
-                    backToList: (int i) {
-                      widget.backToList(i);
+                    backToList: () {
+                      widget.backToList();
                     })
               ],
             ),
@@ -563,7 +564,7 @@ class ThirdPage extends StatelessWidget {
 class FourthPage extends StatelessWidget {
   final ValueSetter<Pirula> givePirulaBack;
   final Pirula pirula;
-  final ValueSetter<int> backToList;
+  final VoidCallback backToList;
   const FourthPage(
       {super.key,
       required this.givePirulaBack,
@@ -778,6 +779,7 @@ class FourthPage extends StatelessWidget {
               heroTag: 'floatingNext',
               onPressed: () {
                 pirula.savePirula(pirula);
+                backToList();
               },
               backgroundColor: actualTheme.colorScheme.onSurface,
               elevation: 10,
@@ -792,7 +794,6 @@ class FourthPage extends StatelessWidget {
               heroTag: 'floatingBack',
               onPressed: () {
                 givePirulaBack(pirula);
-                backToList(4);
               },
               backgroundColor: actualTheme.colorScheme.onSurface,
               elevation: 10,

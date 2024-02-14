@@ -76,7 +76,10 @@ class MyMedListPage extends StatelessWidget {
                             child: CircularProgressIndicator(),
                           );
                         }
-                      })
+                      }),
+                  SizedBox(
+                    height: 100,
+                  )
                 ],
               ),
             )

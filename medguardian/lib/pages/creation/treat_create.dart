@@ -8,7 +8,7 @@ import 'package:medguardian/models/pirulas.dart';
 //Just like med_create.dart, this one creates treatments through a wizard
 
 class MyTreatCreatPage extends StatefulWidget {
-  final ValueSetter<int> backToList;
+  final VoidCallback backToList;
   const MyTreatCreatPage({super.key, required this.backToList});
 
   @override
@@ -159,14 +159,10 @@ class _MyTreatCreatPageState extends State<MyTreatCreatPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     ElevatedButton(
-                      onPressed: () {
-                        setState(() {
-                          _selectedFrequency = 'hourly';
-                        });
-                      },
-                      child: const Text('Hourly'),
-                    ),
-                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: actualTheme.colorScheme.onSurface,
+                        foregroundColor: actualTheme.colorScheme.onError,
+                      ),
                       onPressed: () {
                         setState(() {
                           _selectedFrequency = 'daily';
@@ -175,6 +171,10 @@ class _MyTreatCreatPageState extends State<MyTreatCreatPage> {
                       child: const Text('Daily'),
                     ),
                     ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: actualTheme.colorScheme.onSurface,
+                        foregroundColor: actualTheme.colorScheme.onError,
+                      ),
                       onPressed: () {
                         setState(() {
                           _selectedFrequency = 'custom';
@@ -210,8 +210,11 @@ class _MyTreatCreatPageState extends State<MyTreatCreatPage> {
                           });
                         }
                       },
-                      child:
-                          Text('Select Time: ${_selectedTime.format(context)}'),
+                      child: Text(
+                        'Select Time: ${_selectedTime.format(context)}',
+                        style:
+                            TextStyle(color: actualTheme.colorScheme.onError),
+                      ),
                     ),
                   ),
               ],
@@ -221,11 +224,17 @@ class _MyTreatCreatPageState extends State<MyTreatCreatPage> {
               title: Text('Confirmation',
                   style: TextStyle(color: actualTheme.colorScheme.onError)),
               content: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: actualTheme.colorScheme.onSurface,
+                    foregroundColor: actualTheme.colorScheme.onError,
+                  ),
                   onPressed: () {
                     treatment.saveTreatment(treatment);
-                    widget.backToList(4);
+                    widget.backToList();
                   },
-                  child: const Text('Save treatment')))
+                  child: Text('Save treatment',
+                      style:
+                          TextStyle(color: actualTheme.colorScheme.onError))))
         ],
       ),
     );

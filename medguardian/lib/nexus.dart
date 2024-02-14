@@ -123,16 +123,16 @@ class _MyNexusPageState extends State<MyNexusPage> {
       const MySettingsPage(),
       const MyProfilePage(),
       MyMedCreationPage(
-        backToList: (int i) {
+        backToList: () {
           setState(() {
-            _selectedIndex = i;
+            _selectedIndex = 3;
           });
         },
       ),
       MyTreatCreatPage(
-        backToList: (int i) {
+        backToList: () {
           setState(() {
-            _selectedIndex = i;
+            _selectedIndex = 4;
           });
         },
       ),

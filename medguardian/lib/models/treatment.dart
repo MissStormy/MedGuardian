@@ -50,11 +50,11 @@ class Treatment {
       map['id'] = id;
     }
     map['pirulaName'] = pirulaName;
-    map['startDate'] = startDate.toIso8601String();
-    map['endDate'] = endDate.toIso8601String();
+    map['startDate'] = startDate.toString();
+    map['endDate'] = endDate.toString();
     map['frecuency'] = frecuency;
-    map['firstDose'] = firstDose.toIso8601String();
-    map['lastDose'] = firstDose.toIso8601String();
+    map['firstDose'] = firstDose.toString();
+    map['lastDose'] = firstDose.toString();
     return map;
   }
 
@@ -106,7 +106,7 @@ class Treatment {
   }
 
   DateTime _firstDoseToday() {
-    return DateTime(
-        DateTime.now().year, DateTime.now().month, DateTime.now().day, firstDose.hour, firstDose.minute);
+    return DateTime(DateTime.now().year, DateTime.now().month,
+        DateTime.now().day, firstDose.hour, firstDose.minute);
   }
 }

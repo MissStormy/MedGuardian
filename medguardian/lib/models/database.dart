@@ -229,7 +229,7 @@ class DBHelper {
       await db.execute(
           "CREATE TABLE IF NOT EXISTS treatments(id INTEGER PRIMARY KEY, pirulaName TEXT, startDate TEXT, endDate TEXT, frecuency INTEGER, firstDose TEXT, lastDose TEXT)");
     });
-    print('BD inicalizada');
+    print('BD inicializada');
     return database;
   }
 }
