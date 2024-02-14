@@ -33,7 +33,7 @@ class MedicineAccordion extends StatelessWidget {
               Row(
                 children: [
                   Container(
-                    padding: EdgeInsets.all(3.0),
+                    padding: const EdgeInsets.all(3.0),
                     decoration: BoxDecoration(
                         border: Border.all(
                             color: actualTheme.colorScheme.secondary),
@@ -45,12 +45,12 @@ class MedicineAccordion extends StatelessWidget {
                           shape: BoxShape.circle,
                           color: actualTheme.colorScheme.background,
                         ),
-                        padding: EdgeInsets.all(10.0),
-                        child: Icon(Icons.medication),
+                        padding: const EdgeInsets.all(10.0),
+                        child: const Icon(Icons.medication),
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 5.0,
                   ),
                   Column(
@@ -58,19 +58,19 @@ class MedicineAccordion extends StatelessWidget {
                     children: [
                       Text(
                         name,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 17, fontWeight: FontWeight.bold),
                       ),
                       Text(
                         brand,
-                        style: TextStyle(fontSize: 15),
+                        style: const TextStyle(fontSize: 15),
                       )
                     ],
                   )
                 ],
               ),
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 3.0),
+                padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 3.0),
                 decoration: BoxDecoration(
                     color: actualTheme.colorScheme.secondary,
                     borderRadius: BorderRadius.circular(25.0)),
@@ -83,34 +83,34 @@ class MedicineAccordion extends StatelessWidget {
                           shape: BoxShape.circle,
                           color: actualTheme.colorScheme.background,
                         ),
-                        padding: EdgeInsets.all(10.0),
-                        child: Icon(Icons.border_color),
+                        padding: const EdgeInsets.all(10.0),
+                        child: const Icon(Icons.border_color),
                       ),
                     ),
-                    SizedBox(width: 8.0),
-                    Text('Edit'),
-                    SizedBox(width: 5.0),
+                    const SizedBox(width: 8.0),
+                    const Text('Edit'),
+                    const SizedBox(width: 5.0),
                   ],
                 ),
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 10.0,
           ),
-          Divider(),
-          SizedBox(
+          const Divider(),
+          const SizedBox(
             height: 10.0,
           ),
           Container(
-            margin: EdgeInsets.symmetric(horizontal: 5.0),
+            margin: const EdgeInsets.symmetric(horizontal: 5.0),
             child: Column(
               children: [
                 Row(
                   children: [
                     Container(
                       padding:
-                          EdgeInsets.symmetric(horizontal: 5.0, vertical: 3.0),
+                          const EdgeInsets.symmetric(horizontal: 5.0, vertical: 3.0),
                       decoration: BoxDecoration(
                           color: actualTheme.colorScheme.secondary,
                           borderRadius: BorderRadius.circular(25.0)),
@@ -123,28 +123,28 @@ class MedicineAccordion extends StatelessWidget {
                                 shape: BoxShape.circle,
                                 color: actualTheme.colorScheme.background,
                               ),
-                              padding: EdgeInsets.all(10.0),
-                              child: Icon(Icons.medical_information),
+                              padding: const EdgeInsets.all(10.0),
+                              child: const Icon(Icons.medical_information),
                             ),
                           ),
-                          SizedBox(width: 8.0),
-                          Text('Type'),
-                          SizedBox(width: 5.0),
+                          const SizedBox(width: 8.0),
+                          const Text('Type'),
+                          const SizedBox(width: 5.0),
                         ],
                       ),
                     ),
-                    SizedBox(width: 10.0),
+                    const SizedBox(width: 10.0),
                     Text(type)
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10.0,
                 ),
                 Row(
                   children: [
                     Container(
                       padding:
-                          EdgeInsets.symmetric(horizontal: 5.0, vertical: 3.0),
+                          const EdgeInsets.symmetric(horizontal: 5.0, vertical: 3.0),
                       decoration: BoxDecoration(
                           color: actualTheme.colorScheme.secondary,
                           borderRadius: BorderRadius.circular(25.0)),
@@ -157,32 +157,32 @@ class MedicineAccordion extends StatelessWidget {
                                 shape: BoxShape.circle,
                                 color: actualTheme.colorScheme.background,
                               ),
-                              padding: EdgeInsets.all(10.0),
-                              child: Icon(Icons.discount),
+                              padding: const EdgeInsets.all(10.0),
+                              child: const Icon(Icons.discount),
                             ),
                           ),
-                          SizedBox(width: 8.0),
-                          Text('Quantity'),
-                          SizedBox(width: 5.0),
+                          const SizedBox(width: 8.0),
+                          const Text('Quantity'),
+                          const SizedBox(width: 5.0),
                         ],
                       ),
                     ),
-                    SizedBox(width: 10.0),
+                    const SizedBox(width: 10.0),
                     Text('$pillCount')
                   ],
                 ),
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10.0,
           ),
-          Divider(),
+          const Divider(),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 3.0),
+                padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 3.0),
                 decoration: BoxDecoration(
                     color: actualTheme.colorScheme.secondary,
                     borderRadius: BorderRadius.circular(25.0)),
@@ -195,18 +195,18 @@ class MedicineAccordion extends StatelessWidget {
                           shape: BoxShape.circle,
                           color: actualTheme.colorScheme.background,
                         ),
-                        padding: EdgeInsets.all(10.0),
-                        child: Icon(Icons.medical_services),
+                        padding: const EdgeInsets.all(10.0),
+                        child: const Icon(Icons.medical_services),
                       ),
                     ),
-                    SizedBox(width: 8.0),
-                    Text('Create treatment'),
-                    SizedBox(width: 5.0),
+                    const SizedBox(width: 8.0),
+                    const Text('Create treatment'),
+                    const SizedBox(width: 5.0),
                   ],
                 ),
               ),
               Container(
-                padding: EdgeInsets.all(3.0),
+                padding: const EdgeInsets.all(3.0),
                 decoration: BoxDecoration(
                     border:
                         Border.all(color: actualTheme.colorScheme.secondary),
@@ -218,8 +218,8 @@ class MedicineAccordion extends StatelessWidget {
                       shape: BoxShape.circle,
                       color: actualTheme.colorScheme.background,
                     ),
-                    padding: EdgeInsets.all(10.0),
-                    child: Icon(Icons.camera),
+                    padding: const EdgeInsets.all(10.0),
+                    child: const Icon(Icons.camera),
                   ),
                 ),
               ),

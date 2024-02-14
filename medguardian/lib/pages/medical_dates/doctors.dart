@@ -6,7 +6,7 @@ import 'package:medguardian/widgets/Extra/search_bar.dart';
 import 'package:provider/provider.dart';
 
 class DoctorsList extends StatefulWidget {
-  const DoctorsList({Key? key}) : super(key: key);
+  const DoctorsList({super.key});
 
   @override
   State<DoctorsList> createState() => _DoctorsListState();
@@ -53,7 +53,7 @@ class _DoctorsListState extends State<DoctorsList> {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10.0,
                   ),
                   Container(
@@ -62,7 +62,7 @@ class _DoctorsListState extends State<DoctorsList> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('Doctor Nearby'),
+                        const Text('Doctor Nearby'),
                         GestureDetector(
                           onTap: () {
                             setState(() {
@@ -87,27 +87,27 @@ class _DoctorsListState extends State<DoctorsList> {
                     ),
                     child: Column(
                       children: [
-                        CustomDoctorCard(
+                        const CustomDoctorCard(
                           image: Icons.person,
                           name: 'Dr. Frankestein',
                           consultation: 'Necromancy',
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10.0,
                         ),
                         if (showAllNearbyDoctors)
-                          CustomDoctorCard(
+                          const CustomDoctorCard(
                             image: Icons.person,
                             name: 'Dr. Acula',
                             consultation: 'Blood tasting',
                           ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10.0,
                         ),
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10.0,
                   ),
                   Container(
@@ -116,7 +116,7 @@ class _DoctorsListState extends State<DoctorsList> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('Recommended'),
+                        const Text('Recommended'),
                         GestureDetector(
                           onTap: () {
                             setState(() {
@@ -142,21 +142,21 @@ class _DoctorsListState extends State<DoctorsList> {
                     ),
                     child: Column(
                       children: [
-                        CustomDoctorCard(
+                        const CustomDoctorCard(
                           image: Icons.person,
                           name: 'Dr. Frankestein',
                           consultation: 'Necromancy',
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10.0,
                         ),
                         if (showAllRecommendedDoctors)
-                          CustomDoctorCard(
+                          const CustomDoctorCard(
                             image: Icons.person,
                             name: 'Dr. Acula',
                             consultation: 'Blood tasting',
                           ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10.0,
                         ),
                       ],

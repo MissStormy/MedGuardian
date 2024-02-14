@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:medguardian/notifs/alarm.dart';
 import 'package:medguardian/pages/creation/med_create.dart';
 import 'package:medguardian/pages/creation/treat_create.dart';
 import 'package:medguardian/pages/home/home.dart';
@@ -109,11 +110,14 @@ class _MyNexusPageState extends State<MyNexusPage> {
       ),
       MyTreatmentList(
         createTreat: () {
-          //This receives the screen change from treat_list.dart and changes
-          //the body to start the treatment creation wizard
+          //This receives the screen change from alarm.dart and shows
+          //the notif when you have to take the pill
           setState(() {
             _selectedIndex = 8;
           });
+        },
+        showAlarm: (String medName) {
+          showTreatmentAlarmDialog(context, medName);
         },
       ),
       const MySettingsPage(),

@@ -6,8 +6,6 @@ import 'package:provider/provider.dart';
 import 'package:medguardian/theme/theme.dart';
 import 'package:medguardian/models/doctors.dart';
 
-import 'package:material_symbol_icons/material_symbol.dart';
-import 'package:material_symbol_icons/widgets/material_symbol_icon.dart';
 
 class MyMedicalDatePage extends StatefulWidget {
   final VoidCallback callDoctor;
@@ -85,7 +83,7 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
                             CustomSmallPlainButton(
                                 icon: Icons.question_answer,
                                 onPressed: () => widget.callDoctor()),
-                            SizedBox(
+                            const SizedBox(
                               height: 5.0,
                             ),
                             const Text("IA", style: TextStyle(fontSize: 12))
@@ -98,7 +96,7 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
                           children: [
                             CustomSmallPlainButton(
                                 icon: Icons.local_pharmacy, onPressed: () {}),
-                            SizedBox(
+                            const SizedBox(
                               height: 5.0,
                             ),
                             const Text("Pharmacy",
@@ -113,7 +111,7 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
                             CustomSmallPlainButton(
                                 icon: Icons.edit_square,
                                 onPressed: () => widget.showDoctors()),
-                            SizedBox(
+                            const SizedBox(
                               height: 5.0,
                             ),
                             const Text("Appointment",
@@ -127,7 +125,7 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
                           children: [
                             CustomSmallPlainButton(
                                 icon: Icons.medical_services, onPressed: () {}),
-                            SizedBox(
+                            const SizedBox(
                               height: 5.0,
                             ),
                             const Text("Recipe", style: TextStyle(fontSize: 12))
@@ -225,7 +223,7 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
                       children: [
                         CustomSmallPlainButton(
                             icon: Icons.healing, onPressed: () {}),
-                        SizedBox(
+                        const SizedBox(
                           height: 5.0,
                         ),
                         const Text("Urgencies", style: TextStyle(fontSize: 12))
@@ -238,7 +236,7 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
                       children: [
                         CustomSmallPlainButton(
                             icon: Icons.support, onPressed: () {}),
-                        SizedBox(
+                        const SizedBox(
                           height: 5.0,
                         ),
                         const Text("Radiology", style: TextStyle(fontSize: 12))
@@ -251,7 +249,7 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
                       children: [
                         CustomSmallPlainButton(
                             icon: Icons.local_pharmacy, onPressed: () {}),
-                        SizedBox(
+                        const SizedBox(
                           height: 5.0,
                         ),
                         const Text("Laboratory", style: TextStyle(fontSize: 12))
@@ -264,7 +262,7 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
                       children: [
                         CustomSmallPlainButton(
                             icon: Icons.accessibility_new, onPressed: () {}),
-                        SizedBox(
+                        const SizedBox(
                           height: 5.0,
                         ),
                         const Text("Trauma", style: TextStyle(fontSize: 12))
@@ -281,7 +279,7 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
                       children: [
                         CustomSmallPlainButton(
                             icon: Icons.restaurant_menu, onPressed: () {}),
-                        SizedBox(
+                        const SizedBox(
                           height: 5.0,
                         ),
                         const Text("Grastric", style: TextStyle(fontSize: 12))
@@ -295,7 +293,7 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
                         CustomSmallPlainButton(
                             icon: Icons.airline_seat_legroom_extra,
                             onPressed: () {}),
-                        SizedBox(
+                        const SizedBox(
                           height: 5.0,
                         ),
                         const Text("Orthopedy", style: TextStyle(fontSize: 12))
@@ -308,7 +306,7 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
                       children: [
                         CustomSmallPlainButton(
                             icon: Icons.psychology, onPressed: () {}),
-                        SizedBox(
+                        const SizedBox(
                           height: 5.0,
                         ),
                         const Text("Neurology", style: TextStyle(fontSize: 12))
@@ -322,7 +320,7 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
                         CustomSmallPlainButton(
                             icon: Icons.local_fire_department,
                             onPressed: () {}),
-                        SizedBox(
+                        const SizedBox(
                           height: 5.0,
                         ),
                         const Text("Burned", style: TextStyle(fontSize: 12))
@@ -332,7 +330,7 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
                 ),
               ]),
             ),
-            SizedBox(
+            const SizedBox(
               height: 40,
             )
           ],

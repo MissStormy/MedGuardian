@@ -1,43 +1,45 @@
 import 'package:flutter/material.dart';
+import 'package:medguardian/theme/theme.dart';
+import 'package:provider/provider.dart';
 
 class TreatmentAlarmDialog extends StatelessWidget {
   final String medicationName;
-  final String imagePath;
 
   const TreatmentAlarmDialog({
     super.key,
     required this.medicationName,
-    required this.imagePath,
   });
 
   @override
   Widget build(BuildContext context) {
+    final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
     return AlertDialog(
       title: const Text('Time to take medication'),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Image.asset(
-            imagePath,
-            width: 100,
-            height: 100,
-            fit: BoxFit.contain,
-          ),
+          const Icon(Icons.medication),
           const SizedBox(height: 16),
-          Text('Medication: $medicationName'),
+          Text(medicationName),
         ],
       ),
       actions: [
         ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: actualTheme.colorScheme.onSurface,
+            foregroundColor: actualTheme.colorScheme.onError,
+          ),
           onPressed: () {
-            // Handle "Done" button tap
             Navigator.of(context).pop(); // Close the dialog
           },
           child: const Text('Done'),
         ),
         ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: actualTheme.colorScheme.onSurface,
+            foregroundColor: actualTheme.colorScheme.onError,
+          ),
           onPressed: () {
-            // Handle "Remind later" button tap
             Navigator.of(context).pop(); // Close the dialog
           },
           child: const Text('Remind later'),
@@ -47,16 +49,12 @@ class TreatmentAlarmDialog extends StatelessWidget {
   }
 }
 
-// Usage:
-// Call this method when you want to show the alarm dialog
-void showTreatmentAlarmDialog(
-    BuildContext context, String medicationName, String imagePath) {
+void showTreatmentAlarmDialog(BuildContext context, String medicationName) {
   showDialog(
     context: context,
     builder: (BuildContext context) {
       return TreatmentAlarmDialog(
         medicationName: medicationName,
-        imagePath: imagePath,
       );
     },
   );

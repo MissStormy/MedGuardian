@@ -34,7 +34,7 @@ class MedicationItem extends StatelessWidget {
               Row(
                 children: [
                   Container(
-                    padding: EdgeInsets.all(3.0),
+                    padding: const EdgeInsets.all(3.0),
                     decoration: BoxDecoration(
                         border: Border.all(
                             color: actualTheme.colorScheme.secondary),
@@ -46,12 +46,12 @@ class MedicationItem extends StatelessWidget {
                           shape: BoxShape.circle,
                           color: actualTheme.colorScheme.background,
                         ),
-                        padding: EdgeInsets.all(10.0),
-                        child: Icon(Icons.medication),
+                        padding: const EdgeInsets.all(10.0),
+                        child: const Icon(Icons.medication),
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 5.0,
                   ),
                   Column(
@@ -59,18 +59,18 @@ class MedicationItem extends StatelessWidget {
                     children: [
                       Text(
                         name,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 17, fontWeight: FontWeight.bold),
                       ),
                     ],
                   )
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 3.0),
+                padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 3.0),
                 decoration: BoxDecoration(
                     color: actualTheme.colorScheme.secondary,
                     borderRadius: BorderRadius.circular(25.0)),
@@ -83,25 +83,25 @@ class MedicationItem extends StatelessWidget {
                           shape: BoxShape.circle,
                           color: actualTheme.colorScheme.background,
                         ),
-                        padding: EdgeInsets.all(10.0),
-                        child: Icon(Icons.border_color),
+                        padding: const EdgeInsets.all(10.0),
+                        child: const Icon(Icons.border_color),
                       ),
                     ),
-                    SizedBox(width: 8.0),
-                    Text('Edit'),
-                    SizedBox(width: 5.0),
+                    const SizedBox(width: 8.0),
+                    const Text('Edit'),
+                    const SizedBox(width: 5.0),
                   ],
                 ),
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 10.0,
           ),
           Divider(
             color: actualTheme.colorScheme.background,
           ),
-          SizedBox(
+          const SizedBox(
             height: 10.0,
           ),
           Container(
@@ -112,7 +112,7 @@ class MedicationItem extends StatelessWidget {
                   children: [
                     Container(
                       padding:
-                          EdgeInsets.symmetric(horizontal: 5.0, vertical: 3.0),
+                          const EdgeInsets.symmetric(horizontal: 5.0, vertical: 3.0),
                       decoration: BoxDecoration(
                           color: actualTheme.colorScheme.secondary,
                           borderRadius: BorderRadius.circular(25.0)),
@@ -125,20 +125,20 @@ class MedicationItem extends StatelessWidget {
                                 shape: BoxShape.circle,
                                 color: actualTheme.colorScheme.background,
                               ),
-                              padding: EdgeInsets.all(10.0),
-                              child: Icon(Icons.medical_information),
+                              padding: const EdgeInsets.all(10.0),
+                              child: const Icon(Icons.medical_information),
                             ),
                           ),
-                          SizedBox(width: 8.0),
-                          Text('Next dose'),
-                          Divider()
+                          const SizedBox(width: 8.0),
+                          const Text('Next dose'),
+                          const Divider()
                         ],
                       ),
                     ),
-                    SizedBox(width: 10.0),
+                    const SizedBox(width: 10.0),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10.0,
                 ),
                 Row(
@@ -146,7 +146,7 @@ class MedicationItem extends StatelessWidget {
                     Row(
                       children: [
                         Container(
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                               horizontal: 5.0, vertical: 3.0),
                           decoration: BoxDecoration(
                               color: actualTheme.colorScheme.secondary,
@@ -160,27 +160,27 @@ class MedicationItem extends StatelessWidget {
                                     shape: BoxShape.circle,
                                     color: actualTheme.colorScheme.background,
                                   ),
-                                  padding: EdgeInsets.all(10.0),
-                                  child: Icon(Icons.schedule),
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: const Icon(Icons.schedule),
                                 ),
                               ),
-                              SizedBox(width: 8.0),
-                              Text('Hour'),
-                              SizedBox(width: 5.0),
+                              const SizedBox(width: 8.0),
+                              const Text('Hour'),
+                              const SizedBox(width: 5.0),
                             ],
                           ),
                         ),
-                        SizedBox(width: 10.0),
+                        const SizedBox(width: 10.0),
                         Text(time)
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     Row(
                       children: [
                         Container(
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                               horizontal: 5.0, vertical: 3.0),
                           decoration: BoxDecoration(
                               color: actualTheme.colorScheme.secondary,
@@ -194,18 +194,18 @@ class MedicationItem extends StatelessWidget {
                                     shape: BoxShape.circle,
                                     color: actualTheme.colorScheme.background,
                                   ),
-                                  padding: EdgeInsets.all(10.0),
-                                  child: Icon(Icons.calendar_month),
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: const Icon(Icons.calendar_month),
                                 ),
                               ),
-                              SizedBox(width: 8.0),
-                              Text('Date'),
-                              SizedBox(width: 5.0),
+                              const SizedBox(width: 8.0),
+                              const Text('Date'),
+                              const SizedBox(width: 5.0),
                             ],
                           ),
                         ),
-                        SizedBox(width: 10.0),
-                        Text('12/01')
+                        const SizedBox(width: 10.0),
+                        const Text('12/01')
                       ],
                     ),
                   ],
@@ -213,15 +213,15 @@ class MedicationItem extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10.0,
           ),
-          Divider(),
+          const Divider(),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 3.0),
+                padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 3.0),
                 decoration: BoxDecoration(
                     color: actualTheme.colorScheme.secondary,
                     borderRadius: BorderRadius.circular(25.0)),
@@ -234,31 +234,31 @@ class MedicationItem extends StatelessWidget {
                           shape: BoxShape.circle,
                           color: actualTheme.colorScheme.background,
                         ),
-                        padding: EdgeInsets.all(10.0),
-                        child: Icon(Icons.medical_services),
+                        padding: const EdgeInsets.all(10.0),
+                        child: const Icon(Icons.medical_services),
                       ),
                     ),
-                    SizedBox(width: 8.0),
-                    Text('See pill'),
-                    SizedBox(width: 5.0),
+                    const SizedBox(width: 8.0),
+                    const Text('See pill'),
+                    const SizedBox(width: 5.0),
                   ],
                 ),
               ),
               Container(
-                padding: EdgeInsets.all(3.0),
+                padding: const EdgeInsets.all(3.0),
                 decoration: BoxDecoration(
                     border:
                         Border.all(color: actualTheme.colorScheme.secondary),
                     borderRadius: BorderRadius.circular(25)),
                 child: InkWell(
-                  onTap: () {},
+                  onTap: () => onMoreTap(),
                   child: Container(
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: actualTheme.colorScheme.background,
                     ),
-                    padding: EdgeInsets.all(10.0),
-                    child: Icon(Icons.check),
+                    padding: const EdgeInsets.all(10.0),
+                    child: const Icon(Icons.check),
                   ),
                 ),
               ),

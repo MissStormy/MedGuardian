@@ -9,12 +9,11 @@ class CustomPlainButton extends StatefulWidget {
   final bool startsActive;
 
   const CustomPlainButton(
-      {Key? key,
+      {super.key,
       required this.label,
       required this.icon,
       required this.onPressed,
-      required this.startsActive})
-      : super(key: key);
+      required this.startsActive});
 
   @override
   _CustomPlainButtonState createState() => _CustomPlainButtonState();

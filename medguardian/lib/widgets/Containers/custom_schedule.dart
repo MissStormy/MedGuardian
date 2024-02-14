@@ -63,7 +63,7 @@ class CustomSchedule extends StatelessWidget {
                 width: 30.0,
               ),
               Container(
-                padding: EdgeInsets.all(3.0),
+                padding: const EdgeInsets.all(3.0),
                 decoration: BoxDecoration(
                     border:
                         Border.all(color: actualTheme.colorScheme.secondary),
@@ -75,8 +75,8 @@ class CustomSchedule extends StatelessWidget {
                       shape: BoxShape.circle,
                       color: actualTheme.colorScheme.background,
                     ),
-                    padding: EdgeInsets.all(10.0),
-                    child: Icon(Icons.video_call),
+                    padding: const EdgeInsets.all(10.0),
+                    child: const Icon(Icons.video_call),
                   ),
                 ),
               ),

@@ -71,14 +71,14 @@ class _MyMedCreationPageState extends State<MyMedCreationPage>
                       controller: _tabController,
                       //Decoration and things for when it's active or not
                       indicatorColor: Colors.green,
-                      labelColor: Color.fromARGB(255, 117, 190, 119),
-                      unselectedLabelColor: Color.fromARGB(255, 86, 114, 87),
+                      labelColor: const Color.fromARGB(255, 117, 190, 119),
+                      unselectedLabelColor: const Color.fromARGB(255, 86, 114, 87),
                     ),
                   ),
                 )),
             body: TabBarView(
               controller: _tabController,
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               children: [
                 FirstPage(
                     givePirulaNext: (Pirula pirula1) {
@@ -204,7 +204,7 @@ class _FirstPageState extends State<FirstPage> {
                           flex: 2,
                           child: CustomTextfield(
                               label: 'Dose', myController: doseController)),
-                      SizedBox(width: 8),
+                      const SizedBox(width: 8),
                       Flexible(
                           flex: 3,
                           child: CustomTextfield(

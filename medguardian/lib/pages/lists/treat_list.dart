@@ -9,8 +9,10 @@ import 'package:analog_clock/analog_clock.dart';
 
 class MyTreatmentList extends StatelessWidget {
   final VoidCallback createTreat;
+  final ValueSetter<String> showAlarm;
 
-  const MyTreatmentList({super.key, required this.createTreat});
+  const MyTreatmentList(
+      {super.key, required this.createTreat, required this.showAlarm});
 
   @override
   Widget build(BuildContext context) {
@@ -106,15 +108,15 @@ class MyTreatmentList extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10.0,
             ),
             //TREATMENTS LIST
-            Text(
+            const Text(
               'Calendar',
               style: TextStyle(fontSize: 20),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10.0,
             ),
             FutureBuilder(
@@ -130,7 +132,8 @@ class MyTreatmentList extends StatelessWidget {
                           name: snapshot.data![index].pirulaName,
                           time: '12:00',
                           icon: Icons.medication,
-                          onMoreTap: () {},
+                          onMoreTap: () =>
+                              showAlarm(snapshot.data![index].pirulaName),
                         );
                       },
                     );
@@ -139,7 +142,10 @@ class MyTreatmentList extends StatelessWidget {
                       child: CircularProgressIndicator(),
                     );
                   }
-                })
+                }),
+            const SizedBox(
+              height: 100,
+            )
           ],
         ),
       ),

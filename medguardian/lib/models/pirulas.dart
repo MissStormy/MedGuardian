@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:medguardian/models/database.dart';
 
 //Data from the table
