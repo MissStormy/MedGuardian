@@ -8,7 +8,8 @@ import 'package:medguardian/models/pirulas.dart';
 //Just like med_create.dart, this one creates treatments through a wizard
 
 class MyTreatCreatPage extends StatefulWidget {
-  const MyTreatCreatPage({super.key});
+  final ValueSetter<int> backToList;
+  const MyTreatCreatPage({super.key, required this.backToList});
 
   @override
   _MyTreatCreatPageState createState() => _MyTreatCreatPageState();
@@ -60,6 +61,12 @@ class _MyTreatCreatPageState extends State<MyTreatCreatPage> {
                   nextStep = true;
                 } else if (_selectedFrequency == 'daily') {
                   treatment.frecuency = 24;
+                  treatment.firstDose = DateTime(
+                      DateTime.now().year,
+                      DateTime.now().month,
+                      DateTime.now().day,
+                      _selectedTime.hour,
+                      _selectedTime.minute);
                   nextStep = true;
                 } else if (_selectedFrequency == 'custom') {
                   treatment.frecuency =
@@ -142,7 +149,7 @@ class _MyTreatCreatPageState extends State<MyTreatCreatPage> {
             ),
           ),
           // Needs reworking
-          // Daily: every how many hours
+          // We only need how many hours
           Step(
             title: Text('Select Frequency',
                 style: TextStyle(color: actualTheme.colorScheme.onError)),
@@ -216,6 +223,7 @@ class _MyTreatCreatPageState extends State<MyTreatCreatPage> {
               content: ElevatedButton(
                   onPressed: () {
                     treatment.saveTreatment(treatment);
+                    widget.backToList(4);
                   },
                   child: const Text('Save treatment')))
         ],

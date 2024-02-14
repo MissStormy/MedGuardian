@@ -9,7 +9,8 @@ import 'package:medguardian/theme/theme.dart';
 
 //This page helps you create a new medication, it's like a wizard
 class MyMedCreationPage extends StatefulWidget {
-  const MyMedCreationPage({super.key});
+  final ValueSetter<int> backToList;
+  const MyMedCreationPage({super.key, required this.backToList});
 
   @override
   State<MyMedCreationPage> createState() => _MyMedCreationPageState();
@@ -120,7 +121,10 @@ class _MyMedCreationPageState extends State<MyMedCreationPage>
                       pirulaGlobal = pirula1;
                       _tabController.animateTo(2);
                     },
-                    pirula: pirulaGlobal)
+                    pirula: pirulaGlobal,
+                    backToList: (int i) {
+                      widget.backToList(i);
+                    })
               ],
             ),
           ),
@@ -556,35 +560,15 @@ class ThirdPage extends StatelessWidget {
 }
 
 // FOURTH PAGE #################################################################
-// class FourthPage extends StatefulWidget {
-//   final ValueSetter<Pirula> givePirulaBack;
-//   final Pirula pirula;
-//   const FourthPage(
-//       {super.key, required this.givePirulaBack, required this.pirula});
-//   @override
-//   State<FourthPage> createState() => _FourthPageState();
-// }
-
-// class _FourthPageState extends State<FourthPage> {
-//   final nameController = TextEditingController();
-//   final brandController = TextEditingController();
-//   final doseController = TextEditingController();
-//   final typeController = TextEditingController();
-
-//   @override
-//   void dispose() {
-//     // Clean up the controller when the widget is disposed.
-//     nameController.dispose();
-//     brandController.dispose();
-//     doseController.dispose();
-//     typeController.dispose();
-//     super.dispose();
-//   }
 class FourthPage extends StatelessWidget {
   final ValueSetter<Pirula> givePirulaBack;
   final Pirula pirula;
+  final ValueSetter<int> backToList;
   const FourthPage(
-      {super.key, required this.givePirulaBack, required this.pirula});
+      {super.key,
+      required this.givePirulaBack,
+      required this.pirula,
+      required this.backToList});
 
   @override
   Widget build(BuildContext context) {
@@ -808,6 +792,7 @@ class FourthPage extends StatelessWidget {
               heroTag: 'floatingBack',
               onPressed: () {
                 givePirulaBack(pirula);
+                backToList(4);
               },
               backgroundColor: actualTheme.colorScheme.onSurface,
               elevation: 10,

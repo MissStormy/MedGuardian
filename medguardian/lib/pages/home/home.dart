@@ -18,6 +18,12 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   DBHelper dbHelper = DBHelper();
   DateTime _selectedDate;
+  final DateTime morning = DateTime(
+        DateTime.now().year, DateTime.now().month, DateTime.now().day, 0);
+    final DateTime midDay = DateTime(
+        DateTime.now().year, DateTime.now().month, DateTime.now().day, 12);
+    final DateTime night = DateTime(
+        DateTime.now().year, DateTime.now().month, DateTime.now().day, 18);
 
   _MyHomePageState()
       : _selectedDate = DateTime.now().add(const Duration(days: 2));
@@ -74,7 +80,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
         //Now, the sections, you can find the widgets in widgets/Containers
         //###################### Morning pirulas ##########################
-        const BigContainer(containerName: "Morning pirulas", content: [
+        const BigContainer(containerName: "Morning pirulas", content: 
+        [
           PirulasContainer(
               title: "Ibuprofeno",
               text: "1 pirula con la comida",

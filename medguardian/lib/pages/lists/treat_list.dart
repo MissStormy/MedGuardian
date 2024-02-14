@@ -19,10 +19,18 @@ class MyTreatmentList extends StatelessWidget {
     final Treatment treatment = Treatment();
     final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
     final guardianModeProvider = Provider.of<GuardianModeProvider>(context);
+    final DateTime morning = DateTime(
+        DateTime.now().year, DateTime.now().month, DateTime.now().day, 0);
+    final DateTime midDay = DateTime(
+        DateTime.now().year, DateTime.now().month, DateTime.now().day, 12);
+    final DateTime night = DateTime(
+        DateTime.now().year, DateTime.now().month, DateTime.now().day, 18);
+    
     Future<String> getNextPill() async {
       // Logic to retrieve the next pill info from the database
       // Replace this with your actual database query
       await Future.delayed(
+          
           const Duration(seconds: 1)); // Simulating async operation
       return "Ibuprofen at 9:00 AM"; // Example next pill information
     }
