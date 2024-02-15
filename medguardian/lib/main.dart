@@ -3,7 +3,7 @@
 //   ||   </Miss    ||    Autor: LR and VA
 //   ||   Stormy>   ||    Alias: Miss Stormy and Lokka
 //   ||             ||    App: MedGuardian
-//   ||   <Lokka>   ||    Web: missstormy.neocities.org
+//   ||   <Lokka/>  ||    Web: missstormy.neocities.org
 //   =================
 //   //_____________\\
 //
@@ -16,7 +16,6 @@ import 'package:medguardian/theme/theme.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  
   runApp(
     MultiProvider(
       providers: [

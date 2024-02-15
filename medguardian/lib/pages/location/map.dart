@@ -8,6 +8,9 @@ import 'package:medguardian/theme/theme.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
 
+//This page displays a map of the zone
+//As we're broke, it just displays an image of the marauders map
+
 class MyMapPage extends StatelessWidget {
   const MyMapPage({super.key});
 
@@ -31,17 +34,17 @@ class MyMapPage extends StatelessWidget {
     );
   }
 
+  //################### MAP #######################
+//We display the map on the background
   Widget _backgroundWidget() {
     return PhotoViewGallery.builder(
-      itemCount: 1, // Assuming you have only one image
+      itemCount: 1,
       builder: (context, index) {
         return PhotoViewGalleryPageOptions(
-          imageProvider: const AssetImage(
-              'assets/map.jpg'), // Replace with your image asset path
-          minScale: PhotoViewComputedScale.contained * 0.1, // Adjust as needed
-          maxScale: PhotoViewComputedScale.contained * 2, // Adjust as needed
-          heroAttributes: const PhotoViewHeroAttributes(
-              tag: 'map_hero_tag'), // Add a hero tag if needed
+          imageProvider: const AssetImage('assets/map.jpg'),
+          minScale: PhotoViewComputedScale.contained * 0.1,
+          maxScale: PhotoViewComputedScale.contained * 2,
+          heroAttributes: const PhotoViewHeroAttributes(tag: 'map_hero_tag'),
         );
       },
       scrollPhysics: const BouncingScrollPhysics(),
@@ -52,6 +55,9 @@ class MyMapPage extends StatelessWidget {
     );
   }
 
+  //this shit closed, SHEET
+//######################## CLOSED SHEET ##########################
+//The style for the sheet when it's closed
   Widget _previewWidget(ThemeData actualTheme) {
     return Container(
       padding: const EdgeInsets.all(16),
@@ -79,6 +85,8 @@ class MyMapPage extends StatelessWidget {
     );
   }
 
+//##################### OPEN SHEET #####################
+//The style when it's open
   Widget _expandedWidget(ThemeData actualTheme) {
     return Container(
       padding: const EdgeInsets.all(16),
@@ -92,14 +100,13 @@ class MyMapPage extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Row(
+            //This button will find the quickest way home
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               IconButton(
                 icon: const Icon(Icons.keyboard_arrow_down,
                     size: 30, color: Colors.white),
-                onPressed: () {
-                  // Handle button press
-                },
+                onPressed: () {},
               ),
               ElevatedButton(
                 onPressed: () {},
@@ -111,6 +118,7 @@ class MyMapPage extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           const Text(
+            //And this list shows the closest drug stores
             'Closest drug stores',
             style: TextStyle(
               color: Colors.white,

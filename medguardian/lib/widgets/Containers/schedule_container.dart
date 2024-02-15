@@ -8,7 +8,6 @@ class ScheduleContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Column(children: [
-        // Dynamic content using ListView.builder
         ListView.builder(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),

@@ -6,7 +6,6 @@ import 'package:provider/provider.dart';
 import 'package:medguardian/theme/theme.dart';
 import 'package:medguardian/models/doctors.dart';
 
-
 class MyMedicalDatePage extends StatefulWidget {
   final VoidCallback callDoctor;
   final VoidCallback showDoctors;
@@ -183,21 +182,6 @@ class _MyMedicalDatePageState extends State<MyMedicalDatePage> {
                         );
                       }
                     })),
-            //TODO: Make big container for schedules
-            /*const ScheduleContainer(content: [
-          CustomSchedule(
-              image: Icons.person,
-              name: snapshot.data![index].name,
-              consultation: "Psychology consultation",
-              date: "Tuesday, 15 August",
-              hour: "14:00 - 15:00"),
-          CustomSchedule(
-              image: Icons.person,
-              name: "Dr. Lokka",
-              consultation: "Psychology consultation",
-              date: "Tuesday, 15 August",
-              hour: "14:00 - 15:00"),
-        ]),*/
 
             //###################### Doctor Speciality ##########################
 

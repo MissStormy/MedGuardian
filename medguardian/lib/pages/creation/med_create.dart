@@ -9,7 +9,8 @@ import 'package:medguardian/theme/theme.dart';
 
 //This page helps you create a new medication, it's like a wizard
 class MyMedCreationPage extends StatefulWidget {
-  final VoidCallback backToList;
+  final VoidCallback
+      backToList; //With this, you get back to the medication list page
   const MyMedCreationPage({super.key, required this.backToList});
 
   @override
@@ -23,6 +24,7 @@ class _MyMedCreationPageState extends State<MyMedCreationPage>
   final PageController _pageController = PageController();
   final int _selectedIndex = 0;
   Pirula pirulaGlobal = Pirula();
+  //We make a list for the tabs
   static const List<Tab> myTabs = [
     Tab(
       text: 'Pirulas',
@@ -37,14 +39,17 @@ class _MyMedCreationPageState extends State<MyMedCreationPage>
       text: 'Finish',
     ),
   ];
+  //We need a tabcontroller
   late TabController _tabController;
 
+  //With tabs, this part is very important so it doesn't go crazy
   @override
   void initState() {
     super.initState();
     _tabController = TabController(vsync: this, length: myTabs.length);
   }
 
+  //And with this, we make the performance go better once the page is closed
   @override
   void dispose() {
     _tabController.dispose();
@@ -53,6 +58,7 @@ class _MyMedCreationPageState extends State<MyMedCreationPage>
 
   @override
   Widget build(BuildContext context) {
+    //Theme provider
     final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
 
     return Scaffold(
@@ -79,6 +85,9 @@ class _MyMedCreationPageState extends State<MyMedCreationPage>
                   ),
                 )),
             body: TabBarView(
+              //With this, we control the way that the tabs work
+              //We have to pass information through the tabs
+              //And the way of moving between them is by buttons, not by the tabs
               controller: _tabController,
               physics: const NeverScrollableScrollPhysics(),
               children: [
@@ -134,16 +143,19 @@ class _MyMedCreationPageState extends State<MyMedCreationPage>
 }
 
 //The pages are here so I wouldn't go crazy trying to find them
-// FIRST PAGE ##################################################################
+//################################ FIRST PAGE ##################################
 class FirstPage extends StatefulWidget {
-  final ValueSetter<Pirula> givePirulaNext;
+  final ValueSetter<Pirula>
+      givePirulaNext; //ValueSetter<int> is different from VoidCall back, it helps you send data through pages
   final Pirula pirula;
   final VoidCallback nextTab;
+
   const FirstPage(
       {super.key,
       required this.givePirulaNext,
       required this.pirula,
       required this.nextTab});
+
   @override
   State<FirstPage> createState() => _FirstPageState();
 }
@@ -227,6 +239,7 @@ class _FirstPageState extends State<FirstPage> {
                     height: 10.0,
                   ),
                   Row(
+                    //The buttons stay active until you touch them again
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       CustomPlainButton(
@@ -285,12 +298,16 @@ class _FirstPageState extends State<FirstPage> {
   }
 }
 
-// SECOND PAGE #################################################################
+//############################## SECOND PAGE ###################################
+//This page keeps track of the symbols that can appear on the pirula's box
+//Like if you have to put it in the fridge, if they are psychotropics, etc
 class SecondPage extends StatelessWidget {
   final ValueSetter<Pirula> givePirulaBack;
   final ValueSetter<Pirula> givePirulaNext;
+
   final Pirula pirula;
   final VoidCallback nextTab;
+
   const SecondPage(
       {super.key,
       required this.givePirulaBack,
@@ -447,7 +464,8 @@ class SecondPage extends StatelessWidget {
   }
 }
 
-// THIRD PAGE ##################################################################
+//############################## THIRD PAGE ####################################
+//This page should save the photos of the box and the pirula to make it easier to find
 class ThirdPage extends StatelessWidget {
   final ValueSetter<Pirula> givePirulaBack;
   final ValueSetter<Pirula> givePirulaNext;
@@ -560,11 +578,14 @@ class ThirdPage extends StatelessWidget {
   }
 }
 
-// FOURTH PAGE #################################################################
+//############################### FOURTH PAGE ##################################
+//This page displays the resume of the pill we're creating, to make sure that everything is okay before creating it
 class FourthPage extends StatelessWidget {
   final ValueSetter<Pirula> givePirulaBack;
+
   final Pirula pirula;
   final VoidCallback backToList;
+
   const FourthPage(
       {super.key,
       required this.givePirulaBack,
@@ -614,7 +635,7 @@ class FourthPage extends StatelessWidget {
                               pirula.name,
                               textAlign: TextAlign.center,
                             ),
-                          )), //PLACEHOLDER: CHANGE IBUPROFENO WITH DATA FROM PIRULAS INFO
+                          )),
                     ],
                   ),
                   const SizedBox(
@@ -644,7 +665,7 @@ class FourthPage extends StatelessWidget {
                               pirula.brand,
                               textAlign: TextAlign.center,
                             ),
-                          )), //PLACEHOLDER: CHANGE IBUPROFENO WITH DATA FROM PIRULAS INFO
+                          )),
                     ],
                   ),
                   const SizedBox(
@@ -674,7 +695,7 @@ class FourthPage extends StatelessWidget {
                               pirula.dose,
                               textAlign: TextAlign.center,
                             ),
-                          )), //PLACEHOLDER: CHANGE IBUPROFENO WITH DATA FROM PIRULAS INFO
+                          )),
                     ],
                   ),
                   const SizedBox(
@@ -704,7 +725,7 @@ class FourthPage extends StatelessWidget {
                               pirula.type,
                               textAlign: TextAlign.center,
                             ),
-                          )), //PLACEHOLDER: CHANGE IBUPROFENO WITH DATA FROM PIRULAS INFO
+                          )),
                     ],
                   ),
                   const SizedBox(
