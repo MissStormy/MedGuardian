@@ -29,7 +29,7 @@ class PirulasContainer extends StatelessWidget {
           // CircleAvatar surrounding the icon
           CircleAvatar(
             radius: 20,
-            child: Icon(icon, color: actualTheme.colorScheme.background), // Adjust the radius as needed
+            child: Icon(icon, color: actualTheme.colorScheme.background),
           ),
 
           // Padding between circle and text
@@ -67,7 +67,7 @@ class PirulasContainer extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 5),
-          // Three dots for more (you can replace this with your icon)
+          // Three dots for more
           const Icon(Icons.more_vert),
         ],
       ),

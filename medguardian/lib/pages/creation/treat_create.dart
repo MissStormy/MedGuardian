@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:medguardian/theme/theme.dart';
 import 'package:medguardian/models/treatment.dart';
 import 'package:medguardian/models/pirulas.dart';
+
 //Just like med_create.dart, this one creates treatments through a wizard
 
 class MyTreatCreatPage extends StatefulWidget {
@@ -36,6 +37,8 @@ class _MyTreatCreatPageState extends State<MyTreatCreatPage> {
       body: Stepper(
         currentStep: _currentStep,
         onStepContinue: () {
+          //In this wizard, we have chosen a stepper to do the process
+          //In each step, we save the data
           setState(() {
             bool nextStep = false;
             switch (_currentStep) {
@@ -92,16 +95,7 @@ class _MyTreatCreatPageState extends State<MyTreatCreatPage> {
                 'Choose the medication',
                 style: TextStyle(color: actualTheme.colorScheme.onError),
               ),
-              // content: CustomDropdown( //Old Code
-              //         label: 'Pirula name',
-              //         items: const ['Ibuprofeno', 'Amoxicilina', 'Plutonic drug'],
-              //         value: selectedValue,
-              //         onChanged: (newValue) {
-              //           setState(() {
-              //             selectedValue = newValue ?? '';
-              //           });
-              //         },
-              //       ),
+              //With this dropdown, we display all the pirulas that are in the DB
               content: FutureBuilder(
                 future: pirula.getPirulas(),
                 builder: (context, AsyncSnapshot<List<Pirula>> snapshot) {
@@ -125,6 +119,7 @@ class _MyTreatCreatPageState extends State<MyTreatCreatPage> {
                 },
               )),
           Step(
+            //We pick the date when the treatment starts
             title: Text('Start date',
                 style: TextStyle(color: actualTheme.colorScheme.onError)),
             content: CustomDatePicker(
@@ -137,6 +132,7 @@ class _MyTreatCreatPageState extends State<MyTreatCreatPage> {
             ),
           ),
           Step(
+            //We pick the date when the treatment ends
             title: Text('End date',
                 style: TextStyle(color: actualTheme.colorScheme.onError)),
             content: CustomDatePicker(
@@ -148,8 +144,8 @@ class _MyTreatCreatPageState extends State<MyTreatCreatPage> {
               },
             ),
           ),
-          // Needs reworking
-          // We only need how many hours
+          // We pick the frequency, if it's daily, we pick the hour
+          //If it's custom, we pick the frequency between doses
           Step(
             title: Text('Select Frequency',
                 style: TextStyle(color: actualTheme.colorScheme.onError)),
@@ -221,6 +217,7 @@ class _MyTreatCreatPageState extends State<MyTreatCreatPage> {
             ),
           ),
           Step(
+              //When we touch save, we will go back to the list
               title: Text('Confirmation',
                   style: TextStyle(color: actualTheme.colorScheme.onError)),
               content: ElevatedButton(

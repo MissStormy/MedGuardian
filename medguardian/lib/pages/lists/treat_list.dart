@@ -7,6 +7,8 @@ import 'package:medguardian/models/treatment.dart';
 import 'dart:async';
 import 'package:analog_clock/analog_clock.dart';
 
+//In this page, display a list of the treatments
+
 class MyTreatmentList extends StatelessWidget {
   final VoidCallback createTreat;
   final ValueSetter<String> showAlarm;
@@ -25,12 +27,11 @@ class MyTreatmentList extends StatelessWidget {
         DateTime.now().year, DateTime.now().month, DateTime.now().day, 12);
     final DateTime night = DateTime(
         DateTime.now().year, DateTime.now().month, DateTime.now().day, 18);
-    
+
     Future<String> getNextPill() async {
       // Logic to retrieve the next pill info from the database
       // Replace this with your actual database query
       await Future.delayed(
-          
           const Duration(seconds: 1)); // Simulating async operation
       return "Ibuprofen at 9:00 AM"; // Example next pill information
     }
@@ -58,6 +59,7 @@ class MyTreatmentList extends StatelessWidget {
                         border:
                             Border.all(color: actualTheme.colorScheme.primary),
                       ),
+                      //This is a widget from the internet
                       child: AnalogClock(
                         decoration: const BoxDecoration(
                             color: Colors.transparent, shape: BoxShape.circle),
@@ -75,7 +77,7 @@ class MyTreatmentList extends StatelessWidget {
                         datetime: DateTime.now(),
                       ),
                     ),
-                    const SizedBox(width: 16), // Spacer
+                    const SizedBox(width: 16),
                     // Next Pill Information
                     Flexible(
                       child: FutureBuilder<String>(
@@ -127,6 +129,7 @@ class MyTreatmentList extends StatelessWidget {
             const SizedBox(
               height: 10.0,
             ),
+            //See /widgets/container/custom_medication_list.dart
             FutureBuilder(
                 future: treatment.getTreatments(),
                 builder: (context, AsyncSnapshot<List<Treatment>> snapshot) {
@@ -157,6 +160,7 @@ class MyTreatmentList extends StatelessWidget {
           ],
         ),
       ),
+      //When you touch the button, display the treatment creation page
       floatingActionButton: !guardianModeProvider.guardianModeEnabled
           ? FloatingActionButton(
               onPressed: () => createTreat(),

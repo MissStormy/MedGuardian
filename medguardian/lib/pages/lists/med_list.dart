@@ -6,6 +6,8 @@ import 'package:provider/provider.dart';
 import 'package:medguardian/theme/theme.dart';
 import 'package:medguardian/provider/guardian.dart';
 
+//In this page, we will se the list of all the pills that have been saved in the DB
+
 class MyMedListPage extends StatelessWidget {
   final VoidCallback createMed;
   const MyMedListPage({super.key, required this.createMed});
@@ -14,8 +16,10 @@ class MyMedListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final Pirula pirula = Pirula();
     final TextEditingController searchController = TextEditingController();
+    //Theme and Guardian provider
     final actualTheme = Provider.of<ThemeLoader>(context).actualTheme;
     final guardianModeProvider = Provider.of<GuardianModeProvider>(context);
+
     return Scaffold(
       backgroundColor: actualTheme.colorScheme.surface,
       body: SingleChildScrollView(
@@ -29,6 +33,7 @@ class MyMedListPage extends StatelessWidget {
                   Row(
                     children: [
                       Expanded(
+                        //See /widgets/extra/search_bar.dart to know more
                         child: CustomSearchBar(
                             controller: searchController,
                             onSubmitted: (query) {
@@ -50,10 +55,7 @@ class MyMedListPage extends StatelessWidget {
                   const SizedBox(
                     height: 5.0,
                   ),
-                  // const MedicineAccordion(
-                  //     name: 'Medicine 1', type: 'Type A', pillCount: 10),
-                  // const MedicineAccordion(
-                  //     name: 'Medicine 2', type: 'Type B', pillCount: 20),
+                  //See /widgets/container/custom_medicine_container.dart to know more
                   FutureBuilder(
                       future: pirula.getPirulas(),
                       builder: (context, AsyncSnapshot<List<Pirula>> snapshot) {
@@ -73,6 +75,7 @@ class MyMedListPage extends StatelessWidget {
                           );
                         } else {
                           return const Center(
+                            //While the DB loads, display a progress indicator
                             child: CircularProgressIndicator(),
                           );
                         }
@@ -86,6 +89,7 @@ class MyMedListPage extends StatelessWidget {
           ],
         ),
       ),
+      //When you touch the button, display the creation med page
       floatingActionButton: !guardianModeProvider.guardianModeEnabled
           ? FloatingActionButton(
               onPressed: () => createMed(),

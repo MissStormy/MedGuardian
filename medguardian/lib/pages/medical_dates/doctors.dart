@@ -5,6 +5,8 @@ import 'package:medguardian/widgets/Containers/custom_doctor_card.dart';
 import 'package:medguardian/widgets/Extra/search_bar.dart';
 import 'package:provider/provider.dart';
 
+//This list shows all the doctors to make an appointment
+
 class DoctorsList extends StatefulWidget {
   const DoctorsList({super.key});
 
@@ -70,6 +72,9 @@ class _DoctorsListState extends State<DoctorsList> {
                             });
                           },
                           child: Text(
+                            //Normally, only one doctor will appear
+                            //When show all is touched, it will change to hide all and show the whole list
+                            //Cool right?
                             showAllNearbyDoctors ? 'Hide All' : 'Show All',
                             style: TextStyle(
                               color: actualTheme.colorScheme.onError,
