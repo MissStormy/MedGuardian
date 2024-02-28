@@ -1,4 +1,6 @@
 import 'package:medguardian/models/database.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 
 //Data from the table
 class Pirula {
@@ -110,12 +112,31 @@ class Pirula {
 //To get the pirulas list
   Future<List<Pirula>> getPirulas() async {
     List<Pirula> pirulas = [];
-    DBHelper dbHelper = DBHelper();
-    List<Map<String, dynamic>> pirulasDB = await dbHelper.dbQuery('pirulas');
-    for (int i = 0; i < pirulasDB.length; i++) {
-      pirulas.add(Pirula.fromMap(pirulasDB[i]));
-    }
+    pirulas = await getFromApi();
+    // DBHelper dbHelper = DBHelper();
+    // List<Map<String, dynamic>> pirulasDB = await dbHelper.dbQuery('pirulas');
+    // for (int i = 0; i < pirulasDB.length; i++) {
+    //   pirulas.add(Pirula.fromMap(pirulasDB[i]));
+    // }
     return pirulas;
+  }
+
+  Future<List<Pirula>> getFromApi() async {
+    final response =
+        await http.get(Uri.parse('http://10.196.61.105:5000/api/pirula'));
+    if (response.statusCode == 200) {
+      List<Pirula> lista = [];
+      Pirula pirula = new Pirula();
+      var data = json.decode(response.body);
+      for (int i = 0; i < data.length; i++) {
+        print(data[i]);
+        pirula = Pirula.fromMap(data[i]);
+        lista.add(pirula);
+      }
+      return lista;
+    } else {
+      throw Exception('Error al leer datos de la API');
+    }
   }
 
   savePirula(Pirula pirula) async {
